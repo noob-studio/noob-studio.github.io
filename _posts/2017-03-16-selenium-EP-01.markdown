@@ -98,4 +98,5 @@ driver.wait(until.titleIs('webdriver - Google Search'), 1000);
 <p>เมื่อรันเสร็จจะได้ผลดังภาพ</p>
 <img src="{{ site.baseurl }}/img/selenium/img01.gif" alt="การค้นหา Google ด้วย Selenium">
 <span class="caption text-muted">ค้นหา Google ด้วย Selenium</span>
-<p>สามารถดาวโหลด Code ได้ที่นี่ <a href="https://github.com/noob-studios/selenium-ep01" target="_blank">Github</a></p>
+<p>ศึกษาเพิ่มเติม <a href="http://seleniumhq.github.io/selenium/docs/api/javascript/module/selenium-webdriver/" target="_blank">Selenium API</a></p>
+<p>สามารถดาวโหลด Code ได้ที่นี่ <a href="https://github.com/noob-studio/selenium-ep01" target="_blank">Github</a></p>
