@@ -1,5 +1,6 @@
 ---
 layout:     post
+comments: true
 title:      "สอนวิธีใช้งาน Selenium เบื้องต้น"
 subtitle:   "มาทดสอบการทำงานของเว็ปไซด์แบบอัตโนมัติด้วย Selenium กันเถอะ"
 date:       2017-03-17 22:41:00
