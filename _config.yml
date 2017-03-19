@@ -12,7 +12,7 @@ email_username:  freeweed.m@gmail.com
 
 # Google Analytics
 # To enable google analytics, uncomment below line with a valid Google Tracking ID
-# google_tracking_id:
+ google_tracking_id: UA-93921891-1
 
 # Build settings
 markdown: kramdown
