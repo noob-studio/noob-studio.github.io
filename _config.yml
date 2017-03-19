@@ -9,10 +9,7 @@ url: "noob-studio.github.io"
 github_username:  noob-studio
 facebook_username:  allstar.pajiko
 email_username:  freeweed.m@gmail.com
-
-# Google Analytics
-# To enable google analytics, uncomment below line with a valid Google Tracking ID
- google_tracking_id: UA-93921891-1
+google_tracking_id: UA-93921891-1
 
 # Build settings
 markdown: kramdown
