@@ -169,7 +169,7 @@ cd ionic-chat-client
     </ion-card-content>
 </ion-card>
 {% endhighlight%}
-<p>*ngFor="..." คือการสั่งให้วนลูปของ Angular2 ส่วน {{ "{{ msg " }}}} คือการแสดงค่า Object ของ Angular2 หรือเรียกว่า Two-way binding (จะไว้อธิบายในบทความต่อๆไปนะครับ)</p>
+<p>*ngFor="..." คือการสั่งให้วนลูปของ Angular2 ส่วน {{ "{{ msg " }}}} คือการแสดงค่า Object ของ Angular2 หรือเรียกว่า Two-way binding (จะไว้อธิบายในบทความต่อๆไปนะครับ) และส่วนสุดท้าย (click)="send()" คือการควบคุม event click นะครับถ้าเป็น Javascript ธรรมดาก็อารมณ์ Onclick ประมาณนั้น</p>
 <p>รันจากนั้นเมื่อทดสอบรันด้วยคำสั่ง <pre>ionic serve</pre> ionic จะทำการเปิด Browser ขึ้นมาและจะได้หน้าตาเปล่าๆ ประมาณนี้นะครับ</p>
 <img src="{{ site.baseurl }}/img/ionic-chat/img02.png" alt="ทดสอบรันแอพ">
 <span class="caption text-muted">ทดสอบรันแอพผ่าน Browser</span>
