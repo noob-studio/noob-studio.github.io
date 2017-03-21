@@ -67,7 +67,7 @@ processMonitor.on('change', () => {
   },form: {
        message: msg,
     }
-  }, function(err,httpResponse,body){
+  }, (err,httpResponse,body) => {
      console.log(JSON.stringify(err));
      console.log(JSON.stringify(httpResponse));
      console.log(JSON.stringify(body));
@@ -114,7 +114,7 @@ processMonitor.on('change', () => {
   },form: {
        message: msg,
     }
-  }, function(err,httpResponse,body){
+  }, (err,httpResponse,body) => {
      console.log(JSON.stringify(err));
   })
 });
@@ -151,7 +151,7 @@ processMonitor.on('change', () => {
          },form: {
            message: msg,
          }
-    }, function(err,httpResponse,body){
+    }, (err,httpResponse,body) => {
          console.log(JSON.stringify(err));
     })
 }
