@@ -1,7 +1,7 @@
 ---
 layout:     post
 comments: true
-title:      "วิธีการใช้งาน Cordova Plugin บน Ionic2"
+title:      "วิธีการใช้งาน Cordova Plugin ใน Ionic2"
 subtitle:   "ขั้นตอนง่ายๆ เพียง 5 นาทีในการนำ Cordova Plugin มาใช้ใน ionic 2"
 date:       2017-03-23 00:24:00
 author:     "Freeweed"
@@ -24,7 +24,8 @@ declare var screen:any;
 
 ...
 {% endhighlight %}
-<p>เป็นอันเรียบร้อยนะจ๊ะพอลองรันอีกครั้งจะเห็นว่าเขียวแล้ว</p>
+<p>เป็นอันเรียบร้อยนะจ๊ะพอลองรันอีกครั้งจะเห็นว่าเขียวแล้วหลังจากนั้นก็เขียน Code ได้ตามปกตินะจ๊ะ</p>
 <img src="{{ site.baseurl }}/img/cordovar-ionic/img02.png" alt="การค้นหา Google ด้วย Selenium">
 <span class="caption text-muted">ไม่งอแงแล้วนะจ๊ะ</span>
+
 <p>ศึกษาเพิ่มเติม <a href="https://cordova.apache.org/" target="_blank">Cordova</a></p>
