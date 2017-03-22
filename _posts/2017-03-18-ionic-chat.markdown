@@ -88,7 +88,7 @@ io.on('connection', (client) => {
 {% endhighlight%}
 <p>เป็น event ที่จะเกิดขึ้นเมื่อมีผู้ใช้เชื่อมต่อเข้ามาในท่อ</p>
 {% highlight javascript %}
-socket.on('msg', (message) => {
+client.on('msg', (message) => {
   ...
 });
 {% endhighlight%}
