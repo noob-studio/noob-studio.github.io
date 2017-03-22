@@ -28,4 +28,10 @@ declare var screen:any;
 <img src="{{ site.baseurl }}/img/cordovar-ionic/img02.png" alt="การค้นหา Google ด้วย Selenium">
 <span class="caption text-muted">ไม่งอแงแล้วนะจ๊ะ</span>
 
+<h2 class="section-heading">Conclusion</h2>
+<ul>
+<li>ติดตั้ง Cordovar Plugin ที่ต้องการใช้งาน</li>
+<li>ประกาศสิ่งที่มันต้องการตามตัวอย่างข้างบน</li>
+<li>เขียน Code อย่างมีความสุข</li>
+</ul>
 <p>ศึกษาเพิ่มเติม <a href="https://cordova.apache.org/" target="_blank">Cordova</a></p>
