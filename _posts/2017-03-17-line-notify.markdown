@@ -4,7 +4,7 @@ comments:   true
 title:      "แจ้งเตือนการทำงานของ Server แบบ Low cost ด้วย Line Notify"
 subtitle:   "เขียนสคริปแจ้งเตือนการทำงานของ Server แบบไม่มีค่าใช้จ่ายด้วย Line Notify และ Node.js"
 date:       2017-03-17 22:41:00
-author:     "Freeweed"
+author:     "ป๋าแพะ"
 header-img: "img/moniter/cover.jpg"
 ---
 <p>หลายคนคงจะทราบกันอยู่แล้วนะครับว่า Line ได้เปิดตัวบริการใหม่คือ Line Notify เมื่อไม่นานที่ผ่านมา

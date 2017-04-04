@@ -4,7 +4,7 @@ comments: true
 title:      "สอนวิธีใช้งาน Selenium เบื้องต้น"
 subtitle:   "มาทดสอบการทำงานของเว็ปไซด์แบบอัตโนมัติด้วย Selenium กันเถอะ"
 date:       2017-03-16 22:41:00
-author:     "Freeweed"
+author:     "ป๋าแพะ"
 header-img: "img/selenium/cover.jpg"
 ---
 

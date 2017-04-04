@@ -4,7 +4,7 @@ comments:   true
 title:      "วิธีทำแอพแชทง่ายๆ ด้วย Ionic2"
 subtitle:   "มาทำแอพแชทแบบง่ายๆ ไว้คุยมุ้งมิ้งกับแฟนด้วย Ionic 2 กับ Node.Js กันเถอะ"
 date:       2017-03-18 20:07:00
-author:     "Freeweed"
+author:     "ป๋าแพะ"
 header-img: "img/ionic-chat/cover.jpg"
 ---
 <p>เบื่อไหมครับที่เวลาจะเขียนแอพขึ้นมาซักแอพหนึ่งเนี่ยต้องนั่งทำทั้ง Android iOS ไหนจะต้องเรียนรู้ภาษาใหม่ๆ ทั้ง Java Swift โหยลำบากวุ่นวายอ่ะ แล้วทำไมกูต้องไปเรียนรู้ภาษาใหม่ๆด้วยว่ะครับ ทั้งๆ ที่กูก็เขียบเว็ปเป็นอยู่แล้วทำไมจะเอาพวก Javascript CSS HTML มาทำแอพไม่ได้!! แต่ช้าก่อนนี่มันโลกยุค 2017 แล้วนะจ๊ะ TV Direct ขอนำเสนอ <a href="https://ionicframework.com/" target="_blank">Ionic2</a> !</p>
@@ -261,9 +261,9 @@ this.socketHost = "192.168.1.28:5555";
 ionic platform add android
 ionic run android
 </pre>
-<p>ศึกษาเพิ่มเติม 
+<p>ศึกษาเพิ่มเติม
 <ul>
     <li><a href="https://ionicframework.com/" target="_blank">Ionic2</a></li>
     <li><a href="https://socket.io/" target="_blank">socket.io</a></li>
 </ul></p>
-<p>สำหรับ Code บท git แปะไว้ก่อนนะครับเพราะตอนที่เขียนบทความนี้ดึกมากแล้วง่วงมักๆ ถ้าไม่ลืมจะตามมาอัพให้นะครับ</p>
+<p>สำหรับ Code บน git แปะไว้ก่อนนะครับเพราะตอนที่เขียนบทความนี้ดึกมากแล้วง่วงมักๆ ถ้าไม่ลืมจะตามมาอัพให้นะครับ</p>

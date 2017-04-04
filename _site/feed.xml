@@ -1,13 +1,282 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="http://jekyllrb.com" version="3.4.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2017-03-23T01:18:21+07:00</updated><id>http://localhost:4000/</id><title type="html">Noob Studio</title><subtitle>บล๊อคเก็บรวบรวมความรู้ ประสบการณ์ เทคนิคและผลงานต่างๆอาธิ Javascript, Java, PHP, Linux, Open Source</subtitle><entry><title type="html">วิธีการใช้งาน Cordova Plugin บน Ionic2</title><link href="http://localhost:4000/2017/03/23/how-to-use-cordovar-in-ionic2/" rel="alternate" type="text/html" title="วิธีการใช้งาน Cordova Plugin บน Ionic2" /><published>2017-03-23T07:24:00+07:00</published><updated>2017-03-23T07:24:00+07:00</updated><id>http://localhost:4000/2017/03/23/how-to-use-cordovar-in-ionic2</id><content type="html" xml:base="http://localhost:4000/2017/03/23/how-to-use-cordovar-in-ionic2/">&lt;p&gt;สวัสดีครับเนื่องจากช่วงนี้งานเยอะมากๆเลย วันนี้เลยขอเขียน How To สั้นๆแต่คิดว่าน่าจะมีประโยชน์สำหรับคนที่ใช้งาน Ionic2 ไม่มากก็น้อยนะครับ&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="http://jekyllrb.com" version="3.4.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2017-04-05T00:35:58+07:00</updated><id>http://localhost:4000/</id><title type="html">Noob Studio</title><subtitle>บล๊อคเก็บรวบรวมความรู้ ประสบการณ์ เทคนิคและผลงานต่างๆอาธิ Javascript, Java, PHP, Linux, Open Source</subtitle><entry><title type="html">วิธีทำ Notification(แจ้งเตือน) ให้ Ionic2 ด้วย Firebase และ Node.js</title><link href="http://localhost:4000/2017/03/29/ionic2-notification/" rel="alternate" type="text/html" title="วิธีทำ Notification(แจ้งเตือน) ให้ Ionic2 ด้วย Firebase และ Node.js" /><published>2017-03-29T05:41:00+07:00</published><updated>2017-03-29T05:41:00+07:00</updated><id>http://localhost:4000/2017/03/29/ionic2-notification</id><content type="html" xml:base="http://localhost:4000/2017/03/29/ionic2-notification/">&lt;p&gt;สวัสดีครับหลังจากคราวก่อนได้เขียนวิธีสร้าง &lt;a href=&quot;/2017/03/19/ionic-chat/&quot;&gt;แอพพลิเคชันแชทแบบง่ายๆ ด้วย Ionic2 Node.js&lt;/a&gt; ก็มีคนบอกว่าอยากให้เขียนวิธีการแจ้งเตือนให้มือถือและผมก็คิดเรื่องจะเขียนไม่ออกด้วยครับช่วงนี้เพราะฉะนั้นวันนี้ีเราทำแจ้งเตือนกันเถอะ 555 โดยแจ้งเตือนเนี่ยมี 2 แบบคือแบบ Local Notification และไม่ Local โดยจะแตกต่างกันดังนี้&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Local Notification (เกมเตือนให้รับของประจำวัน) ไม่จำเป็นต้องมี Server เป็นการตั้งค่าให้แจ้งเตือนตามเวลาที่ตั้งไว้ข้อดีคือง่ายแต่มีข้อเสียคือข้อมูลจะตายตัวไม่มีการเปลี่ยนแปลง (ไว้บทความถัดไปนะจ๊ะ)&lt;/li&gt;
+&lt;li&gt;ไม่ Local (facebook, line) จำเป็นต้องมี Server เพื่อส่งแจ้งเตือนให้แอพพลิเคชันมีข้อดีคือสามารถแจ้งเตือนเมื่อไหร่ก็ได้ข้อมูลสามารถยืดหยุ่นตาม Server ส่งมาให้ (สอนในบทความนี้)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;แจ้งเตือนที่มีข้อมูลแบบไม่ตายตัว(app แชททั่วไป) ต้องมี server แจ้งเตือนแบบตายตัว(เช่น เกมเตือนให้รับของประจำวัน) ไม่จำเป็นต้องมี server&lt;/blockquote&gt;
+&lt;h2 class=&quot;section-heading&quot;&gt;Required &amp;amp; Install&lt;/h2&gt;
+&lt;p&gt;สิ่งที่จะใช้ในการทำแจ้งเตือนของบทความนี้มีดังนี้&lt;/p&gt;
+&lt;ul&gt;
+    &lt;li&gt;Node.js เวอร์ชันล่าสุด&lt;/li&gt;
+    &lt;li&gt;gmail (คิดว่าทุกคนคงจะมีนะจ๊ะ)&lt;/li&gt;
+    &lt;li&gt;มือถือ Android (ใช้ทดสอบ)&lt;/li&gt;
+    &lt;li&gt;ในการทดสอบโทรศัพท์มือถือและคอมเครื่องที่ใช้เป็น server ต้องต่อเน็ตวงเดียวกันนะจ๊ะ (Wifi อันเดียวกัน)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 class=&quot;section-heading&quot;&gt;Init Firebase&lt;/h2&gt;
+&lt;p&gt;ขั้นแรกให้เราเปิดเว็ปไซด์ &lt;a href=&quot;https://firebase.google.com/?hl=en&quot; target=&quot;_blank&quot;&gt;Firebase&lt;/a&gt; ขึ้นมาพร้อม Login ให้เรียบร้อยหากยังไม่มีโปรเจคให้สร้างโปรเจคด้วยนะครับ&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/img/ionic-notification/img01.png&quot; /&gt;
+&lt;span class=&quot;caption text-muted&quot;&gt;สร้างโปรเจคขึ้นมาใน Firebase&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;หลังจากนั้นกดเข้ามาใน Project และไปที่ Project Settings &amp;gt; Cloud Messaging จะเห็นหน้าจอแบบภาพข้างล่างนะครับให้จดเลข Server Key และ Sender ID ไว้นะจ๊ะ&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/img/ionic-notification/img02.png&quot; /&gt;
+&lt;span class=&quot;caption text-muted&quot;&gt;จด Server Key กับ Sender ID ไว้ให้ดีนะจ๊ะต้องใช้&lt;/span&gt;&lt;/p&gt;
+&lt;ul&gt;
+    &lt;li&gt;Server Key ใช้สำหรับใส่ใน Server ของเรา&lt;/li&gt;
+    &lt;li&gt;Sender ID ใช้สำหรับใส่ในแอพของเรา&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 class=&quot;section-heading&quot;&gt;Start Server&lt;/h2&gt;
+&lt;p&gt;เมื่อเราตั้งค่า Firebase เสร็จแล้วต่อไปเรามาเริ่มสร้าง Server สำหรับส่งแจ้งเตือนกันนะจ๊ะ&lt;/p&gt;
+&lt;pre&gt;
+    mkdir ionic-notification
+    cd ionic-notification
+    npm init
+    npm install node-gcm express --save
+&lt;/pre&gt;
+&lt;p&gt;node-gcm ใช้สำหรับส่งแจ้งเตือนนะครับส่วน express ใช้เป็น server&lt;/p&gt;
+&lt;p&gt;&lt;b&gt;index.js&lt;/b&gt;&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;kr&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;express&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;require&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'express'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;kr&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;gcm&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;require&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'node-gcm'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;kr&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;bodyParser&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;require&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'body-parser'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;kr&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;app&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;express&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;app&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;use&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;bodyParser&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;json&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+
+&lt;span class=&quot;kr&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;server_key&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'XXXXXXXXXXX'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// server key&lt;/span&gt;
+
+&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;send&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;token&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;kd&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;retry_times&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;kd&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;sender&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;gcm&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Sender&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;server_key&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;kd&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;message&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;gcm&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Message&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;message&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;addData&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'title'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'Hello Lady~!'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;message&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;addData&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'message'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'Hello Beutiful Girl!'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;sender&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;send&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;message&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;token&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;retry_times&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;result&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'send noti!'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;err&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'cant send noti T^T'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;})&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;nx&quot;&gt;app&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'/'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;req&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;res&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;res&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;send&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;This is basic route&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
+
+
+&lt;span class=&quot;nx&quot;&gt;app&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;post&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'/open'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;req&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;res&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;cm&quot;&gt;/*insert token to DB*/&lt;/span&gt;
+  &lt;span class=&quot;kd&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;token&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;req&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;body&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;token&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;registrationId&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;JSON&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;stringify&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;token&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;));&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;send&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;token&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;})&lt;/span&gt;
+
+&lt;span class=&quot;nx&quot;&gt;app&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'/send'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;req&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;res&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;kd&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;token&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'XXXXXXXXXXXXX'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;//token&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;send&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;token&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;res&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;send&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;send notification&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;})&lt;/span&gt;
+
+&lt;span class=&quot;nx&quot;&gt;app&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;listen&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;5555&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'Program running on port : 5555'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;เรียบร้อยครับสั้นดีใช่ไหมครับสำหรับ Code ฝั่ง Server ของเราต่อไปอธิบาย Code นะครับ&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;kr&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;express&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;require&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'express'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;kr&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;gcm&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;require&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'node-gcm'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;kr&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;bodyParser&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;require&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'body-parser'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;kr&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;app&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;express&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;app&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;use&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;bodyParser&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;json&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+
+&lt;span class=&quot;kr&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;server_key&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'XXXXXXXXXXX'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// server key&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;เรียกใช้งาน Module ที่จำเป็นนะครับ node-cgm ใช้ส่งแจ้งเตือนส่วน bodyParse ใช้แปลงค่า input ที่ส่งผ่าน Post มานะครับ และสุดท้ายสร้าง server โดยใช้ express นะครับ ตรง server_key ให้ใส่ server_key ที่เราจดมาตะกี้ลงไปนะครับ (อันที่ยาวๆอ่ะ)&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;nx&quot;&gt;app&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'/'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;req&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;res&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;res&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;send&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;This is home page&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
+
+&lt;span class=&quot;nx&quot;&gt;app&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;post&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'/open'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;req&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;res&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;...&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;})&lt;/span&gt;
+
+&lt;span class=&quot;nx&quot;&gt;app&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'/send'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;req&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;res&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;...&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;})&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;app&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;listen&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;5555&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'Program running on port : 5555'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;app.get ต่างๆคือการ route นะครับว่าเข้ามาผ่าน url นี้ให้ทำอะไรส่วน app.listen คือให้เริ่มทำงานที่ port ไหน&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt; เข้ามาผ่าน / ให้ตอบกลับไปว่านี่คือ Home Page นะย๊ะ&lt;/li&gt; 
+&lt;li&gt; /open รับ token เข้ามาผ่าน Post /open จริงๆตรงนี้ให้เราเก็บข้อมูล token เข้าสู่ฐานข้อมูลเพื่อใช้แจ้งเตือนในโอกาศต่อไป&lt;/li&gt;
+&lt;li&gt; /send เมื่อมีการส่ง Get เข้ามาผ่าน /send ให้ส่งแจ้งเตือนไปตาม token ที่เรากับไว้ในฐานข้อมูล&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;  &lt;span class=&quot;kd&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;retry_times&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;kd&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;sender&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;gcm&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Sender&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;server_key&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;kd&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;message&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;gcm&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Message&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+  &lt;span class=&quot;kd&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;token&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;req&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;params&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;token&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;message&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;addData&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'title'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'Hello Lady~!'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;message&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;addData&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'message'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'Hello Beutiful Girl!'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;เตรียมตัวแปรสำหรับส่งแจ้งเตือน&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;retry_times ถ้าส่งไม่สำเร็จจะให้ลองส่งใหม่กี่ครั้งสำหรับลูกผู้ชายอย่างผมให้โอกาศใครไม่เกิน 3 ครั้ง&lt;/li&gt;
+&lt;li&gt;sender สร้าง sender ใช้สำหรับส่งแจ้งเตือน&lt;/li&gt;
+&lt;li&gt;message สร้างข้อความสำหรับส่งไปให้มือถือของเรา&lt;/li&gt;
+&lt;li&gt;token รหัสของมือถือที่มีการเชื่อมต่อเข้ามา&lt;/li&gt;
+&lt;li&gt;message.addData ตั้งค่าต่างๆของ message เช่น หัวข้อ ข้อความ เสียงเป็นต้น&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;nx&quot;&gt;sender&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;send&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;message&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;token&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;retry_times&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;result&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'send noti!'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;res&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;send&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'you get message'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;err&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'cant send noti T^T'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;res&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;send&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'cant send message'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;})&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;sender.send ส่งแจ้งเตือนไปที่มือถือเมื่อทดสอบรันด้วยคำสั่งข้างล่างนี้เป็นอันเสร็จนะแจ๊ะ&lt;/p&gt;
+&lt;pre&gt;
+  node index.js
+  Program running on port : 5555
+&lt;/pre&gt;
+&lt;h2 class=&quot;section-heading&quot;&gt;Start Ionic&lt;/h2&gt;
+&lt;p&gt;เอาล่ะไม่ต้องบรรยายมากมาเริ่มกันเตอะ&lt;/p&gt;
+&lt;pre&gt;
+ionic start ionic-notification-client blank --v2
+cd ionic-notification-client
+ionic platform add android
+cordova plugin add phonegap-plugin-push --variable SENDER_ID=&quot;XXXXXXX&quot;
+&lt;/pre&gt;
+&lt;p&gt;SENDER_ID คือ id ที่ได้มาจาก Firebase ตอนแรกนะครับ(อันสั้นๆ) ต่อมาเราเปิดไฟล์ src/app/app.component.ts เพิ่ม Code ดังนี้เข้าไป&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;kr&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Push&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;PushObject&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;PushOptions&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'@ionic-native/push'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;kr&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Http&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'@angular/http'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;import module ที่ต้องการใช้โดยมีรายละเอียดดังนี้&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Push, PushObject, PushOptions ใช้สำหรับส่ง Notification ไปที่มือถือ&lt;/li&gt;
+&lt;li&gt;Http สำหรับส่ง Http ไปที่ Server ของเรา&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;nx&quot;&gt;constructor&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;...,&lt;/span&gt; 
+    &lt;span class=&quot;kr&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;push&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Push&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;ประกาศตัวแปร private ชื่อ push โดยนำค่ามาจาก Module Push (ที่ import มาข้างบนอ่ะ)&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;nx&quot;&gt;constructor&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;...&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;platform&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;ready&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;().&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;then&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;p&quot;&gt;...&lt;/span&gt;
+      &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;initPushNotification&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;เรียกใช้ฟังชันชื่อ initPushNotification เมื่อแอพพร้อมทำงาน&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;nx&quot;&gt;initPushNotification&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(){&lt;/span&gt;
+    &lt;span class=&quot;kr&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;options&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;PushOptions&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+       &lt;span class=&quot;na&quot;&gt;android&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+           &lt;span class=&quot;na&quot;&gt;senderID&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'492553210615'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+           &lt;span class=&quot;na&quot;&gt;sound&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+           &lt;span class=&quot;na&quot;&gt;vibrate&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;
+       &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
+    &lt;span class=&quot;kr&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;pushObject&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;PushObject&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;push&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;init&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;options&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+
+    &lt;span class=&quot;nx&quot;&gt;pushObject&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;on&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'registration'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;subscribe&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
+      &lt;span class=&quot;nx&quot;&gt;data&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;http&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;post&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'http://192.168.1.11:5555/open'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,{&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;token&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;subscribe&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;res&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+              &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'register send'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;pushObject&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;on&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'notification'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;subscribe&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
+      &lt;span class=&quot;nx&quot;&gt;notification&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;nx&quot;&gt;alert&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'You are in app'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+      &lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;สร้างฟังชันชื่อ initPushNotification สำหรับรับและส่งแจ้งเตือน &lt;br /&gt;&lt;b style=&quot;color:red;&quot;&gt;หมายเหตุ&lt;/b&gt; http://192.168.1.11 ให้ใส่เป็น ip  เครื่องตัวเองนะจ๊ะ&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;kr&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;options&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;PushOptions&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+       &lt;span class=&quot;na&quot;&gt;android&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+           &lt;span class=&quot;na&quot;&gt;senderID&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'492553210615'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+           &lt;span class=&quot;na&quot;&gt;sound&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+           &lt;span class=&quot;na&quot;&gt;vibrate&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;
+       &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;เตรียมค่า option ต่างๆสำหรับการแจ้งเตือน&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;senderID รหัสที่ได้มาจาก Firebase (รหัสเดียวกับตอนที่ add plugin อันสั้นๆ)&lt;/li&gt;
+&lt;li&gt;sound ตั้งค่าเสียง&lt;/li&gt;
+&lt;li&gt;vibrate ตั้งค่าสั่น&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;kr&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;pushObject&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;PushObject&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;push&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;init&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;options&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;ตั่งค่า option สำหรับแจ้งเตือน&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;nx&quot;&gt;pushObject&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;on&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'registration'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;subscribe&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;data&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;...&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;เป็น event ที่เกิดขึ้นเมื่อเปิด app โดยจะ return data ซึ่งมี token ของมือถือเครื่องนั้นๆ&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;  &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;http&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;post&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'http://192.168.1.11:5555/open'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,{&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;token&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;subscribe&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;res&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'register send'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;ส่ง token ไปที่ server ของเราเพื่อบันทึกข้อมูลหรืออะไรก็ว่าไป&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;nx&quot;&gt;pushObject&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;on&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'notification'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;subscribe&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;notification&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;alert&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'You are in app'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;เป็น event ที่เกิดขึ้นเมื่อได้รับการแจ้งเตือนจาก server เพียงแค่นี้เป็นอันเรียบร้อยโรงเรียนเตรียมแล้วจ้าทดสอบรันแอพด้วยคำสั่ง&lt;/p&gt;
+&lt;pre&gt;
+ionic run android
+&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&quot;/img/ionic-notification/img03.jpg&quot; /&gt;
+&lt;span class=&quot;caption text-muted&quot;&gt;ผลลัพท์เมื่อรันแอพ&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;เมื่อแอพเริ่มทำงานจะมีการ alert แบบนี้ปรากฎขึ้นมาแบบนี้&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/img/ionic-notification/img04.png&quot; /&gt;
+&lt;span class=&quot;caption text-muted&quot;&gt;token ของแอพที่แสดงใน server&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;ส่วนใน server จะแสดง token ของเราที่ได้รับมาจากแอพให้ก๊อป token มาใส่ใน route /send แบบข้างล่างนี้&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;p&quot;&gt;...&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;app&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'/send'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;req&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;res&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;kd&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;token&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'fF6tMEynuYg:APA91bH8phSueoBfdOVMchBvBaxyyJVx4fe5msoZVbGAwLqAf...'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;//token&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;...&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;})&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;หลังจากนั้นให้ลองออกจากแอพแล้วเปิด Browser ไปที่พาท &lt;a href=&quot;http://localhost:5555/send&quot; target=&quot;_blank&quot;&gt;http://localhost:5555/send&lt;/a&gt; จะมีแจ้งเตือนขึ้นดังภาพ&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/img/ionic-notification/img04.jpg&quot; /&gt;
+&lt;span class=&quot;caption text-muted&quot;&gt;เย้ๆ มีแจ้งเตือนแล้วจ้า&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;เพียงเท่านี้ก็เสร็จแล้วจ้าสำหรับการแจ้งเตือนในบทความนี้ยังเป็นพื้นฐานมากๆ นะครับเพื่อนๆต้องเอาไปปรับปรุงต่อเพื่อนำมาใช้จริงต่อไปนะจ๊ะ&lt;/p&gt;
+&lt;p&gt;ศึกษาเพิ่มเติม
+    &lt;ul&gt;
+        &lt;li&gt;&lt;a href=&quot;https://ionicframework.com/&quot; target=&quot;_blank&quot;&gt;Ionic2&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&quot;https://firebase.google.com/docs/cloud-messaging/&quot; target=&quot;_blank&quot;&gt;Firebase&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/p&gt;
+&lt;p&gt;สำหรับ Code บน git ก็แปะไว้ก่อนเหมือนเดิมนะครับเพราะช่วงนี้ผมงานเยอะมากๆเลยอ่ะ = =&quot;&lt;/p&gt;</content><author><name>ป๋าแพะ</name></author><summary type="html">สวัสดีครับหลังจากคราวก่อนได้เขียนวิธีสร้าง แอพพลิเคชันแชทแบบง่ายๆ ด้วย Ionic2 Node.js ก็มีคนบอกว่าอยากให้เขียนวิธีการแจ้งเตือนให้มือถือและผมก็คิดเรื่องจะเขียนไม่ออกด้วยครับช่วงนี้เพราะฉะนั้นวันนี้ีเราทำแจ้งเตือนกันเถอะ 555 โดยแจ้งเตือนเนี่ยมี 2 แบบคือแบบ Local Notification และไม่ Local โดยจะแตกต่างกันดังนี้ Local Notification (เกมเตือนให้รับของประจำวัน) ไม่จำเป็นต้องมี Server เป็นการตั้งค่าให้แจ้งเตือนตามเวลาที่ตั้งไว้ข้อดีคือง่ายแต่มีข้อเสียคือข้อมูลจะตายตัวไม่มีการเปลี่ยนแปลง (ไว้บทความถัดไปนะจ๊ะ) ไม่ Local (facebook, line) จำเป็นต้องมี Server เพื่อส่งแจ้งเตือนให้แอพพลิเคชันมีข้อดีคือสามารถแจ้งเตือนเมื่อไหร่ก็ได้ข้อมูลสามารถยืดหยุ่นตาม Server ส่งมาให้ (สอนในบทความนี้) แจ้งเตือนที่มีข้อมูลแบบไม่ตายตัว(app แชททั่วไป) ต้องมี server แจ้งเตือนแบบตายตัว(เช่น เกมเตือนให้รับของประจำวัน) ไม่จำเป็นต้องมี server Required &amp;amp; Install สิ่งที่จะใช้ในการทำแจ้งเตือนของบทความนี้มีดังนี้ Node.js เวอร์ชันล่าสุด gmail (คิดว่าทุกคนคงจะมีนะจ๊ะ) มือถือ Android (ใช้ทดสอบ) ในการทดสอบโทรศัพท์มือถือและคอมเครื่องที่ใช้เป็น server ต้องต่อเน็ตวงเดียวกันนะจ๊ะ (Wifi อันเดียวกัน)</summary></entry><entry><title type="html">วิธีการใช้งาน Cordova Plugin ใน Ionic2</title><link href="http://localhost:4000/2017/03/23/how-to-use-cordovar-in-ionic2/" rel="alternate" type="text/html" title="วิธีการใช้งาน Cordova Plugin ใน Ionic2" /><published>2017-03-23T07:24:00+07:00</published><updated>2017-03-23T07:24:00+07:00</updated><id>http://localhost:4000/2017/03/23/how-to-use-cordovar-in-ionic2</id><content type="html" xml:base="http://localhost:4000/2017/03/23/how-to-use-cordovar-in-ionic2/">&lt;p&gt;สวัสดีครับเนื่องจากช่วงนี้งานเยอะมากๆเลย วันนี้เลยขอเขียน How To สั้นๆแต่คิดว่าน่าจะมีประโยชน์สำหรับคนที่ใช้งาน Ionic2 ไม่มากก็น้อยนะครับ&lt;/p&gt;
 
 &lt;p&gt;สำหรับคนที่เขียน Hybrid Application ไม่ว่ามือใหม่หรือมือเก๋าก็น่าจะรู้กันดีอยู่แล้วนะครับว่าตัว Javascript ของเราเนี่ยไม่สามารถเข้าถึง Hardware ของเครื่องได้ตรงๆ เหมือนพวก Native Application เพราะฉะนั้นเราจึงต้องใช้ตัวกลางที่เรียกว่า &lt;a href=&quot;https://cordova.apache.org/&quot; target=&quot;_blank&quot;&gt;Cordova&lt;/a&gt; (ถ้าค่าย Adobe จะเรียกว่า PhoneGAP) ซึ่งเป็น Plugin ที่มีคนเขียนไว้ให้เข้าถึง Hardware ของเครื่องมีให้เลือกใช้งานหลากหลาย แต่ทว่าเหมือนบุญมีแต่กำบังด้วยความที่ Ionic2 ล้ำจัดดันทะลึ่งใช้ TypeScript แทน Javascript ล่ะไอ้ Typescript เนี่ยดันทะลึ่งไม่รู้จักพวก Browser Object บ้างตัวอีกเช่น window screen ทำให้พอเรียกใช้ใน TypeScript ก็จะ error นั่นเองนะจ๊ะ&lt;/p&gt;
 
-&lt;blockquote&gt;Javascript ไม่สามารถเข้าถึง Hardware ตรงๆได้ต้องอาศัย Cordovar(PhoneGAP) เข้าถึง Hardware&lt;/blockquote&gt;
+&lt;blockquote&gt;Javascript ไม่สามารถเข้าถึง Hardware ตรงๆได้ต้องอาศัย Cordovar (PhoneGAP) เข้าถึง Hardware&lt;/blockquote&gt;
 
+&lt;h2 class=&quot;section-heading&quot;&gt;Fix it&lt;/h2&gt;
 &lt;p&gt;&lt;img src=&quot;/img/cordovar-ionic/img01.png&quot; alt=&quot;การค้นหา Google ด้วย Selenium&quot; /&gt;
 &lt;span class=&quot;caption text-muted&quot;&gt;มันคือไรอ่ะหนูไม่รู้จัก T^T&lt;/span&gt;&lt;/p&gt;
-&lt;h2 class=&quot;section-heading&quot;&gt;Fix it&lt;/h2&gt;
-&lt;p&gt;ถ้าเจอปัญหาแบบในรูปข้างต้นนะครับสรุปวิธีแก้ง่ายๆเลยนะครับประกาศสิ่งที่มันต้องการในไฟล์ที่จะใช้งานหลัง import เช่น ในรูปข้างบนจะเห็นว่ามันไม่รู้จัก screen.orientation ก็แนะนำให้มันรู้จักซ่ะ เช่น&lt;/p&gt;
+&lt;p&gt;ถ้าเจอปัญหาแบบในรูปข้างต้นนะครับสรุปวิธีแก้ง่ายๆเลยนะครับประกาศสิ่งที่มันต้องการในไฟล์ที่จะใช้งานหลัง import ซ่ะเช่น ในรูปข้างบนจะเห็นว่ามันไม่รู้จัก screen.orientation ก็แนะนำให้มันรู้จักซ่ะ เช่น&lt;/p&gt;
 
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;kr&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;...&lt;/span&gt;
 
@@ -15,10 +284,17 @@
 
 &lt;span class=&quot;p&quot;&gt;...&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-&lt;p&gt;เป็นอันเรียบร้อยนะจ๊ะพอลองรันอีกครั้งจะเห็นว่าเขียวแล้ว&lt;/p&gt;
+&lt;p&gt;เป็นอันเรียบร้อยนะจ๊ะพอลองรันอีกครั้งจะเห็นว่าเขียวแล้วหลังจากนั้นก็เขียน Code ได้ตามปกตินะจ๊ะ&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;/img/cordovar-ionic/img02.png&quot; alt=&quot;การค้นหา Google ด้วย Selenium&quot; /&gt;
 &lt;span class=&quot;caption text-muted&quot;&gt;ไม่งอแงแล้วนะจ๊ะ&lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;ศึกษาเพิ่มเติม &lt;a href=&quot;https://cordova.apache.org/&quot; target=&quot;_blank&quot;&gt;Cordova&lt;/a&gt;&lt;/p&gt;</content><author><name>Freeweed</name></author><summary type="html">สวัสดีครับเนื่องจากช่วงนี้งานเยอะมากๆเลย วันนี้เลยขอเขียน How To สั้นๆแต่คิดว่าน่าจะมีประโยชน์สำหรับคนที่ใช้งาน Ionic2 ไม่มากก็น้อยนะครับ</summary></entry><entry><title type="html">วิธีทำแอพแชทง่ายๆ ด้วย Ionic2</title><link href="http://localhost:4000/2017/03/19/ionic-chat/" rel="alternate" type="text/html" title="วิธีทำแอพแชทง่ายๆ ด้วย Ionic2" /><published>2017-03-19T03:07:00+07:00</published><updated>2017-03-19T03:07:00+07:00</updated><id>http://localhost:4000/2017/03/19/ionic-chat</id><content type="html" xml:base="http://localhost:4000/2017/03/19/ionic-chat/">&lt;p&gt;เบื่อไหมครับที่เวลาจะเขียนแอพขึ้นมาซักแอพหนึ่งเนี่ยต้องนั่งทำทั้ง Android iOS ไหนจะต้องเรียนรู้ภาษาใหม่ๆ ทั้ง Java Swift โหยลำบากวุ่นวายอ่ะ แล้วทำไมกูต้องไปเรียนรู้ภาษาใหม่ๆด้วยว่ะครับ ทั้งๆ ที่กูก็เขียบเว็ปเป็นอยู่แล้วทำไมจะเอาพวก Javascript CSS HTML มาทำแอพไม่ได้!! แต่ช้าก่อนนี่มันโลกยุค 2017 แล้วนะจ๊ะ TV Direct ขอนำเสนอ &lt;a href=&quot;https://ionicframework.com/&quot; target=&quot;_blank&quot;&gt;Ionic2&lt;/a&gt; !&lt;/p&gt;
+
+&lt;h2 class=&quot;section-heading&quot;&gt;Conclusion&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;ติดตั้ง Cordovar Plugin ที่ต้องการใช้งาน&lt;/li&gt;
+&lt;li&gt;ประกาศสิ่งที่มันต้องการตามตัวอย่างข้างบน&lt;/li&gt;
+&lt;li&gt;เขียน Code อย่างมีความสุข&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;ศึกษาเพิ่มเติม &lt;a href=&quot;https://cordova.apache.org/&quot; target=&quot;_blank&quot;&gt;Cordova&lt;/a&gt;&lt;/p&gt;</content><author><name>ป๋าแพะ</name></author><summary type="html">สวัสดีครับเนื่องจากช่วงนี้งานเยอะมากๆเลย วันนี้เลยขอเขียน How To สั้นๆแต่คิดว่าน่าจะมีประโยชน์สำหรับคนที่ใช้งาน Ionic2 ไม่มากก็น้อยนะครับ</summary></entry><entry><title type="html">วิธีทำแอพแชทง่ายๆ ด้วย Ionic2</title><link href="http://localhost:4000/2017/03/19/ionic-chat/" rel="alternate" type="text/html" title="วิธีทำแอพแชทง่ายๆ ด้วย Ionic2" /><published>2017-03-19T03:07:00+07:00</published><updated>2017-03-19T03:07:00+07:00</updated><id>http://localhost:4000/2017/03/19/ionic-chat</id><content type="html" xml:base="http://localhost:4000/2017/03/19/ionic-chat/">&lt;p&gt;เบื่อไหมครับที่เวลาจะเขียนแอพขึ้นมาซักแอพหนึ่งเนี่ยต้องนั่งทำทั้ง Android iOS ไหนจะต้องเรียนรู้ภาษาใหม่ๆ ทั้ง Java Swift โหยลำบากวุ่นวายอ่ะ แล้วทำไมกูต้องไปเรียนรู้ภาษาใหม่ๆด้วยว่ะครับ ทั้งๆ ที่กูก็เขียบเว็ปเป็นอยู่แล้วทำไมจะเอาพวก Javascript CSS HTML มาทำแอพไม่ได้!! แต่ช้าก่อนนี่มันโลกยุค 2017 แล้วนะจ๊ะ TV Direct ขอนำเสนอ &lt;a href=&quot;https://ionicframework.com/&quot; target=&quot;_blank&quot;&gt;Ionic2&lt;/a&gt; !&lt;/p&gt;
 
 &lt;blockquote&gt;สมัยก่อนการทำแอพขึ้นมาซักแอพนึงเนี่ยต้องทำทั้ง iOS และ Android แต่เดี๋ยวนี้ไม่ต้องแล้ว&lt;/blockquote&gt;
 
@@ -99,7 +375,7 @@
 
 &lt;p&gt;เป็น event ที่จะเกิดขึ้นเมื่อมีผู้ใช้เชื่อมต่อเข้ามาในท่อ&lt;/p&gt;
 
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;nx&quot;&gt;socket&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;on&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'msg'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;message&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;nx&quot;&gt;client&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;on&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'msg'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;message&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
   &lt;span class=&quot;p&quot;&gt;...&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
@@ -272,12 +548,12 @@ cd ionic-chat-client
 ionic platform add android
 ionic run android
 &lt;/pre&gt;
-&lt;p&gt;ศึกษาเพิ่มเติม 
+&lt;p&gt;ศึกษาเพิ่มเติม
 &lt;ul&gt;
     &lt;li&gt;&lt;a href=&quot;https://ionicframework.com/&quot; target=&quot;_blank&quot;&gt;Ionic2&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;https://socket.io/&quot; target=&quot;_blank&quot;&gt;socket.io&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;&lt;/p&gt;
-&lt;p&gt;สำหรับ Code บท git แปะไว้ก่อนนะครับเพราะตอนที่เขียนบทความนี้ดึกมากแล้วง่วงมักๆ ถ้าไม่ลืมจะตามมาอัพให้นะครับ&lt;/p&gt;</content><author><name>Freeweed</name></author><summary type="html">เบื่อไหมครับที่เวลาจะเขียนแอพขึ้นมาซักแอพหนึ่งเนี่ยต้องนั่งทำทั้ง Android iOS ไหนจะต้องเรียนรู้ภาษาใหม่ๆ ทั้ง Java Swift โหยลำบากวุ่นวายอ่ะ แล้วทำไมกูต้องไปเรียนรู้ภาษาใหม่ๆด้วยว่ะครับ ทั้งๆ ที่กูก็เขียบเว็ปเป็นอยู่แล้วทำไมจะเอาพวก Javascript CSS HTML มาทำแอพไม่ได้!! แต่ช้าก่อนนี่มันโลกยุค 2017 แล้วนะจ๊ะ TV Direct ขอนำเสนอ Ionic2 !</summary></entry><entry><title type="html">แจ้งเตือนการทำงานของ Server แบบ Low cost ด้วย Line Notify</title><link href="http://localhost:4000/2017/03/18/line-notify/" rel="alternate" type="text/html" title="แจ้งเตือนการทำงานของ Server แบบ Low cost ด้วย Line Notify" /><published>2017-03-18T05:41:00+07:00</published><updated>2017-03-18T05:41:00+07:00</updated><id>http://localhost:4000/2017/03/18/line-notify</id><content type="html" xml:base="http://localhost:4000/2017/03/18/line-notify/">&lt;p&gt;หลายคนคงจะทราบกันอยู่แล้วนะครับว่า Line ได้เปิดตัวบริการใหม่คือ Line Notify เมื่อไม่นานที่ผ่านมา
+&lt;p&gt;สำหรับ Code บน git แปะไว้ก่อนนะครับเพราะตอนที่เขียนบทความนี้ดึกมากแล้วง่วงมักๆ ถ้าไม่ลืมจะตามมาอัพให้นะครับ&lt;/p&gt;</content><author><name>ป๋าแพะ</name></author><summary type="html">เบื่อไหมครับที่เวลาจะเขียนแอพขึ้นมาซักแอพหนึ่งเนี่ยต้องนั่งทำทั้ง Android iOS ไหนจะต้องเรียนรู้ภาษาใหม่ๆ ทั้ง Java Swift โหยลำบากวุ่นวายอ่ะ แล้วทำไมกูต้องไปเรียนรู้ภาษาใหม่ๆด้วยว่ะครับ ทั้งๆ ที่กูก็เขียบเว็ปเป็นอยู่แล้วทำไมจะเอาพวก Javascript CSS HTML มาทำแอพไม่ได้!! แต่ช้าก่อนนี่มันโลกยุค 2017 แล้วนะจ๊ะ TV Direct ขอนำเสนอ Ionic2 !</summary></entry><entry><title type="html">แจ้งเตือนการทำงานของ Server แบบ Low cost ด้วย Line Notify</title><link href="http://localhost:4000/2017/03/18/line-notify/" rel="alternate" type="text/html" title="แจ้งเตือนการทำงานของ Server แบบ Low cost ด้วย Line Notify" /><published>2017-03-18T05:41:00+07:00</published><updated>2017-03-18T05:41:00+07:00</updated><id>http://localhost:4000/2017/03/18/line-notify</id><content type="html" xml:base="http://localhost:4000/2017/03/18/line-notify/">&lt;p&gt;หลายคนคงจะทราบกันอยู่แล้วนะครับว่า Line ได้เปิดตัวบริการใหม่คือ Line Notify เมื่อไม่นานที่ผ่านมา
 ซึ่งตัวไลน์ Notify เนี่ยจะแตกต่างกัน Line Bot ตรงที่ว่าจะตอบเราไม่ได้ และเวลาจะใช้ก็ต้องเชิญเข้า Group ก่อน
 ซึ่งประโยชน์ของมันคือใช้สำหรับติดตามดูความเคลื่อนไหวของ service หรือ server ของเราก็ได้ ซึ่ง Line ก็มี Partner สำหรับบริการเราชื่อ &lt;a href=&quot;https://mackerel.io/&quot; target=&quot;_blank&quot;&gt;Mackerel&lt;/a&gt; แต่ประเด็อคือมันเสียตังน่ะสิ (= =&quot;) ซึ่งแน่นอนว่าโปรแกรมเมอร์สายประหยัดอย่างเราไม่ยอมเสียเงินแน่นอน 555+ เพราะฉะนั้นเรามาเขียนเองกันดีกว่า&lt;/p&gt;
 
@@ -429,7 +705,7 @@ ionic run android
 
 &lt;p&gt;เพียงเท่านี้เราก็จะได้รับการแจ้งเตือนเมื่อแรมเราเหลือน้อยกว่าที่เรากำหนดไว้แล้วล่ะครับสำหรับคนที่ต้องการตรวจสอบอย่างอื่นเช่น CPU, heapTotal, heapUsed สามารถดูได้ &lt;a href=&quot;http://lorenwest.github.io/node-monitor/doc/classes/ProcessProbe.html&quot; target=&quot;_blank&quot;&gt;ที่นี่&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;สำหรับคนที่ต้องการใช้ฟังชันอื่นๆของ Line Notify สามารถดูได้ &lt;a href=&quot;https://notify-bot.line.me/doc/en/&quot; target=&quot;_blank&quot;&gt;ที่นี่&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;สามารถดาวโหลด Code ได้ที่นี่ &lt;a href=&quot;https://github.com/noob-studio/monitor-server&quot; target=&quot;_blank&quot;&gt;Github&lt;/a&gt;&lt;/p&gt;</content><author><name>Freeweed</name></author><summary type="html">หลายคนคงจะทราบกันอยู่แล้วนะครับว่า Line ได้เปิดตัวบริการใหม่คือ Line Notify เมื่อไม่นานที่ผ่านมา ซึ่งตัวไลน์ Notify เนี่ยจะแตกต่างกัน Line Bot ตรงที่ว่าจะตอบเราไม่ได้ และเวลาจะใช้ก็ต้องเชิญเข้า Group ก่อน ซึ่งประโยชน์ของมันคือใช้สำหรับติดตามดูความเคลื่อนไหวของ service หรือ server ของเราก็ได้ ซึ่ง Line ก็มี Partner สำหรับบริการเราชื่อ Mackerel แต่ประเด็อคือมันเสียตังน่ะสิ (= =&quot;) ซึ่งแน่นอนว่าโปรแกรมเมอร์สายประหยัดอย่างเราไม่ยอมเสียเงินแน่นอน 555+ เพราะฉะนั้นเรามาเขียนเองกันดีกว่า</summary></entry><entry><title type="html">สอนวิธีใช้งาน Selenium เบื้องต้น</title><link href="http://localhost:4000/2017/03/17/selenium-EP-01/" rel="alternate" type="text/html" title="สอนวิธีใช้งาน Selenium เบื้องต้น" /><published>2017-03-17T05:41:00+07:00</published><updated>2017-03-17T05:41:00+07:00</updated><id>http://localhost:4000/2017/03/17/selenium-EP-01</id><content type="html" xml:base="http://localhost:4000/2017/03/17/selenium-EP-01/">&lt;p&gt;ในการจะทดสอบการทำงานของเว็ปไซด์ซักเว็ปหนึ่งเนี่ยเป็นเรื่องที่เหนื่อยและสิ้นเปลืองพลังงานชีวิตมากมายเลยนะครับ ยิ่งถ้าเป็นเว็ปไซด์ใหญ่ๆมีลิงค์มีปุ่มให้กดเยอะแยะด้วยแล้วยิ่งไม่ต้องสืบว่าจะใช้เวลานานซักแค่ไหน ดังนั้นจะดีแค่ไหนถ้าเราสามารถเขียน Bot ขึ้นมาเพื่อให้สามารถตรวจสอบการทำงานของเว็ปไซดโดยที่เราไม่ต้องทำอะไรเลยนั่งจิ๊บกาแฟชิลๆ อิอิ&lt;/p&gt;
+&lt;p&gt;สามารถดาวโหลด Code ได้ที่นี่ &lt;a href=&quot;https://github.com/noob-studio/monitor-server&quot; target=&quot;_blank&quot;&gt;Github&lt;/a&gt;&lt;/p&gt;</content><author><name>ป๋าแพะ</name></author><summary type="html">หลายคนคงจะทราบกันอยู่แล้วนะครับว่า Line ได้เปิดตัวบริการใหม่คือ Line Notify เมื่อไม่นานที่ผ่านมา ซึ่งตัวไลน์ Notify เนี่ยจะแตกต่างกัน Line Bot ตรงที่ว่าจะตอบเราไม่ได้ และเวลาจะใช้ก็ต้องเชิญเข้า Group ก่อน ซึ่งประโยชน์ของมันคือใช้สำหรับติดตามดูความเคลื่อนไหวของ service หรือ server ของเราก็ได้ ซึ่ง Line ก็มี Partner สำหรับบริการเราชื่อ Mackerel แต่ประเด็อคือมันเสียตังน่ะสิ (= =&quot;) ซึ่งแน่นอนว่าโปรแกรมเมอร์สายประหยัดอย่างเราไม่ยอมเสียเงินแน่นอน 555+ เพราะฉะนั้นเรามาเขียนเองกันดีกว่า</summary></entry><entry><title type="html">สอนวิธีใช้งาน Selenium เบื้องต้น</title><link href="http://localhost:4000/2017/03/17/selenium-EP-01/" rel="alternate" type="text/html" title="สอนวิธีใช้งาน Selenium เบื้องต้น" /><published>2017-03-17T05:41:00+07:00</published><updated>2017-03-17T05:41:00+07:00</updated><id>http://localhost:4000/2017/03/17/selenium-EP-01</id><content type="html" xml:base="http://localhost:4000/2017/03/17/selenium-EP-01/">&lt;p&gt;ในการจะทดสอบการทำงานของเว็ปไซด์ซักเว็ปหนึ่งเนี่ยเป็นเรื่องที่เหนื่อยและสิ้นเปลืองพลังงานชีวิตมากมายเลยนะครับ ยิ่งถ้าเป็นเว็ปไซด์ใหญ่ๆมีลิงค์มีปุ่มให้กดเยอะแยะด้วยแล้วยิ่งไม่ต้องสืบว่าจะใช้เวลานานซักแค่ไหน ดังนั้นจะดีแค่ไหนถ้าเราสามารถเขียน Bot ขึ้นมาเพื่อให้สามารถตรวจสอบการทำงานของเว็ปไซดโดยที่เราไม่ต้องทำอะไรเลยนั่งจิ๊บกาแฟชิลๆ อิอิ&lt;/p&gt;
 
 &lt;blockquote&gt;โปรแกรมเมอร์ที่เก่งคือโปรแกรมเมอร์ที่ขี้เกียจ ปล. ขี้เกียจในทางที่ดีนะ&lt;/blockquote&gt;
 
@@ -517,4 +793,4 @@ npm install selenium-webdriver --save
 &lt;p&gt;&lt;img src=&quot;/img/selenium/img01.gif&quot; alt=&quot;การค้นหา Google ด้วย Selenium&quot; /&gt;
 &lt;span class=&quot;caption text-muted&quot;&gt;ค้นหา Google ด้วย Selenium&lt;/span&gt;&lt;/p&gt;
 &lt;p&gt;ศึกษาเพิ่มเติม &lt;a href=&quot;http://seleniumhq.github.io/selenium/docs/api/javascript/module/selenium-webdriver/&quot; target=&quot;_blank&quot;&gt;Selenium API&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;สามารถดาวโหลด Code ได้ที่นี่ &lt;a href=&quot;https://github.com/noob-studio/selenium-ep01&quot; target=&quot;_blank&quot;&gt;Github&lt;/a&gt;&lt;/p&gt;</content><author><name>Freeweed</name></author><summary type="html">ในการจะทดสอบการทำงานของเว็ปไซด์ซักเว็ปหนึ่งเนี่ยเป็นเรื่องที่เหนื่อยและสิ้นเปลืองพลังงานชีวิตมากมายเลยนะครับ ยิ่งถ้าเป็นเว็ปไซด์ใหญ่ๆมีลิงค์มีปุ่มให้กดเยอะแยะด้วยแล้วยิ่งไม่ต้องสืบว่าจะใช้เวลานานซักแค่ไหน ดังนั้นจะดีแค่ไหนถ้าเราสามารถเขียน Bot ขึ้นมาเพื่อให้สามารถตรวจสอบการทำงานของเว็ปไซดโดยที่เราไม่ต้องทำอะไรเลยนั่งจิ๊บกาแฟชิลๆ อิอิ</summary></entry></feed>
+&lt;p&gt;สามารถดาวโหลด Code ได้ที่นี่ &lt;a href=&quot;https://github.com/noob-studio/selenium-ep01&quot; target=&quot;_blank&quot;&gt;Github&lt;/a&gt;&lt;/p&gt;</content><author><name>ป๋าแพะ</name></author><summary type="html">ในการจะทดสอบการทำงานของเว็ปไซด์ซักเว็ปหนึ่งเนี่ยเป็นเรื่องที่เหนื่อยและสิ้นเปลืองพลังงานชีวิตมากมายเลยนะครับ ยิ่งถ้าเป็นเว็ปไซด์ใหญ่ๆมีลิงค์มีปุ่มให้กดเยอะแยะด้วยแล้วยิ่งไม่ต้องสืบว่าจะใช้เวลานานซักแค่ไหน ดังนั้นจะดีแค่ไหนถ้าเราสามารถเขียน Bot ขึ้นมาเพื่อให้สามารถตรวจสอบการทำงานของเว็ปไซดโดยที่เราไม่ต้องทำอะไรเลยนั่งจิ๊บกาแฟชิลๆ อิอิ</summary></entry></feed>
