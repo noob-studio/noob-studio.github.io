@@ -158,8 +158,13 @@ ionic start ionic-notification-client blank --v2
 cd ionic-notification-client
 ionic platform add android
 cordova plugin add phonegap-plugin-push --variable SENDER_ID="XXXXXXX"
+npm install --save @ionic-native/push
 </pre>
-<p>SENDER_ID คือ id ที่ได้มาจาก Firebase ตอนแรกนะครับ(อันสั้นๆ) ต่อมาเราเปิดไฟล์ src/app/app.component.ts เพิ่ม Code ดังนี้เข้าไป</p>
+<p>SENDER_ID คือ id ที่ได้มาจาก Firebase ตอนแรกนะครับ(อันสั้นๆ) ต่อมาให้เปิดไฟล์ src/app/app.module.ts เพิ่ม Push เข้าไปใน Provider ตามข้างล่างนี้</p>
+{% highlight javascript %}
+    providers: [Push, ... ]
+{% endhighlight %}
+<p>ต่อมาเราเปิดไฟล์ src/app/app.component.ts เพิ่ม Code ดังนี้เข้าไป</p>
 {% highlight javascript %}
 import { Push, PushObject, PushOptions } from '@ionic-native/push';
 import { Http } from '@angular/http';
