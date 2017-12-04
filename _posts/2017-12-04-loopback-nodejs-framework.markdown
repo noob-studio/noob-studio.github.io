@@ -1,7 +1,7 @@
 ---
 layout:     post
 comments:   true
-title: "มาเขียน RESTful API ใน Node.js ด้วย Loopback กันเถอะ"
+title: "เขียน RESTful API ใน Node.js แบบ 'โคตรไว' ด้วย Loopback"
 subtitle: "วิธีการเขียน RESTful API ด้วยความเร็วแสงด้วย Loopback"
 date: 2017-12-04 13:52
 author:     "ป๋าแพะ"
