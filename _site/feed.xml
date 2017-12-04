@@ -1,4 +1,249 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="http://jekyllrb.com" version="3.6.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2017-11-29T12:20:52+07:00</updated><id>http://localhost:4000/</id><title type="html">Noob Studio</title><subtitle>บล๊อคเก็บรวบรวมความรู้ ประสบการณ์ เทคนิคและผลงานต่างๆอาธิ Javascript, Java, PHP, Linux, Open Source</subtitle><entry><title type="html">วิธีใช้ knex.js จัดการฐานข้อมูล MySQL ใน Node.js</title><link href="http://localhost:4000/2017/11/29/knex-nodejs-orm/" rel="alternate" type="text/html" title="วิธีใช้ knex.js จัดการฐานข้อมูล MySQL ใน Node.js" /><published>2017-11-29T10:38:00+07:00</published><updated>2017-11-29T10:38:00+07:00</updated><id>http://localhost:4000/2017/11/29/knex-nodejs-orm</id><content type="html" xml:base="http://localhost:4000/2017/11/29/knex-nodejs-orm/">&lt;p&gt;ด้วยในยุคนี้นะครับเป็นยุคที่ Javascript ครองเมืองหันไปทางไหนก็มีแต่ Javascript เต็มไปหมดเลยครับไม่ว่าจะ React, Angular, Vue, Node, MEAN โอ้ยยเยอะแยะไปหมด หลายๆที่ก็เริ่มเปลี่ยนฝั่ง Back จาก PHP มาเป็น Node.js และฝั่ง Front ก็เริ่มเป็น Angular, Vue, React อะไรก็ว่า แต่เขียนโค้ดใหม่ที่ว่ายากแล้วการต้อง migration ข้อมูลจาก MySQL ไปเป็นฐานข้อมูลแบบ NoSQL สถาปัตยกรรมมันเข้ากันก็ลำบากเหลือเกิน ครั้นจะเขียน SQL คิวรี่เหมือนเดิมก็ขัดใจ๋ขัดใจ การเขียนโปรแกรมแบบ ORM (Object Relational Mapping) จึงเกิดขึ้น การเขียนโปรแกรมแบบ ORM พูดง่ายๆก็คือการแปลงข้อมูลที่ไม่เป็น Object มาอยู่ในรูป Object สำหรับใช้ภาษาโปรแกรมที่เป็น Object Oriented ซึ่งในบทความนี้เราจะใช้ ORM Tool ชื่อว่า
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="http://jekyllrb.com" version="3.6.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2017-12-04T14:57:22+07:00</updated><id>http://localhost:4000/</id><title type="html">Noob Studio</title><subtitle>บล๊อคเก็บรวบรวมความรู้ ประสบการณ์ เทคนิคและผลงานต่างๆอาธิ Javascript, Java, PHP, Linux, Open Source</subtitle><entry><title type="html">มาเขียน RESTful API ใน Node.js ด้วย Loopback กันเถอะ</title><link href="http://localhost:4000/2017/12/04/loopback-nodejs-framework/" rel="alternate" type="text/html" title="มาเขียน RESTful API ใน Node.js ด้วย Loopback กันเถอะ" /><published>2017-12-04T13:52:00+07:00</published><updated>2017-12-04T13:52:00+07:00</updated><id>http://localhost:4000/2017/12/04/loopback-nodejs-framework</id><content type="html" xml:base="http://localhost:4000/2017/12/04/loopback-nodejs-framework/">&lt;p&gt;เนื่องจากผมได้มีโอกาศไปรับงานนึงเกี่ยวกับการจัดการ Stock สินค้าซึ่งจาก Scale งานเนี่ยน่าจะใช้เวลาพัฒนาประมาณ 2 อาทิตย์แต่ลูกค้าแบบว่าเร่งมากบอกน้องพี่ขอ 7 วันได้ไหม!! แม่เจ้าาาา รีบไปไหนเนี่ยพ่อคู๊ณณ แต่ถือเป็นโชคดีที่ก่อนหน้าที่ทำงานของผมได้ให้ผมทำ research เกี่ยวกับ node.js framework ตัวนึงชื่อว่า &lt;a href=&quot;http://loopback.io&quot; target=&quot;_blank&quot;&gt;loopback&lt;/a&gt; ซึ่งหลังจากได้ลองใช้ขอบอกเลยว่ามันดีมากเลยอ่ะแกรร แบบว่าของมันต้องใช้อ่ะแกรร ว่าแล้วเราก็มาลองใช้งานกันเลยเถอะ 
+&lt;/p&gt;
+&lt;p&gt;
+    loopback คือ Node.js framework สำหรับสร้าง REST API อย่างรวดเร็วพร้อมเครื่องมือสำหรับสร้าง Model พร้อม validation และอื่นๆ อีกมากมายอย่างครบวงจรเรียกได้ว่าช่วยประหยัดเวลาในการพัฒนาเป็นอย่างมาก โดย ขั้นตอนการใช้ loopback เบื้องต้นมีดังนี้
+&lt;/p&gt;
+&lt;h2 class=&quot;section-heading&quot;&gt;Setup&lt;/h2&gt;
+&lt;p&gt;สำหรับเริ่มใช้งานก็แบบชิลๆ เปิด terminal ขึ้นมา และพิมพ์คำสั่งดังนี้&lt;/p&gt;
+&lt;pre&gt;
+npm install -g loopback-cli
+lb
+&lt;/pre&gt;
+&lt;p&gt;เมื่อพิมพ์คำสั่งตามนี้จะปรากฏหน้าต่างให้ setup ข้อมูล api ดังนี้&lt;/p&gt;
+&lt;pre&gt;
+What's the name of your application?  hello-loopback (ชื่อของ api)
+Enter name of the directory to contain the project: hello-loopback (ไฟล์ต่างๆไว้ในโฟรเดอร์ชื่ออะไรถ้าไม่ใส่จะใส่ในไดเร็กทอรี่เดียวกับชื่อ  api)
+Which version of LoopBack would you like to use? เวอร์ชันของ loopback ในที่นี้เลือกเวอร์ชัน 3.x
+What kind of application do you have in mind? เลือกค่าพื้นฐานของ api ในที่นี้เลือก empty-server
+&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&quot;/img/loopback/setup.png&quot; alt=&quot;สอนใช้งาน loopback&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;เมื่อใส่รายละเอียดต่างๆ เสร็จแล้ว loopback จะทำสร้างไฟล์ต่างๆ ตามที่เรา setup ไว้เป็นอันเสร็จขั้นตอนแรก&lt;/p&gt;
+
+&lt;h2 class=&quot;section-heading&quot;&gt;Create Model&lt;/h2&gt;
+&lt;p&gt;เมื่อเรา setup เสร็จแล้วเราก็จะมาสร้าง model แรกกันโดยมีขั้นตอนดังนี้&lt;/p&gt;
+&lt;pre&gt;
+cd hello-loopback
+lb model
+&lt;/pre&gt;
+&lt;p&gt;เมื่อเราพิมพ์คำสั่ง lb model บรรทัดแรกจะขึ้นตัวแดงๆ มาไม่ต้องตกใจบรรทัดต่อมามันจะถามว่า&lt;/p&gt;
+&lt;pre&gt;
+Enter the model name: blog (ให้เราใส่ชื่อ model ของเรา)
+Select model's base class: PersistedModel (เลือกประเภทของ model ที่เราจะสร้าง)
+Expose blog via the REST API? Y (model นี้เป็น REST api หรือเปล่า)
+Custom plural form: /blog (path ของ model นี้)
+Common model or server only? common (model นี้จะเอาไว้ที่ไหนในไดเรคทอรี่ server หรือ common)
+&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&quot;/img/loopback/model.png&quot; alt=&quot;สอนใช้งาน loopback&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;เมื่อ setup model เสร็จมันก็จะให้เราใส่ property ของ model โดยมีรายละเอียดดังนี้&lt;/p&gt;
+&lt;pre&gt;
+Property name: name (ชื่อของ property)
+Property type: string (ประเภทของ property)
+Required? Y (จำเป็นต้องใส่หรือไม่)
+Default value[leave blank for none]: (ค่า default ของ property นี้)
+&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&quot;/img/loopback/property.png&quot; alt=&quot;สอนใช้งาน loopback&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;เมื่อเราใส่ property เสร็จมันก็จะวนถามใหม่เรื่อยๆ ให้เราใส่เรื่อยๆ จนกว่าจะพอใจเมื่อพอใจแล้วตรง Property name: ให้เว้นว่างไว้มันก็จะออกจากการสร้าง model&lt;/p&gt;
+&lt;p&gt;เมื่อเราเข้าไปดูในไดเรคทอรี่ common/models ก็จะเห็นไฟล์ชื่อ model ของเรา 2 ไฟล์คือ .js (จะอธิบายต่อไป) และ .json เก็บข้อมูลต่างๆ ของ model เรา&lt;/p&gt;
+
+&lt;h2 class=&quot;section-heading&quot;&gt;Connect database&lt;/h2&gt;
+&lt;p&gt;เมื่อเราสร้าง model เสร็จแล้วสิ่งที่เราต้องทำต่อมาคือเชื่อมต่อกับฐานข้อมูลซึ่งสามารถทำได้โดยพิมพ์คำสั่ง &lt;/p&gt;
+&lt;pre&gt;
+lb datasource
+&lt;/pre&gt;
+&lt;p&gt;หลังจากนั้นมันจะขึ้นคำถามดังนี้&lt;/p&gt;
+&lt;pre&gt;
+Enter the datasource name: mysql (ให้ใส่ชื่อ datasource อะไรก็ได้)
+Select the connector for mysql: MySQL (ให้เลือกฐานข้อมูลในที่นี้ใช้ MySQL)
+Connection String url to override other settings (eg: mysql://user:pass@host/db): mysql://root@127.0.0.1/test (ใส่รายละเอียดการเชื่อมต่อไม่ต้องใส่ก็ได้)
+host: 127.0.0.1 (ใส่ host ของฐานข้อมูล)
+port: 3306 (ใส่ port สำหรับเชื่อมต่อฐานข้อมูล)
+user: root (ใส่ username)
+password: (ใส่ password)
+database: test (ใส่ฐานข้อมูลที่ต้องเชื่อมต่อ)
+Install loopback-connector-mysql@^2.2: Y (ต้องการติดตั้ง loopback-connector-mysql หรือไม่)
+&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&quot;/img/loopback/datasource.png&quot; alt=&quot;สอนใช้งาน loopback&quot; /&gt;
+หลังจากนั้นไปที่ไฟล์ server/model-config.js แก้ตรง&lt;/p&gt;
+&lt;pre&gt;
+...
+datasource: null
+...
+&lt;/pre&gt;
+
+&lt;p&gt;เป็น&lt;/p&gt;
+&lt;pre&gt;
+...
+datasource: ‘mysql’ (ชื่อของ datasource ที่เราสร้างขึ้น)
+...
+&lt;/pre&gt;
+&lt;p&gt;เพียงเท่านี้ก็เสร็จเรียบร้อยในขั้นตอนการเชื่อมต่อกับฐานข้อมูลแล้วต่อไปเราก็จะมาสร้างตารางจาก model ของเรากัน&lt;/p&gt;
+&lt;h2 class=&quot;section-heading&quot;&gt;Automigrate&lt;/h2&gt;
+&lt;p&gt;เมื่อเรามี model แล้ว เชื่อมต่อฐานข้อมูลแล้ว ต่อมาเราก็จะทำการสร้างตารางสำหรับ model ของเรากันโดยเปิด editor ขึ้นมาแล้วสร้างไฟล์ชื่ออะไรก็ได้ใส่ไว้ในไดเรคทอรี่ server/boot โดยใส่ code ดังนี้&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;nx&quot;&gt;module&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;exports&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;app&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+	&lt;span class=&quot;nx&quot;&gt;app&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;dataSources&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;mysql&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;automigrate&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'blog'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;err&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+		&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;err&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;throw&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;err&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+		&lt;span class=&quot;nx&quot;&gt;app&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;models&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;blog&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;create&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;([{&lt;/span&gt;
+			&lt;span class=&quot;na&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'test1'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+			&lt;span class=&quot;na&quot;&gt;author&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'mike'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+			&lt;span class=&quot;na&quot;&gt;date&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;Date&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+		&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+			&lt;span class=&quot;na&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'test2'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+			&lt;span class=&quot;na&quot;&gt;author&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'mike'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+			&lt;span class=&quot;na&quot;&gt;date&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;Date&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+		&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+			&lt;span class=&quot;na&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'test3'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+			&lt;span class=&quot;na&quot;&gt;author&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'mike'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+			&lt;span class=&quot;na&quot;&gt;date&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;Date&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+		&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;],&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;err&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;blog&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+			&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;err&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;throw&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;err&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+			&lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'Models created: &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;\&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;n'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;blog&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+		&lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
+	&lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;code ด้านบนอธิบายได้ดังนี้&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;nx&quot;&gt;app&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;dataSources&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;mysql&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;automigrate&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'blog'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;err&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;...&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;เป็นฟังชันสำหรับ migrate ฐานข้อมูลของ loopback โดยส่ง parameter เข้าไปสองตัวคือ model ที่ต้องการ migrate และ callback&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;nx&quot;&gt;app&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;models&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;blog&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;create&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;([{&lt;/span&gt;
+	&lt;span class=&quot;na&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'test1'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+	&lt;span class=&quot;na&quot;&gt;author&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'mike'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+	&lt;span class=&quot;na&quot;&gt;date&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;Date&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;...&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;]);&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;คือการเพิ่มข้อมูลใส่ในตารางที่เราทำการ migrate &lt;span style=&quot;color:red&quot;&gt;** มีข้อควรระวังคือหากในตารางนั้นมีข้อมูลอยู่แล้วจะถูกเขียนทับ **&lt;/span&gt;&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;p&quot;&gt;...&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;err&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;blog&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+	&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;err&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;throw&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;err&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+	&lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'Models created: &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;\&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;n'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;blog&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;...&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;คือการ handle callback เมื่อทำการ migrate สำเร็จ หลังจากนั้นเมื่อเราเตรียมทุกอย่างพร้อมเราจึงเริ่มทำรัน REST api ของเราโดยพิมพ์คำสั่ง&lt;/p&gt;
+&lt;pre&gt;
+node .
+&lt;/pre&gt;
+&lt;p&gt;เมื่อเข้าไปดูในฐานข้อมูลก็จะพบตารางชื่อตาม model ของเราโดยที่มีข้อมูลตามที่เรา insert เข้าไปดังภาพ&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/img/loopback/database1.png&quot; alt=&quot;สอนใช้งาน loopback&quot; /&gt;&lt;/p&gt;
+&lt;h2 class=&quot;section-heading&quot;&gt;ทดลองใช้ API&lt;/h2&gt;
+&lt;p&gt;หลังจากที่เรารัน REST api แล้วให้ลองเปิด browser เข้าไปที่ path 127.0.0.1:3000/explorer จะพบหน้าตาสำหรับทดลอง api ดังภาพ&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/img/loopback/explorer.png&quot; alt=&quot;สอนใช้งาน loopback&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;หากเราต้องเพิ่มข้อมูลเข้าสู่ตารางให้เลือกที่ post ใส่ข้อมูลลงไป และกดที่ try out ดังภาพ&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/img/loopback/post.png&quot; alt=&quot;สอนใช้งาน loopback&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;หลังจากนั้นเมื่อเราเข้าไปดูที่ฐานข้อมูลก็จะเห็นข้อมูลที่เราเพิ่มไปเมื่อกี้เข้ามา&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/img/loopback/database.png&quot; alt=&quot;สอนใช้งาน loopback&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;หรือหากลองเปิด Browser แล้วเข้าไปที่ http://localhost:3000/api/blog ก็จะเห็นข้อมูลในฐานข้อมูลเราดังภาพเพียงแค่นี้เราก็สร้าง RESTful API สำหรับ CRUD เสร็จแล้วนะครับต่อไปเราจะมาทำ Custom API กัน&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/img/loopback/browser_open.png&quot; alt=&quot;สอนใช้งาน loopback&quot; /&gt;&lt;/p&gt;
+&lt;h2 class=&quot;section-heading&quot;&gt;Custom API&lt;/h2&gt;
+&lt;p&gt;เพราะในชีวิตจริง API เราของไม่ได้มีแต่ CRUD ต้องฟังชันการทำงานอื่นๆ ซึ่งใน loopback เนี่ยเราสามารถทำ API เอกได้ง่ายๆดังนี้เปิดไฟล์ Model ของเราขึ้นมาซึ่งไฟล์ Model ของเราจะอยู่ที่ common/models/ชื่อโมเดล.js ซึ่งพอเราเปิดขึ้นมาก็จะเป็นไฟล์ไม่ได้ทำๆ (ไฟล์เปล่าๆ) ที่มีข้อมูลหล่อมแหล่มดังนี้&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;s1&quot;&gt;'use strict'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;nx&quot;&gt;module&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;exports&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Blog&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+
+&lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;ให้เราสอดใส่ Code เข้าไปดังนี้&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;nx&quot;&gt;module&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;exports&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Blog&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+
+	&lt;span class=&quot;nx&quot;&gt;Blog&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;hello&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;msg&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;callback&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
+		&lt;span class=&quot;nx&quot;&gt;callback&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;null&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Hello &quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;msg&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+	&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+	&lt;span class=&quot;nx&quot;&gt;Blog&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;remoteMethod&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
+		&lt;span class=&quot;s1&quot;&gt;'hello'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+			&lt;span class=&quot;na&quot;&gt;http&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+				&lt;span class=&quot;na&quot;&gt;path&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'/hello'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+				&lt;span class=&quot;na&quot;&gt;verb&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'get'&lt;/span&gt;
+			&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
+			&lt;span class=&quot;na&quot;&gt;accepts&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+				&lt;span class=&quot;na&quot;&gt;arg&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'msg'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; 
+				&lt;span class=&quot;na&quot;&gt;type&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'string'&lt;/span&gt;
+			&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
+			&lt;span class=&quot;na&quot;&gt;returns&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+				&lt;span class=&quot;na&quot;&gt;arg&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'word'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+				&lt;span class=&quot;na&quot;&gt;type&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'string'&lt;/span&gt;
+			&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+		&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+	&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Code ข้างบนมีการทำงานคือเมื่อมีคน route ผ่าน method get มาที่ http://localhost:3000/api/blog/hello พร้อม parameter ชื่อ msg ก็จะตอบกลับดังรูปตัวอย่าง&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/img/loopback/example.png&quot; alt=&quot;สอนใช้งาน loopback&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;โดย Code ข้างบนมีการทำงานดังนี้&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;nx&quot;&gt;module&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;exports&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Blog&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;...&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;export module ของเราส่วน Parameter Blog ที่เข้ามาก็คือ model ของเราพร้อมฟังก์ชันเสริมต่างๆ นาๆที่ loopback เพิ่มมาให้&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;nx&quot;&gt;Blog&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;hello&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;msg&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;callback&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
+	&lt;span class=&quot;nx&quot;&gt;callback&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;null&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;msg&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;เพิ่มฟังชันชื่อ hello เข้าไปใน model Blog โดยที่ parameter ที่ส่งเข้าไปตัวแรก msg คือค่าที่รับมาจาก request และ callback นี่ loopback ส่งเข้ามาให้เราสำหรับส่งข้อมูลกลับไปเมื่อเราทำงานเสร็จแล้ว จะสังเกตุเห็นว่าใน loopback รับ parameter 2 ตัว ตัวแรกที่เป็น null คือerr ในกรณีที่มี err ตัวที่สองคือค่าที่เราจะ response ออกไป&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;nx&quot;&gt;Blog&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;remoteMethod&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
+    &lt;span class=&quot;s1&quot;&gt;'hello'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;na&quot;&gt;http&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;na&quot;&gt;path&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'/hello'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+            &lt;span class=&quot;na&quot;&gt;verb&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'get'&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
+        &lt;span class=&quot;na&quot;&gt;accepts&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;na&quot;&gt;arg&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'msg'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; 
+            &lt;span class=&quot;na&quot;&gt;type&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'string'&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
+        &lt;span class=&quot;na&quot;&gt;returns&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;na&quot;&gt;arg&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'word'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+            &lt;span class=&quot;na&quot;&gt;type&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'string'&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;คือการตั้งค่า Custom API ของเรา &lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;s1&quot;&gt;'hello'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;...&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;คือบอกว่าตั้งค่าของฟังก์ชันไหน&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;p&quot;&gt;...&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;http&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+	&lt;span class=&quot;nl&quot;&gt;path&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'/hello'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+	&lt;span class=&quot;nx&quot;&gt;verb&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'get'&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;...&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;คือการเซ็ทพาท และ method ที่เข้ามา&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;p&quot;&gt;...&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;accepts&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+	&lt;span class=&quot;nl&quot;&gt;arg&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'msg'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; 
+	&lt;span class=&quot;nx&quot;&gt;type&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'string'&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;...&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;คือการเซ็ท parameter ที่จะเข้ามา arg คือชื่อ type คือประเภท&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;p&quot;&gt;...&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;returns&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+	&lt;span class=&quot;nl&quot;&gt;arg&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'word'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+	&lt;span class=&quot;nx&quot;&gt;type&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'string'&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;...&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;คือการเซ็ทข้อมูล response ที่จะออกไปก็เหมือนเดิมครับ arg คือชื่อ และ type คือประเภท&lt;/p&gt;
+&lt;p&gt;เป็นอันเสร็จเรียบร้อยแล้วนะครับสำหรับการใช้ loopback สร้าง RESTful API เบื้องต้นในตอนต่อไป (ถ้าไม่ลืม) จะมาสอนใช้งาน loopback ร่วมกับ Angular 2 กันนะจ๊ะจุ๊ปปาก &amp;lt;3 สามารถดูตัวอย่าง source code ได้ &lt;a href=&quot;https://github.com/freeweed/loopback-example&quot; target=&quot;_blank&quot;&gt;ที่นี่&lt;/a&gt; นะจ๊ะ&lt;/p&gt;</content><author><name>ป๋าแพะ</name></author><summary type="html">เนื่องจากผมได้มีโอกาศไปรับงานนึงเกี่ยวกับการจัดการ Stock สินค้าซึ่งจาก Scale งานเนี่ยน่าจะใช้เวลาพัฒนาประมาณ 2 อาทิตย์แต่ลูกค้าแบบว่าเร่งมากบอกน้องพี่ขอ 7 วันได้ไหม!! แม่เจ้าาาา รีบไปไหนเนี่ยพ่อคู๊ณณ แต่ถือเป็นโชคดีที่ก่อนหน้าที่ทำงานของผมได้ให้ผมทำ research เกี่ยวกับ node.js framework ตัวนึงชื่อว่า loopback ซึ่งหลังจากได้ลองใช้ขอบอกเลยว่ามันดีมากเลยอ่ะแกรร แบบว่าของมันต้องใช้อ่ะแกรร ว่าแล้วเราก็มาลองใช้งานกันเลยเถอะ loopback คือ Node.js framework สำหรับสร้าง REST API อย่างรวดเร็วพร้อมเครื่องมือสำหรับสร้าง Model พร้อม validation และอื่นๆ อีกมากมายอย่างครบวงจรเรียกได้ว่าช่วยประหยัดเวลาในการพัฒนาเป็นอย่างมาก โดย ขั้นตอนการใช้ loopback เบื้องต้นมีดังนี้ Setup สำหรับเริ่มใช้งานก็แบบชิลๆ เปิด terminal ขึ้นมา และพิมพ์คำสั่งดังนี้ npm install -g loopback-cli lb เมื่อพิมพ์คำสั่งตามนี้จะปรากฏหน้าต่างให้ setup ข้อมูล api ดังนี้ What's the name of your application? hello-loopback (ชื่อของ api) Enter name of the directory to contain the project: hello-loopback (ไฟล์ต่างๆไว้ในโฟรเดอร์ชื่ออะไรถ้าไม่ใส่จะใส่ในไดเร็กทอรี่เดียวกับชื่อ api) Which version of LoopBack would you like to use? เวอร์ชันของ loopback ในที่นี้เลือกเวอร์ชัน 3.x What kind of application do you have in mind? เลือกค่าพื้นฐานของ api ในที่นี้เลือก empty-server เมื่อใส่รายละเอียดต่างๆ เสร็จแล้ว loopback จะทำสร้างไฟล์ต่างๆ ตามที่เรา setup ไว้เป็นอันเสร็จขั้นตอนแรก</summary></entry><entry><title type="html">วิธีใช้ knex.js จัดการฐานข้อมูล MySQL ใน Node.js</title><link href="http://localhost:4000/2017/11/29/knex-nodejs-orm/" rel="alternate" type="text/html" title="วิธีใช้ knex.js จัดการฐานข้อมูล MySQL ใน Node.js" /><published>2017-11-29T10:38:00+07:00</published><updated>2017-11-29T10:38:00+07:00</updated><id>http://localhost:4000/2017/11/29/knex-nodejs-orm</id><content type="html" xml:base="http://localhost:4000/2017/11/29/knex-nodejs-orm/">&lt;p&gt;ด้วยในยุคนี้นะครับเป็นยุคที่ Javascript ครองเมืองหันไปทางไหนก็มีแต่ Javascript เต็มไปหมดเลยครับไม่ว่าจะ React, Angular, Vue, Node, MEAN โอ้ยยเยอะแยะไปหมด หลายๆที่ก็เริ่มเปลี่ยนฝั่ง Back จาก PHP มาเป็น Node.js และฝั่ง Front ก็เริ่มเป็น Angular, Vue, React อะไรก็ว่า แต่เขียนโค้ดใหม่ที่ว่ายากแล้วการต้อง migration ข้อมูลจาก MySQL ไปเป็นฐานข้อมูลแบบ NoSQL สถาปัตยกรรมมันเข้ากันก็ลำบากเหลือเกิน ครั้นจะเขียน SQL คิวรี่เหมือนเดิมก็ขัดใจ๋ขัดใจ การเขียนโปรแกรมแบบ ORM (Object Relational Mapping) จึงเกิดขึ้น การเขียนโปรแกรมแบบ ORM พูดง่ายๆก็คือการแปลงข้อมูลที่ไม่เป็น Object มาอยู่ในรูป Object สำหรับใช้ภาษาโปรแกรมที่เป็น Object Oriented ซึ่งในบทความนี้เราจะใช้ ORM Tool ชื่อว่า
 &lt;a herf=&quot;http://knexjs.org/&quot; target=&quot;_blank&quot;&gt;knexjs.org&lt;/a&gt; นั่นเอง&lt;/p&gt;
 &lt;blockquote&gt;ORM คือการแปลงข้อมูลที่ไม่เป็น Object มาอยู่ในรูป Object สำหรับใช้ภาษาโปรแกรมที่เป็น Object Oriented&lt;/blockquote&gt;
 &lt;p style=&quot;color:red;&quot;&gt;หมายเหตุในบทความนี้ใช้ async / await เยอะมากเพื่อความเข้าใจกรุณาไปศึกษาเรื่องนี้มาก่อนนะจ๊ะ&lt;/p&gt;
