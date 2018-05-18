@@ -7,9 +7,17 @@ date:       2017-03-28 22:41:00
 author:     "ป๋าแพะ"
 published: false
 header-img: "img/ionic-local-notification/cover.jpg"
+categories:
+ - mobile
+tags: 
+ - Ionic framework
+ - Typescript
+ - javascript
 ---
 <p>ต่อเนื่องจากบทความที่แล้วนะครับกับ <a href="{{ site.baseurl}}{% post_url 2017-03-28-ionic2-notification %}">การส่งแจ้งเตือนให้แอพพลิเคชันด้วย Firebase และ Node.js </a> หลายคนอาจจะรู้สึกว่าโหยทำไมมันเยอะแยะขนาดนี้เนี่ยแค่อยากแจ้งเตือนให้เข้ามาแอพกูหน่อยวันล่ะครั้งก็ยังดีไรแบบนี้ (คิดถึงแอพเกมที่เวลาไม่ได้เข้านานแล้วส่งแจ้งเตือนมาว่า หมู่บ้านต้องการคุณ!) ประมาณนี้จะสังเกตุเห็นว่าการแจ้งเตือนแบบนี้ไม่ได้ต้องการนำเสนอข้อมูลเหมือนกันแจ้งเตือนปกติเราแค่อยากจะเตือนให้ผู้ใช้เข้ามาในแอพเราหรืออะไรก็ว่าไปเป็นที่มาของการทำ Local Notification (แจ้งเตือนจากตัวแอพเองนั่นเองนะจ๊ะ)</p>
-<h2 class="section-heading">Start Ionic</h2>
+
+# Start Ionic
+
 <p>เอาล่ะครับเรามาเริ่มกันเถอะขั้นตอนก็ไม่มีไรมากเหมือนเดิมครับสร้างแอพขึ้นมาและ add cordova plugin ตามนี้ขึ้นไป</p>
 <pre>
 ionic start ionic-local-notification blank --v2
@@ -96,4 +104,6 @@ this.localNoti.schedule({
 <li>firstAt ให้แจ้งเตือนเมื่อไหร่</li>
 <li>every ให้แจ้งเตือนเมื่อไหร่ใส่ Day ให้แจ้งเตือนทุกวันนั่นเอง</li>
 </ul>
-<p>พอรันแอพก็จะได้ผลลัพท์ดังนี้</p>
+
+# Conclusion
+

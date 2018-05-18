@@ -1,0 +1,1088 @@
+
+<!doctype html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html class="theme-next muse use-motion" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/assets/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Roboto:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/assets/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/assets/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="node.js,javascript,MySql," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Noob Studio" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/assets/favicon.ico?v=5.1.1" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="ด้วยในยุคนี้นะครับเป็นยุคที่ Javascript ครองเมืองหันไปทางไหนก็มีแต่ Javascript เต็มไปหมดเลยครับไม่ว่าจะ React, Angular, Vue, Node, MEAN โอ้ยยเยอะแยะไปหมด หลายๆที่ก็เริ่มเปลี่ยนฝั่ง Back จาก PHP มาเป็น Node.js และฝั่ง Front ก็เริ่มเป็น Angular, Vue, React อะไรก็ว่า แต่เขียนโค้ดใหม่ที่ว่ายากแล้วการต้อง migration ข้อมูลจาก MySQL ไปเป็นฐานข้อมูลแบบ NoSQL สถาปัตยกรรมมันเข้ากันก็ลำบากเหลือเกิน ครั้นจะเขียน SQL คิวรี่เหมือนเดิมก็ขัดใจ๋ขัดใจ การเขียนโปรแกรมแบบ ORM (Object Relational Mapping) จึงเกิดขึ้น การเขียนโปรแกรมแบบ ORM พูดง่ายๆก็คือการแปลงข้อมูลที่ไม่เป็น Object มาอยู่ในรูป Object สำหรับใช้ภาษาโปรแกรมที่เป็น Object Oriented ซึ่งในบทความนี้เราจะใช้ ORM Tool ชื่อว่า knexjs.org นั่นเอง&amp;lt;/p&amp;gt;">
+<meta name="keywords" content="node.js, javascript, MySql">
+<meta property="og:type" content="article">
+<meta property="og:title" content="วิธีใช้ knex.js จัดการฐานข้อมูล MySQL ใน Node.js">
+<meta property="og:url" content="http://localhost:4000/backend/database/library/2017/11/29/knex-nodejs-orm/">
+<meta property="og:site_name" content="Noob Studio">
+<meta property="og:description" content="ด้วยในยุคนี้นะครับเป็นยุคที่ Javascript ครองเมืองหันไปทางไหนก็มีแต่ Javascript เต็มไปหมดเลยครับไม่ว่าจะ React, Angular, Vue, Node, MEAN โอ้ยยเยอะแยะไปหมด หลายๆที่ก็เริ่มเปลี่ยนฝั่ง Back จาก PHP มาเป็น Node.js และฝั่ง Front ก็เริ่มเป็น Angular, Vue, React อะไรก็ว่า แต่เขียนโค้ดใหม่ที่ว่ายากแล้วการต้อง migration ข้อมูลจาก MySQL ไปเป็นฐานข้อมูลแบบ NoSQL สถาปัตยกรรมมันเข้ากันก็ลำบากเหลือเกิน ครั้นจะเขียน SQL คิวรี่เหมือนเดิมก็ขัดใจ๋ขัดใจ การเขียนโปรแกรมแบบ ORM (Object Relational Mapping) จึงเกิดขึ้น การเขียนโปรแกรมแบบ ORM พูดง่ายๆก็คือการแปลงข้อมูลที่ไม่เป็น Object มาอยู่ในรูป Object สำหรับใช้ภาษาโปรแกรมที่เป็น Object Oriented ซึ่งในบทความนี้เราจะใช้ ORM Tool ชื่อว่า knexjs.org นั่นเอง&amp;lt;/p&amp;gt;">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="/img/node-orm/cover.jpg">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="วิธีใช้ knex.js จัดการฐานข้อมูล MySQL ใน Node.js">
+<meta name="twitter:description" content="ด้วยในยุคนี้นะครับเป็นยุคที่ Javascript ครองเมืองหันไปทางไหนก็มีแต่ Javascript เต็มไปหมดเลยครับไม่ว่าจะ React, Angular, Vue, Node, MEAN โอ้ยยเยอะแยะไปหมด หลายๆที่ก็เริ่มเปลี่ยนฝั่ง Back จาก PHP มาเป็น Node.js และฝั่ง Front ก็เริ่มเป็น Angular, Vue, React อะไรก็ว่า แต่เขียนโค้ดใหม่ที่ว่ายากแล้วการต้อง migration ข้อมูลจาก MySQL ไปเป็นฐานข้อมูลแบบ NoSQL สถาปัตยกรรมมันเข้ากันก็ลำบากเหลือเกิน ครั้นจะเขียน SQL คิวรี่เหมือนเดิมก็ขัดใจ๋ขัดใจ การเขียนโปรแกรมแบบ ORM (Object Relational Mapping) จึงเกิดขึ้น การเขียนโปรแกรมแบบ ORM พูดง่ายๆก็คือการแปลงข้อมูลที่ไม่เป็น Object มาอยู่ในรูป Object สำหรับใช้ภาษาโปรแกรมที่เป็น Object Oriented ซึ่งในบทความนี้เราจะใช้ ORM Tool ชื่อว่า knexjs.org นั่นเอง&amp;lt;/p&amp;gt;">
+<meta name="twitter:image" content="/img/node-orm/cover.jpg">
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '',
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://localhost:4000/"/>
+
+
+
+
+
+  <title>วิธีใช้ knex.js จัดการฐานข้อมูล MySQL ใน Node.js | Noob Studio</title>
+  
+
+
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-93921891-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"> <div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Noob Studio</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description">บล๊อคเก็บรวบรวมความรู้ ประสบการณ์ เทคนิคและผลงานต่างๆอาธิ Javascript, Java, PHP, Linux, Open Source</h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+        
+        
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+<div id="posts" class="posts-expand">
+  
+  
+
+  
+
+  
+  
+  
+
+  <article class="post post-type- " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://localhost:4000/backend/database/library/2017/11/29/knex-nodejs-orm/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Freeweed">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/assets/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Noob Studio">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+          
+          
+            วิธีใช้ knex.js จัดการฐานข้อมูล MySQL ใน Node.js
+          
+        </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-11-29T10:38:00+07:00">
+                2017-11-29
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/category/#/backend" itemprop="url" rel="index">
+                    <span itemprop="name">backend</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/category/#/database" itemprop="url" rel="index">
+                    <span itemprop="name">database</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/category/#/library" itemprop="url" rel="index">
+                    <span itemprop="name">library</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/backend/database/library/2017/11/29/knex-nodejs-orm/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="/backend/database/library/2017/11/29/knex-nodejs-orm/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+            
+                <div class="post-description">
+                    
+                </div>
+            
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><img src="/img/node-orm/cover.jpg" alt="สอนใช้งาน knex.js จัดการฐานข้อมูล MySql" />
+ด้วยในยุคนี้นะครับเป็นยุคที่ Javascript ครองเมืองหันไปทางไหนก็มีแต่ Javascript เต็มไปหมดเลยครับไม่ว่าจะ React, Angular, Vue, Node, MEAN โอ้ยยเยอะแยะไปหมด หลายๆที่ก็เริ่มเปลี่ยนฝั่ง Back จาก PHP มาเป็น Node.js และฝั่ง Front ก็เริ่มเป็น Angular, Vue, React อะไรก็ว่า แต่เขียนโค้ดใหม่ที่ว่ายากแล้วการต้อง migration ข้อมูลจาก MySQL ไปเป็นฐานข้อมูลแบบ NoSQL สถาปัตยกรรมมันเข้ากันก็ลำบากเหลือเกิน ครั้นจะเขียน SQL คิวรี่เหมือนเดิมก็ขัดใจ๋ขัดใจ การเขียนโปรแกรมแบบ ORM (Object Relational Mapping) จึงเกิดขึ้น การเขียนโปรแกรมแบบ ORM พูดง่ายๆก็คือการแปลงข้อมูลที่ไม่เป็น Object มาอยู่ในรูป Object สำหรับใช้ภาษาโปรแกรมที่เป็น Object Oriented ซึ่งในบทความนี้เราจะใช้ ORM Tool ชื่อว่า
+<a herf="http://knexjs.org/" target="_blank">knexjs.org</a> นั่นเอง&lt;/p&gt;</p>
+
+<blockquote>ORM คือการแปลงข้อมูลที่ไม่เป็น Object มาอยู่ในรูป Object สำหรับใช้ภาษาโปรแกรมที่เป็น Object Oriented</blockquote>
+<p style="color:red;">หมายเหตุในบทความนี้ใช้ async / await เยอะมากเพื่อความเข้าใจกรุณาไปศึกษาเรื่องนี้มาก่อนนะจ๊ะ</p>
+
+<h1 id="what-is-knexjs">What is knex.js</h1>
+
+<p>knex.js คือเครื่องมือที่ช่วยให้เราเขียน node.js สามารถจัดการกับฐานข้อมูลในรูปแบบ Object ได้ (ORM) ทำให้เราเขียนโปรแกรมได้ง่ายขึ้นเพราะไม่ต้องมาคอยเขียนคำสั่ง SQL และแปลงข้อมูลที่ได้มาให้เป็น Object ของเราอีกทีนึงให้วุ่นวาย ขั้นตอนการใช้งานมีดังนี้</p>
+
+<h1 id="setup">Setup</h1>
+
+<p>เอาละครับเรารู้จัก ORM กับ knex.js กันคร่าวๆ แล้วเรามาลงมือทำกันเลยดีกว่าเปิด terminal ขึ้นมาแล้วพิมพ์ตามนี้</p>
+<pre>
+mkdir test-knex 
+cd test-knex
+npm init
+npm install -–save knex mysql
+</pre>
+<p>ขั้นตอนแรกสร้างโฟลเดอร์ขึ้นมาแล้วติดตั้ง Module ต่างๆที่จำเป็นดังนี้ knex และ mysql</p>
+
+<h1 id="connect-database">Connect Database</h1>
+
+<p>ต่อไปเรามาสร้าง CRUD จาก knex กันนะครับโดยขั้นตอนแรกให้เพิ่มทำการ connect ฐานข้อมูลก่อนดังนี้</p>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="k">this</span><span class="p">.</span><span class="nx">knex</span> <span class="o">=</span> <span class="nx">knex</span><span class="p">({</span>
+    <span class="na">client</span><span class="p">:</span> <span class="s1">'mysql'</span><span class="p">,</span>
+    <span class="na">connection</span><span class="p">:</span> <span class="p">{</span>
+        <span class="na">host</span> <span class="p">:</span> <span class="s1">'127.0.0.1'</span><span class="p">,</span>
+        <span class="na">user</span> <span class="p">:</span> <span class="s1">'root'</span><span class="p">,</span>
+        <span class="na">password</span> <span class="p">:</span> <span class="s1">''</span><span class="p">,</span>
+        <span class="na">database</span> <span class="p">:</span> <span class="s1">'knex'</span>
+    <span class="p">}</span>
+<span class="p">});</span></code></pre></figure>
+
+<p>บรรทัดนี้เป็นการเชื่อมต่อกับฐานข้อมูลนะครับโดยใส่รายละเอียดต่างๆ เข้าไป client คือบอกว่าเราใช้ฐานข้อมูลประเภทอะไรส่วน connection ก็คือรายละเอียดทั่วๆไปของฐานข้อมูล</p>
+
+<h1 id="do-table-job">Do table Job</h1>
+
+<p>ก่อนที่เราจะสร้าง CRUD ได้ เราจำเป็นต้องมีตารางสำหรับทดสอบก่อนโดยเราสามารถจัดการกับตารางได้โดยใช้คำสั่งต่อไปนี้</p>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">await</span> <span class="k">this</span><span class="p">.</span><span class="nx">knex</span><span class="p">.</span><span class="nx">schema</span><span class="p">.</span><span class="nx">dropTableIfExists</span><span class="p">(</span><span class="s1">'Blog'</span><span class="p">);</span>
+<span class="nx">await</span> <span class="k">this</span><span class="p">.</span><span class="nx">knex</span><span class="p">.</span><span class="nx">schema</span><span class="p">.</span><span class="nx">createTableIfNotExists</span><span class="p">(</span><span class="s1">'Blog'</span><span class="p">,</span> <span class="p">(</span><span class="nx">tbl</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="nx">tbl</span><span class="p">.</span><span class="nx">increments</span><span class="p">(</span><span class="s1">'id'</span><span class="p">).</span><span class="nx">primary</span><span class="p">().</span><span class="nx">unique</span><span class="p">().</span><span class="nx">index</span><span class="p">();</span>
+    <span class="nx">tbl</span><span class="p">.</span><span class="nx">string</span><span class="p">(</span><span class="s1">'name'</span><span class="p">);</span>
+    <span class="nx">tbl</span><span class="p">.</span><span class="nx">string</span><span class="p">(</span><span class="s1">'writer'</span><span class="p">);</span>
+<span class="p">});</span></code></pre></figure>
+
+<p>คำสั่งข้างล่างนี้</p>
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="k">this</span><span class="p">.</span><span class="nx">knex</span><span class="p">.</span><span class="nx">schema</span><span class="p">.</span><span class="nx">dropTableIfExists</span><span class="p">(</span><span class="s1">'Blog'</span><span class="p">);</span></code></pre></figure>
+<p>คือการ Drop ตารางถ้าหากว่ามีตารางนี้แล้ว เทียบได้กับ คำสั่ง</p>
+
+<figure class="highlight"><pre><code class="language-sql" data-lang="sql"> <span class="k">DROP</span> <span class="k">TABLE</span> <span class="n">IF</span> <span class="n">EXIST</span> <span class="err">‘</span><span class="n">Blog</span><span class="err">’</span></code></pre></figure>
+<p>ใน MySQLและ </p>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="k">this</span><span class="p">.</span><span class="nx">knex</span><span class="p">.</span><span class="nx">schema</span><span class="p">.</span><span class="nx">createTableIfNotExists</span><span class="p">(</span><span class="s1">'Blog'</span><span class="p">,</span> <span class="p">(</span><span class="nx">tbl</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+	<span class="p">...</span>
+<span class="p">});</span> </code></pre></figure>
+
+<p>คือคำสั่งสำหรับตารางถ้ายังไม่มี</p>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">tbl</span><span class="p">.</span><span class="nx">increments</span><span class="p">(</span><span class="s1">'id'</span><span class="p">).</span><span class="nx">primary</span><span class="p">().</span><span class="nx">unique</span><span class="p">().</span><span class="nx">index</span><span class="p">();</span>
+<span class="nx">tbl</span><span class="p">.</span><span class="nx">string</span><span class="p">(</span><span class="s1">'name'</span><span class="p">);</span>
+<span class="nx">tbl</span><span class="p">.</span><span class="nx">string</span><span class="p">(</span><span class="s1">'writer'</span><span class="p">);</span></code></pre></figure>
+
+<p>คือการ set structure ให้ตาราง Blog โดยเทียบได้กับคำสั่ง</p>
+
+<figure class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="k">CREATE</span> <span class="k">TABLE</span> <span class="n">IF</span> <span class="k">NOT</span> <span class="k">EXISTS</span> <span class="err">‘</span><span class="n">Blog</span><span class="err">’</span> <span class="p">(</span><span class="err">‘</span><span class="n">id</span><span class="err">’</span> <span class="n">INT</span> <span class="n">UNSIGNED</span> <span class="k">NOT</span> <span class="k">NULL</span> <span class="n">AUTO_INCREMENT</span> <span class="k">PRIMARY</span> <span class="k">KEY</span><span class="p">,</span>
+<span class="err">‘</span><span class="n">name</span><span class="err">’</span> <span class="n">VARCHAR</span><span class="p">(</span><span class="mi">255</span><span class="p">),</span> <span class="err">‘</span><span class="n">writer</span><span class="err">’</span> <span class="n">VARCHAR</span><span class="p">(</span><span class="mi">255</span><span class="p">));</span></code></pre></figure>
+
+<p>ซึ่ง data type ใน knex มีครอบคลุมทุกประเภทใน MySQL โดยสามารถดูเพ่ิมเติมได้ที่ <a herf="http://knexjs.org/#Schema-Building" target="_blank">knexjs.org</a></p>
+
+<h1 id="create">CREATE</h1>
+
+<p>
+ต่อมาเรามาเริ่ม insert ข้อมูลชุดแรกลงฐานข้อมูลกัน โดยการ insert ข้อมูลของ knex มี 2 แบบคือ แบบธรรมดา และ แบบ Batch สำหรับ insert ข้อมูลจำนวนมาก
+	ตัวอย่างคำสั่ง insert ข้อมูลธรรมดา
+    
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">await</span> <span class="k">this</span><span class="p">.</span><span class="nx">knex</span><span class="p">(</span><span class="s1">'Blog'</span><span class="p">).</span><span class="nx">insert</span><span class="p">({</span><span class="na">name</span><span class="p">:</span> <span class="s1">'lonely insert'</span><span class="p">,</span> <span class="na">writer</span><span class="p">:</span> <span class="s1">'lonely man'</span><span class="p">});</span></code></pre></figure>
+
+	เทียบได้กับ
+
+<figure class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">Blog</span> <span class="p">(</span><span class="err">‘</span><span class="n">name</span><span class="err">’</span><span class="p">,</span> <span class="err">‘</span><span class="n">writer</span><span class="err">’</span><span class="p">)</span> <span class="k">VALUES</span> <span class="p">(</span><span class="err">‘</span><span class="n">lonely</span> <span class="k">insert</span><span class="err">’</span><span class="p">,</span><span class="err">’</span><span class="n">lonely</span> <span class="n">man</span><span class="err">’</span><span class="p">);</span></code></pre></figure>
+
+	หาต้องการ insert ID ให้เอาตัวแปลไปรับได้เลย เช่น 
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">let</span> <span class="nx">id</span> <span class="o">=</span> <span class="nx">await</span> <span class="k">this</span><span class="p">.</span><span class="nx">knex</span><span class="p">(</span><span class="s1">'Blog'</span><span class="p">).</span><span class="nx">insert</span><span class="p">({</span><span class="na">name</span><span class="p">:</span> <span class="s1">'lonely insert'</span><span class="p">,</span> <span class="na">writer</span><span class="p">:</span> <span class="s1">'lonely man'</span><span class="p">});</span></code></pre></figure>
+
+	ตัวอย่างคำสั่ง insert ข้อมูลแบบ Batch สำหรับ insert ข้อมูลจำนวนมาก
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">await</span> <span class="k">this</span><span class="p">.</span><span class="nx">knex</span><span class="p">.</span><span class="nx">batchInsert</span><span class="p">(</span><span class="s1">'Blog'</span><span class="p">,[{</span>
+        <span class="na">name</span><span class="p">:</span> <span class="s1">'hello world'</span><span class="p">,</span>
+        <span class="na">writer</span><span class="p">:</span> <span class="s1">'mike'</span>
+    <span class="p">},{</span>
+        <span class="na">name</span><span class="p">:</span> <span class="s1">'hello awesome'</span><span class="p">,</span>
+        <span class="na">writer</span><span class="p">:</span> <span class="s1">'nun'</span>
+    <span class="p">},{</span>
+        <span class="na">name</span><span class="p">:</span> <span class="s1">'this is awesome lib'</span><span class="p">,</span>
+        <span class="na">writer</span><span class="p">:</span> <span class="s1">'mike'</span>
+<span class="p">}]);</span></code></pre></figure>
+
+	เทียบได้กับ
+
+<figure class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">Blog</span> <span class="p">(</span><span class="err">‘</span><span class="n">name</span><span class="err">’</span><span class="p">,</span> <span class="err">‘</span><span class="n">writer</span><span class="err">’</span><span class="p">)</span> <span class="k">VALUES</span> <span class="p">(</span><span class="err">‘</span><span class="n">hello</span> <span class="n">world</span><span class="err">’</span><span class="p">,</span><span class="err">’</span><span class="n">mike</span><span class="err">’</span><span class="p">),(</span><span class="err">‘</span><span class="n">hello</span> <span class="n">awesome</span><span class="err">’</span><span class="p">,</span> <span class="err">’</span><span class="n">nun</span><span class="err">’</span><span class="p">),(</span><span class="err">‘</span><span class="n">this</span> <span class="k">is</span> <span class="n">awesome</span> <span class="n">lib</span><span class="err">’</span><span class="p">,</span> <span class="err">‘</span><span class="n">mike</span><span class="err">’</span><span class="p">);</span></code></pre></figure>
+
+</p>
+
+<h1 id="read">READ</h1>
+
+<p>
+	เมื่อเรา insert  ข้อมูลลงฐานข้อมูลเสร็จแล้วต่อมาเราจะทำการอ่านข้อมูลจากฐานข้อมูลซึ่งเราสามารถทำได้โดยใช้คำสั่งดังนี้
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">let</span> <span class="nx">data</span> <span class="o">=</span> <span class="nx">await</span> <span class="k">this</span><span class="p">.</span><span class="nx">knex</span><span class="p">(</span><span class="s1">'Blog'</span><span class="p">).</span><span class="nx">select</span><span class="p">();</span></code></pre></figure>
+
+	เทียบได้กับ
+
+<figure class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">Blog</span></code></pre></figure>
+
+	หรือหากต้องการใส่เงื่อนไขในการคิวรี่ข้อมูลก็สามารถทำได้ดังนี้
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">let</span> <span class="nx">data</span> <span class="o">=</span> <span class="nx">await</span> <span class="k">this</span><span class="p">.</span><span class="nx">knex</span><span class="p">(</span><span class="s1">'Blog'</span><span class="p">).</span><span class="nx">where</span><span class="p">({</span><span class="na">writer</span><span class="p">:</span> <span class="s1">'mike'</span><span class="p">}).</span><span class="nx">select</span><span class="p">();</span></code></pre></figure>
+
+	เทียบได้กับ
+
+<figure class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">Blog</span> <span class="k">WHERE</span> <span class="n">writer</span> <span class="o">=</span> <span class="err">‘</span><span class="n">mike</span><span class="err">’</span></code></pre></figure>
+
+	นอกจากนี้คำสั่งที่ใช้การคิวรี่อื่นๆ เช่น JOIN, COUNT, SUM, GROUP BY และอื่นๆ knex ก็รองรับนะครับโดยสามารถดูตัวอย่างการใช้งานได้ที่นี่นะครับ 
+    <a herf="http://knexjs.org/" target="_blank">knexjs.org</a>
+</p>
+
+<h1 id="update">UPDATE</h1>
+
+<p>
+READ เสร็จแล้วต่อมาก็คือ UPDATE ซึ่งใน การ UPDATE ก็สามารถทำได้ดังนี้
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">await</span> <span class="k">this</span><span class="p">.</span><span class="nx">knex</span><span class="p">(</span><span class="s1">'Blog'</span><span class="p">).</span><span class="nx">where</span><span class="p">({</span><span class="na">writer</span><span class="p">:</span> <span class="s1">'lonely man'</span><span class="p">}).</span><span class="nx">update</span><span class="p">({</span><span class="na">name</span><span class="p">:</span> <span class="s1">'not alone insert'</span><span class="p">});</span></code></pre></figure>
+
+ เทียบได้กับ
+
+<figure class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="k">UPDATE</span> <span class="n">Blog</span> <span class="k">SET</span> <span class="n">name</span> <span class="o">=</span> <span class="s1">'not alone insert'</span> <span class="k">WHERE</span> <span class="n">writer</span> <span class="o">=</span> <span class="s1">'lonely man'</span></code></pre></figure>
+
+</p>
+
+<h1 id="delete">DELETE</h1>
+
+<p>
+	สุดท้ายแล้วนะครับเมื่อเรา CREATE READ UPDATE จนหนำใจแล้วพอเราเริ่มเบื่อเราก็ลบมันทิ้งโดยใช้คำสั่งดังนี้
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">await</span> <span class="k">this</span><span class="p">.</span><span class="nx">knex</span><span class="p">(</span><span class="s1">'Blog'</span><span class="p">).</span><span class="nx">where</span><span class="p">({</span><span class="na">writer</span><span class="p">:</span> <span class="s1">'mike'</span><span class="p">}).</span><span class="nx">del</span><span class="p">();</span></code></pre></figure>
+
+เทียบได้กับ
+
+<figure class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="k">DELETE</span> <span class="k">from</span> <span class="n">Blog</span> <span class="k">WHERE</span> <span class="n">writer</span> <span class="o">=</span> <span class="s1">'mike'</span></code></pre></figure>
+
+</p>
+
+<h1 id="conclusion">Conclusion</h1>
+
+<p>หมดแล้วครับสำหรับบทความนี้ก็สั้นหน่อยนะครับเพราะแอบเขียนในที่ทำงานแหะๆ เหมือนเดิมครับ source code อยู่บน Github ตามลิงค์นี้นะจ๊ะ
+<a href="https://github.com/freeweed/knex-example" target="_blank">Github</a>
+&lt;/p&gt;</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            
+            <a href="/tag/#/node.js" rel="tag"># node.js</a>
+          
+            
+            <a href="/tag/#/javascript" rel="tag"># javascript</a>
+          
+            
+            <a href="/tag/#/MySql" rel="tag"># MySql</a>
+          
+        </div>
+      
+
+      
+      
+      
+      
+      
+
+      
+      
+        <div class="post-nav" id="post-nav-id">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/backend/framework/2017/12/04/loopback-nodejs-framework/" rel="next" title="เขียน RESTful API ใน Node.js แบบ 'โคตรไว' ด้วย Loopback">
+                <i class="fa fa-chevron-left"></i> เขียน RESTful API ใน Node.js แบบ 'โคตรไว' ด้วย Loopback
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/mobile/2017/03/28/ionic2-notification/" rel="prev" title="วิธีทำ Notification(แจ้งเตือน) ให้ Ionic2 ด้วย Firebase และ Node.js">
+                วิธีทำ Notification(แจ้งเตือน) ให้ Ionic2 ด้วย Firebase และ Node.js <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+      
+
+      
+    </footer>
+  </article>
+
+  <div class="post-spread">
+    
+  </div>
+</div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+        
+        
+        
+
+
+
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/assets/images/avatar.jpg"
+               alt="Freeweed" />
+          <p class="site-author-name" itemprop="name">Freeweed</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+           
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-name">posts</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/">
+                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-name">categories</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/">
+                <span class="site-state-item-count">12</span>
+                <span class="site-state-item-name">tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+        
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              
+              
+              <span class="links-of-author-item">
+                <a href="https://github.com/noob-studio" target="_blank" title="Github">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  Github
+                </a>
+              </span>
+            
+              
+              
+              <span class="links-of-author-item">
+                <a href="https://www.facebook.com/allstar.pajiko" target="_blank" title="Facebook">
+                  
+                    <i class="fa fa-fw fa-facebook"></i>
+                  
+                  Facebook
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+
+
+
+
+            
+              <div class="post-toc-content">
+    <ol class=nav>
+      <li class="nav-item nav-level-1"> <a class="nav-link" href="#what-is-knexjs"> <span class="nav-number">1</span> <span class="nav-text">What is knex.js</span> </a> <ol class="nav-child"> <ol class="nav-child"> <ol class="nav-child"> <ol class="nav-child"> <ol class="nav-child"> </li></ol> </li></ol> </li></ol> </li></ol> </li></ol> </li> <li class="nav-item nav-level-1"> <a class="nav-link" href="#setup"> <span class="nav-number">2</span> <span class="nav-text">Setup</span> </a> <ol class="nav-child"> <ol class="nav-child"> <ol class="nav-child"> <ol class="nav-child"> <ol class="nav-child"> </li></ol> </li></ol> </li></ol> </li></ol> </li></ol> </li> <li class="nav-item nav-level-1"> <a class="nav-link" href="#connect-database"> <span class="nav-number">3</span> <span class="nav-text">Connect Database</span> </a> <ol class="nav-child"> <ol class="nav-child"> <ol class="nav-child"> <ol class="nav-child"> <ol class="nav-child"> </li></ol> </li></ol> </li></ol> </li></ol> </li></ol> </li> <li class="nav-item nav-level-1"> <a class="nav-link" href="#do-table-job"> <span class="nav-number">4</span> <span class="nav-text">Do table Job</span> </a> <ol class="nav-child"> <ol class="nav-child"> <ol class="nav-child"> <ol class="nav-child"> <ol class="nav-child"> </li></ol> </li></ol> </li></ol> </li></ol> </li></ol> </li> <li class="nav-item nav-level-1"> <a class="nav-link" href="#create"> <span class="nav-number">5</span> <span class="nav-text">CREATE</span> </a> <ol class="nav-child"> <ol class="nav-child"> <ol class="nav-child"> <ol class="nav-child"> <ol class="nav-child"> </li></ol> </li></ol> </li></ol> </li></ol> </li></ol> </li> <li class="nav-item nav-level-1"> <a class="nav-link" href="#read"> <span class="nav-number">6</span> <span class="nav-text">READ</span> </a> <ol class="nav-child"> <ol class="nav-child"> <ol class="nav-child"> <ol class="nav-child"> <ol class="nav-child"> </li></ol> </li></ol> </li></ol> </li></ol> </li></ol> </li> <li class="nav-item nav-level-1"> <a class="nav-link" href="#update"> <span class="nav-number">7</span> <span class="nav-text">UPDATE</span> </a> <ol class="nav-child"> <ol class="nav-child"> <ol class="nav-child"> <ol class="nav-child"> <ol class="nav-child"> </li></ol> </li></ol> </li></ol> </li></ol> </li></ol> </li> <li class="nav-item nav-level-1"> <a class="nav-link" href="#delete"> <span class="nav-number">8</span> <span class="nav-text">DELETE</span> </a> <ol class="nav-child"> <ol class="nav-child"> <ol class="nav-child"> <ol class="nav-child"> <ol class="nav-child"> </li></ol> </li></ol> </li></ol> </li></ol> </li></ol> </li> <li class="nav-item nav-level-1"> <a class="nav-link" href="#conclusion"> <span class="nav-number">9</span> <span class="nav-text">Conclusion</span> </a> <ol class="nav-child"> <ol class="nav-child"> <ol class="nav-child"> <ol class="nav-child"> <ol class="nav-child">
+    </ol>
+  </div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  
+  &copy; 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Freeweed</span>
+</div>
+
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="https://jekyllrb.com">Jekyll</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/simpleyyt/jekyll-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+   
+  
+  
+  
+  
+  
+  <script type="text/javascript" src="/assets/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  
+  
+  
+  
+  <script type="text/javascript" src="/assets/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  
+  
+  
+  
+  <script type="text/javascript" src="/assets/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  
+  
+  
+  
+  <script type="text/javascript" src="/assets/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  
+  
+  
+  
+  <script type="text/javascript" src="/assets/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  
+  
+  
+  
+  <script type="text/javascript" src="/assets/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/assets/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/assets/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+  <script type="text/javascript" src="/assets/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/assets/js/src/post-details.js?v=5.1.1"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/assets/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://noob-studio.disqus.com/count.js" async></script>
+    
+
+    
+      
+      <script type="text/javascript">
+          var disqus_config = function () {
+              this.page.url = 'http://localhost:4000/backend/database/library/2017/11/29/knex-nodejs-orm/';
+              this.page.identifier = '/backend/database/library/2017/11/29/knex-nodejs-orm/';
+              this.page.title = 'วิธีใช้ knex.js จัดการฐานข้อมูล MySQL ใน Node.js';
+          };
+          var d = document, s = d.createElement('script');
+          s.src = 'https://noob-studio.disqus.com/embed.js';
+          s.setAttribute('data-timestamp', '' + +new Date());
+          (d.head || d.body).appendChild(s);
+      </script>
+      
+    
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+  
+
+  
+  
+
+
+  
+
+  
+  <script type="text/javascript" src="/assets/js/src/js.cookie.js?v=5.1.1"></script>
+  <script type="text/javascript" src="/assets/js/src/scroll-cookie.js?v=5.1.1"></script>
+
+
+  
+
+</body>
+</html>
+

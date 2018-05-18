@@ -6,15 +6,30 @@ subtitle:   "มาทำแอพแชทแบบง่ายๆ ไว้ค
 date:       2017-03-18 20:07:00
 author:     "ป๋าแพะ"
 header-img: "img/ionic-chat/cover.jpg"
+categories:
+ - mobile
+ - backend
+tags: 
+ - node.js
+ - ionic framework
+ - Typescript
+ - javascript
+ - firebase
+ - Angular
+ - socket.io
 ---
+<img src="{{ site.baseurl }}/img/ionic-chat/cover.jpg" alt="วิธีทำแอพแชทง่ายๆ ด้วย Ionic2"/>
 <p>เบื่อไหมครับที่เวลาจะเขียนแอพขึ้นมาซักแอพหนึ่งเนี่ยต้องนั่งทำทั้ง Android iOS ไหนจะต้องเรียนรู้ภาษาใหม่ๆ ทั้ง Java Swift โหยลำบากวุ่นวายอ่ะ แล้วทำไมกูต้องไปเรียนรู้ภาษาใหม่ๆด้วยว่ะครับ ทั้งๆ ที่กูก็เขียบเว็ปเป็นอยู่แล้วทำไมจะเอาพวก Javascript CSS HTML มาทำแอพไม่ได้!! แต่ช้าก่อนนี่มันโลกยุค 2017 แล้วนะจ๊ะ TV Direct ขอนำเสนอ <a href="https://ionicframework.com/" target="_blank">Ionic2</a> !</p>
 
 <blockquote>สมัยก่อนการทำแอพขึ้นมาซักแอพนึงเนี่ยต้องทำทั้ง iOS และ Android แต่เดี๋ยวนี้ไม่ต้องแล้ว</blockquote>
 
-<h2 class="section-heading">What is Ionic2</h2>
+# What is Ionic2
+
 <p>Ionic2 คือเครื่องมือที่ทำให้เราสามารถเขียนแอพเพียงครั้งเดียวสามารถทำงานได้ทุก Platform (หรือที่เรียกแบบเกร๋ๆ ว่า Cross Platform) โดยใช้แค่ Javascript CSS HTML ในการเขียนโปรแกรมซึ่งการทำงานของ Ionic2 ก็คือตัว Ionic2 จะทำตัวเป็นเหมือน Browser ที่แสดงเฉพาะเว็ปๆ เดียวก็คือเว็ปที่เราเขียนขึ้นมานั่นเองซึ่งเราจะเรียกแอพที่ทำงานในลักษณะนี้ว่า Hybrid App หลายคนอ่านมาถึงตรงนี้อาจจะคิดว่ามันก็คือเว็ปธรรมดาก็ไม่เหมือนแอพจริงๆ สิ ผมขอบอกตรงนี้นะครับนี่มันโลกยุคไหนแล้วถ้าไม่มีคนบอกผมนั่งยันนอนยันตะแคงข้างยันเลยว่ายังไงก็ดูไม่ออกเอาล่ะโม้มาเยอะแล้วมาเริ่มกันเถอะ</p>
 <blockquote>Javascript ที่ Ionic2 ใช้คือ <a href="https://angular.io/" target="_blank">Angular2</a> นะครับ</blockquote>
-<h2 class="section-heading">Required & Install</h2>
+
+# Required & Install
+
 <p>สิ่งที่ต้องการสำหรับใช้งาน</p>
 
 <ul>
@@ -26,7 +41,8 @@ header-img: "img/ionic-chat/cover.jpg"
     <li>ในบทความนี้จะไม่ลงรายละเอียดถึงตัว Angular2 เยอะนะครับควรจะศึกษามาบ้างเล็กน้อยเพื่อความเข้าใจ</li>
 </ul>
 
-<h2 class="section-heading">Start Server</h2>
+# Start Server
+
 <p>เมื่อเรามีสิ่งที่ต้องหมดแล้วต่อมาก็มาเริ่มกันเถอะ โดยเราจะเริ่มจากทำฝั่ง Server ก่อนนะจ๊ะ</p>
 <pre>
     mkdir ionic-chat
@@ -117,7 +133,9 @@ server.listen(5555, () => {
 <p>เมื่อทดลองเข้าผ่านหน้าเว็ปไปที่ <a href="http://localhost:5555" target="_blank">http://localhost:5555</a> จะได้หน้าตาดังภาพข้างล่างนี้</p>
 <img src="{{ site.baseurl }}/img/ionic-chat/img01.png" alt="ทดลองรัน server">
 <span class="caption text-muted">ทดลองรัน server ผ่าน Browser</span>
-<h2 class="section-heading">Start Ionic2</h2>
+
+# Start Ionic2
+
 <p>เอาล่ะครับน่าจะถึงเวลาที่ทุกคนรอคอยได้เขียนแอพจริงๆซักที 5555 เริ่มด้วยคำสั่ง</p>
 <pre>
 ionic start ionic-chat-client blank --v2
@@ -261,6 +279,9 @@ this.socketHost = "192.168.1.28:5555";
 ionic platform add android
 ionic run android
 </pre>
+
+# Conclusion
+
 <p>ศึกษาเพิ่มเติม
 <ul>
     <li><a href="https://ionicframework.com/" target="_blank">Ionic2</a></li>

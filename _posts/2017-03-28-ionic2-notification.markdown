@@ -6,14 +6,27 @@ subtitle:   "วิธี push notification สำหรับ Ionic 2 แบบ
 date:       2017-03-28 22:41:00
 author:     "ป๋าแพะ"
 header-img: "img/ionic-notification/cover.jpg"
+categories:
+ - mobile
+tags: 
+ - node.js
+ - ionic framework
+ - Typescript
+ - javascript
+ - firebase
+ - Angular
 ---
+<img src="{{ site.baseurl }}/img/ionic-notification/cover.jpg" alt="วิธีทำ Notification(แจ้งเตือน) ให้ Ionic2 ด้วย Firebase และ Node.js"/>
 <p>สวัสดีครับหลังจากคราวก่อนได้เขียนวิธีสร้าง <a href="{{ site.baseurl}}{% post_url 2017-03-18-ionic-chat %}">แอพพลิเคชันแชทแบบง่ายๆ ด้วย Ionic2 Node.js</a> ก็มีคนบอกว่าอยากให้เขียนวิธีการแจ้งเตือนให้มือถือและผมก็คิดเรื่องจะเขียนไม่ออกด้วยครับช่วงนี้เพราะฉะนั้นวันนี้ีเราทำแจ้งเตือนกันเถอะ 555 โดยแจ้งเตือนเนี่ยมี 2 แบบคือแบบ Local Notification และไม่ Local โดยจะแตกต่างกันดังนี้</p>
+
 <ul>
 <li>Local Notification (เกมเตือนให้รับของประจำวัน) ไม่จำเป็นต้องมี Server เป็นการตั้งค่าให้แจ้งเตือนตามเวลาที่ตั้งไว้ข้อดีคือง่ายแต่มีข้อเสียคือข้อมูลจะตายตัวไม่มีการเปลี่ยนแปลง (ไว้บทความถัดไปนะจ๊ะ)</li>
 <li>ไม่ Local (facebook, line) จำเป็นต้องมี Server เพื่อส่งแจ้งเตือนให้แอพพลิเคชันมีข้อดีคือสามารถแจ้งเตือนเมื่อไหร่ก็ได้ข้อมูลสามารถยืดหยุ่นตาม Server ส่งมาให้ (สอนในบทความนี้)</li>
 </ul>
 <blockquote>แจ้งเตือนที่มีข้อมูลแบบไม่ตายตัว(app แชททั่วไป) ต้องมี server แจ้งเตือนแบบตายตัว(เช่น เกมเตือนให้รับของประจำวัน) ไม่จำเป็นต้องมี server</blockquote>
-<h2 class="section-heading">Required & Install</h2>
+
+# Required & Install
+
 <p>สิ่งที่จะใช้ในการทำแจ้งเตือนของบทความนี้มีดังนี้</p>
 <ul>
     <li>Node.js เวอร์ชันล่าสุด</li>
@@ -22,7 +35,8 @@ header-img: "img/ionic-notification/cover.jpg"
     <li>ในการทดสอบโทรศัพท์มือถือและคอมเครื่องที่ใช้เป็น server ต้องต่อเน็ตวงเดียวกันนะจ๊ะ (Wifi อันเดียวกัน)</li>
 </ul>
 
-<h2 class="section-heading">Init Firebase</h2>
+# Init Firebase
+
 <p>ขั้นแรกให้เราเปิดเว็ปไซด์ <a href="https://firebase.google.com/?hl=en" target="_blank">Firebase</a> ขึ้นมาพร้อม Login ให้เรียบร้อยหากยังไม่มีโปรเจคให้สร้างโปรเจคด้วยนะครับ</p>
 <img src="{{ site.baseurl }}/img/ionic-notification/img01.png">
 <span class="caption text-muted">สร้างโปรเจคขึ้นมาใน Firebase</span>
@@ -33,7 +47,9 @@ header-img: "img/ionic-notification/cover.jpg"
     <li>Server Key ใช้สำหรับใส่ใน Server ของเรา</li>
     <li>Sender ID ใช้สำหรับใส่ในแอพของเรา</li>
 </ul>
-<h2 class="section-heading">Start Server</h2>
+
+# Start Server
+
 <p>เมื่อเราตั้งค่า Firebase เสร็จแล้วต่อไปเรามาเริ่มสร้าง Server สำหรับส่งแจ้งเตือนกันนะจ๊ะ</p>
 <pre>
     mkdir ionic-notification
@@ -151,7 +167,9 @@ sender.send(message, token, retry_times, (result) => {
   node index.js
   Program running on port : 5555
 </pre>
-<h2 class="section-heading">Start Ionic</h2>
+
+# Start Ionic
+
 <p>เอาล่ะไม่ต้องบรรยายมากมาเริ่มกันเตอะ</p>
 <pre>
 ionic start ionic-notification-client blank --v2
@@ -275,6 +293,9 @@ app.get('/send', (req, res) => {
 <p>หลังจากนั้นให้ลองออกจากแอพแล้วเปิด Browser ไปที่พาท <a href="http://localhost:5555/send" target="_blank">http://localhost:5555/send</a> จะมีแจ้งเตือนขึ้นดังภาพ</p>
 <img src="{{ site.baseurl }}/img/ionic-notification/img04.jpg">
 <span class="caption text-muted">เย้ๆ มีแจ้งเตือนแล้วจ้า</span>
+
+# Conclution
+
 <p>เพียงเท่านี้ก็เสร็จแล้วจ้าสำหรับการแจ้งเตือนในบทความนี้ยังเป็นพื้นฐานมากๆ นะครับเพื่อนๆต้องเอาไปปรับปรุงต่อเพื่อนำมาใช้จริงต่อไปนะจ๊ะ</p>
 <p>ศึกษาเพิ่มเติม
     <ul>
