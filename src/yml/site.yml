@@ -1,21 +1,26 @@
-name: Jekflix
-title: Jekflix | A blog theme for Jekyll
-description: Jekflix is a template for Jekyll inspired by Netflix and made by Thiago Rossener.
+# Site Settings
+name: Noob Studio
+title: รับทำเว็บไซด์ และเว็บแอพพลิเคชันทันสมัย สวยงาม
+description: รับทำเว็บไซด์ โดยฟรีแลนซ์มืออาชีพประสบการณ์ มากกว่า 4 ปีพร้อมให้คำปรึกษาฟรี ทำได้ทั้งเว็บไซด์ และเว็บแอพพลิเคชัน ให้ผมช่วยแก้ไขปัญหาธุรกิจของคุณในยุคโลกาพิวัณ
 tags:
-  - blog
-  - template
-  - jekyll
-  - theme
-  - netlify
-email: youremail@xyz.com
-disqus_username: disqus_username
+  - รับทำเว็บไซด์
+  - รับเขียนโปรแกรม
+  - แอพพลิเคชัน
+  - e-commerce
+  - เว็บขายของ
+  - ระบบจัดการสต๊อค
+email: noob-studio101@gmail.com
 show_hero: true
 menu:
   - title: Home
     url: /
-  - title: About
-    url: /about
+  - title: Service
+    url: /service
+  - title: Stock Management
+    url: /boonstock
   - title: Contact
     url: /contact
+  - title: Tags
+    url: /tags
   - title: Feed
     url: /feed.xml

@@ -187,6 +187,13 @@
     
     
         <url>
+            <loc>http://localhost:4000/Angular-EP-01/</loc>
+            <changefreq>weekly</changefreq>
+            <priority>0.8</priority>
+            <lastmod>2020-02-21</lastmod>
+        </url>
+    
+        <url>
             <loc>http://localhost:4000/seneca-nodejs-microservice/</loc>
             <changefreq>weekly</changefreq>
             <priority>0.8</priority>
@@ -244,7 +251,7 @@
     
     
         <url>
-            <loc>http://localhost:4000/authors/thiagorossener/</loc>
+            <loc>http://localhost:4000/authors/freeweed/</loc>
             <changefreq>monthly</changefreq>
             <priority>0.5</priority>
         </url>

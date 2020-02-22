@@ -5,9 +5,41 @@
     <description>รับทำเว็บไซด์ โดยฟรีแลนซ์มืออาชีพประสบการณ์ มากกว่า 4 ปีพร้อมให้คำปรึกษาฟรี ทำได้ทั้งเว็บไซด์ และเว็บแอพพลิเคชัน ให้ผมช่วยแก้ไขปัญหาธุรกิจของคุณในยุคโลกาพิวัณ</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sat, 22 Feb 2020 15:18:03 +0700</pubDate>
-    <lastBuildDate>Sat, 22 Feb 2020 15:18:03 +0700</lastBuildDate>
+    <pubDate>Sat, 22 Feb 2020 19:00:07 +0700</pubDate>
+    <lastBuildDate>Sat, 22 Feb 2020 19:00:07 +0700</lastBuildDate>
     <generator>Jekyll v3.8.6</generator>
+    
+      <item>
+        <title>Programming 101 - Angular 'n Bootstrap EP. 01</title>
+        <description>&lt;p&gt;&lt;img src=&quot;/img/angular/cover.jpg&quot; alt=&quot;บริการรับทำเว็บไซด์ แอพพลิเคชัน ระบบสำหรับใช้ในองค์กร เว็บขายของระบบ E-commerce หรือระบบต่างๆ&quot; /&gt; สวัสดีครับห่างหายจากการเขียนบล๊อคไปนาน วันนี้ผมก็จะกลับมาเขียนใหม่นะครับ โดยมารอบนี้จะเขียนเป็นซีรี่เลยชื่อซีรี่ว่า Angular ‘n Bootstrap โดยเนื้อหาในซีรี่นี้เราจะสอนตั้งแต่เริ่มต้นการใช้งาน ไปเรื่อยๆ แล้วแต่อารมณ์คนเขียนนะครับ 5555 ปล. เราจะเน้นการปฎิบัติมากกว่าทฤษฎีนะครับ เพราะทฤษฎีเราไม่มีเรามีแต่ทฤษเดา 55555&lt;/p&gt; &lt;h1 id=&quot;prepare&quot;&gt;Prepare&lt;/h1&gt; &lt;p&gt;สิ่งที่ต้องการก่อนเริ่มอ่านบทความนี้&lt;/p&gt; &lt;ul&gt; &lt;li&gt;ความรู้พื้นฐาน Javscript&lt;/li&gt; &lt;li&gt;ความรู้พื้นฐาน Bootstrap&lt;/li&gt; &lt;li&gt;ติดตั้ง &lt;a href=&quot;https://angular.io/&quot; target=&quot;_blank&quot;&gt;Angular CLI&lt;/a&gt; บนเครื่องให้เรียบร้อย&lt;/li&gt; &lt;/ul&gt; &lt;blockquote&gt; &lt;p&gt;Angular คือ Javascript Framework ตัวนึงเกิดขึ้นมาตั้งแต่ปี 2016 โดยในปัจจุบันก็มาถึง version 8 แล้วนะครับ ข้อดีของ Angular คือ Code สามารถนำไป reuse ได้ง่ายเครื่องไม้เครื่องมือมีครบ และที่สำคัญคือ two-way binding ทำให้ทุกอย่างง่ายขึ้นเยอะ สำหรับข้อมูลเพิ่มเติมอื่นๆ สามารถหาอ่านได้ที่ &lt;a href=&quot;https://angular.io/&quot; target=&quot;_blank&quot;&gt;angular.io&lt;/a&gt; นะครับ&lt;/p&gt; &lt;/blockquote&gt; &lt;h1 id=&quot;new-angular-project&quot;&gt;New Angular Project&lt;/h1&gt; &lt;p&gt;เปิด Terminal ขึ้นมาแล้วพิมพ์คำสั่ง&lt;/p&gt; &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;ng new awesome-angular &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt; &lt;p&gt;จะขึ้นหน้าจอถามว่าต้องการใช้ style ประเภทไหนผมเลือก css และมีคำสั่งถามว่าต้องการใช้ angular route หรือไม่ให้ตอบ yes&lt;/p&gt; &lt;p&gt;&lt;img src=&quot;/img/angular/ep01/start-angular.png&quot; alt=&quot;บริการรับทำเว็บไซด์ แอพพลิเคชัน ระบบสำหรับใช้ในองค์กร เว็บขายของระบบ E-commerce หรือระบบต่างๆ&quot; /&gt;&lt;/p&gt; &lt;p&gt;เมื่อทำการตั้งค่าเสร็จให้พิมพ์คำสั่ง&lt;/p&gt;...</description>
+        <pubDate>Fri, 21 Feb 2020 22:33:00 +0700</pubDate>
+        <link>http://localhost:4000/Angular-EP-01/</link>
+        <guid isPermaLink="true">http://localhost:4000/Angular-EP-01/</guid>
+        
+        <category>node.js</category>
+        
+        <category>Programing101</category>
+        
+        <category>Typescript</category>
+        
+        <category>javascript</category>
+        
+        <category>Angular</category>
+        
+        <category>Bootstrap</category>
+        
+        <category>jquery</category>
+        
+        <category>รับงาน</category>
+        
+        <category>รับทำเว็บไซด์</category>
+        
+        <category>รับเขียนโปรแกรม</category>
+        
+        <category>รับพัฒนาระบบ</category>
+        
+        <category></category>
+      </item>
     
       <item>
         <title>เขียน Microservice ด้วย Node.js และ Seneca.js</title>

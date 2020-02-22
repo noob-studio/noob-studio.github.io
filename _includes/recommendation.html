@@ -1,10 +1,10 @@
 <div class="recommendation">
     <div class="message">
-        <strong>{{ site.translations.recommendation.text | default: "Why don't you read something next?" }}</strong>
+        <strong>{{ site.translations.recommendation.text | default: "อ่านเรื่องราวที่หน้าสนใจอื่นๆ" }}</strong>
         <div>
             <button>
                 <svg><use xlink:href="#icon-arrow-right"></use></svg>
-                <span>{{ site.translations.recommendation.back_btn | default: "Go back to top" }}</span>
+                <span>{{ site.translations.recommendation.back_btn | default: "กลับด้านบน" }}</span>
             </button>
         </div>
     </div>
@@ -18,12 +18,14 @@
     <a href="{{ recommendation.url | prepend: site.baseurl }}" class="post-preview">
         <div class="image">
             {% if recommendation.optimized_image %}
-                <img src="{{ recommendation.optimized_image }}">
-            {% elsif recommendation.image %}
-                <img src="{{ recommendation.image }}">
+                {% assign image = site.url | append: '/' | append: recommendation.optimized_image %} 
+            {% elsif post.image %}
+                {% assign image = site.url | append: '/' | append: recommendation.image %}
             {% else %}
-                <img src="/assets/img/off.jpg">
+                {% assign image = '/assets/img/off.jpg"' %}
+                
             {% endif %}
+            <img src="{{image}}">
         </div>
         <h3 class="title">{{ recommendation.title }}</h3>
     </a>

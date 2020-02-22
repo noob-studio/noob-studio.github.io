@@ -1,0 +1,1237 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+    <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+    
+
+    
+    
+
+    
+    
+
+    
+    
+
+    <title>Programming 101 - Angular 'n Bootstrap EP. 01 | Noob Studio</title>
+    <meta name="description" content="ในบทความนี้เราจะมาสอนการใช้งาน Bootstrap 4 ร่วมกับ Angular 8 รวมทั้ง Angular Component และการใช้ Bootstrap Theme เบื้องต้นสำหรับเริ่ม Project ใหม่">
+    
+        <meta name="keywords" content="node.js, Programing101, Typescript, javascript, Angular, Bootstrap, jquery, รับงาน, รับทำเว็บไซด์, รับเขียนโปรแกรม, รับพัฒนาระบบ">
+    
+
+    <!-- Social: Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Programming 101 - Angular 'n Bootstrap EP. 01 | Noob Studio">
+    <meta name="twitter:description" content="ในบทความนี้เราจะมาสอนการใช้งาน Bootstrap 4 ร่วมกับ Angular 8 รวมทั้ง Angular Component และการใช้ Bootstrap Theme เบื้องต้นสำหรับเริ่ม Project ใหม่">
+    <meta property="twitter:image:src" content="img/angular/cover.jpg">
+    
+
+    <!-- Social: Facebook / Open Graph -->
+    <meta property="og:url" content="http://localhost:4000/Angular-EP-01/">
+    <meta property="og:title" content="Programming 101 - Angular 'n Bootstrap EP. 01 | Noob Studio">
+    <meta property="og:image" content="img/angular/cover.jpg">
+    <meta property="og:description" content="ในบทความนี้เราจะมาสอนการใช้งาน Bootstrap 4 ร่วมกับ Angular 8 รวมทั้ง Angular Component และการใช้ Bootstrap Theme เบื้องต้นสำหรับเริ่ม Project ใหม่">
+    <meta property="og:site_name" content="รับทำเว็บไซด์ และเว็บแอพพลิเคชันทันสมัย สวยงาม">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+    
+    <!-- Apple Touch Icons -->
+    <link rel="apple-touch-icon" href="/assets/img/icons/apple-touch-icon.png" />
+    <link rel="apple-touch-icon" sizes="57x57" href="/assets/img/icons/apple-touch-icon-57x57.png" />
+    <link rel="apple-touch-icon" sizes="72x72" href="/assets/img/icons/apple-touch-icon-72x72.png" />
+    <link rel="apple-touch-icon" sizes="114x114" href="/assets/img/icons/apple-touch-icon-114x114.png" />
+    <link rel="apple-touch-icon" sizes="144x144" href="/assets/img/icons/apple-touch-icon-144x144.png" />
+    <link rel="apple-touch-icon" sizes="60x60" href="/assets/img/icons/apple-touch-icon-60x60.png" />
+    <link rel="apple-touch-icon" sizes="120x120" href="/assets/img/icons/apple-touch-icon-120x120.png" />
+    <link rel="apple-touch-icon" sizes="76x76" href="/assets/img/icons/apple-touch-icon-76x76.png" />
+    <link rel="apple-touch-icon" sizes="152x152" href="/assets/img/icons/apple-touch-icon-152x152.png" />
+
+    <!-- Windows 8 Tile Icons -->
+    <meta name="application-name" content="Noob Studio">
+    <meta name="msapplication-TileColor" content="#141414">
+    <meta name="msapplication-square70x70logo" content="smalltile.png" />
+    <meta name="msapplication-square150x150logo" content="mediumtile.png" />
+    <meta name="msapplication-wide310x150logo" content="widetile.png" />
+    <meta name="msapplication-square310x310logo" content="largetile.png" />
+    
+    <!-- Android Lolipop Theme Color -->
+    <meta name="theme-color" content="#141414">
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Titillium+Web:300,400,700" rel="stylesheet">
+
+    <link rel="stylesheet" href="/assets/css/styles.css">
+    <link rel="canonical" href="http://localhost:4000/Angular-EP-01/">
+    <link rel="alternate" type="application/rss+xml" title="รับทำเว็บไซด์ และเว็บแอพพลิเคชันทันสมัย สวยงาม" href="http://localhost:4000/feed.xml" />
+
+    <!-- Include extra styles -->
+    
+
+    <!-- JavaScript enabled/disabled -->
+    <script>
+        document.querySelector('html').classList.remove('no-js');
+    </script>
+</head>
+
+    <body class="has-push-menu">
+        
+
+
+
+
+
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" display="none" version="1.1"><defs><symbol id="icon-menu" viewBox="0 0 1024 1024"><path class="path1" d="M128 213.333h768q17.667 0 30.167 12.5t12.5 30.167-12.5 30.167-30.167 12.5h-768q-17.667 0-30.167-12.5t-12.5-30.167 12.5-30.167 30.167-12.5zM128 725.333h768q17.667 0 30.167 12.5t12.5 30.167-12.5 30.167-30.167 12.5h-768q-17.667 0-30.167-12.5t-12.5-30.167 12.5-30.167 30.167-12.5zM128 469.333h768q17.667 0 30.167 12.5t12.5 30.167-12.5 30.167-30.167 12.5h-768q-17.667 0-30.167-12.5t-12.5-30.167 12.5-30.167 30.167-12.5z"/></symbol><symbol id="icon-search" viewBox="0 0 951 1024"><path class="path1" d="M658.286 475.429q0-105.714-75.143-180.857t-180.857-75.143-180.857 75.143-75.143 180.857 75.143 180.857 180.857 75.143 180.857-75.143 75.143-180.857zM950.857 950.857q0 29.714-21.714 51.429t-51.429 21.714q-30.857 0-51.429-21.714l-196-195.429q-102.286 70.857-228 70.857-81.714 0-156.286-31.714t-128.571-85.714-85.714-128.571-31.714-156.286 31.714-156.286 85.714-128.571 128.571-85.714 156.286-31.714 156.286 31.714 128.571 85.714 85.714 128.571 31.714 156.286q0 125.714-70.857 228l196 196q21.143 21.143 21.143 51.429z"/></symbol><symbol id="icon-close" viewBox="0 0 1000 1000"><path d="M969.8,870.3c27,27.7,27,71.8,0,99.1C955.7,983,937.9,990,920,990c-17.9,0-35.7-7-49.7-20.7L500,599L129.6,969.4C115.6,983,97.8,990,79.9,990s-35.7-7-49.7-20.7c-27-27.3-27-71.4,0-99.1L400.9,500L30.3,129.3c-27-27.3-27-71.4,0-99.1c27.3-27,71.8-27,99.4,0L500,400.9L870.4,30.2c27.7-27,71.8-27,99.4,0c27,27.7,27,71.8,0,99.1L599.1,500L969.8,870.3z"/></symbol><symbol id="icon-twitter" viewBox="0 0 951 1024"><path class="path1" d="M925.714 233.143q-38.286 56-92.571 95.429 0.571 8 0.571 24 0 74.286-21.714 148.286t-66 142-105.429 120.286-147.429 83.429-184.571 31.143q-154.857 0-283.429-82.857 20 2.286 44.571 2.286 128.571 0 229.143-78.857-60-1.143-107.429-36.857t-65.143-91.143q18.857 2.857 34.857 2.857 24.571 0 48.571-6.286-64-13.143-106-63.714t-42-117.429v-2.286q38.857 21.714 83.429 23.429-37.714-25.143-60-65.714t-22.286-88q0-50.286 25.143-93.143 69.143 85.143 168.286 136.286t212.286 56.857q-4.571-21.714-4.571-42.286 0-76.571 54-130.571t130.571-54q80 0 134.857 58.286 62.286-12 117.143-44.571-21.143 65.714-81.143 101.714 53.143-5.714 106.286-28.571z"/></symbol><symbol id="icon-facebook" viewBox="0 0 585 1024"><path class="path1" d="M548 6.857v150.857h-89.714q-49.143 0-66.286 20.571t-17.143 61.714v108h167.429l-22.286 169.143h-145.143v433.714h-174.857v-433.714h-145.714v-169.143h145.714v-124.571q0-106.286 59.429-164.857t158.286-58.571q84 0 130.286 6.857z"/></symbol><symbol id="icon-clock" viewBox="0 0 1000 1000"><path d="M500,10C229.8,10,10,229.8,10,500c0,270.2,219.8,490,490,490c270.2,0,490-219.8,490-490C990,229.8,770.2,10,500,10z M500,910.2c-226.2,0-410.2-184-410.2-410.2c0-226.2,184-410.2,410.2-410.2c226.2,0,410.2,184,410.2,410.2C910.2,726.1,726.2,910.2,500,910.2z M753.1,374c8.2,11.9,5.2,28.1-6.6,36.3L509.9,573.7c-4.4,3.1-9.6,4.6-14.8,4.6c-4.1,0-8.3-1-12.1-3c-8.6-4.5-14-13.4-14-23.1V202.5c0-14.4,11.7-26.1,26.1-26.1c14.4,0,26.1,11.7,26.1,26.1v300l195.6-135.1C728.7,359.2,744.9,362.1,753.1,374z"/></symbol><symbol id="icon-calendar" viewBox="0 0 1000 1000"><path d="M920,500v420H80V500H920 M990,430H10v490c0,38.7,31.3,70,70,70h840c38.7,0,70-31.3,70-70V430L990,430z"/><path d="M850,80v105c0,57.9-47.2,105-105,105c-58,0-105-47.1-105-105V80H360v105c0,57.9-47.2,105-105,105c-58,0-105-47.1-105-105V80C72.8,80,10,142.7,10,220v140h980V220C990,142.7,927.2,80,850,80z"/><path d="M255,10c-19.3,0-35,15.8-35,35v140c0,19.2,15.7,35,35,35c19.3,0,35-15.8,35-35V45C290,25.8,274.3,10,255,10z"/><path d="M745,10c-19.3,0-35,15.8-35,35v140c0,19.2,15.7,35,35,35c19.3,0,35-15.8,35-35V45C780,25.8,764.3,10,745,10z"/></symbol><symbol id="icon-github" viewBox="0 0 12 14"><path d="M6 1q1.633 0 3.012 0.805t2.184 2.184 0.805 3.012q0 1.961-1.145 3.527t-2.957 2.168q-0.211 0.039-0.312-0.055t-0.102-0.234q0-0.023 0.004-0.598t0.004-1.051q0-0.758-0.406-1.109 0.445-0.047 0.801-0.141t0.734-0.305 0.633-0.52 0.414-0.82 0.16-1.176q0-0.93-0.617-1.609 0.289-0.711-0.062-1.594-0.219-0.070-0.633 0.086t-0.719 0.344l-0.297 0.187q-0.727-0.203-1.5-0.203t-1.5 0.203q-0.125-0.086-0.332-0.211t-0.652-0.301-0.664-0.105q-0.352 0.883-0.062 1.594-0.617 0.68-0.617 1.609 0 0.664 0.16 1.172t0.41 0.82 0.629 0.523 0.734 0.305 0.801 0.141q-0.305 0.281-0.383 0.805-0.164 0.078-0.352 0.117t-0.445 0.039-0.512-0.168-0.434-0.488q-0.148-0.25-0.379-0.406t-0.387-0.187l-0.156-0.023q-0.164 0-0.227 0.035t-0.039 0.090 0.070 0.109 0.102 0.094l0.055 0.039q0.172 0.078 0.34 0.297t0.246 0.398l0.078 0.18q0.102 0.297 0.344 0.48t0.523 0.234 0.543 0.055 0.434-0.027l0.18-0.031q0 0.297 0.004 0.691t0.004 0.426q0 0.141-0.102 0.234t-0.312 0.055q-1.812-0.602-2.957-2.168t-1.145-3.527q0-1.633 0.805-3.012t2.184-2.184 3.012-0.805zM2.273 9.617q0.023-0.055-0.055-0.094-0.078-0.023-0.102 0.016-0.023 0.055 0.055 0.094 0.070 0.047 0.102-0.016zM2.516 9.883q0.055-0.039-0.016-0.125-0.078-0.070-0.125-0.023-0.055 0.039 0.016 0.125 0.078 0.078 0.125 0.023zM2.75 10.234q0.070-0.055 0-0.148-0.062-0.102-0.133-0.047-0.070 0.039 0 0.141t0.133 0.055zM3.078 10.562q0.062-0.062-0.031-0.148-0.094-0.094-0.156-0.023-0.070 0.062 0.031 0.148 0.094 0.094 0.156 0.023zM3.523 10.758q0.023-0.086-0.102-0.125-0.117-0.031-0.148 0.055t0.102 0.117q0.117 0.047 0.148-0.047zM4.016 10.797q0-0.102-0.133-0.086-0.125 0-0.125 0.086 0 0.102 0.133 0.086 0.125 0 0.125-0.086zM4.469 10.719q-0.016-0.086-0.141-0.070-0.125 0.023-0.109 0.117t0.141 0.062 0.109-0.109z"></path></symbol><symbol id="icon-medium" viewBox="0 0 1000 1000"><path d="M336.5,240.2v641.5c0,9.1-2.3,16.9-6.8,23.2s-11.2,9.6-20,9.6c-6.2,0-12.2-1.5-18-4.4L37.3,782.7c-7.7-3.6-14.1-9.8-19.4-18.3S10,747.4,10,739V115.5c0-7.3,1.8-13.5,5.5-18.6c3.6-5.1,8.9-7.7,15.9-7.7c5.1,0,13.1,2.7,24.1,8.2l279.5,140C335.9,238.6,336.5,239.5,336.5,240.2L336.5,240.2z M371.5,295.5l292,473.6l-292-145.5V295.5z M990,305.3v576.4c0,9.1-2.6,16.5-7.7,22.1c-5.1,5.7-12,8.5-20.8,8.5s-17.3-2.4-25.7-7.1L694.7,784.9L990,305.3z M988.4,239.7c0,1.1-46.8,77.6-140.3,229.4C754.6,621,699.8,709.8,683.8,735.7L470.5,389l177.2-288.2c6.2-10.2,15.7-15.3,28.4-15.3c5.1,0,9.8,1.1,14.2,3.3l295.9,147.7C987.6,237.1,988.4,238.2,988.4,239.7L988.4,239.7z"/></symbol><symbol id="icon-instagram" viewBox="0 0 489.84 489.84"><path d="M249.62,50.46c65.4,0,73.14.25,99,1.43C372.47,53,385.44,57,394.07,60.32a75.88,75.88,0,0,1,28.16,18.32,75.88,75.88,0,0,1,18.32,28.16c3.35,8.63,7.34,21.6,8.43,45.48,1.18,25.83,1.43,33.57,1.43,99s-0.25,73.14-1.43,99c-1.09,23.88-5.08,36.85-8.43,45.48a81.11,81.11,0,0,1-46.48,46.48c-8.63,3.35-21.6,7.34-45.48,8.43-25.82,1.18-33.57,1.43-99,1.43s-73.15-.25-99-1.43c-23.88-1.09-36.85-5.08-45.48-8.43A75.88,75.88,0,0,1,77,423.86,75.88,75.88,0,0,1,58.69,395.7c-3.35-8.63-7.34-21.6-8.43-45.48-1.18-25.83-1.43-33.57-1.43-99s0.25-73.14,1.43-99c1.09-23.88,5.08-36.85,8.43-45.48A75.88,75.88,0,0,1,77,78.64a75.88,75.88,0,0,1,28.16-18.32c8.63-3.35,21.6-7.34,45.48-8.43,25.83-1.18,33.57-1.43,99-1.43m0-44.13c-66.52,0-74.86.28-101,1.47s-43.87,5.33-59.45,11.38A120.06,120.06,0,0,0,45.81,47.44,120.06,120.06,0,0,0,17.56,90.82C11.5,106.4,7.36,124.2,6.17,150.27s-1.47,34.46-1.47,101,0.28,74.86,1.47,101,5.33,43.87,11.38,59.45a120.06,120.06,0,0,0,28.25,43.38,120.06,120.06,0,0,0,43.38,28.25c15.58,6.05,33.38,10.19,59.45,11.38s34.46,1.47,101,1.47,74.86-.28,101-1.47,43.87-5.33,59.45-11.38a125.24,125.24,0,0,0,71.63-71.63c6.05-15.58,10.19-33.38,11.38-59.45s1.47-34.46,1.47-101-0.28-74.86-1.47-101-5.33-43.87-11.38-59.45a120.06,120.06,0,0,0-28.25-43.38,120.06,120.06,0,0,0-43.38-28.25C394.47,13.13,376.67,9,350.6,7.8s-34.46-1.47-101-1.47h0Z" transform="translate(-4.7 -6.33)" /><path d="M249.62,125.48A125.77,125.77,0,1,0,375.39,251.25,125.77,125.77,0,0,0,249.62,125.48Zm0,207.41a81.64,81.64,0,1,1,81.64-81.64A81.64,81.64,0,0,1,249.62,332.89Z" transform="translate(-4.7 -6.33)"/><circle cx="375.66" cy="114.18" r="29.39" /></symbol><symbol id="icon-linkedin" viewBox="0 0 12 14"><path d="M2.727 4.883v7.742h-2.578v-7.742h2.578zM2.891 2.492q0.008 0.57-0.395 0.953t-1.059 0.383h-0.016q-0.641 0-1.031-0.383t-0.391-0.953q0-0.578 0.402-0.957t1.051-0.379 1.039 0.379 0.398 0.957zM12 8.187v4.437h-2.57v-4.141q0-0.82-0.316-1.285t-0.988-0.465q-0.492 0-0.824 0.27t-0.496 0.668q-0.086 0.234-0.086 0.633v4.32h-2.57q0.016-3.117 0.016-5.055t-0.008-2.313l-0.008-0.375h2.57v1.125h-0.016q0.156-0.25 0.32-0.438t0.441-0.406 0.68-0.34 0.895-0.121q1.336 0 2.148 0.887t0.813 2.598z"></path></symbol><symbol id="icon-heart" viewBox="0 0 34 30"><path d="M17,29.7 L16.4,29.2 C3.5,18.7 0,15 0,9 C0,4 4,0 9,0 C13.1,0 15.4,2.3 17,4.1 C18.6,2.3 20.9,0 25,0 C30,0 34,4 34,9 C34,15 30.5,18.7 17.6,29.2 L17,29.7 Z M9,2 C5.1,2 2,5.1 2,9 C2,14.1 5.2,17.5 17,27.1 C28.8,17.5 32,14.1 32,9 C32,5.1 28.9,2 25,2 C21.5,2 19.6,4.1 18.1,5.8 L17,7.1 L15.9,5.8 C14.4,4.1 12.5,2 9,2 Z" id="Shape"></path></symbol><symbol id="icon-arrow-right" viewBox="0 0 25.452 25.452"><path d="M4.471,24.929v-2.004l12.409-9.788c0.122-0.101,0.195-0.251,0.195-0.411c0-0.156-0.073-0.31-0.195-0.409L4.471,2.526V0.522c0-0.2,0.115-0.384,0.293-0.469c0.18-0.087,0.396-0.066,0.552,0.061l15.47,12.202c0.123,0.1,0.195,0.253,0.195,0.409c0,0.16-0.072,0.311-0.195,0.411L5.316,25.34c-0.155,0.125-0.372,0.147-0.552,0.061C4.586,25.315,4.471,25.13,4.471,24.929z"/></symbol><symbol id="icon-star" viewBox="0 0 48 48"><path fill="currentColor" d="M44,24c0,11.045-8.955,20-20,20S4,35.045,4,24S12.955,4,24,4S44,12.955,44,24z"/><path fill="#ffffff" d="M24,11l3.898,7.898l8.703,1.301l-6.301,6.102l1.5,8.699L24,30.898L16.199,35l1.5-8.699l-6.301-6.102  l8.703-1.301L24,11z"/></symbol><symbol id="icon-read" viewBox="0 0 32 32"><path fill="currentColor" d="M29,4H3C1.343,4,0,5.343,0,7v18c0,1.657,1.343,3,3,3h10c0,0.552,0.448,1,1,1h4c0.552,0,1-0.448,1-1h10  c1.657,0,3-1.343,3-3V7C32,5.343,30.657,4,29,4z M29,5v20H18.708c-0.618,0-1.236,0.146-1.789,0.422l-0.419,0.21V5H29z M15.5,5  v20.632l-0.419-0.21C14.528,25.146,13.91,25,13.292,25H3V5H15.5z M31,25c0,1.103-0.897,2-2,2H18v1h-4v-1H3c-1.103,0-2-0.897-2-2V7  c0-0.737,0.405-1.375,1-1.722V25c0,0.552,0.448,1,1,1h10.292c0.466,0,0.925,0.108,1.342,0.317l0.919,0.46  c0.141,0.07,0.294,0.106,0.447,0.106c0.153,0,0.306-0.035,0.447-0.106l0.919-0.46C17.783,26.108,18.242,26,18.708,26H29  c0.552,0,1-0.448,1-1V5.278C30.595,5.625,31,6.263,31,7V25z M6,12.5C6,12.224,6.224,12,6.5,12h5c0.276,0,0.5,0.224,0.5,0.5  S11.776,13,11.5,13h-5C6.224,13,6,12.776,6,12.5z M6,14.5C6,14.224,6.224,14,6.5,14h5c0.276,0,0.5,0.224,0.5,0.5S11.776,15,11.5,15  h-5C6.224,15,6,14.776,6,14.5z M6,16.5C6,16.224,6.224,16,6.5,16h5c0.276,0,0.5,0.224,0.5,0.5S11.776,17,11.5,17h-5  C6.224,17,6,16.776,6,16.5z M20,12.5c0-0.276,0.224-0.5,0.5-0.5h5c0.276,0,0.5,0.224,0.5,0.5S25.776,13,25.5,13h-5  C20.224,13,20,12.776,20,12.5z M20,14.5c0-0.276,0.224-0.5,0.5-0.5h5c0.276,0,0.5,0.224,0.5,0.5S25.776,15,25.5,15h-5  C20.224,15,20,14.776,20,14.5z M20,16.5c0-0.276,0.224-0.5,0.5-0.5h5c0.276,0,0.5,0.224,0.5,0.5S25.776,17,25.5,17h-5  C20.224,17,20,16.776,20,16.5z"></path></symbol></defs></svg>
+
+        <header class="bar-header">
+    <a id="menu" role="button">
+        <svg id="open" class="icon-menu"><use xlink:href="#icon-menu"></use></svg>
+    </a>
+    <h1 class="logo">
+        <a href="/">
+            
+                Noob Studio <span class="version">v3.0.0</span>
+            
+        </a>
+    </h1>
+    <a id="search" class="dosearch" role="button">
+        <svg class="icon-search"><use xlink:href="#icon-search"></use></svg>
+    </a>
+    
+        <a href="tel:082-414-6627" class="get-theme" role="button">
+            0824146627
+        </a>
+    
+</header>
+
+<div id="mask" class="overlay"></div>
+
+<aside class="sidebar" id="sidebar">
+    <nav id="navigation">
+      <h2>Menu</h2>
+      <ul>
+  
+    
+      <li>
+        <a href="http://localhost:4000/">Home</a>
+      </li>
+    
+  
+    
+      <li>
+        <a href="http://localhost:4000/service">Service</a>
+      </li>
+    
+  
+    
+      <li>
+        <a href="http://localhost:4000/boonstock">Stock Management</a>
+      </li>
+    
+  
+    
+      <li>
+        <a href="http://localhost:4000/contact">Contact</a>
+      </li>
+    
+  
+    
+      <li>
+        <a href="http://localhost:4000/tags">Tags</a>
+      </li>
+    
+  
+    
+      <li>
+        <a href="http://localhost:4000/feed.xml">Feed</a>
+      </li>
+    
+  
+</ul>
+
+    </nav>
+</aside>
+
+<div class="search-wrapper">
+    <div class="search-form">
+        <input type="text" class="search-field" placeholder="Search">
+        <svg class="icon-remove-sign"><use xlink:href="#icon-close"></use></svg>
+        <ul class="search-results search-list"></ul>
+    </div>
+</div>
+
+
+
+        <section class="post two-columns">
+            <article role="article" class="post-content">
+                <p class="post-info">
+                    
+                        <svg class="icon-calendar" id="date"><use xlink:href="#icon-calendar"></use></svg>
+                        <time class="date" datetime="2020-02-21T22:33:00+07:00">
+                            
+
+
+February 21, 2020
+
+                        </time>
+                    
+                    <svg id="clock" class="icon-clock"><use xlink:href="#icon-clock"></use></svg>
+                    <span>10 min to read</span>
+                </p>
+                <h1 class="post-title">Programming 101 - Angular 'n Bootstrap EP. 01</h1>
+                <p class="post-subtitle">สอนใช้งาน Angular เบื้องต้น และการติดตั้ง Bootstrap 4 ร่วมกับ Angular 8</p>
+
+                
+                    <!-- <img src="img/angular/cover.jpg" alt="Featured image" class="post-cover"> -->
+                
+
+                <!-- Pagination links -->
+
+
+
+                <!-- Add your table of contents here -->
+
+
+                <p><img src="/img/angular/cover.jpg" alt="บริการรับทำเว็บไซด์ แอพพลิเคชัน ระบบสำหรับใช้ในองค์กร เว็บขายของระบบ E-commerce หรือระบบต่างๆ" />
+สวัสดีครับห่างหายจากการเขียนบล๊อคไปนาน วันนี้ผมก็จะกลับมาเขียนใหม่นะครับ โดยมารอบนี้จะเขียนเป็นซีรี่เลยชื่อซีรี่ว่า Angular ‘n Bootstrap โดยเนื้อหาในซีรี่นี้เราจะสอนตั้งแต่เริ่มต้นการใช้งาน ไปเรื่อยๆ แล้วแต่อารมณ์คนเขียนนะครับ 5555 ปล. เราจะเน้นการปฎิบัติมากกว่าทฤษฎีนะครับ เพราะทฤษฎีเราไม่มีเรามีแต่ทฤษเดา 55555</p>
+
+<h1 id="prepare">Prepare</h1>
+
+<p>สิ่งที่ต้องการก่อนเริ่มอ่านบทความนี้</p>
+
+<ul>
+  <li>ความรู้พื้นฐาน Javscript</li>
+  <li>ความรู้พื้นฐาน Bootstrap</li>
+  <li>ติดตั้ง <a href="https://angular.io/" target="_blank">Angular CLI</a> บนเครื่องให้เรียบร้อย</li>
+</ul>
+
+<blockquote>
+  <p>Angular คือ Javascript Framework ตัวนึงเกิดขึ้นมาตั้งแต่ปี 2016 โดยในปัจจุบันก็มาถึง version 8 แล้วนะครับ ข้อดีของ Angular คือ Code สามารถนำไป reuse ได้ง่ายเครื่องไม้เครื่องมือมีครบ และที่สำคัญคือ two-way binding ทำให้ทุกอย่างง่ายขึ้นเยอะ สำหรับข้อมูลเพิ่มเติมอื่นๆ สามารถหาอ่านได้ที่ <a href="https://angular.io/" target="_blank">angular.io</a> นะครับ</p>
+</blockquote>
+
+<h1 id="new-angular-project">New Angular Project</h1>
+<p>เปิด Terminal ขึ้นมาแล้วพิมพ์คำสั่ง</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ng new awesome-angular
+</code></pre></div></div>
+
+<p>จะขึ้นหน้าจอถามว่าต้องการใช้ style ประเภทไหนผมเลือก css และมีคำสั่งถามว่าต้องการใช้ angular route หรือไม่ให้ตอบ yes</p>
+
+<p><img src="/img/angular/ep01/start-angular.png" alt="บริการรับทำเว็บไซด์ แอพพลิเคชัน ระบบสำหรับใช้ในองค์กร เว็บขายของระบบ E-commerce หรือระบบต่างๆ" /></p>
+
+<p>เมื่อทำการตั้งค่าเสร็จให้พิมพ์คำสั่ง</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>cd awesome-angular
+</code></pre></div></div>
+
+<p>เพื่อเข้าไปใน Directory Project โดย Project จะมีโครงสร้างที่ต้องสนใจ ดังนี้</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">awesome</span><span class="o">-</span><span class="nx">angular</span>
+<span class="err">├──</span> <span class="nx">src</span> 
+<span class="err">│</span>   <span class="err">├──</span> <span class="nx">assets</span> <span class="c1">// สำหรับเก็บ assets ต่างๆ ที่ต้องการใช้ใน Project</span>
+<span class="err">│</span>   <span class="err">│</span>   <span class="err">├──</span> <span class="nx">css</span>
+<span class="err">│</span>   <span class="err">│</span>   <span class="err">├──</span> <span class="nx">js</span>
+<span class="err">│</span>   <span class="err">│</span>   <span class="err">├──</span> <span class="nx">image</span>
+<span class="err">│</span>   <span class="err">└──</span> <span class="nx">app</span>
+<span class="err">│</span>       <span class="err">├──</span> <span class="nx">app</span><span class="o">-</span><span class="nx">routing</span><span class="p">.</span><span class="nx">module</span><span class="p">.</span><span class="nx">ts</span> <span class="c1">// ที่สำหรับวาง route</span>
+<span class="err">│</span>       <span class="err">├──</span> <span class="nx">app</span><span class="p">.</span><span class="nx">component</span><span class="p">.</span><span class="nx">css</span> <span class="c1">// โค้ด css สำหรับ component หลัก</span>
+<span class="err">│</span>       <span class="err">├──</span> <span class="nx">app</span><span class="p">.</span><span class="nx">component</span><span class="p">.</span><span class="nx">ts</span> <span class="c1">// สำหรับวาง logic component หลัก</span>
+<span class="err">│</span>       <span class="err">├──</span> <span class="nx">app</span><span class="p">.</span><span class="nx">component</span><span class="p">.</span><span class="nx">html</span> <span class="c1">// template html ของ component หลัก</span>
+<span class="err">│</span>       <span class="err">└──</span> <span class="nx">app</span><span class="p">.</span><span class="nx">module</span><span class="p">.</span><span class="nx">html</span> <span class="c1">// module หลักของระบบ</span>
+<span class="err">├──</span> <span class="nx">angular</span><span class="p">.</span><span class="nx">json</span> <span class="c1">// เก็บ setting สำหรับ angular cli</span>
+<span class="err">└──</span> <span class="kr">package</span><span class="p">.</span><span class="nx">json</span> <span class="c1">// เก็บ setting และ package ต่างๆของโปรเจค</span>
+</code></pre></div></div>
+
+<h1 id="install-bootstrap">Install Bootstrap</h1>
+<p>เมื่อเราสร้างโปรเจคเสร็จแล้วนะครับต่อมาเราก็จะมาทำการติดตั้ง Bootstrap Plugin ให้ Angular กันนะครับโดยขั้นตอนก็มีง่ายๆ โดยพิมพ์คำสั่ง</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>npm install boostrap jquery popper.js --save
+</code></pre></div></div>
+
+<p>เมื่อติดตั้งเสร็จแล้วให้เปิดไฟล์ชื่อว่า <strong>angular.json</strong> และเพิ่มรายละเอียดดังนี้</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">...</span><span class="w">
+</span><span class="nl">"styles"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="s2">"src/styles.css"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"./node_modules/bootstrap/dist/css/bootstrap.min.css"</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">เพิ่ม</span><span class="w">
+</span><span class="p">]</span><span class="err">,</span><span class="w">
+</span><span class="nl">"scripts"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="s2">"./node_modules/jquery/dist/jquery.min.js"</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">เพิ่ม</span><span class="w">
+    </span><span class="s2">"./node_modules/bootstrap/dist/js/bootstrap.js"</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">เพิ่ม</span><span class="w">
+</span><span class="p">]</span><span class="err">,</span><span class="w">
+</span><span class="err">...</span><span class="w">
+</span></code></pre></div></div>
+
+<h2 id="change-theme-optional">Change Theme (Optional)</h2>
+<p>หากต้องการเปลี่ยนธีมให้เปิดไปที่เว็บไซด์ <a href="https://bootswatch.com/">bootswatch</a> โดยเว็บนี้รวบรวม Theme Bootstrap ตั้งต้นไว้ให้เราเอาไปพัฒนาต่อง่าย</p>
+
+<p><img src="/img/angular/ep01/bootstrapwatch.png" alt="บริการรับทำเว็บไซด์ แอพพลิเคชัน ระบบสำหรับใช้ในองค์กร เว็บขายของระบบ E-commerce หรือระบบต่างๆ" /></p>
+
+<p>เมื่อเลือก theme ได้แล้วให้คลิ๊กที่ ชื่อ Theme และ bootstrap.min.css เว็บไซด์จะทำการดาวโหลดไฟล์ <strong>bootstrap.min.css</strong> นำไฟล์ไปวางไว้ที่ <strong>src/assets/css/</strong></p>
+
+<p>และเปิดไฟล์ <strong>angular.json</strong> อีกครั้งเพื่อแก้ไข</p>
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">...</span><span class="w">
+</span><span class="nl">"styles"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="s2">"src/styles.css"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"src/assets/css/bootstrap.min.css"</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">แก้ไข</span><span class="w">
+</span><span class="p">]</span><span class="err">,</span><span class="w">
+</span><span class="err">...</span><span class="w">
+</span></code></pre></div></div>
+<p>หลังจากนั้นพิมพ์คำสั่ง</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ng serve
+</code></pre></div></div>
+
+<p>แล้วเปิด Browser ไปที่ <a href="http://localhost:4200" target="_blank">localhost:4200</a> จะพบหน้าตาดังนี้</p>
+
+<p><img src="/img/angular/ep01/result.png" alt="บริการรับทำเว็บไซด์ แอพพลิเคชัน ระบบสำหรับใช้ในองค์กร เว็บขายของระบบ E-commerce หรือระบบต่างๆ" /></p>
+
+<p>ต่อมาเราจะมาทำความรู้จักกับ Angular Component และ Angular Route เบื้องต้น</p>
+
+<h1 id="angular-component">Angular Component</h1>
+<p>ใน Angular หน้าเว็บจะเป็นแบบ single page หมายความว่าตัว Angular มองส่วนประกอบต่างๆ ของหน้าเว็บแยกเป็นส่วนแยกออกจากกัน(Component) แล้วนำมาประกอบกันเพื่อให้การเป็นเว็บไซด์ โดยวันนี้เว็บไซด์ที่เราจะทำเราจะแยก Component เป็น 3 ส่วนง่ายๆ ดังนี้</p>
+
+<p><img src="/img/angular/ep01/component.png" alt="บริการรับทำเว็บไซด์ แอพพลิเคชัน ระบบสำหรับใช้ในองค์กร เว็บขายของระบบ E-commerce หรือระบบต่างๆ" /></p>
+
+<ul>
+  <li>App Component คือที่วางหน้าหลักของเรา</li>
+  <li>Navbar Component มีไว้สำหรับนำทางไปที่หน้าต่างๆ</li>
+  <li>Content Component มีไว้สำหรับวาง Content ต่างๆ ของเว็บไซด์ของเรา</li>
+</ul>
+
+<h1 id="create-component">Create Component</h1>
+<p>ต่อมาเราจะมาสร้าง Angular Component กันนะครับวิธีสร้างก็ง่ายๆ ให้เปิด terminal ขึ้นมาแล้วพิมพ์คำสั่งว่า</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ng generate component shared/navbar
+ng generate component page/about
+ng generate component page/home
+ng generate component page/features
+</code></pre></div></div>
+
+<h2 id="command-description">Command Description</h2>
+<ul>
+  <li><code class="highlighter-rouge">ng generate</code> หรือ <code class="highlighter-rouge">ng g</code> คือคำสั่งสำหรับสร้างส่วนประกอบของ angular</li>
+  <li><code class="highlighter-rouge">component</code> หรือ <code class="highlighter-rouge">c</code> คือสื่งที่ต้องการสร้างซึ่งมีหลายอย่างเช่น component pipe service module เป็นต้น</li>
+  <li><code class="highlighter-rouge">shared/navbar</code> คือชื่อสิ่งที่ต้องการสร้าง การใส่ shared/ ข้างหน้าหมายความว่าสร้างไว้ใน Directory ชื่อว่า Shared ซึ่งถ้าไม่มี Angular CLI จะทำการสร้าง Directory ให้</li>
+</ul>
+
+<p>หลังจากพิมพ์คำสั่งเสร็จแล้วเมื่อดูในโปรเจค Directory จะพบไฟล์เพิ่มขึ้นมาดังนี้</p>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">...</span>
+<span class="err">│</span>   <span class="err">└──</span> <span class="nx">app</span>
+<span class="err">│</span>       <span class="err">├──</span> <span class="nx">page</span> <span class="c1">// เพิ่มใหม่</span>
+<span class="err">│</span>       <span class="err">│</span>   <span class="err">├──</span> <span class="nx">about</span> <span class="c1">// หน้า about</span>
+<span class="err">│</span>       <span class="err">│</span>   <span class="err">│</span>   <span class="err">├──</span> <span class="nx">about</span><span class="p">.</span><span class="nx">component</span><span class="p">.</span><span class="nx">css</span>
+<span class="err">│</span>       <span class="err">│</span>   <span class="err">│</span>   <span class="err">├──</span> <span class="nx">about</span><span class="p">.</span><span class="nx">component</span><span class="p">.</span><span class="nx">html</span>
+<span class="err">│</span>       <span class="err">│</span>   <span class="err">│</span>   <span class="err">├──</span> <span class="nx">about</span><span class="p">.</span><span class="nx">component</span><span class="p">.</span><span class="nx">spec</span><span class="p">.</span><span class="nx">ts</span>
+<span class="err">│</span>       <span class="err">│</span>   <span class="err">│</span>   <span class="err">├──</span> <span class="nx">about</span><span class="p">.</span><span class="nx">component</span><span class="p">.</span><span class="nx">ts</span>
+<span class="err">│</span>       <span class="err">│</span>   <span class="err">├──</span> <span class="nx">home</span> <span class="c1">// หน้า home</span>
+<span class="err">│</span>       <span class="err">│</span>   <span class="err">│</span>   <span class="err">├──</span> <span class="nx">home</span><span class="p">.</span><span class="nx">component</span><span class="p">.</span><span class="nx">css</span>
+<span class="err">│</span>       <span class="err">│</span>   <span class="err">│</span>   <span class="err">├──</span> <span class="nx">home</span><span class="p">.</span><span class="nx">component</span><span class="p">.</span><span class="nx">html</span>
+<span class="err">│</span>       <span class="err">│</span>   <span class="err">│</span>   <span class="err">├──</span> <span class="nx">home</span><span class="p">.</span><span class="nx">component</span><span class="p">.</span><span class="nx">spec</span><span class="p">.</span><span class="nx">ts</span>
+<span class="err">│</span>       <span class="err">│</span>   <span class="err">│</span>   <span class="err">├──</span> <span class="nx">about</span><span class="p">.</span><span class="nx">component</span><span class="p">.</span><span class="nx">ts</span>
+<span class="err">│</span>       <span class="err">│</span>   <span class="err">├──</span> <span class="nx">features</span> <span class="c1">// หน้า features</span>
+<span class="err">│</span>       <span class="err">│</span>   <span class="err">│</span>   <span class="err">├──</span> <span class="nx">features</span><span class="p">.</span><span class="nx">component</span><span class="p">.</span><span class="nx">css</span>
+<span class="err">│</span>       <span class="err">│</span>   <span class="err">│</span>   <span class="err">├──</span> <span class="nx">features</span><span class="p">.</span><span class="nx">component</span><span class="p">.</span><span class="nx">html</span>
+<span class="err">│</span>       <span class="err">│</span>   <span class="err">│</span>   <span class="err">├──</span> <span class="nx">features</span><span class="p">.</span><span class="nx">component</span><span class="p">.</span><span class="nx">spec</span><span class="p">.</span><span class="nx">ts</span>
+<span class="err">│</span>       <span class="err">│</span>   <span class="err">│</span>   <span class="err">├──</span> <span class="nx">features</span><span class="p">.</span><span class="nx">component</span><span class="p">.</span><span class="nx">ts</span>
+<span class="err">│</span>       <span class="err">├──</span> <span class="nx">shared</span> <span class="c1">// เพิ่มใหม่</span>
+<span class="err">│</span>       <span class="err">│</span>   <span class="err">├──</span> <span class="nx">navbar</span> <span class="c1">// navbar</span>
+<span class="err">│</span>       <span class="err">│</span>   <span class="err">│</span>   <span class="err">├──</span> <span class="nx">navbar</span><span class="p">.</span><span class="nx">component</span><span class="p">.</span><span class="nx">css</span>
+<span class="err">│</span>       <span class="err">│</span>   <span class="err">│</span>   <span class="err">├──</span> <span class="nx">navbar</span><span class="p">.</span><span class="nx">component</span><span class="p">.</span><span class="nx">html</span>
+<span class="err">│</span>       <span class="err">│</span>   <span class="err">│</span>   <span class="err">├──</span> <span class="nx">navbar</span><span class="p">.</span><span class="nx">component</span><span class="p">.</span><span class="nx">spec</span><span class="p">.</span><span class="nx">ts</span>
+<span class="err">│</span>       <span class="err">│</span>   <span class="err">│</span>   <span class="err">├──</span> <span class="nx">navbar</span><span class="p">.</span><span class="nx">component</span><span class="p">.</span><span class="nx">ts</span>
+<span class="p">...</span>
+</code></pre></div></div>
+
+<h2 id="create-navbar">Create Navbar</h2>
+<p>ต่อมาเรามาทำ Navbar เพื่อสำหรับเป็น Navigation ไปที่ต่างๆ นะครับโดยให้เราเปิดไฟล์ <strong>navbar.component.html</strong> ขึ้นมาและใส่โค้ดดังนี้</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;nav</span> <span class="na">class=</span><span class="s">"navbar navbar-expand-lg navbar-dark bg-dark"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"navbar-brand"</span> <span class="na">href=</span><span class="s">"#"</span><span class="nt">&gt;</span>Navbar<span class="nt">&lt;/a&gt;</span>
+  <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"navbar-toggler"</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">data-toggle=</span><span class="s">"collapse"</span> <span class="na">data-target=</span><span class="s">"#navbarColor02"</span> <span class="na">aria-controls=</span><span class="s">"navbarColor02"</span> <span class="na">aria-expanded=</span><span class="s">"false"</span> <span class="na">aria-label=</span><span class="s">"Toggle navigation"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"navbar-toggler-icon"</span><span class="nt">&gt;&lt;/span&gt;</span>
+  <span class="nt">&lt;/button&gt;</span>
+
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"collapse navbar-collapse"</span> <span class="na">id=</span><span class="s">"navbarColor02"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">"navbar-nav mr-auto"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"nav-item active"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"nav-link"</span> <span class="na">[routerLink]=</span><span class="s">"['/home']"</span><span class="nt">&gt;</span>Home <span class="nt">&lt;/a&gt;</span>
+      <span class="nt">&lt;/li&gt;</span>
+      <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"nav-item"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"nav-link"</span> <span class="na">[routerLink]=</span><span class="s">"['/features']"</span><span class="nt">&gt;</span>Features<span class="nt">&lt;/a&gt;</span>
+      <span class="nt">&lt;/li&gt;</span>
+      <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"nav-item"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"nav-link"</span> <span class="na">[routerLink]=</span><span class="s">"['/about']"</span><span class="nt">&gt;</span>About<span class="nt">&lt;/a&gt;</span>
+      <span class="nt">&lt;/li&gt;</span>
+    <span class="nt">&lt;/ul&gt;</span>
+    <span class="nt">&lt;form</span> <span class="na">class=</span><span class="s">"form-inline my-2 my-lg-0"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;input</span> <span class="na">class=</span><span class="s">"form-control mr-sm-2"</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">placeholder=</span><span class="s">"Search"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"btn btn-secondary my-2 my-sm-0"</span> <span class="na">type=</span><span class="s">"submit"</span><span class="nt">&gt;</span>Search<span class="nt">&lt;/button&gt;</span>
+    <span class="nt">&lt;/form&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/nav&gt;</span>
+</code></pre></div></div>
+<p>โดยโค้ดที่สำคัญตรงนี้คือ</p>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"nav-link"</span> <span class="na">[routerLink]=</span><span class="s">"['/home']"</span><span class="nt">&gt;</span>Home <span class="nt">&lt;/a&gt;</span>
+</code></pre></div></div>
+<p>คำสัง <code class="highlighter-rouge">[routerLink]="['/home']"</code> คือบอกว่าให้ route ไปที่หน้าไหนคล้ายกับ <code class="highlighter-rouge">href="/home"</code></p>
+
+<h2 id="home-markup-optional">Home Markup (Optional)</h2>
+<p>เพื่อความสวยงามนะครับเรามาแต่งหน้า Home กันหน่อยให้เปิดไฟล์ <strong>home.component.html</strong> ขึ้นมาแล้วใส่ Code ดังนี้</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-light"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-md-5 p-lg-5 mx-auto my-5"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;h1</span> <span class="na">class=</span><span class="s">"display-4 font-weight-normal"</span><span class="nt">&gt;</span>Noob Studio Is The Best<span class="nt">&lt;/h1&gt;</span>
+    <span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"lead font-weight-normal"</span><span class="nt">&gt;</span>Noob Studio Is The Best. Freelance developer for hire him please see website <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"https://noob-studio.github.io"</span><span class="nt">&gt;</span>noob-stuio.github.io<span class="nt">&lt;/a&gt;&lt;/p&gt;</span>
+    <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"btn btn-outline-secondary"</span> <span class="na">href=</span><span class="s">"https://noob-studio.github.io"</span><span class="nt">&gt;</span>Go!<span class="nt">&lt;/a&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"product-device box-shadow d-none d-md-block"</span><span class="nt">&gt;&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"product-device product-device-2 box-shadow d-none d-md-block"</span><span class="nt">&gt;&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+</code></pre></div></div>
+<p>ปล. แอบขายของนิดนึงนะครับ 55555</p>
+
+<h1 id="angular-routing">Angular Routing</h1>
+<p>เมื่อเราเตรียมโครงสร้างของเว็บเสร็จแล้วต่อมาเราจะนำมาประกอบกันเพื่อให้กลายเป็นเว็บไซด์ต่างๆ นะจ๊ะ</p>
+
+<h2 id="set-route">Set Route</h2>
+<p>ขั้นตอนแรกให้เปิดไปที่ไฟล์ <strong>app-routing.module.ts</strong> และเพิ่มโค้ดดังนี้</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">...</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">AboutComponent</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">./page/about/about.component</span><span class="dl">'</span><span class="p">;</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">FeaturesComponent</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">./page/features/features.component</span><span class="dl">'</span><span class="p">;</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">HomeComponent</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">./page/home/home.component</span><span class="dl">'</span><span class="p">;</span>
+
+<span class="kd">const</span> <span class="nx">routes</span><span class="p">:</span> <span class="nx">Routes</span> <span class="o">=</span> <span class="p">[{</span>
+  <span class="na">path</span><span class="p">:</span> <span class="dl">''</span><span class="p">,</span>
+  <span class="na">redirectTo</span><span class="p">:</span> <span class="dl">'</span><span class="s1">home</span><span class="dl">'</span><span class="p">,</span>
+  <span class="na">pathMatch</span><span class="p">:</span> <span class="dl">'</span><span class="s1">full</span><span class="dl">'</span><span class="p">,</span>
+<span class="p">},{</span>
+  <span class="na">path</span><span class="p">:</span> <span class="dl">'</span><span class="s1">home</span><span class="dl">'</span><span class="p">,</span>
+  <span class="na">component</span><span class="p">:</span> <span class="nx">HomeComponent</span><span class="p">,</span>
+<span class="p">},{</span>
+  <span class="na">path</span><span class="p">:</span> <span class="dl">'</span><span class="s1">features</span><span class="dl">'</span><span class="p">,</span>
+  <span class="na">component</span><span class="p">:</span> <span class="nx">FeaturesComponent</span><span class="p">,</span>
+<span class="p">},{</span>
+  <span class="na">path</span><span class="p">:</span> <span class="dl">'</span><span class="s1">about</span><span class="dl">'</span><span class="p">,</span>
+  <span class="na">component</span><span class="p">:</span> <span class="nx">AboutComponent</span><span class="p">,</span>
+<span class="p">}];</span>
+
+<span class="p">@</span><span class="nd">NgModule</span><span class="p">({</span>
+<span class="p">...</span>
+</code></pre></div></div>
+
+<p>ขั้นตอนแรกให้เรา import component ต่างๆ ที่เราต้องการ route เข้ามานะครับให้สังเกตุว่าเราไม่ได้ import <code class="highlighter-rouge">navbar.component</code> เข้ามาเพราะเราไม่ได้ต้องการจะ route ไปที่ <code class="highlighter-rouge">navbar.component</code> นะครับ</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="p">{</span> <span class="nx">AboutComponent</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">./page/about/about.component</span><span class="dl">'</span><span class="p">;</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">FeaturesComponent</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">./page/features/features.component</span><span class="dl">'</span><span class="p">;</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">HomeComponent</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">./page/home/home.component</span><span class="dl">'</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p>ต่อมาเราทำการ set route ไว้ในตัวแปลชื่อว่า <code class="highlighter-rouge">routes</code> โดยมีประเภทเป็น <code class="highlighter-rouge">Routes</code> ที่ใส่ <code class="highlighter-rouge">const</code> ไว้เพื่อไม่ให้ตัวนี้สามารถแก้ไขได้ และหากสังเกตุจะเห็นว่ามันเป็น <code class="highlighter-rouge">json array</code></p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">routes</span><span class="p">:</span> <span class="nx">Routes</span> <span class="o">=</span> <span class="p">[{</span>
+<span class="p">...</span>
+<span class="p">}]</span>
+</code></pre></div></div>
+
+<p>ต่อมาเราอธิบายใส่ในของ route กันนะครับ object ตัวแรกคือการ set default ว่าถ้าเข้ามาที่ path แรกจะให้ route ไปที่ไหน</p>
+<ul>
+  <li><code class="highlighter-rouge">path:</code> หมายถึง path ที่ตรงกับ route นี้</li>
+  <li><code class="highlighter-rouge">redirectTo:</code> หมายถึงให้ redirect ไปที่ path ไหน</li>
+  <li><code class="highlighter-rouge">pathMatch:</code> ความตรงกันของ path (เงี่ยนไขที่จะ redirect)</li>
+</ul>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="err">path:</span><span class="w"> </span><span class="err">''</span><span class="p">,</span><span class="w">
+  </span><span class="err">redirectTo:</span><span class="w"> </span><span class="err">'home'</span><span class="p">,</span><span class="w">
+  </span><span class="err">pathMatch:</span><span class="w"> </span><span class="err">'full'</span><span class="p">,</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span><span class="err">...</span><span class="w">
+</span></code></pre></div></div>
+<p>ในส่วนสุดท้าย set route สำหรับวิ่งไปหน้าอื่นๆ นะครับ</p>
+<ul>
+  <li><code class="highlighter-rouge">path:</code> หมายถึง path ที่ตรงกับ route นี้</li>
+  <li><code class="highlighter-rouge">component:</code> หมายถึง component ที่ควบคุม route นี้ซึ่งเราได้ import มาตอนต้นแล้ว</li>
+</ul>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">...</span><span class="w">
+</span><span class="p">{</span><span class="w">
+  </span><span class="err">path:</span><span class="w"> </span><span class="err">'home'</span><span class="p">,</span><span class="w">
+  </span><span class="err">component:</span><span class="w"> </span><span class="err">HomeComponent</span><span class="p">,</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span><span class="err">...</span><span class="w">
+</span></code></pre></div></div>
+
+<p>แค่นี้ก็เป็นอันเสร็จสิ้นสำหรับการ Set Route แล้วนะครับ</p>
+
+<h2 id="assemble">Assemble</h2>
+<p>ส่วนสุดท้ายแล้วนะจ๊ะ เราจะมาประกอบร่าง Component ทั้งหมดกันก่อนอื่นให้เปิดไฟล​์ชื่อว่า <strong>app.component.html</strong> ขึ้นมาแล้วแก้เป็นแบบนี้</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;app-navbar&gt;&lt;/app-navbar&gt;</span>
+<span class="nt">&lt;router-outlet&gt;&lt;/router-outlet&gt;</span>
+</code></pre></div></div>
+
+<ul>
+  <li><code class="highlighter-rouge">&lt;app-navbar&gt;&lt;/app-navbar&gt;</code> คือ selector (แบบว่าเหมือนชื่อเล่นของ component เอาไว้เรียกใช้งานงี้มั้ง) มาจากไฟล์ <strong>navbar.component.ts</strong></li>
+</ul>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">...</span>
+<span class="p">@</span><span class="nd">Component</span><span class="p">({</span>
+  <span class="na">selector</span><span class="p">:</span> <span class="dl">'</span><span class="s1">app-navbar</span><span class="dl">'</span><span class="p">,</span> <span class="c1">// &lt;------ ตรงนี้</span>
+<span class="p">...</span>
+</code></pre></div></div>
+
+<ul>
+  <li><code class="highlighter-rouge">&lt;router-outlet&gt;&lt;/router-outlet&gt;</code> เป็น selector ของ Angular</li>
+</ul>
+
+<p>สุดท้ายพิมพ์คำสั่ง</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ng serve
+</code></pre></div></div>
+
+<p>ก็จะแสดงผลหน้าตาเว็บไซด์ประมาณนี้
+<img src="/img/angular/ep01/screenshot.png" alt="บริการรับทำเว็บไซด์ แอพพลิเคชัน ระบบสำหรับใช้ในองค์กร เว็บขายของระบบ E-commerce หรือระบบต่างๆ" /></p>
+
+<p>หากกดข้างเปลี่ยนไปที่หน้าอื่นก็จะขึ้นว่า about works!! หรือ features works!!</p>
+
+<h2 id="error-wtf">Error WTF!!</h2>
+<p>หากลองรันแล้วพบ error ให้ลองตรวจสอบไฟล์ <strong>app.module.ts</strong> ดูว่ามีการตั้งค่าดังนี้หรือไม่</p>
+
+<ul>
+  <li>import component ที่สร้างขึ้นและ <code class="highlighter-rouge">AppRoutingModule</code></li>
+</ul>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">...</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">AppRoutingModule</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">./app-routing.module</span><span class="dl">'</span><span class="p">;</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">HomeComponent</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">./page/home/home.component</span><span class="dl">'</span><span class="p">;</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">NavbarComponent</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">./shared/navbar/navbar.component</span><span class="dl">'</span><span class="p">;</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">AboutComponent</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">./page/about/about.component</span><span class="dl">'</span><span class="p">;</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">FeaturesComponent</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">./page/features/features.component</span><span class="dl">'</span><span class="p">;</span>
+<span class="p">...</span>
+</code></pre></div></div>
+
+<ul>
+  <li>เรียกใช้งาน component และ module ที่ import มาถูกต้อง</li>
+</ul>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">...</span>
+<span class="p">@</span><span class="nd">NgModule</span><span class="p">({</span>
+  <span class="na">declarations</span><span class="p">:</span> <span class="p">[</span> <span class="c1">// สำหรับใส่ component</span>
+    <span class="nx">AppComponent</span><span class="p">,</span>
+    <span class="nx">HomeComponent</span><span class="p">,</span>
+    <span class="nx">NavbarComponent</span><span class="p">,</span>
+    <span class="nx">AboutComponent</span><span class="p">,</span>
+    <span class="nx">FeaturesComponent</span>
+  <span class="p">],</span>
+  <span class="na">imports</span><span class="p">:</span> <span class="p">[</span> <span class="c1">// สำหรับใส่ module</span>
+    <span class="nx">BrowserModule</span><span class="p">,</span>
+    <span class="nx">AppRoutingModule</span>
+  <span class="p">],</span>
+  <span class="na">providers</span><span class="p">:</span> <span class="p">[],</span>
+  <span class="na">bootstrap</span><span class="p">:</span> <span class="p">[</span><span class="nx">AppComponent</span><span class="p">]</span>
+<span class="p">})</span>
+<span class="p">...</span>
+</code></pre></div></div>
+
+<h1 id="conclusion">Conclusion</h1>
+<p>เป็นอันเรียบร้อยไปแล้วนะครับสำหรับ Angular ‘n Bootstrap EP 01 ยังไงเพื่อนๆชอบไม่ชอบก็สามารถเข้ามาติชมกันที่แฟนเพจ noob studio ได้นะครับ สำหรับเพื่อนๆคนไหนที่สนใจตัวอย่างโค้ด สามารถดูได้ที่ <a href="https://github.com/noob-studio/angular-bootstrap" target="_blank">github</a> ของเรานะจ๊ะ</p>
+
+
+                <!-- Pagination links -->
+
+
+            </article>
+
+            
+                <aside class="see-also">
+                    <h2>See also</h2>
+                    <ul>
+                        
+                        
+                        
+                            <li>
+                                <a href="/how-to-use-cordovar-in-ionic2/">
+                                    
+                                    <img src="http://localhost:4000/img/cordovar-ionic/cover.jpeg">
+                                    <h3>วิธีการใช้งาน Cordova Plugin ใน Ionic2</h3>
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a href="/seneca-nodejs-microservice/">
+                                    
+                                    <img src="http://localhost:4000/img/seneca/cover.jpg">
+                                    <h3>เขียน Microservice ด้วย Node.js และ Seneca.js</h3>
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a href="/ionic2-notification/">
+                                    
+                                    <img src="http://localhost:4000/img/ionic-notification/cover.jpg">
+                                    <h3>วิธีทำ Notification(แจ้งเตือน) ให้ Ionic2 ด้วย Firebase และ Node.js</h3>
+                                </a>
+                            </li>
+                        
+                    </ul>
+                </aside>
+            
+
+        </section>
+
+        <section class="post">
+            <article id="post" class="post-content fullwidth" role="main">
+              <div class="tags">
+                
+                  
+                    
+                        <a href="http://localhost:4000/tags/#node.js">#node.js</a>
+                    
+                        <a href="http://localhost:4000/tags/#Programing101">#Programing101</a>
+                    
+                        <a href="http://localhost:4000/tags/#Typescript">#Typescript</a>
+                    
+                        <a href="http://localhost:4000/tags/#javascript">#javascript</a>
+                    
+                        <a href="http://localhost:4000/tags/#Angular">#Angular</a>
+                    
+                        <a href="http://localhost:4000/tags/#Bootstrap">#Bootstrap</a>
+                    
+                        <a href="http://localhost:4000/tags/#jquery">#jquery</a>
+                    
+                        <a href="http://localhost:4000/tags/#รับงาน">#รับงาน</a>
+                    
+                        <a href="http://localhost:4000/tags/#รับทำเว็บไซด์">#รับทำเว็บไซด์</a>
+                    
+                        <a href="http://localhost:4000/tags/#รับเขียนโปรแกรม">#รับเขียนโปรแกรม</a>
+                    
+                        <a href="http://localhost:4000/tags/#รับพัฒนาระบบ">#รับพัฒนาระบบ</a>
+                    
+                  
+                
+              </div>
+            </article>
+        </section>
+
+        <!-- Add time bar only for pages without pagination -->
+        
+            <div class="time-bar" data-minutes="10">
+    <span class="time-completed"></span>
+    <span class="time-remaining"></span>
+    <div class="bar">
+        <span class="completed" style="width:0%;"></span>
+        <span class="remaining" style="width:100%;"></span>
+    </div>
+</div>
+
+            <div class="recommendation">
+    <div class="message">
+        <strong>อ่านเรื่องราวที่หน้าสนใจอื่นๆ</strong>
+        <div>
+            <button>
+                <svg><use xlink:href="#icon-arrow-right"></use></svg>
+                <span>กลับด้านบน</span>
+            </button>
+        </div>
+    </div>
+    
+    <a href="/ionic2-notification/" class="post-preview">
+        <div class="image">
+            
+            <img src="http://localhost:4000/img/ionic-notification/cover.jpg">
+        </div>
+        <h3 class="title">วิธีทำ Notification(แจ้งเตือน) ให้ Ionic2 ด้วย Firebase และ Node.js</h3>
+    </a>
+</div>
+
+        
+
+        <!-- Show modal if the post is the last one -->
+        
+
+        <!-- Show modal before user leaves the page -->
+        
+
+        <!-- Add your newsletter subscription form here -->
+
+        <section class="share">
+    <h3>Share</h3>
+    <a aria-label="Share on Twitter" href="https://twitter.com/intent/tweet?text=&quot;ในบทความนี้เราจะมาสอนการใช้งาน Bootstrap 4 ร่วมกับ Angular 8 รวมทั้ง Angular Component และการใช้ Bootstrap Theme เบื้องต้นสำหรับเริ่ม Project ใหม่&quot;%20http://localhost:4000/Angular-EP-01/%20via%20&#64;&hashtags=node.js,Programing101,Typescript,javascript,Angular,Bootstrap,jquery,รับงาน,รับทำเว็บไซด์,รับเขียนโปรแกรม,รับพัฒนาระบบ,"
+    onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;" title="Share on Twitter">
+        <svg class="icon icon-twitter"><use xlink:href="#icon-twitter"></use></svg>
+    </a>
+    <a aria-label="Share on Facebook" href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:4000/Angular-EP-01/"
+    onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;" title="Share on Facebook">
+        <svg class="icon icon-facebook"><use xlink:href="#icon-facebook"></use></svg>
+    </a>
+</section>
+
+        
+
+  <section class="author">
+    <div class="details">
+      
+        <img class="img-rounded" src="/assets/img/uploads/freeweed.jpg" alt="ป๋าแพะ">
+      
+      <p class="def">Author</p>
+      <h3 class="name">
+        <a href="/authors/freeweed/">ป๋าแพะ</a>
+      </h3>
+      <p class="desc">Male Handsome Freelance Full Stack Developer.</p>
+      <p>
+        
+          <a href="https://github.com/freeweed" title="Github">
+            <svg><use xlink:href="#icon-github"></use></svg>
+          </a>
+        
+        
+        
+        
+        
+        
+      </p>
+    </div>
+  </section>
+
+  
+  
+  
+  
+  
+  
+  
+
+  <script type="application/ld+json">
+  {
+      "@context": "http://schema.org",
+      "@type": "Person",
+      "name": "ป๋าแพะ",
+      
+      "image": "/assets/img/uploads/freeweed.jpg",
+      
+      "jobTitle": "Chief Editor",
+      "url": "http://localhost:4000/authors/freeweed/",
+      "sameAs": [
+        "https://github.com/freeweed"
+      ]
+  }
+  </script>
+
+
+        
+
+        <footer>
+    <p>
+      
+        <a href="https://github.com/noob-studio" title="Github">
+          <svg><use xlink:href="#icon-github"></use></svg>
+        </a>
+      
+      
+      
+      
+      
+      
+    </p>
+
+    <ul>
+  
+    
+      <li>
+        <a href="http://localhost:4000/">Home</a>
+      </li>
+    
+  
+    
+      <li>
+        <a href="http://localhost:4000/service">Service</a>
+      </li>
+    
+  
+    
+      <li>
+        <a href="http://localhost:4000/boonstock">Stock Management</a>
+      </li>
+    
+  
+    
+      <li>
+        <a href="http://localhost:4000/contact">Contact</a>
+      </li>
+    
+  
+    
+      <li>
+        <a href="http://localhost:4000/tags">Tags</a>
+      </li>
+    
+  
+    
+      <li>
+        <a href="http://localhost:4000/feed.xml">Feed</a>
+      </li>
+    
+  
+</ul>
+
+
+    <p>
+      <span>Noob Studio</span> was made with <svg class="love"><use xlink:href="#icon-heart"></use></svg> by <a href="https://jekyllrb.com/" target="_blank" class="creator">jekyll</a>
+    </p>
+</footer>
+
+
+
+
+
+
+
+
+
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Organization",
+  "name": "Noob Studio",
+  "description": "รับทำเว็บไซด์ โดยฟรีแลนซ์มืออาชีพประสบการณ์ มากกว่า 4 ปีพร้อมให้คำปรึกษาฟรี ทำได้ทั้งเว็บไซด์ และเว็บแอพพลิเคชัน ให้ผมช่วยแก้ไขปัญหาธุรกิจของคุณในยุคโลกาพิวัณ",
+  "url": "http://localhost:4000/",
+  "logo": {
+      "@type": "ImageObject",
+      "url": "http://localhost:4000/assets/img/icons/mediumtile.png",
+      "width": "600",
+      "height": "315"
+  },
+  "sameAs": [
+    "https://github.com/noob-studio"
+  ]
+}
+</script>
+
+<!-- Include the script that allows Netlify CMS login -->
+<script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+
+<!-- Include the website scripts -->
+<script src="/assets/js/scripts.min.js"></script>
+
+<!-- Include Google Analytics script -->
+<script>
+  var host = window.location.hostname;
+  if (host != 'localhost') {
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-93921891-1', 'auto');
+    ga('send', 'pageview');
+  }
+</script>
+  
+
+
+<!-- Include extra scripts -->
+
+
+
+        
+
+        
+        
+        
+        
+        
+        
+        
+
+        <script type="application/ld+json">
+        {
+            "@context": "http://schema.org",
+            "@type": "BlogPosting",
+            "name": "Programming 101 - Angular 'n Bootstrap EP. 01",
+            "headline": "สอนใช้งาน Angular เบื้องต้น และการติดตั้ง Bootstrap 4 ร่วมกับ Angular 8",
+            "description": "ในบทความนี้เราจะมาสอนการใช้งาน Bootstrap 4 ร่วมกับ Angular 8 รวมทั้ง Angular Component และการใช้ Bootstrap Theme เบื้องต้นสำหรับเริ่ม Project ใหม่",
+            "image": "img/angular/cover.jpg",
+            "url": "http://localhost:4000/Angular-EP-01/",
+            "articleBody": "
+สวัสดีครับห่างหายจากการเขียนบล๊อคไปนาน วันนี้ผมก็จะกลับมาเขียนใหม่นะครับ โดยมารอบนี้จะเขียนเป็นซีรี่เลยชื่อซีรี่ว่า Angular ‘n Bootstrap โดยเนื้อหาในซีรี่นี้เราจะสอนตั้งแต่เริ่มต้นการใช้งาน ไปเรื่อยๆ แล้วแต่อารมณ์คนเขียนนะครับ 5555 ปล. เราจะเน้นการปฎิบัติมากกว่าทฤษฎีนะครับ เพราะทฤษฎีเราไม่มีเรามีแต่ทฤษเดา 55555
+
+Prepare
+
+สิ่งที่ต้องการก่อนเริ่มอ่านบทความนี้
+
+
+  ความรู้พื้นฐาน Javscript
+  ความรู้พื้นฐาน Bootstrap
+  ติดตั้ง Angular CLI บนเครื่องให้เรียบร้อย
+
+
+
+  Angular คือ Javascript Framework ตัวนึงเกิดขึ้นมาตั้งแต่ปี 2016 โดยในปัจจุบันก็มาถึง version 8 แล้วนะครับ ข้อดีของ Angular คือ Code สามารถนำไป reuse ได้ง่ายเครื่องไม้เครื่องมือมีครบ และที่สำคัญคือ two-way binding ทำให้ทุกอย่างง่ายขึ้นเยอะ สำหรับข้อมูลเพิ่มเติมอื่นๆ สามารถหาอ่านได้ที่ angular.io นะครับ
+
+
+New Angular Project
+เปิด Terminal ขึ้นมาแล้วพิมพ์คำสั่ง
+
+ng new awesome-angular
+
+
+จะขึ้นหน้าจอถามว่าต้องการใช้ style ประเภทไหนผมเลือก css และมีคำสั่งถามว่าต้องการใช้ angular route หรือไม่ให้ตอบ yes
+
+
+
+เมื่อทำการตั้งค่าเสร็จให้พิมพ์คำสั่ง
+
+cd awesome-angular
+
+
+เพื่อเข้าไปใน Directory Project โดย Project จะมีโครงสร้างที่ต้องสนใจ ดังนี้
+
+awesome-angular
+├── src 
+│   ├── assets // สำหรับเก็บ assets ต่างๆ ที่ต้องการใช้ใน Project
+│   │   ├── css
+│   │   ├── js
+│   │   ├── image
+│   └── app
+│       ├── app-routing.module.ts // ที่สำหรับวาง route
+│       ├── app.component.css // โค้ด css สำหรับ component หลัก
+│       ├── app.component.ts // สำหรับวาง logic component หลัก
+│       ├── app.component.html // template html ของ component หลัก
+│       └── app.module.html // module หลักของระบบ
+├── angular.json // เก็บ setting สำหรับ angular cli
+└── package.json // เก็บ setting และ package ต่างๆของโปรเจค
+
+
+Install Bootstrap
+เมื่อเราสร้างโปรเจคเสร็จแล้วนะครับต่อมาเราก็จะมาทำการติดตั้ง Bootstrap Plugin ให้ Angular กันนะครับโดยขั้นตอนก็มีง่ายๆ โดยพิมพ์คำสั่ง
+
+npm install boostrap jquery popper.js --save
+
+
+เมื่อติดตั้งเสร็จแล้วให้เปิดไฟล์ชื่อว่า angular.json และเพิ่มรายละเอียดดังนี้
+
+...
+&quot;styles&quot;: [
+    &quot;src/styles.css&quot;,
+    &quot;./node_modules/bootstrap/dist/css/bootstrap.min.css&quot;, // เพิ่ม
+],
+&quot;scripts&quot;: [
+    &quot;./node_modules/jquery/dist/jquery.min.js&quot;, // เพิ่ม
+    &quot;./node_modules/bootstrap/dist/js/bootstrap.js&quot; // เพิ่ม
+],
+...
+
+
+Change Theme (Optional)
+หากต้องการเปลี่ยนธีมให้เปิดไปที่เว็บไซด์ bootswatch โดยเว็บนี้รวบรวม Theme Bootstrap ตั้งต้นไว้ให้เราเอาไปพัฒนาต่อง่าย
+
+
+
+เมื่อเลือก theme ได้แล้วให้คลิ๊กที่ ชื่อ Theme และ bootstrap.min.css เว็บไซด์จะทำการดาวโหลดไฟล์ bootstrap.min.css นำไฟล์ไปวางไว้ที่ src/assets/css/
+
+และเปิดไฟล์ angular.json อีกครั้งเพื่อแก้ไข
+...
+&quot;styles&quot;: [
+    &quot;src/styles.css&quot;,
+    &quot;src/assets/css/bootstrap.min.css&quot;, // แก้ไข
+],
+...
+
+หลังจากนั้นพิมพ์คำสั่ง
+
+ng serve
+
+
+แล้วเปิด Browser ไปที่ localhost:4200 จะพบหน้าตาดังนี้
+
+
+
+ต่อมาเราจะมาทำความรู้จักกับ Angular Component และ Angular Route เบื้องต้น
+
+Angular Component
+ใน Angular หน้าเว็บจะเป็นแบบ single page หมายความว่าตัว Angular มองส่วนประกอบต่างๆ ของหน้าเว็บแยกเป็นส่วนแยกออกจากกัน(Component) แล้วนำมาประกอบกันเพื่อให้การเป็นเว็บไซด์ โดยวันนี้เว็บไซด์ที่เราจะทำเราจะแยก Component เป็น 3 ส่วนง่ายๆ ดังนี้
+
+
+
+
+  App Component คือที่วางหน้าหลักของเรา
+  Navbar Component มีไว้สำหรับนำทางไปที่หน้าต่างๆ
+  Content Component มีไว้สำหรับวาง Content ต่างๆ ของเว็บไซด์ของเรา
+
+
+Create Component
+ต่อมาเราจะมาสร้าง Angular Component กันนะครับวิธีสร้างก็ง่ายๆ ให้เปิด terminal ขึ้นมาแล้วพิมพ์คำสั่งว่า
+ng generate component shared/navbar
+ng generate component page/about
+ng generate component page/home
+ng generate component page/features
+
+
+Command Description
+
+  ng generate หรือ ng g คือคำสั่งสำหรับสร้างส่วนประกอบของ angular
+  component หรือ c คือสื่งที่ต้องการสร้างซึ่งมีหลายอย่างเช่น component pipe service module เป็นต้น
+  shared/navbar คือชื่อสิ่งที่ต้องการสร้าง การใส่ shared/ ข้างหน้าหมายความว่าสร้างไว้ใน Directory ชื่อว่า Shared ซึ่งถ้าไม่มี Angular CLI จะทำการสร้าง Directory ให้
+
+
+หลังจากพิมพ์คำสั่งเสร็จแล้วเมื่อดูในโปรเจค Directory จะพบไฟล์เพิ่มขึ้นมาดังนี้
+...
+│   └── app
+│       ├── page // เพิ่มใหม่
+│       │   ├── about // หน้า about
+│       │   │   ├── about.component.css
+│       │   │   ├── about.component.html
+│       │   │   ├── about.component.spec.ts
+│       │   │   ├── about.component.ts
+│       │   ├── home // หน้า home
+│       │   │   ├── home.component.css
+│       │   │   ├── home.component.html
+│       │   │   ├── home.component.spec.ts
+│       │   │   ├── about.component.ts
+│       │   ├── features // หน้า features
+│       │   │   ├── features.component.css
+│       │   │   ├── features.component.html
+│       │   │   ├── features.component.spec.ts
+│       │   │   ├── features.component.ts
+│       ├── shared // เพิ่มใหม่
+│       │   ├── navbar // navbar
+│       │   │   ├── navbar.component.css
+│       │   │   ├── navbar.component.html
+│       │   │   ├── navbar.component.spec.ts
+│       │   │   ├── navbar.component.ts
+...
+
+
+Create Navbar
+ต่อมาเรามาทำ Navbar เพื่อสำหรับเป็น Navigation ไปที่ต่างๆ นะครับโดยให้เราเปิดไฟล์ navbar.component.html ขึ้นมาและใส่โค้ดดังนี้
+
+&amp;lt;nav class=&quot;navbar navbar-expand-lg navbar-dark bg-dark&quot;&amp;gt;
+  &amp;lt;a class=&quot;navbar-brand&quot; href=&quot;#&quot;&amp;gt;Navbar&amp;lt;/a&amp;gt;
+  &amp;lt;button class=&quot;navbar-toggler&quot; type=&quot;button&quot; data-toggle=&quot;collapse&quot; data-target=&quot;#navbarColor02&quot; aria-controls=&quot;navbarColor02&quot; aria-expanded=&quot;false&quot; aria-label=&quot;Toggle navigation&quot;&amp;gt;
+    &amp;lt;span class=&quot;navbar-toggler-icon&quot;&amp;gt;&amp;lt;/span&amp;gt;
+  &amp;lt;/button&amp;gt;
+
+  &amp;lt;div class=&quot;collapse navbar-collapse&quot; id=&quot;navbarColor02&quot;&amp;gt;
+    &amp;lt;ul class=&quot;navbar-nav mr-auto&quot;&amp;gt;
+      &amp;lt;li class=&quot;nav-item active&quot;&amp;gt;
+        &amp;lt;a class=&quot;nav-link&quot; [routerLink]=&quot;['/home']&quot;&amp;gt;Home &amp;lt;/a&amp;gt;
+      &amp;lt;/li&amp;gt;
+      &amp;lt;li class=&quot;nav-item&quot;&amp;gt;
+        &amp;lt;a class=&quot;nav-link&quot; [routerLink]=&quot;['/features']&quot;&amp;gt;Features&amp;lt;/a&amp;gt;
+      &amp;lt;/li&amp;gt;
+      &amp;lt;li class=&quot;nav-item&quot;&amp;gt;
+        &amp;lt;a class=&quot;nav-link&quot; [routerLink]=&quot;['/about']&quot;&amp;gt;About&amp;lt;/a&amp;gt;
+      &amp;lt;/li&amp;gt;
+    &amp;lt;/ul&amp;gt;
+    &amp;lt;form class=&quot;form-inline my-2 my-lg-0&quot;&amp;gt;
+      &amp;lt;input class=&quot;form-control mr-sm-2&quot; type=&quot;text&quot; placeholder=&quot;Search&quot;&amp;gt;
+      &amp;lt;button class=&quot;btn btn-secondary my-2 my-sm-0&quot; type=&quot;submit&quot;&amp;gt;Search&amp;lt;/button&amp;gt;
+    &amp;lt;/form&amp;gt;
+  &amp;lt;/div&amp;gt;
+&amp;lt;/nav&amp;gt;
+
+โดยโค้ดที่สำคัญตรงนี้คือ
+&amp;lt;a class=&quot;nav-link&quot; [routerLink]=&quot;['/home']&quot;&amp;gt;Home &amp;lt;/a&amp;gt;
+
+คำสัง [routerLink]=&quot;['/home']&quot; คือบอกว่าให้ route ไปที่หน้าไหนคล้ายกับ href=&quot;/home&quot;
+
+Home Markup (Optional)
+เพื่อความสวยงามนะครับเรามาแต่งหน้า Home กันหน่อยให้เปิดไฟล์ home.component.html ขึ้นมาแล้วใส่ Code ดังนี้
+
+&amp;lt;div class=&quot;position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-light&quot;&amp;gt;
+  &amp;lt;div class=&quot;col-md-5 p-lg-5 mx-auto my-5&quot;&amp;gt;
+    &amp;lt;h1 class=&quot;display-4 font-weight-normal&quot;&amp;gt;Noob Studio Is The Best&amp;lt;/h1&amp;gt;
+    &amp;lt;p class=&quot;lead font-weight-normal&quot;&amp;gt;Noob Studio Is The Best. Freelance developer for hire him please see website &amp;lt;a href=&quot;https://noob-studio.github.io&quot;&amp;gt;noob-stuio.github.io&amp;lt;/a&amp;gt;&amp;lt;/p&amp;gt;
+    &amp;lt;a class=&quot;btn btn-outline-secondary&quot; href=&quot;https://noob-studio.github.io&quot;&amp;gt;Go!&amp;lt;/a&amp;gt;
+  &amp;lt;/div&amp;gt;
+  &amp;lt;div class=&quot;product-device box-shadow d-none d-md-block&quot;&amp;gt;&amp;lt;/div&amp;gt;
+  &amp;lt;div class=&quot;product-device product-device-2 box-shadow d-none d-md-block&quot;&amp;gt;&amp;lt;/div&amp;gt;
+&amp;lt;/div&amp;gt;
+
+ปล. แอบขายของนิดนึงนะครับ 55555
+
+Angular Routing
+เมื่อเราเตรียมโครงสร้างของเว็บเสร็จแล้วต่อมาเราจะนำมาประกอบกันเพื่อให้กลายเป็นเว็บไซด์ต่างๆ นะจ๊ะ
+
+Set Route
+ขั้นตอนแรกให้เปิดไปที่ไฟล์ app-routing.module.ts และเพิ่มโค้ดดังนี้
+
+...
+import { AboutComponent } from './page/about/about.component';
+import { FeaturesComponent } from './page/features/features.component';
+import { HomeComponent } from './page/home/home.component';
+
+const routes: Routes = [{
+  path: '',
+  redirectTo: 'home',
+  pathMatch: 'full',
+},{
+  path: 'home',
+  component: HomeComponent,
+},{
+  path: 'features',
+  component: FeaturesComponent,
+},{
+  path: 'about',
+  component: AboutComponent,
+}];
+
+@NgModule({
+...
+
+
+ขั้นตอนแรกให้เรา import component ต่างๆ ที่เราต้องการ route เข้ามานะครับให้สังเกตุว่าเราไม่ได้ import navbar.component เข้ามาเพราะเราไม่ได้ต้องการจะ route ไปที่ navbar.component นะครับ
+
+import { AboutComponent } from './page/about/about.component';
+import { FeaturesComponent } from './page/features/features.component';
+import { HomeComponent } from './page/home/home.component';
+
+
+ต่อมาเราทำการ set route ไว้ในตัวแปลชื่อว่า routes โดยมีประเภทเป็น Routes ที่ใส่ const ไว้เพื่อไม่ให้ตัวนี้สามารถแก้ไขได้ และหากสังเกตุจะเห็นว่ามันเป็น json array
+
+const routes: Routes = [{
+...
+}]
+
+
+ต่อมาเราอธิบายใส่ในของ route กันนะครับ object ตัวแรกคือการ set default ว่าถ้าเข้ามาที่ path แรกจะให้ route ไปที่ไหน
+
+  path: หมายถึง path ที่ตรงกับ route นี้
+  redirectTo: หมายถึงให้ redirect ไปที่ path ไหน
+  pathMatch: ความตรงกันของ path (เงี่ยนไขที่จะ redirect)
+
+
+{
+  path: '',
+  redirectTo: 'home',
+  pathMatch: 'full',
+}
+...
+
+ในส่วนสุดท้าย set route สำหรับวิ่งไปหน้าอื่นๆ นะครับ
+
+  path: หมายถึง path ที่ตรงกับ route นี้
+  component: หมายถึง component ที่ควบคุม route นี้ซึ่งเราได้ import มาตอนต้นแล้ว
+
+
+...
+{
+  path: 'home',
+  component: HomeComponent,
+}
+...
+
+
+แค่นี้ก็เป็นอันเสร็จสิ้นสำหรับการ Set Route แล้วนะครับ
+
+Assemble
+ส่วนสุดท้ายแล้วนะจ๊ะ เราจะมาประกอบร่าง Component ทั้งหมดกันก่อนอื่นให้เปิดไฟล​์ชื่อว่า app.component.html ขึ้นมาแล้วแก้เป็นแบบนี้
+
+&amp;lt;app-navbar&amp;gt;&amp;lt;/app-navbar&amp;gt;
+&amp;lt;router-outlet&amp;gt;&amp;lt;/router-outlet&amp;gt;
+
+
+
+  &amp;lt;app-navbar&amp;gt;&amp;lt;/app-navbar&amp;gt; คือ selector (แบบว่าเหมือนชื่อเล่นของ component เอาไว้เรียกใช้งานงี้มั้ง) มาจากไฟล์ navbar.component.ts
+
+
+...
+@Component({
+  selector: 'app-navbar', // &amp;lt;------ ตรงนี้
+...
+
+
+
+  &amp;lt;router-outlet&amp;gt;&amp;lt;/router-outlet&amp;gt; เป็น selector ของ Angular
+
+
+สุดท้ายพิมพ์คำสั่ง
+ng serve
+
+
+ก็จะแสดงผลหน้าตาเว็บไซด์ประมาณนี้
+
+
+หากกดข้างเปลี่ยนไปที่หน้าอื่นก็จะขึ้นว่า about works!! หรือ features works!!
+
+Error WTF!!
+หากลองรันแล้วพบ error ให้ลองตรวจสอบไฟล์ app.module.ts ดูว่ามีการตั้งค่าดังนี้หรือไม่
+
+
+  import component ที่สร้างขึ้นและ AppRoutingModule
+
+
+...
+import { AppRoutingModule } from './app-routing.module';
+import { HomeComponent } from './page/home/home.component';
+import { NavbarComponent } from './shared/navbar/navbar.component';
+import { AboutComponent } from './page/about/about.component';
+import { FeaturesComponent } from './page/features/features.component';
+...
+
+
+
+  เรียกใช้งาน component และ module ที่ import มาถูกต้อง
+
+
+...
+@NgModule({
+  declarations: [ // สำหรับใส่ component
+    AppComponent,
+    HomeComponent,
+    NavbarComponent,
+    AboutComponent,
+    FeaturesComponent
+  ],
+  imports: [ // สำหรับใส่ module
+    BrowserModule,
+    AppRoutingModule
+  ],
+  providers: [],
+  bootstrap: [AppComponent]
+})
+...
+
+
+Conclusion
+เป็นอันเรียบร้อยไปแล้วนะครับสำหรับ Angular ‘n Bootstrap EP 01 ยังไงเพื่อนๆชอบไม่ชอบก็สามารถเข้ามาติชมกันที่แฟนเพจ noob studio ได้นะครับ สำหรับเพื่อนๆคนไหนที่สนใจตัวอย่างโค้ด สามารถดูได้ที่ github ของเรานะจ๊ะ
+",
+            "wordcount": "1871",
+            "inLanguage": "en",
+            "dateCreated": "2020-02-21/",
+            "datePublished": "2020-02-21/",
+            "dateModified": "2020-02-21/",
+            "author": {
+                "@type": "Person",
+                "name": "ป๋าแพะ",
+                
+                "image": "/assets/img/uploads/freeweed.jpg",
+                
+                "jobTitle": "Chief Editor",
+                "url": "http://localhost:4000/authors/freeweed/",
+                "sameAs": [
+                    "https://github.com/freeweed"
+                ]
+            },
+            "publisher": {
+                "@type": "Organization",
+                "name": "Noob Studio",
+                "url": "http://localhost:4000/",
+                "logo": {
+                    "@type": "ImageObject",
+                    "url": "http://localhost:4000/assets/img/blog-image.png",
+                    "width": "600",
+                    "height": "315"
+                }
+            },
+            "mainEntityOfPage": "True",
+            "genre": "",
+            "articleSection": "",
+            "keywords": ["node.js","Programing101","Typescript","javascript","Angular","Bootstrap","jquery","รับงาน","รับทำเว็บไซด์","รับเขียนโปรแกรม","รับพัฒนาระบบ"]
+        }
+        </script>
+    </body>
+</html>
