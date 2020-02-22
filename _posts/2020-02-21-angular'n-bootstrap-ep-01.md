@@ -324,10 +324,12 @@ const routes: Routes = [{
 ng serve
 ```
 
-ก็จะแสดงผลหน้าตาเว็บไซด์ประมาณนี้
+แล้วเปิดไปที่หน้า <a href="http://localhost:4200">http://localhost:4200</a> หน้าเว็บก็จะแสดงผลหน้าตาเว็บไซด์ประมาณนี้
 <img src="{{ site.baseurl }}/img/angular/ep01/screenshot.png" alt="บริการรับทำเว็บไซด์ แอพพลิเคชัน ระบบสำหรับใช้ในองค์กร เว็บขายของระบบ E-commerce หรือระบบต่างๆ">
 
-หากกดข้างเปลี่ยนไปที่หน้าอื่นก็จะขึ้นว่า about works!! หรือ features works!!
+หากกดข้างบนเปลี่ยนไปที่หน้าอื่นก็จะขึ้นว่า about works!! หรือ features works!!
+
+> หากเราสังเกตุจะเห็นว่าเว็บไซด์ได้ถูก redirect ไปที่ <a href="http://localhost:4200/home">http://localhost:4200/home</a>
 
 ## Error WTF!!
 หากลองรันแล้วพบ error ให้ลองตรวจสอบไฟล์ **app.module.ts** ดูว่ามีการตั้งค่าดังนี้หรือไม่

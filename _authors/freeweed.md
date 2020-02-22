@@ -6,5 +6,6 @@ display_name: ป๋าแพะ
 position: Chief Editor
 bio: Male Handsome Freelance Full Stack Developer.
 github_username: freeweed
+facebook_username: Noob-Studio-110220157236657
 ---
 
