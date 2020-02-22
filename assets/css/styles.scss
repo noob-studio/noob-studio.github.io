@@ -83,12 +83,28 @@
     width: 90%;
 }
 
+.feature a{
+    width: fit-content !important;
+}
+
 .box-item.feature{
     min-height: 0px;
 }
 
 .small-icon{
     width: 32px;
+}
+
+a.line:hover{
+    color: #00c300;
+}
+
+a.mya{
+    color: #333;
+}
+
+a.facebook:hover{
+    color: #3b5998;
 }
 
 @media (min-width: 1220px){
