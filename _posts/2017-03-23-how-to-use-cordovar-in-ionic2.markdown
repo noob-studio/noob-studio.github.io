@@ -1,11 +1,12 @@
 ---
-layout:     post
+layout: post
 comments: true
-title:      "วิธีการใช้งาน Cordova Plugin ใน Ionic2"
-subtitle:   "ขั้นตอนง่ายๆ เพียง 5 นาทีในการนำ Cordova Plugin มาใช้ใน ionic 2"
-date:       2017-03-23 00:24:00
-author:     "ป๋าแพะ"
-header-img: "img/cordovar-ionic/cover.jpeg"
+title: "วิธีการใช้งาน Cordova Plugin ใน Ionic2"
+subtitle: "ขั้นตอนง่ายๆ เพียง 5 นาทีในการนำ Cordova Plugin มาใช้ใน ionic 2"
+description: "สวัสดีครับเนื่องจากช่วงนี้งานเยอะมากๆเลย วันนี้เลยขอเขียน How To สั้นๆแต่คิดว่าน่าจะมีประโยชน์สำหรับคนที่ใช้งาน Ionic2 ไม่มากก็น้อยนะครับ"
+date: 2017-03-23 00:24:00
+author: "ป๋าแพะ"
+optimized_image: "img/cordovar-ionic/cover.jpeg"
 categories:
  - mobile
 tags: 

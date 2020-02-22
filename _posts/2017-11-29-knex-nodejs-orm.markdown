@@ -1,12 +1,13 @@
 ---
-layout:     post
-comments:   true
+layout: post
+comments: true
 title: "วิธีใช้ knex.js จัดการฐานข้อมูล MySQL ใน Node.js"
 subtitle: "วิธีการใช้ knex.js จัดการฐานข้อมูล MySQL แบบ Object ใน Node.js"
+description: "ด้วยในยุคนี้นะครับเป็นยุคที่ Javascript ครองเมืองหันไปทางไหนก็มีแต่ Javascript เต็มไปหมดเลยครับไม่ว่าจะ React, Angular, Vue, Node, MEAN โอ้ยยเยอะแยะไปหมด หลายๆที่ก็เริ่มเปลี่ยนฝั่ง Back จาก PHP มาเป็น Node.js และฝั่ง Front ก็เริ่มเป็น Angular, Vue, React อะไรก็ว่า แต่เขียนโค้ดใหม่ที่ว่ายากแล้วการต้อง migration ข้อมูลจาก MySQL ไปเป็นฐานข้อมูลแบบ NoSQL สถาปัตยกรรมมันเข้ากันก็ลำบากเหลือเกิน ครั้นจะเขียน SQL คิวรี่เหมือนเดิมก็ขัดใจ๋ขัดใจ การเขียนโปรแกรมแบบ ORM (Object Relational Mapping) จึงเกิดขึ้น การเขียนโปรแกรมแบบ ORM พูดง่ายๆก็คือการแปลงข้อมูลที่ไม่เป็น Object มาอยู่ในรูป Object สำหรับใช้ภาษาโปรแกรมที่เป็น Object Oriented ซึ่งในบทความนี้เราจะใช้ ORM Tool ชื่อว่า"
 date: 2017-11-29 10:38
 author:     "ป๋าแพะ"
 published: true
-header-img: 'img/node-orm/cover.jpg'
+optimized_image: 'img/node-orm/cover.jpg'
 categories:
  - backend
  - database

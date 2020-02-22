@@ -1,6 +1,29 @@
 ---
-layout: layout
+layout: default
 ---
 
-{% assign __ = site.data.languages[site.language] %}
-{% include page.html %}
+<div class="post">
+
+  <article class="post-content fullwidth">
+    {{ content }}
+  </article>
+
+</div>
+<section class="post">
+  <article id="post" class="post-content fullwidth" role="main">
+    <div class="tags">
+      {% assign tags_list = page.tags %}
+        {% if tags_list.first[0] == null %}
+          {% for tag in tags_list %}
+              <a href="{{ site.url | append: "/tags/" | append: "#" | append: tag }}">#{{ tag }}</a>
+          {% endfor %}
+        {% else %}
+          {% for tag in tags_list %}
+              <a href="{{ site.url | append: "/tags/" | append: "#" | append: tag[0] }}">#{{ tag[0] }}</a>
+          {% endfor %}
+        {% endif %}
+      {% assign tags_list = nil %}
+    </div>
+  </article>
+</section>
+

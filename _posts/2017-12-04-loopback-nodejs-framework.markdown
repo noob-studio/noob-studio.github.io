@@ -1,11 +1,13 @@
 ---
-comments:   true
+layout: post
+comments: true
 title: "เขียน RESTful API ใน Node.js แบบ 'โคตรไว' ด้วย Loopback"
 subtitle: "วิธีการเขียน RESTful API ด้วยความเร็วแสงด้วย Loopback"
+description: "เนื่องจากผมได้มีโอกาศไปรับงานนึงเกี่ยวกับการจัดการ Stock สินค้าซึ่งจาก Scale งานเนี่ยน่าจะใช้เวลาพัฒนาประมาณ 2 อาทิตย์แต่ลูกค้าแบบว่าเร่งมากบอกน้องพี่ขอ 7 วันได้ไหม!! แม่เจ้าาาา รีบไปไหนเนี่ยพ่อคู๊ณณ แต่ถือเป็นโชคดีที่ก่อนหน้าที่ทำงานของผมได้ให้ผมทำ research เกี่ยวกับ node.js framework ตัวนึงชื่อว่า loopback ซึ่งหลังจากได้ลองใช้ขอบอกเลยว่ามันดีมากเลยอ่ะแกรร แบบว่าของมันต้องใช้อ่ะแกรร ว่าแล้วเราก็มาลองใช้งานกันเลยเถอะ"
 date: 2017-12-04 13:52
-author:     "ป๋าแพะ"
+author: "ป๋าแพะ"
 published: true
-header-img: 'img/loopback/cover.jpg'
+optimized_image: 'img/loopback/cover.jpg'
 categories:
  - backend
  - framework

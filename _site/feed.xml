@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>รับทำเว็บไซด์ และเว็บแอพพลิเคชันทันสมัย สวยงาม</title>
+    <description>รับทำเว็บไซด์ โดยฟรีแลนซ์มืออาชีพประสบการณ์ มากกว่า 4 ปีพร้อมให้คำปรึกษาฟรี ทำได้ทั้งเว็บไซด์ และเว็บแอพพลิเคชัน ให้ผมช่วยแก้ไขปัญหาธุรกิจของคุณในยุคโลกาพิวัณ</description>
+    <link>http://localhost:4000/</link>
+    <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Sat, 22 Feb 2020 12:50:09 +0700</pubDate>
+    <lastBuildDate>Sat, 22 Feb 2020 12:50:09 +0700</lastBuildDate>
+    <generator>Jekyll v3.8.6</generator>
+    
+      <item>
+        <title>เขียน Microservice ด้วย Node.js และ Seneca.js</title>
+        <description>&lt;p&gt;&lt;img src=&quot;/img/seneca/cover.jpg&quot; alt=&quot;เขียน Microservice ด้วย Node.js และ Seneca.js&quot; /&gt; ในช่วง 2-3 ปีที่ผ่านกระแส Microservice ได้มาแรงมากๆ โดยที่ทำงานผมปัจจุบันแอพพลิเคชัน แอพเดียวนี่มี Microservice support อยู่หลังบ้านเป็น 10 ระบบแล้ว ดังนั้นถ้าผมไม่พูดถึงมันจะไม่เทรนนะจ๊ะ แต่จะไม่ลงรายละเอียดในส่วนของทฤษฎีเยอะนะครับเพราะมีพี่ๆ เขียนไว้เยอะแล้ว เรามันสายบู๊อยู่แล้วว่ะฮ่ะฮ่ะ&lt;/p&gt; &lt;h1 id=&quot;microservice-คืออะไร&quot;&gt;Microservice คืออะไร&lt;/h1&gt; &lt;p&gt; Microservice คือแนวคิดการพัฒนาโปรแกรมแบบแยกโปรแกรมเป็นส่วนเล็กๆ ที่สามารถทำงานแยกออกจากกันได้มี environment แยกออกจากกัน แต่ก็สามารถทำงานร่วมกันได้เพื่อรวมกันกลายเป็นระบบที่ใหญ่ขึ้น ยกตัวอย่างเช่น ระบบธนาคาร (คลาสสิคสุดๆ) ในระบบธนาคารหนึ่งธนาคารก็จะมีระบบต่างๆ ประมาณนี้&lt;br /&gt;&lt;br /&gt; 1. payment โอนเงิน / จ่ายเงิน&lt;br /&gt; 2. balance จัดการยอดเงินผู้ใช้&lt;br /&gt; 3. deposit ฝากเงิน&lt;br /&gt; 4. sms แจ้งเตือนฝากถอน&lt;br /&gt;&lt;br /&gt; อันนี้คือตัวอย่างคร่าวๆ นะครับจากตัวอย่างเราจะเห็นว่าถ้าเป็นสมัยก่อนเขียนไว้ในระบบเดียวกัน (Monolithic) ซึ่งจะว่าดีก็ดีในแบบของเค้านะครับแต่ว่าเราจะไม่พูดเพราะก็คงรู้ๆ กันอยู่แล้ว ข้อเสียที่สำคัญของสถาปัตยกรรมลักษณะนี้คือ&lt;br /&gt;&lt;br /&gt; 1. ถ้าระบบล่มจะล่มหมดเลย&lt;br /&gt; 2. ทั้งทีมจำเป็นต้องถนัดเครื่องมือเดียวกันเช่น ถ้าใช้ Node.js ก็ต้อง Node.js ทั้งระบบ&lt;br /&gt; 3. ดูแลรักษายาก&lt;br /&gt;&lt;br /&gt; นี่แค่ที่ผมคิดออกนะครับเพราะเหตุนี้แนวคิด Mircroservice จึงเกิดขึ้นเพื่อมาแก้ปัญหาของสถาปัตยกรรมแบบเก่าโดยเขียนระบบที่กล่าวมาข้างต้น แยกกันดังนี้&lt;br /&gt;&lt;br /&gt; 1. payment โอนเงิน / จ่ายเงิน อย่างเดียวสายเปย์ ฐานข้อมูลก็เก็บแค่ transaction ที่โอนอย่างเดียว&lt;br /&gt;...</description>
+        <pubDate>Thu, 18 Jan 2018 17:11:00 +0700</pubDate>
+        <link>http://localhost:4000/seneca-nodejs-microservice/</link>
+        <guid isPermaLink="true">http://localhost:4000/seneca-nodejs-microservice/</guid>
+        
+        <category>node.js</category>
+        
+        <category>microservice</category>
+        
+        <category>javascript</category>
+        
+        <category></category>
+      </item>
+    
+      <item>
+        <title>เขียน RESTful API ใน Node.js แบบ 'โคตรไว' ด้วย Loopback</title>
+        <description>&lt;p&gt;&lt;img src=&quot;/img/loopback/cover.jpg&quot; alt=&quot;สอนใช้งาน loopback&quot; /&gt; เนื่องจากผมได้มีโอกาศไปรับงานนึงเกี่ยวกับการจัดการ Stock สินค้าซึ่งจาก Scale งานเนี่ยน่าจะใช้เวลาพัฒนาประมาณ 2 อาทิตย์แต่ลูกค้าแบบว่าเร่งมากบอกน้องพี่ขอ 7 วันได้ไหม!! แม่เจ้าาาา รีบไปไหนเนี่ยพ่อคู๊ณณ แต่ถือเป็นโชคดีที่ก่อนหน้าที่ทำงานของผมได้ให้ผมทำ research เกี่ยวกับ node.js framework ตัวนึงชื่อว่า &lt;a href=&quot;http://loopback.io&quot; target=&quot;_blank&quot;&gt;loopback&lt;/a&gt; ซึ่งหลังจากได้ลองใช้ขอบอกเลยว่ามันดีมากเลยอ่ะแกรร แบบว่าของมันต้องใช้อ่ะแกรร ว่าแล้วเราก็มาลองใช้งานกันเลยเถอะ&lt;/p&gt; &lt;p&gt; loopback คือ Node.js framework สำหรับสร้าง REST API อย่างรวดเร็วพร้อมเครื่องมือสำหรับสร้าง Model พร้อม validation และอื่นๆ อีกมากมายอย่างครบวงจรเรียกได้ว่าช่วยประหยัดเวลาในการพัฒนาเป็นอย่างมาก โดย ขั้นตอนการใช้ loopback เบื้องต้นมีดังนี้ &lt;/p&gt; &lt;h1 id=&quot;setup&quot;&gt;Setup&lt;/h1&gt; &lt;p&gt;สำหรับเริ่มใช้งานก็แบบชิลๆ เปิด terminal ขึ้นมา และพิมพ์คำสั่งดังนี้&lt;/p&gt; &lt;pre&gt; npm install -g loopback-cli lb &lt;/pre&gt; &lt;p&gt;เมื่อพิมพ์คำสั่งตามนี้จะปรากฏหน้าต่างให้ setup ข้อมูล api ดังนี้&lt;/p&gt; &lt;pre&gt; What's the name of your application? hello-loopback (ชื่อของ api) Enter name of the directory to contain the project: hello-loopback (ไฟล์ต่างๆไว้ในโฟรเดอร์ชื่ออะไรถ้าไม่ใส่จะใส่ในไดเร็กทอรี่เดียวกับชื่อ api) Which version of LoopBack would you like to use? เวอร์ชันของ loopback ในที่นี้เลือกเวอร์ชัน...</description>
+        <pubDate>Mon, 04 Dec 2017 13:52:00 +0700</pubDate>
+        <link>http://localhost:4000/loopback-nodejs-framework/</link>
+        <guid isPermaLink="true">http://localhost:4000/loopback-nodejs-framework/</guid>
+        
+        <category>node.js</category>
+        
+        <category>javascript</category>
+        
+        <category></category>
+      </item>
+    
+      <item>
+        <title>วิธีใช้ knex.js จัดการฐานข้อมูล MySQL ใน Node.js</title>
+        <description>&lt;p&gt;&lt;img src=&quot;/img/node-orm/cover.jpg&quot; alt=&quot;สอนใช้งาน knex.js จัดการฐานข้อมูล MySql&quot; /&gt; ด้วยในยุคนี้นะครับเป็นยุคที่ Javascript ครองเมืองหันไปทางไหนก็มีแต่ Javascript เต็มไปหมดเลยครับไม่ว่าจะ React, Angular, Vue, Node, MEAN โอ้ยยเยอะแยะไปหมด หลายๆที่ก็เริ่มเปลี่ยนฝั่ง Back จาก PHP มาเป็น Node.js และฝั่ง Front ก็เริ่มเป็น Angular, Vue, React อะไรก็ว่า แต่เขียนโค้ดใหม่ที่ว่ายากแล้วการต้อง migration ข้อมูลจาก MySQL ไปเป็นฐานข้อมูลแบบ NoSQL สถาปัตยกรรมมันเข้ากันก็ลำบากเหลือเกิน ครั้นจะเขียน SQL คิวรี่เหมือนเดิมก็ขัดใจ๋ขัดใจ การเขียนโปรแกรมแบบ ORM (Object Relational Mapping) จึงเกิดขึ้น การเขียนโปรแกรมแบบ ORM พูดง่ายๆก็คือการแปลงข้อมูลที่ไม่เป็น Object มาอยู่ในรูป Object สำหรับใช้ภาษาโปรแกรมที่เป็น Object Oriented ซึ่งในบทความนี้เราจะใช้ ORM Tool ชื่อว่า &lt;a herf=&quot;http://knexjs.org/&quot; target=&quot;_blank&quot;&gt;knexjs.org&lt;/a&gt; นั่นเอง&amp;lt;/p&amp;gt;&lt;/p&gt; &lt;blockquote&gt;ORM คือการแปลงข้อมูลที่ไม่เป็น Object มาอยู่ในรูป Object สำหรับใช้ภาษาโปรแกรมที่เป็น Object Oriented&lt;/blockquote&gt; &lt;p style=&quot;color:red;&quot;&gt;หมายเหตุในบทความนี้ใช้ async / await เยอะมากเพื่อความเข้าใจกรุณาไปศึกษาเรื่องนี้มาก่อนนะจ๊ะ&lt;/p&gt; &lt;h1 id=&quot;what-is-knexjs&quot;&gt;What is knex.js&lt;/h1&gt; &lt;p&gt;knex.js คือเครื่องมือที่ช่วยให้เราเขียน node.js สามารถจัดการกับฐานข้อมูลในรูปแบบ Object ได้ (ORM) ทำให้เราเขียนโปรแกรมได้ง่ายขึ้นเพราะไม่ต้องมาคอยเขียนคำสั่ง SQL และแปลงข้อมูลที่ได้มาให้เป็น Object ของเราอีกทีนึงให้วุ่นวาย ขั้นตอนการใช้งานมีดังนี้&lt;/p&gt; &lt;h1 id=&quot;setup&quot;&gt;Setup&lt;/h1&gt; &lt;p&gt;เอาละครับเรารู้จัก ORM กับ...</description>
+        <pubDate>Wed, 29 Nov 2017 10:38:00 +0700</pubDate>
+        <link>http://localhost:4000/knex-nodejs-orm/</link>
+        <guid isPermaLink="true">http://localhost:4000/knex-nodejs-orm/</guid>
+        
+        <category>node.js</category>
+        
+        <category>javascript</category>
+        
+        <category>MySql</category>
+        
+        <category></category>
+      </item>
+    
+      <item>
+        <title>วิธีทำ Notification(แจ้งเตือน) ให้ Ionic2 ด้วย Firebase และ Node.js</title>
+        <description>&lt;p&gt;&lt;img src=&quot;/img/ionic-notification/cover.jpg&quot; alt=&quot;วิธีทำ Notification(แจ้งเตือน) ให้ Ionic2 ด้วย Firebase และ Node.js&quot; /&gt;&lt;/p&gt; &lt;p&gt;สวัสดีครับหลังจากคราวก่อนได้เขียนวิธีสร้าง &lt;a href=&quot;/ionic-chat/&quot;&gt;แอพพลิเคชันแชทแบบง่ายๆ ด้วย Ionic2 Node.js&lt;/a&gt; ก็มีคนบอกว่าอยากให้เขียนวิธีการแจ้งเตือนให้มือถือและผมก็คิดเรื่องจะเขียนไม่ออกด้วยครับช่วงนี้เพราะฉะนั้นวันนี้ีเราทำแจ้งเตือนกันเถอะ 555 โดยแจ้งเตือนเนี่ยมี 2 แบบคือแบบ Local Notification และไม่ Local โดยจะแตกต่างกันดังนี้&lt;/p&gt; &lt;ul&gt; &lt;li&gt;Local Notification (เกมเตือนให้รับของประจำวัน) ไม่จำเป็นต้องมี Server เป็นการตั้งค่าให้แจ้งเตือนตามเวลาที่ตั้งไว้ข้อดีคือง่ายแต่มีข้อเสียคือข้อมูลจะตายตัวไม่มีการเปลี่ยนแปลง (ไว้บทความถัดไปนะจ๊ะ)&lt;/li&gt; &lt;li&gt;ไม่ Local (facebook, line) จำเป็นต้องมี Server เพื่อส่งแจ้งเตือนให้แอพพลิเคชันมีข้อดีคือสามารถแจ้งเตือนเมื่อไหร่ก็ได้ข้อมูลสามารถยืดหยุ่นตาม Server ส่งมาให้ (สอนในบทความนี้)&lt;/li&gt; &lt;/ul&gt; &lt;blockquote&gt;แจ้งเตือนที่มีข้อมูลแบบไม่ตายตัว(app แชททั่วไป) ต้องมี server แจ้งเตือนแบบตายตัว(เช่น เกมเตือนให้รับของประจำวัน) ไม่จำเป็นต้องมี server&lt;/blockquote&gt; &lt;h1 id=&quot;required--install&quot;&gt;Required &amp;amp; Install&lt;/h1&gt; &lt;p&gt;สิ่งที่จะใช้ในการทำแจ้งเตือนของบทความนี้มีดังนี้&lt;/p&gt; &lt;ul&gt; &lt;li&gt;Node.js เวอร์ชันล่าสุด&lt;/li&gt; &lt;li&gt;gmail (คิดว่าทุกคนคงจะมีนะจ๊ะ)&lt;/li&gt; &lt;li&gt;มือถือ Android (ใช้ทดสอบ)&lt;/li&gt; &lt;li&gt;ในการทดสอบโทรศัพท์มือถือและคอมเครื่องที่ใช้เป็น server ต้องต่อเน็ตวงเดียวกันนะจ๊ะ (Wifi อันเดียวกัน)&lt;/li&gt; &lt;/ul&gt; &lt;h1 id=&quot;init-firebase&quot;&gt;Init Firebase&lt;/h1&gt; &lt;p&gt;ขั้นแรกให้เราเปิดเว็ปไซด์ &lt;a href=&quot;https://firebase.google.com/?hl=en&quot; target=&quot;_blank&quot;&gt;Firebase&lt;/a&gt; ขึ้นมาพร้อม Login ให้เรียบร้อยหากยังไม่มีโปรเจคให้สร้างโปรเจคด้วยนะครับ&lt;/p&gt; &lt;p&gt;&lt;img src=&quot;/img/ionic-notification/img01.png&quot; /&gt; &lt;span class=&quot;caption text-muted&quot;&gt;สร้างโปรเจคขึ้นมาใน Firebase&lt;/span&gt;&lt;/p&gt; &lt;p&gt;หลังจากนั้นกดเข้ามาใน Project และไปที่ Project Settings &amp;gt; Cloud Messaging จะเห็นหน้าจอแบบภาพข้างล่างนะครับให้จดเลข Server...</description>
+        <pubDate>Wed, 29 Mar 2017 05:41:00 +0700</pubDate>
+        <link>http://localhost:4000/ionic2-notification/</link>
+        <guid isPermaLink="true">http://localhost:4000/ionic2-notification/</guid>
+        
+        <category>node.js</category>
+        
+        <category>ionic framework</category>
+        
+        <category>Typescript</category>
+        
+        <category>javascript</category>
+        
+        <category>firebase</category>
+        
+        <category>Angular</category>
+        
+        <category></category>
+      </item>
+    
+      <item>
+        <title>วิธีการใช้งาน Cordova Plugin ใน Ionic2</title>
+        <description>&lt;p&gt;&lt;img src=&quot;/img/cordovar-ionic/cover.jpeg&quot; alt=&quot;วิธีการใช้งาน Cordova Plugin ใน Ionic2&quot; /&gt;&lt;/p&gt; &lt;p&gt;สวัสดีครับเนื่องจากช่วงนี้งานเยอะมากๆเลย วันนี้เลยขอเขียน How To สั้นๆแต่คิดว่าน่าจะมีประโยชน์สำหรับคนที่ใช้งาน Ionic2 ไม่มากก็น้อยนะครับ&lt;/p&gt; &lt;h1 id=&quot;problem&quot;&gt;Problem&lt;/h1&gt; &lt;p&gt;สำหรับคนที่เขียน Hybrid Application ไม่ว่ามือใหม่หรือมือเก๋าก็น่าจะรู้กันดีอยู่แล้วนะครับว่าตัว Javascript ของเราเนี่ยไม่สามารถเข้าถึง Hardware ของเครื่องได้ตรงๆ เหมือนพวก Native Application เพราะฉะนั้นเราจึงต้องใช้ตัวกลางที่เรียกว่า &lt;a href=&quot;https://cordova.apache.org/&quot; target=&quot;_blank&quot;&gt;Cordova&lt;/a&gt; (ถ้าค่าย Adobe จะเรียกว่า PhoneGAP) ซึ่งเป็น Plugin ที่มีคนเขียนไว้ให้เข้าถึง Hardware ของเครื่องมีให้เลือกใช้งานหลากหลาย แต่ทว่าเหมือนบุญมีแต่กำบังด้วยความที่ Ionic2 ล้ำจัดดันทะลึ่งใช้ TypeScript แทน Javascript ล่ะไอ้ Typescript เนี่ยดันทะลึ่งไม่รู้จักพวก Browser Object บ้างตัวอีกเช่น window screen ทำให้พอเรียกใช้ใน TypeScript ก็จะ error นั่นเองนะจ๊ะ&lt;/p&gt; &lt;blockquote&gt;Javascript ไม่สามารถเข้าถึง Hardware ตรงๆได้ต้องอาศัย Cordovar (PhoneGAP) เข้าถึง Hardware&lt;/blockquote&gt; &lt;h1 id=&quot;fix-it&quot;&gt;Fix it&lt;/h1&gt; &lt;p&gt;&lt;img src=&quot;/img/cordovar-ionic/img01.png&quot; alt=&quot;การค้นหา Google ด้วย Selenium&quot; /&gt; &lt;span class=&quot;caption text-muted&quot;&gt;มันคือไรอ่ะหนูไม่รู้จัก T^T&lt;/span&gt;&lt;/p&gt; &lt;p&gt;ถ้าเจอปัญหาแบบในรูปข้างต้นนะครับสรุปวิธีแก้ง่ายๆเลยนะครับประกาศสิ่งที่มันต้องการในไฟล์ที่จะใช้งานหลัง import ซ่ะเช่น ในรูปข้างบนจะเห็นว่ามันไม่รู้จัก screen.orientation ก็แนะนำให้มันรู้จักซ่ะ เช่น&lt;/p&gt; &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;...&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;declare&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt;...</description>
+        <pubDate>Thu, 23 Mar 2017 07:24:00 +0700</pubDate>
+        <link>http://localhost:4000/how-to-use-cordovar-in-ionic2/</link>
+        <guid isPermaLink="true">http://localhost:4000/how-to-use-cordovar-in-ionic2/</guid>
+        
+        <category>ionic framework</category>
+        
+        <category>Typescript</category>
+        
+        <category>javascript</category>
+        
+        <category>Angular</category>
+        
+        <category></category>
+      </item>
+    
+      <item>
+        <title>วิธีทำแอพแชทง่ายๆ ด้วย Ionic2</title>
+        <description>&lt;p&gt;&lt;img src=&quot;/img/ionic-chat/cover.jpg&quot; alt=&quot;วิธีทำแอพแชทง่ายๆ ด้วย Ionic2&quot; /&gt;&lt;/p&gt; &lt;p&gt;เบื่อไหมครับที่เวลาจะเขียนแอพขึ้นมาซักแอพหนึ่งเนี่ยต้องนั่งทำทั้ง Android iOS ไหนจะต้องเรียนรู้ภาษาใหม่ๆ ทั้ง Java Swift โหยลำบากวุ่นวายอ่ะ แล้วทำไมกูต้องไปเรียนรู้ภาษาใหม่ๆด้วยว่ะครับ ทั้งๆ ที่กูก็เขียบเว็ปเป็นอยู่แล้วทำไมจะเอาพวก Javascript CSS HTML มาทำแอพไม่ได้!! แต่ช้าก่อนนี่มันโลกยุค 2017 แล้วนะจ๊ะ TV Direct ขอนำเสนอ &lt;a href=&quot;https://ionicframework.com/&quot; target=&quot;_blank&quot;&gt;Ionic2&lt;/a&gt; !&lt;/p&gt; &lt;blockquote&gt;สมัยก่อนการทำแอพขึ้นมาซักแอพนึงเนี่ยต้องทำทั้ง iOS และ Android แต่เดี๋ยวนี้ไม่ต้องแล้ว&lt;/blockquote&gt; &lt;h1 id=&quot;what-is-ionic2&quot;&gt;What is Ionic2&lt;/h1&gt; &lt;p&gt;Ionic2 คือเครื่องมือที่ทำให้เราสามารถเขียนแอพเพียงครั้งเดียวสามารถทำงานได้ทุก Platform (หรือที่เรียกแบบเกร๋ๆ ว่า Cross Platform) โดยใช้แค่ Javascript CSS HTML ในการเขียนโปรแกรมซึ่งการทำงานของ Ionic2 ก็คือตัว Ionic2 จะทำตัวเป็นเหมือน Browser ที่แสดงเฉพาะเว็ปๆ เดียวก็คือเว็ปที่เราเขียนขึ้นมานั่นเองซึ่งเราจะเรียกแอพที่ทำงานในลักษณะนี้ว่า Hybrid App หลายคนอ่านมาถึงตรงนี้อาจจะคิดว่ามันก็คือเว็ปธรรมดาก็ไม่เหมือนแอพจริงๆ สิ ผมขอบอกตรงนี้นะครับนี่มันโลกยุคไหนแล้วถ้าไม่มีคนบอกผมนั่งยันนอนยันตะแคงข้างยันเลยว่ายังไงก็ดูไม่ออกเอาล่ะโม้มาเยอะแล้วมาเริ่มกันเถอะ&lt;/p&gt; &lt;blockquote&gt;Javascript ที่ Ionic2 ใช้คือ &lt;a href=&quot;https://angular.io/&quot; target=&quot;_blank&quot;&gt;Angular2&lt;/a&gt; นะครับ&lt;/blockquote&gt; &lt;h1 id=&quot;required--install&quot;&gt;Required &amp;amp; Install&lt;/h1&gt; &lt;p&gt;สิ่งที่ต้องการสำหรับใช้งาน&lt;/p&gt; &lt;ul&gt; &lt;li&gt;พื้นฐาน Node.js นิดหน่อย (อีกแล้วครับท่าน)&lt;/li&gt; &lt;li&gt;Node.js เวอร์ชันล่าสุด&lt;/li&gt; &lt;li&gt;Android Studio เพราะว่าเราต้องการตัว Android SDK นะจ๊ะถ้าใครไม่มีสามารถดาวโหลดได้ &lt;a href=&quot;https://developer.android.com/studio/index.html&quot; target=&quot;_blank&quot;&gt;ที่นี่&lt;/a&gt; (จริงๆแล้วดาวโหลดแค่ SDK tool ก็ได้แต่ว่าผมว่าลง Android Studio ไปเลยจะเวิร์คกว่า)&lt;/li&gt;...</description>
+        <pubDate>Sun, 19 Mar 2017 03:07:00 +0700</pubDate>
+        <link>http://localhost:4000/ionic-chat/</link>
+        <guid isPermaLink="true">http://localhost:4000/ionic-chat/</guid>
+        
+        <category>node.js</category>
+        
+        <category>ionic framework</category>
+        
+        <category>Typescript</category>
+        
+        <category>javascript</category>
+        
+        <category>firebase</category>
+        
+        <category>Angular</category>
+        
+        <category>socket.io</category>
+        
+        <category></category>
+      </item>
+    
+      <item>
+        <title>แจ้งเตือนการทำงานของ Server แบบ Low cost ด้วย Line Notify</title>
+        <description>&lt;p&gt;หลายคนคงจะทราบกันอยู่แล้วนะครับว่า Line ได้เปิดตัวบริการใหม่คือ Line Notify เมื่อไม่นานที่ผ่านมา ซึ่งตัวไลน์ Notify เนี่ยจะแตกต่างกัน Line Bot ตรงที่ว่าจะตอบเราไม่ได้ และเวลาจะใช้ก็ต้องเชิญเข้า Group ก่อน ซึ่งประโยชน์ของมันคือใช้สำหรับติดตามดูความเคลื่อนไหวของ service หรือ server ของเราก็ได้ ซึ่ง Line ก็มี Partner สำหรับบริการเราชื่อ &lt;a href=&quot;https://mackerel.io/&quot; target=&quot;_blank&quot;&gt;Mackerel&lt;/a&gt; แต่ประเด็อคือมันเสียตังน่ะสิ (= =”) ซึ่งแน่นอนว่าโปรแกรมเมอร์สายประหยัดอย่างเราไม่ยอมเสียเงินแน่นอน 555+ เพราะฉะนั้นเรามาเขียนเองกันดีกว่า&lt;/p&gt; &lt;h1 id=&quot;required--install&quot;&gt;Required &amp;amp; Install&lt;/h1&gt; &lt;p&gt;สิ่งที่ต้องการในการ Monitor เซิฟเวอร์แบบ Low Cost ของเรามีดังนี้&lt;/p&gt; &lt;ul&gt; &lt;li&gt;ID Line เชื่อว่าทุกคนคงจะมีอยู่แล้วนะครัคงไม่สอนสมัคร (= =&quot;)&lt;/li&gt; &lt;li&gt;กลุ่มไลน์ที่ต้องการให้ส่งข้อความ (ตรงนี้แล้วแต่นะ)&lt;/li&gt; &lt;li&gt;ความรู้ Node.js (จริงๆใช้อะไรเขียนก็ได้แต่ผมชอบ Node.js อ่ะมีไรป่ะ)&lt;/li&gt; &lt;/ul&gt; &lt;h1 id=&quot;start&quot;&gt;Start&lt;/h1&gt; &lt;p&gt;ขั้นตอนแรกให้เราเข้าสู่เว็ปไซด์ &lt;a href=&quot;https://notify-bot.line.me/en/&quot; target=&quot;_blank&quot;&gt;Line Notify&lt;/a&gt; และ Login ให้เรียบร้อยหลังจากนั้นกดที่ My Page ตามภาพ &lt;img src=&quot;/img/moniter/img01.png&quot; alt=&quot;เข้าสู่หน้า My Page&quot; /&gt; &lt;span class=&quot;caption text-muted&quot;&gt;เมนู My Page จะปรากฏเมื่อคลิ๊กที่ชื่อไลน์ของคุณ&lt;/span&gt; เลื่อนลงมาข้างล่างจะเห็นคำว่า Generate Token คลิ๊กโลดเมื่อคลิ๊กแล้วจะขึ้นหน้าตาดังภาพข้างล่างให้กรอกรายละเอียดให้เรียบร้อยในกรณีที่ต้องการให้ส่งข้อความให้เฉพาะตัวเองให้เลือก 1-on-1 chat &lt;img src=&quot;/img/moniter/img02.png&quot; alt=&quot;สร้าง Token&quot; /&gt; &lt;span class=&quot;caption text-muted&quot;&gt;เลือก 1-on-1 chat ถ้าอยากคุยคนเดียว&lt;/span&gt;...</description>
+        <pubDate>Sat, 18 Mar 2017 05:41:00 +0700</pubDate>
+        <link>http://localhost:4000/line-notify/</link>
+        <guid isPermaLink="true">http://localhost:4000/line-notify/</guid>
+        
+        <category>node.js</category>
+        
+        <category>line-notify</category>
+        
+        <category></category>
+      </item>
+    
+      <item>
+        <title>สอนวิธีใช้งาน Selenium เบื้องต้น</title>
+        <description>&lt;p&gt;&lt;img src=&quot;/img/selenium/cover.jpg&quot; alt=&quot;การทำ automate test ด้วย selenium&quot; /&gt; ในการจะทดสอบการทำงานของเว็ปไซด์ซักเว็ปหนึ่งเนี่ยเป็นเรื่องที่เหนื่อยและสิ้นเปลืองพลังงานชีวิตมากมายเลยนะครับ ยิ่งถ้าเป็นเว็ปไซด์ใหญ่ๆมีลิงค์มีปุ่มให้กดเยอะแยะด้วยแล้วยิ่งไม่ต้องสืบว่าจะใช้เวลานานซักแค่ไหน ดังนั้นจะดีแค่ไหนถ้าเราสามารถเขียน Bot ขึ้นมาเพื่อให้สามารถตรวจสอบการทำงานของเว็ปไซดโดยที่เราไม่ต้องทำอะไรเลยนั่งจิ๊บกาแฟชิลๆ อิอิ&lt;/p&gt; &lt;blockquote&gt;โปรแกรมเมอร์ที่เก่งคือโปรแกรมเมอร์ที่ขี้เกียจ ปล. ขี้เกียจในทางที่ดีนะ&lt;/blockquote&gt; &lt;p&gt;เชื่อไหมครับว่าไม่ได้มีแต่เราที่ขี้เกียจใครๆ เขาก็ขี้เกียจกันทั้งนั้น (= =&quot;) แบบนี้จึงมีคนพัฒนาสิ่งที่เรียกว่า &lt;a href=&quot;https://github.com/SeleniumHQ/selenium/tree/master/javascript/node/selenium-webdriver&quot; target=&quot;_blank&quot;&gt;Selenium Webdriver&lt;/a&gt; ขึ้นเจ้า Selenium เนี่ยถ้าว่าง่ายๆก็คือ บอทสำหรับทดสอบการทดงานของเว็ปไซด์นั่นเอง&lt;/p&gt; &lt;h1 id=&quot;required--install&quot;&gt;Required &amp;amp; Install&lt;/h1&gt; &lt;p&gt;ในการใช้ Selenium มีสิ่งที่ต้องการดังนี้&lt;/p&gt; &lt;ul&gt; &lt;li&gt; พื้นฐาน Node.js นิดหน่อย (จริงๆ ตัว Selenium เขียนได้กับหลายภาษาเช่น Java, Python แต่ผมชอบ Node.js อ่ะมีไรป่ะ)&lt;/li&gt; &lt;li&gt;Node.js เวอร์ชันล่าสุด &lt;a href=&quot;https://nodejs.org/en/&quot; target=&quot;_blank&quot;&gt;Download&lt;/a&gt;&lt;/li&gt; &lt;li&gt;Chrome Webdriver สำหรับ window สามารถดาวโหลดได้ &lt;a href=&quot;https://github.com/SeleniumHQ/selenium/tree/master/javascript/node/selenium-webdriver&quot; target=&quot;_blank&quot;&gt;ที่นี่&lt;/a&gt; &lt;/li&gt; &lt;li&gt;Chrome Webdriver สำหรับ Mac สามารถติดตั้งโดยใช้ Homebrew ได้ใครไม่มีสามารถดาวโหลดได้ &lt;a href=&quot;https://brew.sh/&quot; target=&quot;_blank&quot;&gt;ที่นี่&lt;/a&gt; เมื่อติดตั้ง Homebrew เสร็จแล้วให้พิมพ์คำสั่งนี้ &lt;pre&gt;brew install chromedriver&lt;/pre&gt;&lt;/li&gt; &lt;li&gt;Chrome Webdriver สำหรับ Linux สามารถติดตั้งโดยใช้คำสั่งนี้ &lt;pre&gt;sudo apt-get install unzip; wget -O /tmp/chromedriver.zip http://chromedriver.googlecode.com/files/chromedriver_linux64_19.0.1068.0.zip &amp;amp;&amp;amp; sudo unzip /tmp/chromedriver.zip chromedriver -d...</description>
+        <pubDate>Fri, 17 Mar 2017 05:41:00 +0700</pubDate>
+        <link>http://localhost:4000/selenium-EP-01/</link>
+        <guid isPermaLink="true">http://localhost:4000/selenium-EP-01/</guid>
+        
+        <category>node.js</category>
+        
+        <category>automate test</category>
+        
+        <category>selenium</category>
+        
+        <category></category>
+      </item>
+    
+  </channel>
+</rss>

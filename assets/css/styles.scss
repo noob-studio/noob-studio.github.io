@@ -1,0 +1,64 @@
+---
+---
+@import "jekflix";
+
+.post-content h1, .post-content h2, .post-content h3, .post-content h4, .post-content h5, .post-content h6{
+    padding-top: 0px;
+}
+
+.black{
+    margin-top: 50px;
+}
+
+.black .box-item .box-body h2{
+    color: #333 !important;
+}
+
+.black.flex-grid article {
+    opacity: 1 !important;
+}
+
+.black .box-item .category a{
+    color: #333 !important;
+}
+
+.box-item.card .box-body img{
+    width: 20%;
+}
+// .box-item.card{
+//     border: 1px solid #333;
+// }
+
+.box-item.card .box-body h2{
+    margin: 0px;
+}
+
+.box-item.card .post-link{
+    text-align: center;
+}
+
+.black .box-item .category .description{
+    color: #989898 !important;
+
+}
+
+.black .box-item .box-body p{
+    color: #989898 !important;
+    font-family: "Titillium Web", "Helvetica Neue", Helvetica, sans-serif;
+}
+
+.centering{
+    text-align: center;
+    margin-top: 50px;
+}
+
+.my-button{
+    color: #FFF !important;
+    background-color: #ff0a16;
+    padding: 20px;
+    font-family: "Titillium Web", "Helvetica Neue", Helvetica, sans-serif;
+}
+
+.my-button:hover{
+    font-size: 20px;
+}

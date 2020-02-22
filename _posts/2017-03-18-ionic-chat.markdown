@@ -1,11 +1,13 @@
 ---
-layout:     post
-comments:   true
-title:      "วิธีทำแอพแชทง่ายๆ ด้วย Ionic2"
-subtitle:   "มาทำแอพแชทแบบง่ายๆ ไว้คุยมุ้งมิ้งกับแฟนด้วย Ionic 2 กับ Node.Js กันเถอะ"
-date:       2017-03-18 20:07:00
-author:     "ป๋าแพะ"
-header-img: "img/ionic-chat/cover.jpg"
+layout: post
+comments: true
+title: "วิธีทำแอพแชทง่ายๆ ด้วย Ionic2"
+subtitle: "มาทำแอพแชทแบบง่ายๆ ไว้คุยมุ้งมิ้งกับแฟนด้วย Ionic 2 กับ Node.Js กันเถอะ"
+description: "เบื่อไหมครับที่เวลาจะเขียนแอพขึ้นมาซักแอพหนึ่งเนี่ยต้องนั่งทำทั้ง Android iOS ไหนจะต้องเรียนรู้ภาษาใหม่ๆ ทั้ง Java Swift โหยลำบากวุ่นวายอ่ะ แล้วทำไมกูต้องไปเรียนรู้ภาษาใหม่ๆด้วยว่ะครับ ทั้งๆ ที่กูก็เขียบเว็ปเป็นอยู่แล้วทำไมจะเอาพวก Javascript CSS HTML มาทำแอพไม่ได้!! แต่ช้าก่อนนี่มันโลกยุค 2017 แล้วนะจ๊ะ TV Direct ขอนำเสนอ"
+date: 2017-03-18 20:07:00
+author: "ป๋าแพะ"
+image: "img/ionic-chat/cover.jpg"
+optimized_image: "img/ionic-chat/cover.jpg"
 categories:
  - mobile
  - backend

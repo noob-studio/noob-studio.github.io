@@ -1,11 +1,14 @@
 ---
-comments:   true
+layout: post
+comments: true
 title: "เขียน Microservice ด้วย Node.js และ Seneca.js"
 subtitle: "วิธีใช้งาน Seneca.js ช่วยให้สามารถสื่อสารระหว่าง Microservice ได้ดีขึ้น"
+description: "ในช่วง 2-3 ปีที่ผ่านกระแส Microservice ได้มาแรงมากๆ โดยที่ทำงานผมปัจจุบันแอพพลิเคชัน แอพเดียวนี่มี Microservice support อยู่หลังบ้านเป็น 10 ระบบแล้ว ดังนั้นถ้าผมไม่พูดถึงมันจะไม่เทรนนะจ๊ะ แต่จะไม่ลงรายละเอียดในส่วนของทฤษฎีเยอะนะครับเพราะมีพี่ๆ เขียนไว้เยอะแล้ว เรามันสายบู๊อยู่แล้วว่ะฮ่ะฮ่ะ"
 date: 2018-01-18 17:11
-author:     "ป๋าแพะ"
+author: "ป๋าแพะ"
 published: true
-header-img: 'img/seneca/cover.jpg'
+image: 'img/seneca/cover.jpg'
+optimized_image: 'img/seneca/cover.jpg'
 categories:
  - backend
 tags: 

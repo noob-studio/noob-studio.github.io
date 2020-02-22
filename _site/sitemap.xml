@@ -1,72 +1,244 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-<url>
-<loc>http://localhost:4000/testing/2017/03/16/selenium-EP-01/</loc>
-<lastmod>2017-03-17T05:41:00+07:00</lastmod>
-</url>
-<url>
-<loc>http://localhost:4000/server/backend/2017/03/17/line-notify/</loc>
-<lastmod>2017-03-18T05:41:00+07:00</lastmod>
-</url>
-<url>
-<loc>http://localhost:4000/mobile/backend/2017/03/18/ionic-chat/</loc>
-<lastmod>2017-03-19T03:07:00+07:00</lastmod>
-</url>
-<url>
-<loc>http://localhost:4000/mobile/2017/03/23/how-to-use-cordovar-in-ionic2/</loc>
-<lastmod>2017-03-23T07:24:00+07:00</lastmod>
-</url>
-<url>
-<loc>http://localhost:4000/mobile/2017/03/28/ionic2-notification/</loc>
-<lastmod>2017-03-29T05:41:00+07:00</lastmod>
-</url>
-<url>
-<loc>http://localhost:4000/backend/database/library/2017/11/29/knex-nodejs-orm/</loc>
-<lastmod>2017-11-29T10:38:00+07:00</lastmod>
-</url>
-<url>
-<loc>http://localhost:4000/backend/framework/2017/12/04/loopback-nodejs-framework/</loc>
-<lastmod>2017-12-04T13:52:00+07:00</lastmod>
-</url>
-<url>
-<loc>http://localhost:4000/backend/2018/01/18/seneca-nodejs-microservice/</loc>
-<lastmod>2018-01-18T17:11:00+07:00</lastmod>
-</url>
-<url>
-<loc>http://localhost:4000/</loc>
-</url>
-<url>
-<loc>http://localhost:4000/archives/</loc>
-</url>
-<url>
-<loc>http://localhost:4000/tags/</loc>
-</url>
-<url>
-<loc>http://localhost:4000/category/</loc>
-</url>
-<url>
-<loc>http://localhost:4000/categories/</loc>
-</url>
-<url>
-<loc>http://localhost:4000/tag/</loc>
-</url>
-<url>
-<loc>http://localhost:4000/about/</loc>
-</url>
-<url>
-<loc>http://localhost:4000/README.en/</loc>
-</url>
-<url>
-<loc>http://localhost:4000/assets/lib/fastclick/</loc>
-</url>
-<url>
-<loc>http://localhost:4000/assets/lib/jquery_lazyload/</loc>
-</url>
-<url>
-<loc>http://localhost:4000/page2/</loc>
-</url>
-<url>
-<loc>http://localhost:4000/404.html</loc>
-<lastmod>2018-05-18T16:31:50+07:00</lastmod>
-</url>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    
+        <url>
+            <loc>http://localhost:4000/404.html</loc>
+            
+                <changefreq>monthly</changefreq>
+                <priority>0.5</priority>
+            
+        </url>
+    
+        <url>
+            <loc>http://localhost:4000/category/blog/</loc>
+            
+                <changefreq>monthly</changefreq>
+                <priority>0.5</priority>
+            
+        </url>
+    
+        <url>
+            <loc>http://localhost:4000/category/code/</loc>
+            
+                <changefreq>monthly</changefreq>
+                <priority>0.5</priority>
+            
+        </url>
+    
+        <url>
+            <loc>http://localhost:4000/contact/</loc>
+            
+                <changefreq>monthly</changefreq>
+                <priority>0.5</priority>
+            
+        </url>
+    
+        <url>
+            <loc>http://localhost:4000/category/css/</loc>
+            
+                <changefreq>monthly</changefreq>
+                <priority>0.5</priority>
+            
+        </url>
+    
+        <url>
+            <loc>http://localhost:4000/category/diet/</loc>
+            
+                <changefreq>monthly</changefreq>
+                <priority>0.5</priority>
+            
+        </url>
+    
+        <url>
+            <loc>http://localhost:4000/feed.xml</loc>
+            
+                <changefreq>monthly</changefreq>
+                <priority>0.5</priority>
+            
+        </url>
+    
+        <url>
+            <loc>http://localhost:4000/</loc>
+            
+                <changefreq>monthly</changefreq>
+                <priority>0.5</priority>
+            
+        </url>
+    
+        <url>
+            <loc>http://localhost:4000/category/life/</loc>
+            
+                <changefreq>monthly</changefreq>
+                <priority>0.5</priority>
+            
+        </url>
+    
+        <url>
+            <loc>http://localhost:4000/contact/message-sent/</loc>
+            
+                <changefreq>monthly</changefreq>
+                <priority>0.5</priority>
+            
+        </url>
+    
+        <url>
+            <loc>http://localhost:4000/category/music/</loc>
+            
+                <changefreq>monthly</changefreq>
+                <priority>0.5</priority>
+            
+        </url>
+    
+        <url>
+            <loc>http://localhost:4000/assets/css/preview.css</loc>
+            
+                <changefreq>monthly</changefreq>
+                <priority>0.5</priority>
+            
+        </url>
+    
+        <url>
+            <loc>http://localhost:4000/search.json</loc>
+            
+                <changefreq>monthly</changefreq>
+                <priority>0.5</priority>
+            
+        </url>
+    
+        <url>
+            <loc>http://localhost:4000/service/</loc>
+            
+                <changefreq>monthly</changefreq>
+                <priority>0.5</priority>
+            
+        </url>
+    
+        <url>
+            <loc>http://localhost:4000/sitemap.xml</loc>
+            
+                <changefreq>monthly</changefreq>
+                <priority>0.5</priority>
+            
+        </url>
+    
+        <url>
+            <loc>http://localhost:4000/staff/</loc>
+            
+                <changefreq>monthly</changefreq>
+                <priority>0.5</priority>
+            
+        </url>
+    
+        <url>
+            <loc>http://localhost:4000/assets/css/styles.css</loc>
+            
+                <changefreq>monthly</changefreq>
+                <priority>0.5</priority>
+            
+        </url>
+    
+        <url>
+            <loc>http://localhost:4000/tags/</loc>
+            
+                <changefreq>monthly</changefreq>
+                <priority>0.5</priority>
+            
+        </url>
+    
+        <url>
+            <loc>http://localhost:4000/category/tips/</loc>
+            
+                <changefreq>monthly</changefreq>
+                <priority>0.5</priority>
+            
+        </url>
+    
+        <url>
+            <loc>http://localhost:4000/category/travel/</loc>
+            
+                <changefreq>monthly</changefreq>
+                <priority>0.5</priority>
+            
+        </url>
+    
+        <url>
+            <loc>http://localhost:4000/category/tutorial/</loc>
+            
+                <changefreq>monthly</changefreq>
+                <priority>0.5</priority>
+            
+        </url>
+    
+        <url>
+            <loc>http://localhost:4000/category/work/</loc>
+            
+                <changefreq>monthly</changefreq>
+                <priority>0.5</priority>
+            
+        </url>
+    
+    
+        <url>
+            <loc>http://localhost:4000/seneca-nodejs-microservice/</loc>
+            <changefreq>weekly</changefreq>
+            <priority>0.8</priority>
+            <lastmod>2018-01-18</lastmod>
+        </url>
+    
+        <url>
+            <loc>http://localhost:4000/loopback-nodejs-framework/</loc>
+            <changefreq>weekly</changefreq>
+            <priority>0.8</priority>
+            <lastmod>2017-12-04</lastmod>
+        </url>
+    
+        <url>
+            <loc>http://localhost:4000/knex-nodejs-orm/</loc>
+            <changefreq>weekly</changefreq>
+            <priority>0.8</priority>
+            <lastmod>2017-11-29</lastmod>
+        </url>
+    
+        <url>
+            <loc>http://localhost:4000/ionic2-notification/</loc>
+            <changefreq>weekly</changefreq>
+            <priority>0.8</priority>
+            <lastmod>2017-03-29</lastmod>
+        </url>
+    
+        <url>
+            <loc>http://localhost:4000/how-to-use-cordovar-in-ionic2/</loc>
+            <changefreq>weekly</changefreq>
+            <priority>0.8</priority>
+            <lastmod>2017-03-23</lastmod>
+        </url>
+    
+        <url>
+            <loc>http://localhost:4000/ionic-chat/</loc>
+            <changefreq>weekly</changefreq>
+            <priority>0.8</priority>
+            <lastmod>2017-03-19</lastmod>
+        </url>
+    
+        <url>
+            <loc>http://localhost:4000/line-notify/</loc>
+            <changefreq>weekly</changefreq>
+            <priority>0.8</priority>
+            <lastmod>2017-03-18</lastmod>
+        </url>
+    
+        <url>
+            <loc>http://localhost:4000/selenium-EP-01/</loc>
+            <changefreq>weekly</changefreq>
+            <priority>0.8</priority>
+            <lastmod>2017-03-17</lastmod>
+        </url>
+    
+    
+        <url>
+            <loc>http://localhost:4000/authors/thiagorossener/</loc>
+            <changefreq>monthly</changefreq>
+            <priority>0.5</priority>
+        </url>
+    
 </urlset>
