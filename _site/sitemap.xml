@@ -194,6 +194,13 @@
         </url>
     
         <url>
+            <loc>http://localhost:4000/programmer-dic/</loc>
+            <changefreq>weekly</changefreq>
+            <priority>0.8</priority>
+            <lastmod>2020-02-21</lastmod>
+        </url>
+    
+        <url>
             <loc>http://localhost:4000/seneca-nodejs-microservice/</loc>
             <changefreq>weekly</changefreq>
             <priority>0.8</priority>

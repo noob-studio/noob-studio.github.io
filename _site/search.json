@@ -11,6 +11,14 @@
     } ,
   
     {
+      "title"    : "Programming 101 - Progrmammer Dictionary",
+      "tags"     : "dictionary, Programing101, บ่น, รับงาน, รับทำเว็บไซด์, รับเขียนโปรแกรม, and รับพัฒนาระบบ",
+      "categories" : "",
+      "url"      : "/programmer-dic/",
+      "date"     : "02/21/2020"
+    } ,
+  
+    {
       "title"    : "เขียน Microservice ด้วย Node.js และ Seneca.js",
       "tags"     : "node.js, microservice, and javascript",
       "categories" : "",
