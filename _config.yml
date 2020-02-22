@@ -8,6 +8,7 @@ tags:
   - แอพพลิเคชัน
   - e-commerce
   - เว็บขายของ
+  - ระบบจัดการสต๊อค
 email: noob-studio101@gmail.com
 show_hero: true
 menu:
@@ -15,6 +16,8 @@ menu:
     url: /
   - title: Service
     url: /service
+  - title: Stock Management
+    url: /boonstock
   - title: Contact
     url: /contact
   - title: Tags

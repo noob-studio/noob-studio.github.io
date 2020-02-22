@@ -50,6 +50,11 @@
 .centering{
     text-align: center;
     margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.text-center{
+    text-align: center;
 }
 
 .my-button{
@@ -57,8 +62,46 @@
     background-color: #ff0a16;
     padding: 20px;
     font-family: "Titillium Web", "Helvetica Neue", Helvetica, sans-serif;
+    border: none;
+    cursor: pointer;
 }
 
-.my-button:hover{
-    font-size: 20px;
+.price-table{
+    background: #FFF;
+}
+
+.price-red{
+    color: #ff0a16;
+    font-size: 25px;
+}
+
+.card table tr td{
+    background: #FFF !important;
+}
+
+.box-item.feature .box-body img{
+    width: 90%;
+}
+
+.box-item.feature{
+    min-height: 0px;
+}
+
+.small-icon{
+    width: 32px;
+}
+
+@media (min-width: 1220px){
+    .box-item.box-2 {
+        max-width: calc(100%/2 - 30px);
+    }
+}
+@media (min-width: 920px){
+    .box-item.box-2 {
+        max-width: calc(100%/2 - 30px);
+    }
+}
+
+.mt-0{
+    margin-top: 0px;
 }
