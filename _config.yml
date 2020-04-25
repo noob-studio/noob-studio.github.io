@@ -18,6 +18,8 @@ menu:
     url: /service
   - title: Stock Management
     url: /noobstock
+  - title: noob.js
+    url: /noobjs
   - title: Contact
     url: /contact
   - title: Tags
