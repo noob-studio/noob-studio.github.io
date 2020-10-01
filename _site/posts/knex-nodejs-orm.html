@@ -23,25 +23,26 @@
 <meta property="og:description" content="วิธีการใช้ knex.js จัดการฐานข้อมูล MySQL แบบ Object ใน Node.js ด้วยในยุคนี้นะครับเป็นยุคที่ Javascript ครองเมืองหันไปทางไหนก็มีแต่ Javascript เต็มไปหมดเลยครับไม่ว่าจะ React, Angular, Vue, Node, MEAN โอ้ยยเยอะแยะไปหมด หลายๆที่ก็เริ่มเปลี่ยนฝั่ง Back จาก PHP มาเป็น Node.js และฝั่ง Front ก็เริ่มเป็น Angular, Vue, React อะไรก็ว่า แต่เขียนโค้ดใหม่ที่ว่ายากแล้วการต้อง migration ข้อมูลจาก MySQL ไปเป็นฐานข้อมูลแบบ NoSQL สถาปัตยกรรมมันเข้ากันก็ลำบากเหลือเกิน ครั้นจะเขียน SQL คิวรี่เหมือนเดิมก็ขัดใจ๋ขัดใจ การเขียนโปรแกรมแบบ ORM (Object Relational Mapping) จึงเกิดขึ้น การเขียนโปรแกรมแบบ ORM พูดง่ายๆก็คือการแปลงข้อมูลที่ไม่เป็น Object มาอยู่ในรูป Object สำหรับใช้ภาษาโปรแกรมที่เป็น Object Oriented ซึ่งในบทความนี้เราจะใช้ ORM Tool ชื่อว่า">
 <meta property="og:url" content="http://localhost:4000/posts/knex-nodejs-orm">
 <meta property="og:site_name" content="Noob Studio">
-<link rel="stylesheet" href="/dactl/assets/vendor/normalize-css/normalize.css">
-<link rel="stylesheet" href="/dactl/assets/css/main.css">
+<link rel="stylesheet" href="/noob-studio.github.io/assets/vendor/normalize-css/normalize.css">
+<link rel="stylesheet" href="/noob-studio.github.io/assets/css/main.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Rubik:400,400italic,700,700italic">
 <style>
     html {
       font-family: "Rubik", -apple-system, BlinkMacSystemFont, "Helvetica Neue", sans-serif;
     }
 </style>
-<link rel="stylesheet" href="/dactl/assets/css/bf.css">
+<link rel="stylesheet" href="/noob-studio.github.io/assets/css/bf.css">
    <body>
        <div class="wrapper" id="blep">
           <header>
    <div class="menu">
      <div class="logo">
-        <a href="/dactl//">Noob Studio</a>
+        <a href="/noob-studio.github.io//">Noob Studio</a>
      </div>
        <ul>
-           <li><a href="/dactl//about">about</a>
-           <li><a href="/dactl//archive">archive</a>
+           <li><a href="/noob-studio.github.io//about">about</a>
+           <li><a href="/noob-studio.github.io//archive">archive</a>
+           <li><a href="/noob-studio.github.io//noob-engine">noob engine</a>
        </ul>
    </div>
    <div class="social">
@@ -55,7 +56,7 @@
               <span class="icon-mail_outline"></span>
             </a>
        <li>
-            <a href="/dactl//feed.xml" target="_blank">
+            <a href="/noob-studio.github.io//feed.xml" target="_blank">
                 <span class="icon-rss_feed"></span>
             </a>
        <li>
@@ -71,7 +72,7 @@
     margin-bottom: 2em;
   }
   .knex-nodejs-orm::before {
-    background-image: url('/dactl/img/node-orm/cover.jpg');
+    background-image: url('/noob-studio.github.io/img/node-orm/cover.jpg');
     background-size: cover;
     /* -webkit-filter: grayscale(1) brightness(0.5) contrast(0.5); */
     content:'';
@@ -124,9 +125,9 @@
      <div class="post-meta">
         <span>29/11/2017</span>
         <span>
-              <a href="/dactl/tag/node.js">#node.js</a>
-              <a href="/dactl/tag/javascript">#javascript</a>
-              <a href="/dactl/tag/MySql">#MySql</a>
+              <a href="/noob-studio.github.io/tag/node.js">#node.js</a>
+              <a href="/noob-studio.github.io/tag/javascript">#javascript</a>
+              <a href="/noob-studio.github.io/tag/MySql">#MySql</a>
         </span>
      </div>
    </div>
@@ -148,15 +149,7 @@ npm install -–save knex mysql
 <p>ขั้นตอนแรกสร้างโฟลเดอร์ขึ้นมาแล้วติดตั้ง Module ต่างๆที่จำเป็นดังนี้ knex และ mysql
 <h1 id="connect-database">Connect Database</h1>
 <p>ต่อไปเรามาสร้าง CRUD จาก knex กันนะครับโดยขั้นตอนแรกให้เพิ่มทำการ connect ฐานข้อมูลก่อนดังนี้
-<div class="language-js highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
-2
-3
-4
-5
-6
-7
-8
-9</pre><td class="code"><pre><span class="k">this</span><span class="p">.</span><span class="nx">knex</span> <span class="o">=</span> <span class="nx">knex</span><span class="p">({</span>
+<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="k">this</span><span class="p">.</span><span class="nx">knex</span> <span class="o">=</span> <span class="nx">knex</span><span class="p">({</span>
     <span class="na">client</span><span class="p">:</span> <span class="s1">'mysql'</span><span class="p">,</span>
     <span class="na">connection</span><span class="p">:</span> <span class="p">{</span>
         <span class="na">host</span> <span class="p">:</span> <span class="s1">'127.0.0.1'</span><span class="p">,</span>
@@ -165,90 +158,61 @@ npm install -–save knex mysql
         <span class="na">database</span> <span class="p">:</span> <span class="s1">'knex'</span>
     <span class="p">}</span>
 <span class="p">});</span>
-</pre></table>
-</div>
+</code></pre>
 </div>
 <p>บรรทัดนี้เป็นการเชื่อมต่อกับฐานข้อมูลนะครับโดยใส่รายละเอียดต่างๆ เข้าไป client คือบอกว่าเราใช้ฐานข้อมูลประเภทอะไรส่วน connection ก็คือรายละเอียดทั่วๆไปของฐานข้อมูล
 <h1 id="do-table-job">Do table Job</h1>
 <p>ก่อนที่เราจะสร้าง CRUD ได้ เราจำเป็นต้องมีตารางสำหรับทดสอบก่อนโดยเราสามารถจัดการกับตารางได้โดยใช้คำสั่งต่อไปนี้
-<div class="language-js highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
-2
-3
-4
-5
-6</pre><td class="code"><pre><span class="nx">await</span> <span class="k">this</span><span class="p">.</span><span class="nx">knex</span><span class="p">.</span><span class="nx">schema</span><span class="p">.</span><span class="nx">dropTableIfExists</span><span class="p">(</span><span class="s1">'Blog'</span><span class="p">);</span>
+<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="nx">await</span> <span class="k">this</span><span class="p">.</span><span class="nx">knex</span><span class="p">.</span><span class="nx">schema</span><span class="p">.</span><span class="nx">dropTableIfExists</span><span class="p">(</span><span class="s1">'Blog'</span><span class="p">);</span>
 <span class="nx">await</span> <span class="k">this</span><span class="p">.</span><span class="nx">knex</span><span class="p">.</span><span class="nx">schema</span><span class="p">.</span><span class="nx">createTableIfNotExists</span><span class="p">(</span><span class="s1">'Blog'</span><span class="p">,</span> <span class="p">(</span><span class="nx">tbl</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
     <span class="nx">tbl</span><span class="p">.</span><span class="nx">increments</span><span class="p">(</span><span class="s1">'id'</span><span class="p">).</span><span class="nx">primary</span><span class="p">().</span><span class="nx">unique</span><span class="p">().</span><span class="nx">index</span><span class="p">();</span>
     <span class="nx">tbl</span><span class="p">.</span><span class="nx">string</span><span class="p">(</span><span class="s1">'name'</span><span class="p">);</span>
     <span class="nx">tbl</span><span class="p">.</span><span class="nx">string</span><span class="p">(</span><span class="s1">'writer'</span><span class="p">);</span>
 <span class="p">});</span>
-</pre></table>
-</div>
+</code></pre>
 </div>
 <p>คำสั่งข้างล่างนี้
-<div class="language-js highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre><td class="code"><pre><span class="k">this</span><span class="p">.</span><span class="nx">knex</span><span class="p">.</span><span class="nx">schema</span><span class="p">.</span><span class="nx">dropTableIfExists</span><span class="p">(</span><span class="s1">'Blog'</span><span class="p">);</span>
-</pre></table>
-</div>
+<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="k">this</span><span class="p">.</span><span class="nx">knex</span><span class="p">.</span><span class="nx">schema</span><span class="p">.</span><span class="nx">dropTableIfExists</span><span class="p">(</span><span class="s1">'Blog'</span><span class="p">);</span>
+</code></pre>
 </div>
 <p>คือการ Drop ตารางถ้าหากว่ามีตารางนี้แล้ว เทียบได้กับ คำสั่ง
-<div class="language-sql highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre><td class="code"><pre><span class="k">DROP</span> <span class="k">TABLE</span> <span class="n">IF</span> <span class="n">EXIST</span> <span class="err">‘</span><span class="n">Blog</span><span class="err">’</span>
-</pre></table>
-</div>
+<div class="language-sql highlighter-rouge"><pre class="highlight"><code><span class="k">DROP</span> <span class="k">TABLE</span> <span class="n">IF</span> <span class="n">EXIST</span> <span class="err">‘</span><span class="n">Blog</span><span class="err">’</span>
+</code></pre>
 </div>
 <p>ใน MySQLและ
-<div class="language-js highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
-2
-3</pre><td class="code"><pre><span class="k">this</span><span class="p">.</span><span class="nx">knex</span><span class="p">.</span><span class="nx">schema</span><span class="p">.</span><span class="nx">createTableIfNotExists</span><span class="p">(</span><span class="s1">'Blog'</span><span class="p">,</span> <span class="p">(</span><span class="nx">tbl</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="k">this</span><span class="p">.</span><span class="nx">knex</span><span class="p">.</span><span class="nx">schema</span><span class="p">.</span><span class="nx">createTableIfNotExists</span><span class="p">(</span><span class="s1">'Blog'</span><span class="p">,</span> <span class="p">(</span><span class="nx">tbl</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
 	<span class="p">...</span>
 <span class="p">});</span> 
-</pre></table>
-</div>
+</code></pre>
 </div>
 <p>คือคำสั่งสำหรับตารางถ้ายังไม่มี
-<div class="language-js highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
-2
-3</pre><td class="code"><pre><span class="nx">tbl</span><span class="p">.</span><span class="nx">increments</span><span class="p">(</span><span class="s1">'id'</span><span class="p">).</span><span class="nx">primary</span><span class="p">().</span><span class="nx">unique</span><span class="p">().</span><span class="nx">index</span><span class="p">();</span>
+<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="nx">tbl</span><span class="p">.</span><span class="nx">increments</span><span class="p">(</span><span class="s1">'id'</span><span class="p">).</span><span class="nx">primary</span><span class="p">().</span><span class="nx">unique</span><span class="p">().</span><span class="nx">index</span><span class="p">();</span>
 <span class="nx">tbl</span><span class="p">.</span><span class="nx">string</span><span class="p">(</span><span class="s1">'name'</span><span class="p">);</span>
 <span class="nx">tbl</span><span class="p">.</span><span class="nx">string</span><span class="p">(</span><span class="s1">'writer'</span><span class="p">);</span>
-</pre></table>
-</div>
+</code></pre>
 </div>
 <p>คือการ set structure ให้ตาราง Blog โดยเทียบได้กับคำสั่ง
-<div class="language-sql highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
-2</pre><td class="code"><pre><span class="k">CREATE</span> <span class="k">TABLE</span> <span class="n">IF</span> <span class="k">NOT</span> <span class="k">EXISTS</span> <span class="err">‘</span><span class="n">Blog</span><span class="err">’</span> <span class="p">(</span><span class="err">‘</span><span class="n">id</span><span class="err">’</span> <span class="n">INT</span> <span class="n">UNSIGNED</span> <span class="k">NOT</span> <span class="k">NULL</span> <span class="n">AUTO_INCREMENT</span> <span class="k">PRIMARY</span> <span class="k">KEY</span><span class="p">,</span>
+<div class="language-sql highlighter-rouge"><pre class="highlight"><code><span class="k">CREATE</span> <span class="k">TABLE</span> <span class="n">IF</span> <span class="k">NOT</span> <span class="k">EXISTS</span> <span class="err">‘</span><span class="n">Blog</span><span class="err">’</span> <span class="p">(</span><span class="err">‘</span><span class="n">id</span><span class="err">’</span> <span class="n">INT</span> <span class="n">UNSIGNED</span> <span class="k">NOT</span> <span class="k">NULL</span> <span class="n">AUTO_INCREMENT</span> <span class="k">PRIMARY</span> <span class="k">KEY</span><span class="p">,</span>
 <span class="err">‘</span><span class="n">name</span><span class="err">’</span> <span class="n">VARCHAR</span><span class="p">(</span><span class="mi">255</span><span class="p">),</span> <span class="err">‘</span><span class="n">writer</span><span class="err">’</span> <span class="n">VARCHAR</span><span class="p">(</span><span class="mi">255</span><span class="p">));</span>
-</pre></table>
-</div>
+</code></pre>
 </div>
 <p>ซึ่ง data type ใน knex มีครอบคลุมทุกประเภทใน MySQL โดยสามารถดูเพ่ิมเติมได้ที่ <a herf="http://knexjs.org/#Schema-Building" target="_blank">knexjs.org</a>
 <h1 id="create">CREATE</h1>
 <p>ต่อมาเรามาเริ่ม insert ข้อมูลชุดแรกลงฐานข้อมูลกัน โดยการ insert ข้อมูลของ knex มี 2 แบบคือ แบบธรรมดา และ แบบ Batch สำหรับ insert ข้อมูลจำนวนมาก
 	ตัวอย่างคำสั่ง insert ข้อมูลธรรมดา
-<div class="language-js highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre><td class="code"><pre>    <span class="nx">await</span> <span class="k">this</span><span class="p">.</span><span class="nx">knex</span><span class="p">(</span><span class="s1">'Blog'</span><span class="p">).</span><span class="nx">insert</span><span class="p">({</span><span class="na">name</span><span class="p">:</span> <span class="s1">'lonely insert'</span><span class="p">,</span> <span class="na">writer</span><span class="p">:</span> <span class="s1">'lonely man'</span><span class="p">});</span>
-</pre></table>
-</div>
+<div class="language-js highlighter-rouge"><pre class="highlight"><code>    <span class="nx">await</span> <span class="k">this</span><span class="p">.</span><span class="nx">knex</span><span class="p">(</span><span class="s1">'Blog'</span><span class="p">).</span><span class="nx">insert</span><span class="p">({</span><span class="na">name</span><span class="p">:</span> <span class="s1">'lonely insert'</span><span class="p">,</span> <span class="na">writer</span><span class="p">:</span> <span class="s1">'lonely man'</span><span class="p">});</span>
+</code></pre>
 </div>
 <p>เทียบได้กับ
-<div class="language-sql highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre><td class="code"><pre><span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">Blog</span> <span class="p">(</span><span class="err">‘</span><span class="n">name</span><span class="err">’</span><span class="p">,</span> <span class="err">‘</span><span class="n">writer</span><span class="err">’</span><span class="p">)</span> <span class="k">VALUES</span> <span class="p">(</span><span class="err">‘</span><span class="n">lonely</span> <span class="k">insert</span><span class="err">’</span><span class="p">,</span><span class="err">’</span><span class="n">lonely</span> <span class="n">man</span><span class="err">’</span><span class="p">);</span>
-</pre></table>
-</div>
+<div class="language-sql highlighter-rouge"><pre class="highlight"><code><span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">Blog</span> <span class="p">(</span><span class="err">‘</span><span class="n">name</span><span class="err">’</span><span class="p">,</span> <span class="err">‘</span><span class="n">writer</span><span class="err">’</span><span class="p">)</span> <span class="k">VALUES</span> <span class="p">(</span><span class="err">‘</span><span class="n">lonely</span> <span class="k">insert</span><span class="err">’</span><span class="p">,</span><span class="err">’</span><span class="n">lonely</span> <span class="n">man</span><span class="err">’</span><span class="p">);</span>
+</code></pre>
 </div>
 <p>หาต้องการ insert ID ให้เอาตัวแปลไปรับได้เลย เช่น
-<div class="language-js highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre><td class="code"><pre><span class="kd">let</span> <span class="nx">id</span> <span class="o">=</span> <span class="nx">await</span> <span class="k">this</span><span class="p">.</span><span class="nx">knex</span><span class="p">(</span><span class="s1">'Blog'</span><span class="p">).</span><span class="nx">insert</span><span class="p">({</span><span class="na">name</span><span class="p">:</span> <span class="s1">'lonely insert'</span><span class="p">,</span> <span class="na">writer</span><span class="p">:</span> <span class="s1">'lonely man'</span><span class="p">});</span>
-</pre></table>
-</div>
+<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">id</span> <span class="o">=</span> <span class="nx">await</span> <span class="k">this</span><span class="p">.</span><span class="nx">knex</span><span class="p">(</span><span class="s1">'Blog'</span><span class="p">).</span><span class="nx">insert</span><span class="p">({</span><span class="na">name</span><span class="p">:</span> <span class="s1">'lonely insert'</span><span class="p">,</span> <span class="na">writer</span><span class="p">:</span> <span class="s1">'lonely man'</span><span class="p">});</span>
+</code></pre>
 </div>
 <p>ตัวอย่างคำสั่ง insert ข้อมูลแบบ Batch สำหรับ insert ข้อมูลจำนวนมาก
-<div class="language-js highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
-2
-3
-4
-5
-6
-7
-8
-9
-10</pre><td class="code"><pre><span class="nx">await</span> <span class="k">this</span><span class="p">.</span><span class="nx">knex</span><span class="p">.</span><span class="nx">batchInsert</span><span class="p">(</span><span class="s1">'Blog'</span><span class="p">,[{</span>
+<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="nx">await</span> <span class="k">this</span><span class="p">.</span><span class="nx">knex</span><span class="p">.</span><span class="nx">batchInsert</span><span class="p">(</span><span class="s1">'Blog'</span><span class="p">,[{</span>
         <span class="na">name</span><span class="p">:</span> <span class="s1">'hello world'</span><span class="p">,</span>
         <span class="na">writer</span><span class="p">:</span> <span class="s1">'mike'</span>
     <span class="p">},{</span>
@@ -258,57 +222,47 @@ npm install -–save knex mysql
         <span class="na">name</span><span class="p">:</span> <span class="s1">'this is awesome lib'</span><span class="p">,</span>
         <span class="na">writer</span><span class="p">:</span> <span class="s1">'mike'</span>
 <span class="p">}]);</span>
-</pre></table>
-</div>
+</code></pre>
 </div>
 <p>เทียบได้กับ
-<div class="language-sql highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre><td class="code"><pre><span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">Blog</span> <span class="p">(</span><span class="err">‘</span><span class="n">name</span><span class="err">’</span><span class="p">,</span> <span class="err">‘</span><span class="n">writer</span><span class="err">’</span><span class="p">)</span> <span class="k">VALUES</span> <span class="p">(</span><span class="err">‘</span><span class="n">hello</span> <span class="n">world</span><span class="err">’</span><span class="p">,</span><span class="err">’</span><span class="n">mike</span><span class="err">’</span><span class="p">),(</span><span class="err">‘</span><span class="n">hello</span> <span class="n">awesome</span><span class="err">’</span><span class="p">,</span> <span class="err">’</span><span class="n">nun</span><span class="err">’</span><span class="p">),(</span><span class="err">‘</span><span class="n">this</span> <span class="k">is</span> <span class="n">awesome</span> <span class="n">lib</span><span class="err">’</span><span class="p">,</span> <span class="err">‘</span><span class="n">mike</span><span class="err">’</span><span class="p">);</span>
-</pre></table>
-</div>
+<div class="language-sql highlighter-rouge"><pre class="highlight"><code><span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">Blog</span> <span class="p">(</span><span class="err">‘</span><span class="n">name</span><span class="err">’</span><span class="p">,</span> <span class="err">‘</span><span class="n">writer</span><span class="err">’</span><span class="p">)</span> <span class="k">VALUES</span> <span class="p">(</span><span class="err">‘</span><span class="n">hello</span> <span class="n">world</span><span class="err">’</span><span class="p">,</span><span class="err">’</span><span class="n">mike</span><span class="err">’</span><span class="p">),(</span><span class="err">‘</span><span class="n">hello</span> <span class="n">awesome</span><span class="err">’</span><span class="p">,</span> <span class="err">’</span><span class="n">nun</span><span class="err">’</span><span class="p">),(</span><span class="err">‘</span><span class="n">this</span> <span class="k">is</span> <span class="n">awesome</span> <span class="n">lib</span><span class="err">’</span><span class="p">,</span> <span class="err">‘</span><span class="n">mike</span><span class="err">’</span><span class="p">);</span>
+</code></pre>
 </div>
 <h1 id="read">READ</h1>
 <p>เมื่อเรา insert  ข้อมูลลงฐานข้อมูลเสร็จแล้วต่อมาเราจะทำการอ่านข้อมูลจากฐานข้อมูลซึ่งเราสามารถทำได้โดยใช้คำสั่งดังนี้
-<div class="language-js highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre><td class="code"><pre><span class="kd">let</span> <span class="nx">data</span> <span class="o">=</span> <span class="nx">await</span> <span class="k">this</span><span class="p">.</span><span class="nx">knex</span><span class="p">(</span><span class="s1">'Blog'</span><span class="p">).</span><span class="nx">select</span><span class="p">();</span>
-</pre></table>
-</div>
+<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">data</span> <span class="o">=</span> <span class="nx">await</span> <span class="k">this</span><span class="p">.</span><span class="nx">knex</span><span class="p">(</span><span class="s1">'Blog'</span><span class="p">).</span><span class="nx">select</span><span class="p">();</span>
+</code></pre>
 </div>
 <p>เทียบได้กับ
-<div class="language-sql highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre><td class="code"><pre><span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">Blog</span>
-</pre></table>
-</div>
+<div class="language-sql highlighter-rouge"><pre class="highlight"><code><span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">Blog</span>
+</code></pre>
 </div>
 <p>หรือหากต้องการใส่เงื่อนไขในการคิวรี่ข้อมูลก็สามารถทำได้ดังนี้
-<div class="language-js highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre><td class="code"><pre><span class="kd">let</span> <span class="nx">data</span> <span class="o">=</span> <span class="nx">await</span> <span class="k">this</span><span class="p">.</span><span class="nx">knex</span><span class="p">(</span><span class="s1">'Blog'</span><span class="p">).</span><span class="nx">where</span><span class="p">({</span><span class="na">writer</span><span class="p">:</span> <span class="s1">'mike'</span><span class="p">}).</span><span class="nx">select</span><span class="p">();</span>
-</pre></table>
-</div>
+<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">data</span> <span class="o">=</span> <span class="nx">await</span> <span class="k">this</span><span class="p">.</span><span class="nx">knex</span><span class="p">(</span><span class="s1">'Blog'</span><span class="p">).</span><span class="nx">where</span><span class="p">({</span><span class="na">writer</span><span class="p">:</span> <span class="s1">'mike'</span><span class="p">}).</span><span class="nx">select</span><span class="p">();</span>
+</code></pre>
 </div>
 <p>เทียบได้กับ
-<div class="language-sql highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre><td class="code"><pre><span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">Blog</span> <span class="k">WHERE</span> <span class="n">writer</span> <span class="o">=</span> <span class="err">‘</span><span class="n">mike</span><span class="err">’</span>
-</pre></table>
-</div>
+<div class="language-sql highlighter-rouge"><pre class="highlight"><code><span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">Blog</span> <span class="k">WHERE</span> <span class="n">writer</span> <span class="o">=</span> <span class="err">‘</span><span class="n">mike</span><span class="err">’</span>
+</code></pre>
 </div>
 <p>นอกจากนี้คำสั่งที่ใช้การคิวรี่อื่นๆ เช่น JOIN, COUNT, SUM, GROUP BY และอื่นๆ knex ก็รองรับนะครับโดยสามารถดูตัวอย่างการใช้งานได้ที่นี่นะครับ  <a herf="http://knexjs.org/" target="_blank">knexjs.org</a>
 <h1 id="update">UPDATE</h1>
 <p>READ เสร็จแล้วต่อมาก็คือ UPDATE ซึ่งใน การ UPDATE ก็สามารถทำได้ดังนี้
-<div class="language-js highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre><td class="code"><pre><span class="nx">await</span> <span class="k">this</span><span class="p">.</span><span class="nx">knex</span><span class="p">(</span><span class="s1">'Blog'</span><span class="p">).</span><span class="nx">where</span><span class="p">({</span><span class="na">writer</span><span class="p">:</span> <span class="s1">'lonely man'</span><span class="p">}).</span><span class="nx">update</span><span class="p">({</span><span class="na">name</span><span class="p">:</span> <span class="s1">'not alone insert'</span><span class="p">});</span>
-</pre></table>
-</div>
+<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="nx">await</span> <span class="k">this</span><span class="p">.</span><span class="nx">knex</span><span class="p">(</span><span class="s1">'Blog'</span><span class="p">).</span><span class="nx">where</span><span class="p">({</span><span class="na">writer</span><span class="p">:</span> <span class="s1">'lonely man'</span><span class="p">}).</span><span class="nx">update</span><span class="p">({</span><span class="na">name</span><span class="p">:</span> <span class="s1">'not alone insert'</span><span class="p">});</span>
+</code></pre>
 </div>
 <p>เทียบได้กับ
-<div class="language-sql highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre><td class="code"><pre><span class="k">UPDATE</span> <span class="n">Blog</span> <span class="k">SET</span> <span class="n">name</span> <span class="o">=</span> <span class="s1">'not alone insert'</span> <span class="k">WHERE</span> <span class="n">writer</span> <span class="o">=</span> <span class="s1">'lonely man'</span>
-</pre></table>
-</div>
+<div class="language-sql highlighter-rouge"><pre class="highlight"><code><span class="k">UPDATE</span> <span class="n">Blog</span> <span class="k">SET</span> <span class="n">name</span> <span class="o">=</span> <span class="s1">'not alone insert'</span> <span class="k">WHERE</span> <span class="n">writer</span> <span class="o">=</span> <span class="s1">'lonely man'</span>
+</code></pre>
 </div>
 <h1 id="delete">DELETE</h1>
 <p>สุดท้ายแล้วนะครับเมื่อเรา CREATE READ UPDATE จนหนำใจแล้วพอเราเริ่มเบื่อเราก็ลบมันทิ้งโดยใช้คำสั่งดังนี้
-<div class="language-js highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre><td class="code"><pre><span class="nx">await</span> <span class="k">this</span><span class="p">.</span><span class="nx">knex</span><span class="p">(</span><span class="s1">'Blog'</span><span class="p">).</span><span class="nx">where</span><span class="p">({</span><span class="na">writer</span><span class="p">:</span> <span class="s1">'mike'</span><span class="p">}).</span><span class="nx">del</span><span class="p">();</span>
-</pre></table>
-</div>
+<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="nx">await</span> <span class="k">this</span><span class="p">.</span><span class="nx">knex</span><span class="p">(</span><span class="s1">'Blog'</span><span class="p">).</span><span class="nx">where</span><span class="p">({</span><span class="na">writer</span><span class="p">:</span> <span class="s1">'mike'</span><span class="p">}).</span><span class="nx">del</span><span class="p">();</span>
+</code></pre>
 </div>
 <p>เทียบได้กับ
-<div class="language-sql highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre><td class="code"><pre><span class="k">DELETE</span> <span class="k">from</span> <span class="n">Blog</span> <span class="k">WHERE</span> <span class="n">writer</span> <span class="o">=</span> <span class="s1">'mike'</span>
-</pre></table>
-</div>
+<div class="language-sql highlighter-rouge"><pre class="highlight"><code><span class="k">DELETE</span> <span class="k">from</span> <span class="n">Blog</span> <span class="k">WHERE</span> <span class="n">writer</span> <span class="o">=</span> <span class="s1">'mike'</span>
+</code></pre>
 </div>
 <h1 id="conclusion">Conclusion</h1>
 <p>หมดแล้วครับสำหรับบทความนี้ก็สั้นหน่อยนะครับเพราะแอบเขียนในที่ทำงานแหะๆ เหมือนเดิมครับ source code อยู่บน Github ตามลิงค์นี้นะจ๊ะ
@@ -318,22 +272,22 @@ npm install -–save knex mysql
 <h2>Related posts</h2>
 <ul class="related-posts">
    <li>
-    <a href="/dactl//posts/angular-n-bootstrap-ep-01">
+    <a href="/noob-studio.github.io//posts/angular-n-bootstrap-ep-01">
         <span>Programming 101 - Angular 'n Bootstrap EP. 01</span>
         <small>21/02</small>
     </a>
    <li>
-    <a href="/dactl//posts/seneca-nodejs-microservice">
+    <a href="/noob-studio.github.io//posts/seneca-nodejs-microservice">
         <span>เขียน Microservice ด้วย Node.js และ Seneca.js</span>
         <small>18/01</small>
     </a>
    <li>
-    <a href="/dactl//posts/loopback-nodejs-framework">
+    <a href="/noob-studio.github.io//posts/loopback-nodejs-framework">
         <span>เขียน RESTful API ใน Node.js แบบ 'โคตรไว' ด้วย Loopback</span>
         <small>04/12</small>
     </a>
    <li>
-    <a href="/dactl//posts/ionic2-notification">
+    <a href="/noob-studio.github.io//posts/ionic2-notification">
         <span>วิธีทำ Notification(แจ้งเตือน) ให้ Ionic2 ด้วย Firebase และ Node.js</span>
         <small>29/03</small>
     </a>
@@ -344,8 +298,8 @@ npm install -–save knex mysql
     <span>written by Freeweed</span>
 </footer>
        </div>
-<script type="text/javascript" src="/dactl/assets/js/theme.js"></script>
-<script type="text/javascript" src="/dactl/assets/js/barefoot.js"></script>
+<script type="text/javascript" src="/noob-studio.github.io/assets/js/theme.js"></script>
+<script type="text/javascript" src="/noob-studio.github.io/assets/js/barefoot.js"></script>
     <script>
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),

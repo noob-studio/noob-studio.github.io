@@ -26,25 +26,26 @@
 ">
 <meta property="og:url" content="http://localhost:4000/posts/how-to-use-require-in-angular">
 <meta property="og:site_name" content="Noob Studio">
-<link rel="stylesheet" href="/dactl/assets/vendor/normalize-css/normalize.css">
-<link rel="stylesheet" href="/dactl/assets/css/main.css">
+<link rel="stylesheet" href="/noob-studio.github.io/assets/vendor/normalize-css/normalize.css">
+<link rel="stylesheet" href="/noob-studio.github.io/assets/css/main.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Rubik:400,400italic,700,700italic">
 <style>
     html {
       font-family: "Rubik", -apple-system, BlinkMacSystemFont, "Helvetica Neue", sans-serif;
     }
 </style>
-<link rel="stylesheet" href="/dactl/assets/css/bf.css">
+<link rel="stylesheet" href="/noob-studio.github.io/assets/css/bf.css">
    <body>
        <div class="wrapper" id="blep">
           <header>
    <div class="menu">
      <div class="logo">
-        <a href="/dactl//">Noob Studio</a>
+        <a href="/noob-studio.github.io//">Noob Studio</a>
      </div>
        <ul>
-           <li><a href="/dactl//about">about</a>
-           <li><a href="/dactl//archive">archive</a>
+           <li><a href="/noob-studio.github.io//about">about</a>
+           <li><a href="/noob-studio.github.io//archive">archive</a>
+           <li><a href="/noob-studio.github.io//noob-engine">noob engine</a>
        </ul>
    </div>
    <div class="social">
@@ -58,7 +59,7 @@
               <span class="icon-mail_outline"></span>
             </a>
        <li>
-            <a href="/dactl//feed.xml" target="_blank">
+            <a href="/noob-studio.github.io//feed.xml" target="_blank">
                 <span class="icon-rss_feed"></span>
             </a>
        <li>
@@ -74,7 +75,7 @@
     margin-bottom: 2em;
   }
   .how-to-use-require-in-angular::before {
-    background-image: url('/dactl/./img/node-require/cover.jpg');
+    background-image: url('/noob-studio.github.io/./img/node-require/cover.jpg');
     background-size: cover;
     /* -webkit-filter: grayscale(1) brightness(0.5) contrast(0.5); */
     content:'';
@@ -127,43 +128,34 @@
      <div class="post-meta">
         <span>25/04/2020</span>
         <span>
-              <a href="/dactl/tag/Tip&Trick">#Tip&Trick</a>
-              <a href="/dactl/tag/Angular 8">#Angular 8</a>
-              <a href="/dactl/tag/Ionic">#Ionic</a>
-              <a href="/dactl/tag/Typescript - Programming101">#Typescript - Programming101</a>
+              <a href="/noob-studio.github.io/tag/Tip&Trick">#Tip&Trick</a>
+              <a href="/noob-studio.github.io/tag/Angular 8">#Angular 8</a>
+              <a href="/noob-studio.github.io/tag/Ionic">#Ionic</a>
+              <a href="/noob-studio.github.io/tag/Typescript - Programming101">#Typescript - Programming101</a>
         </span>
      </div>
    </div>
  </div>
    <h1 id="problem">Problem</h1>
 <p class="lead">เชื่อว่าหลายๆ คนคงเคยประสบปัญหาในการพยายามจะใช้ node module บางตัวใน angular 8 นะครับเพราะว่าพอเราใช้ <strong><em>require</em></strong> เรียก module เข้ามาพอรันก็จะเจอ error ว่า
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
-2</pre><td class="code"><pre>Cannot find name 'require'. Do you need to install type definitions for node? 
-Try `npm i @types/node` and then add `node` to the types field in your tsconfig.
-</pre></table>
-</div>
+<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="nx">Cannot</span> <span class="nx">find</span> <span class="nx">name</span> <span class="s1">'require'</span><span class="p">.</span> <span class="nx">Do</span> <span class="nx">you</span> <span class="nx">need</span> <span class="nx">to</span> <span class="nx">install</span> <span class="nx">type</span> <span class="nx">definitions</span> <span class="k">for</span> <span class="nx">node</span><span class="p">?</span> 
+<span class="nx">Try</span> <span class="err">`</span><span class="nx">npm</span> <span class="nx">i</span> <span class="err">@</span><span class="nx">types</span><span class="o">/</span><span class="nx">node</span><span class="err">`</span> <span class="nx">and</span> <span class="nx">then</span> <span class="nx">add</span> <span class="err">`</span><span class="nx">node</span><span class="err">`</span> <span class="nx">to</span> <span class="nx">the</span> <span class="nx">types</span> <span class="nx">field</span> <span class="k">in</span> <span class="nx">your</span> <span class="nx">tsconfig</span><span class="p">.</span>
+</code></pre>
 </div>
 <p>
 <h1 id="solution">Solution</h1>
 <p>วิธีแก้ก็ง่ายๆ เปิด Termianl ขึ้นมา พิมพ์ตามที่มันบอกเลยจ้า
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre><td class="code"><pre>npm i @types/node --save
-</pre></table>
-</div>
+<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="nx">npm</span> <span class="nx">i</span> <span class="err">@</span><span class="nx">types</span><span class="o">/</span><span class="nx">node</span> <span class="o">--</span><span class="nx">save</span>
+</code></pre>
 </div>
 <p>หลังจากนั้นให้เปิดไฟล์ <strong><em>tsconfig.app.json</em></strong> ขึ้นมาแล้วเพิ่มโค้ดเข้าไปดังนี้
-<div class="language-json highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
-2
-3
-4
-5
-6</pre><td class="code"><pre><span class="s2">"compilerOptions"</span><span class="err">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+<div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="s2">"compilerOptions"</span><span class="err">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="err">...</span><span class="w">
     </span><span class="nt">"types"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="s2">"node"</span><span class="w"> </span><span class="p">],</span><span class="w">
     </span><span class="nt">"typeRoots"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="s2">"node_modules/@types"</span><span class="w"> </span><span class="p">]</span><span class="w">
     </span><span class="err">...</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></pre></table>
-</div>
+</span></code></pre>
 </div>
 <p>แค่นี้ก็เรียบร้อยแล้วจ้าา หวังว่าเพื่อนๆจะได้ความรู้จากบทความนี้ไม่มากก็น้อยนะครับ
 <p>ปล. ขอให้เพื่อนๆ พี่ๆ น้องๆ ทุกคนอยู่บ้านปลอดภัยหายจาก Covid นะครับ
@@ -178,8 +170,8 @@ Try `npm i @types/node` and then add `node` to the types field in your tsconfig.
     <span>written by Freeweed</span>
 </footer>
        </div>
-<script type="text/javascript" src="/dactl/assets/js/theme.js"></script>
-<script type="text/javascript" src="/dactl/assets/js/barefoot.js"></script>
+<script type="text/javascript" src="/noob-studio.github.io/assets/js/theme.js"></script>
+<script type="text/javascript" src="/noob-studio.github.io/assets/js/barefoot.js"></script>
     <script>
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),

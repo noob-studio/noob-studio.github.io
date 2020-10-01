@@ -24,25 +24,26 @@
 <meta property="og:description" content="วิธีใช้งาน Seneca.js ช่วยให้สามารถสื่อสารระหว่าง Microservice ได้ดีขึ้น ในช่วง 2-3 ปีที่ผ่านกระแส Microservice ได้มาแรงมากๆ โดยที่ทำงานผมปัจจุบันแอพพลิเคชัน แอพเดียวนี่มี Microservice support อยู่หลังบ้านเป็น 10 ระบบแล้ว ดังนั้นถ้าผมไม่พูดถึงมันจะไม่เทรนนะจ๊ะ แต่จะไม่ลงรายละเอียดในส่วนของทฤษฎีเยอะนะครับเพราะมีพี่ๆ เขียนไว้เยอะแล้ว เรามันสายบู๊อยู่แล้วว่ะฮ่ะฮ่ะ">
 <meta property="og:url" content="http://localhost:4000/posts/seneca-nodejs-microservice">
 <meta property="og:site_name" content="Noob Studio">
-<link rel="stylesheet" href="/dactl/assets/vendor/normalize-css/normalize.css">
-<link rel="stylesheet" href="/dactl/assets/css/main.css">
+<link rel="stylesheet" href="/noob-studio.github.io/assets/vendor/normalize-css/normalize.css">
+<link rel="stylesheet" href="/noob-studio.github.io/assets/css/main.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Rubik:400,400italic,700,700italic">
 <style>
     html {
       font-family: "Rubik", -apple-system, BlinkMacSystemFont, "Helvetica Neue", sans-serif;
     }
 </style>
-<link rel="stylesheet" href="/dactl/assets/css/bf.css">
+<link rel="stylesheet" href="/noob-studio.github.io/assets/css/bf.css">
    <body>
        <div class="wrapper" id="blep">
           <header>
    <div class="menu">
      <div class="logo">
-        <a href="/dactl//">Noob Studio</a>
+        <a href="/noob-studio.github.io//">Noob Studio</a>
      </div>
        <ul>
-           <li><a href="/dactl//about">about</a>
-           <li><a href="/dactl//archive">archive</a>
+           <li><a href="/noob-studio.github.io//about">about</a>
+           <li><a href="/noob-studio.github.io//archive">archive</a>
+           <li><a href="/noob-studio.github.io//noob-engine">noob engine</a>
        </ul>
    </div>
    <div class="social">
@@ -56,7 +57,7 @@
               <span class="icon-mail_outline"></span>
             </a>
        <li>
-            <a href="/dactl//feed.xml" target="_blank">
+            <a href="/noob-studio.github.io//feed.xml" target="_blank">
                 <span class="icon-rss_feed"></span>
             </a>
        <li>
@@ -72,7 +73,7 @@
     margin-bottom: 2em;
   }
   .seneca-nodejs-microservice::before {
-    background-image: url('/dactl/./img/seneca/cover.jpg');
+    background-image: url('/noob-studio.github.io/./img/seneca/cover.jpg');
     background-size: cover;
     /* -webkit-filter: grayscale(1) brightness(0.5) contrast(0.5); */
     content:'';
@@ -125,10 +126,10 @@
      <div class="post-meta">
         <span>18/01/2018</span>
         <span>
-              <a href="/dactl/tag/node.js">#node.js</a>
-              <a href="/dactl/tag/microservice">#microservice</a>
-              <a href="/dactl/tag/javascript">#javascript</a>
-              <a href="/dactl/tag/backend">#backend</a>
+              <a href="/noob-studio.github.io/tag/node.js">#node.js</a>
+              <a href="/noob-studio.github.io/tag/microservice">#microservice</a>
+              <a href="/noob-studio.github.io/tag/javascript">#javascript</a>
+              <a href="/noob-studio.github.io/tag/backend">#backend</a>
         </span>
      </div>
    </div>
@@ -155,7 +156,7 @@ Microservice คือแนวคิดการพัฒนาโปรแก�
 <h1 id="ปัญหาของ-microservice">ปัญหาของ Microservice</h1>
 <p>
 ถึง Microservice จะดูเทพมากมายขนาดไหนก็ยังมีปัญหาเรื่องความซ้ำซ้อนของระบบและการคุยกันระหว่าง service อยู่ดีเช่น การถอนเงินจากสถาปัตยกรรมของระบบข้างต้นถ้าผู้ใช้จะถอนเงินก็จะมี flow ประมาณนี้
-<p><img src="/dactl//img/seneca/seneca-1.png" alt="เขียน Microservice ด้วย Node.js และ Seneca.js" />
+<p><img src="/noob-studio.github.io//img/seneca/seneca-1.png" alt="เขียน Microservice ด้วย Node.js และ Seneca.js" />
 <p>
 จาก flow จะเห็นว่าเมื่อโอนเงินเสร็จระบบ payment ต้องส่งข้อความไปถึงสองครั้งเพื่อบอกระบบ sms กับ balance ว่าโอนเงินเสร็จแล้วนะ แล้วถ้าเกิดวันนึงอยากจะเพิ่มระบบ log เพื่อมาเก็บ transaction เข้าออกของทั้งระบบ แต่ละทีมก็ต้องไป implement เพิ่มเพื่อให้ส่งข้อความไปบอกระบบ log ว่าโอนแล้วนะ ฝากแล้วนะ ส่ง sms แล้วนะ อีกวุ่นวายเข้าไปใหญ่
 <h1 id="แนวคิดของ-senecajs">แนวคิดของ Seneca.js</h1>
@@ -225,7 +226,7 @@ npm install seneca --save
 <figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">seneca</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="s1">'service:hello'</span><span class="p">,</span> <span class="nx">hello</span><span class="p">).</span><span class="nx">listen</span><span class="p">();</span> </code></pre></figure>
 <p>
 คือการบอกให้รอฟังสิ่งที่ service อื่นตะโกนมานะครับโดยจะต้อง match กับ<pre>'service:hello'</pre> เท่านั้นถึงจะทำงาน แล้วเราก็ส่ง function hello เข้าไปเพียงแค่นี้พอเราลองรัน service ทั้งสองตัวและเรียกไปที่ <a href="http://localhost:3000?name=noob" target="_blank">http://localhost:3000?name=noob</a> ก็จะมี response ตอบกลับมาตามรูปนะจ๊ะ
-<p><img src="/dactl//img/seneca/reponse.png" alt="เขียน Microservice ด้วย Node.js และ Seneca.js" />
+<p><img src="/noob-studio.github.io//img/seneca/reponse.png" alt="เขียน Microservice ด้วย Node.js และ Seneca.js" />
 <p>หากต้องการ fix port, protocol, ip ก็สามารถทำได้ดังนี้ 
 <figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="c1">//interface service</span>
 <span class="p">.</span><span class="nx">client</span><span class="p">({</span> <span class="na">port</span><span class="p">:</span> <span class="mi">8080</span><span class="p">,</span> <span class="na">host</span><span class="p">:</span> <span class="s1">'192.168.0.2'</span><span class="p">,</span><span class="na">type</span><span class="p">:</span> <span class="s1">'http'</span> <span class="p">})</span>
@@ -240,22 +241,22 @@ npm install seneca --save
 <h2>Related posts</h2>
 <ul class="related-posts">
    <li>
-    <a href="/dactl//posts/angular-n-bootstrap-ep-01">
+    <a href="/noob-studio.github.io//posts/angular-n-bootstrap-ep-01">
         <span>Programming 101 - Angular 'n Bootstrap EP. 01</span>
         <small>21/02</small>
     </a>
    <li>
-    <a href="/dactl//posts/loopback-nodejs-framework">
+    <a href="/noob-studio.github.io//posts/loopback-nodejs-framework">
         <span>เขียน RESTful API ใน Node.js แบบ 'โคตรไว' ด้วย Loopback</span>
         <small>04/12</small>
     </a>
    <li>
-    <a href="/dactl//posts/knex-nodejs-orm">
+    <a href="/noob-studio.github.io//posts/knex-nodejs-orm">
         <span>วิธีใช้ knex.js จัดการฐานข้อมูล MySQL ใน Node.js</span>
         <small>29/11</small>
     </a>
    <li>
-    <a href="/dactl//posts/ionic2-notification">
+    <a href="/noob-studio.github.io//posts/ionic2-notification">
         <span>วิธีทำ Notification(แจ้งเตือน) ให้ Ionic2 ด้วย Firebase และ Node.js</span>
         <small>29/03</small>
     </a>
@@ -266,8 +267,8 @@ npm install seneca --save
     <span>written by Freeweed</span>
 </footer>
        </div>
-<script type="text/javascript" src="/dactl/assets/js/theme.js"></script>
-<script type="text/javascript" src="/dactl/assets/js/barefoot.js"></script>
+<script type="text/javascript" src="/noob-studio.github.io/assets/js/theme.js"></script>
+<script type="text/javascript" src="/noob-studio.github.io/assets/js/barefoot.js"></script>
     <script>
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),

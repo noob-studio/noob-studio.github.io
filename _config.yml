@@ -1,7 +1,7 @@
 # Base blog settings
-baseurl                      : "" # the subpath of your site,                         # e.g. /blog/
+baseurl                      : "/noob-studio.github.io/" # the subpath of your site,                         # e.g. /blog/
                               # set to '' in case of hosting on GitHub
-url                          : "http://noob-studio.github.io" # the base hostname & protocol for your site
+url                          : "" # the base hostname & protocol for your site
                                   # `http://<username>.github.io` - for GitHub
 
 blog:
@@ -79,19 +79,19 @@ exclude                    : ["README.md", "README.html"]
 markdown: kramdown
 # !github-pages! mandatory › https://help.github.com/articles/using-jekyll-with-pages/#configuration-settings-you-cannot-change
 # Since Jekyll 3 the default highlighter is Rouge (replaced Pygments.rb in v44)
-highlighter: rouge
+# highlighter: rouge
 
 # More › http://kramdown.gettalong.org/quickref.html
 # Options › http://kramdown.gettalong.org/options.html
 kramdown:
-  input:          GFM
+  input: GFM
   syntax_highlighter: rouge
 
   # Rouge Highlighter in Kramdown › http://kramdown.gettalong.org/syntax_highlighter/rouge.html
   # span, block element options fall back to global
-  syntax_highlighter_opts:
+  # syntax_highlighter_opts:
     # Rouge Options › https://github.com/jneen/rouge#full-options
-    css_class: 'highlight'
+    # css_class: 'highlight'
     #line_numbers: true # bad idea, spans don't need linenos and would inherit this option
     # span:
     #   line_numbers: false
