@@ -83,9 +83,9 @@ highlighter: rouge
 
 # More › http://kramdown.gettalong.org/quickref.html
 # Options › http://kramdown.gettalong.org/options.html
-kramdown:
-  input:          GFM
-  syntax_highlighter: rouge
+# kramdown:
+#   input:          GFM
+#   syntax_highlighter: rouge
 
   # Rouge Highlighter in Kramdown › http://kramdown.gettalong.org/syntax_highlighter/rouge.html
   # span, block element options fall back to global
