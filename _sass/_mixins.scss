@@ -1,51 +1,41 @@
-@mixin mainFont($weight: 700) {
-  font-family: "Titillium Web", "Helvetica Neue", Helvetica, sans-serif;
-  font-weight: $weight;
-  font-style: normal;
+// Mixins
+//-------------------------------
+
+@mixin centered-block() {
+    display: block;
+    text-align: center;
+    width: 100%;
+    padding: 0px;
 }
 
-@mixin size($width: 30, $height: 30) {
-  width: #{$width}px;
-  height: #{$height}px;
+@mixin figure2() {
+  margin-left: -1rem;
+  margin-right: -1rem;
+  background-color: var(--code-bg-color);
 }
 
-@mixin center($max-width: map-get($jeet, 'max-width'), $pad: 0) {
-  @include clearfix;
-  width: auto;
-  max-width: $max-width;
-  float: none;
-  display: block;
-  margin: {
-    right: auto;
-    left:  auto;
-  };
-  padding: {
-    left:  $pad;
-    right: $pad;
-  };
-}
+// Underline slide borders from left/right and back
+// FROM left or right
+@mixin border-slide($direction) {
+  position: relative;
+  border-bottom: 0;
 
-@mixin align($direction: both) {
-  position: absolute;
-  transform-style: preserve-3d;
-
-  @if index("horizontal" "h", $direction) {
-    left: 50%;
-    transform: translateX(-50%);
-  } @else if index("vertical" "v", $direction) {
-    top: 50%;
-    transform: translateY(-50%);
-  } @else {
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+  &:hover, &:focus {
+    border-bottom: 0;
   }
-}
 
-@mixin clearfix() {
-  &::after {
+  &:after {
+    color: inherit;
     content: '';
-    display: table;
-    clear: both;
+    position: absolute;
+    bottom: -0.15em;
+    #{$direction}: 0;
+    width: 0%;
+    border-bottom: 0.15em solid;
+    transition: width 0.25s ease-in-out;
+  }
+
+  &:hover:after {
+    width: 100%;
   }
 }

@@ -1,107 +1,117 @@
-# Site Settings
-name: Noob Studio
-title: รับทำเว็บไซด์ และเว็บแอพพลิเคชันทันสมัย สวยงาม
-description: รับทำเว็บไซด์ โดยฟรีแลนซ์มืออาชีพประสบการณ์ มากกว่า 4 ปีพร้อมให้คำปรึกษาฟรี ทำได้ทั้งเว็บไซด์ และเว็บแอพพลิเคชัน ให้ผมช่วยแก้ไขปัญหาธุรกิจของคุณในยุคโลกาพิวัณ
-tags:
-  - รับทำเว็บไซด์
-  - รับเขียนโปรแกรม
-  - แอพพลิเคชัน
-  - e-commerce
-  - เว็บขายของ
-  - ระบบจัดการสต๊อค
-email: noob-studio101@gmail.com
-show_hero: true
-menu:
-  - title: Home
-    url: /
-  - title: Service
-    url: /service
-  - title: Stock Management
-    url: /noobstock
-  - title: noob.js
-    url: /noobjs
-  - title: Contact
-    url: /contact
-  - title: Tags
-    url: /tags
-  - title: Feed
-    url: /feed.xml
+# Base blog settings
+baseurl                      : "" # the subpath of your site,                         # e.g. /blog/
+                              # set to '' in case of hosting on GitHub
+url                          : "http://noob-studio.github.io" # the base hostname & protocol for your site
+                                  # `http://<username>.github.io` - for GitHub
 
-# Social Media Settings
-# Remove the item if you don't need it
-github_username: noob-studio
-facebook_username: Noob-Studio-110220157236657
-# instagram_username: instagram_username
-# linkedin_username: linkedin_username
-# medium_username: medium_username
+blog:
+  title                      : Noob Studio
+  description                  : >
+                               This is my codex, One day I will die but my code will be forever.
+
+# Layout configuration
+  logo_path                  : "assets/img/dactl.svg" # path to logo file
+  search_path                : # "yourgitusername.github.io"
+                               # needed for searchbox in archive page
+  hero_layout                : true # turn on hero layout for blog and posts
+  hero_placeholder           : "assets/img/generic_hero.jpg" # placeholder for hero image
+  excerpts                   : true # show excerpts instead of full post content on blog page
+  inline_footnotes           : true # enable/disable barefoot inline footnotes
+  titles_only                : false # show post titles only on main blog page
+
+# Fonts
+  font                       : '"Rubik", -apple-system, BlinkMacSystemFont, "Helvetica Neue", sans-serif'
+  load_google_fonts          : 'Rubik:400,400italic,700,700italic'
 
 
-# Posts Settings
-show_time_bar: true
-show_modal_on_exit: false
-show_modal_on_finish_post: true
-two_columns_layout: true
+# Author info
+author:
+  fullname                  : Freeweed
+  rss                       : true # generate RSS feed and show it's icon in header
+  mail                      : noob.studio101@gmail.com # change to your e-mail address
+  # twitter                   : twitter-user-name
+  github                    : noob-studio
+  # youtube                   : youtube-user-name
+  # stackoverflow             : stackoverflow-user-name
+  google_analytics: "UA-93921891-1"
+  photo                     : "uploads/me2.png"
+  photo2x                   : "uploads/me.png"
 
 
-# Advanced Settings
-baseurl: "" # the subpath of your site, e.g. /blog
-url: "https://noob-studio.github.io" # the base hostname & protocol for your site
-google_analytics: "UA-93921891-1"
-language: "en"
-categories_folder: category
-sent_message_url: "/contact/message-sent/"
 
+## !!
+## Advanced blog settings
+## You should not change anything here unless you know what you are doing
 
-# Build settings
-markdown: kramdown
-highlighter: rouge
-permalink: /:title/
-collections:
-  authors: 
-    output: true
-paginate_path: "/page/:num/"
-show_get_theme_btn: true
-use_logo: false
-
-# Content paginator
-paginate_content:
-  enabled: true
-  debug: false
-  collections:
-    - posts
-  auto: false
-  separator: "--page-break--"
-  permalink: "/:num/"
-  seo_canonical: true
-  properties:
-    part:
-      is_generated: true
-    last:
-      is_generated: true
-    single:
-      is_generated: true
-
-# SASS
-sass:
-  style: compressed
-
-# Plugins
+# Gems
 plugins:
   - jekyll-paginate
-  - jekyll-paginate-content
+  - jekyll-sitemap
 
-# Exclude my node related stuff
-exclude: [
-  'package.json',
-  'package-lock.json',
-  'src',
-  'node_modules',
-  'initpost.sh',
-  'Gemfile',
-  'Gemfile.lock',
-  'gulpfile.js',
-  'README.md'
-]
+# Permalinks
+permalink                    : posts/:slug
 
-# Theme
-version: v3.0.0
+# Posts
+excerpt_separator            : <!–-break-–>
+
+# Pagination
+paginate                     : 5
+paginate_path                : '/page-:num/'
+
+# Tags
+collections:
+  my_tags:
+    output: true
+    permalink: /tag/:slug/
+defaults:
+  -
+    scope:
+      path: ""
+      type: my_tags
+    values:
+      layout: blog-by-tag
+
+# Handling Reading
+exclude                    : ["README.md", "README.html"]
+
+# https://github.com/jekyll/jekyll/issues/4619
+# Markdown and highlighter settings
+markdown: kramdown
+# !github-pages! mandatory › https://help.github.com/articles/using-jekyll-with-pages/#configuration-settings-you-cannot-change
+# Since Jekyll 3 the default highlighter is Rouge (replaced Pygments.rb in v44)
+highlighter: rouge
+
+# More › http://kramdown.gettalong.org/quickref.html
+# Options › http://kramdown.gettalong.org/options.html
+kramdown:
+  input:          GFM
+  # https://github.com/jekyll/jekyll/pull/4090
+  syntax_highlighter: rouge
+
+  # Rouge Highlighter in Kramdown › http://kramdown.gettalong.org/syntax_highlighter/rouge.html
+  # span, block element options fall back to global
+  syntax_highlighter_opts:
+    # Rouge Options › https://github.com/jneen/rouge#full-options
+    # css_class: 'highlight'
+    #line_numbers: true # bad idea, spans don't need linenos and would inherit this option
+    span:
+      line_numbers: false
+    block:
+      line_numbers: true
+      start_line: 1
+
+# Sass settings
+sass:
+  sass_dir                : _sass
+  style                   : compressed # http://sass-lang.com/documentation/file.SASS_REFERENCE.html#output_style
+
+# HTML Compression
+# - http://jch.penibelst.de/
+compress_html:
+  clippings               : all
+  endings                 : all
+  comments                : ["<!-- ", " -->"]
+  blanklines              : true
+  profile                 : false
+  ignore:
+  envs                    : [local]

@@ -1,26 +1,26 @@
 ---
 layout: post
-comments: true
 title: "แจ้งเตือนการทำงานของ Server แบบ Low cost ด้วย Line Notify"
-subtitle: "เขียนสคริปแจ้งเตือนการทำงานของ Server แบบไม่มีค่าใช้จ่ายด้วย Line Notify และ Node.js"
-description: "หลายคนคงจะทราบกันอยู่แล้วนะครับว่า Line ได้เปิดตัวบริการใหม่คือ Line Notify เมื่อไม่นานที่ผ่านมา
+description: "เขียนสคริปแจ้งเตือนการทำงานของ Server แบบไม่มีค่าใช้จ่ายด้วย Line Notify และ Node.js หลายคนคงจะทราบกันอยู่แล้วนะครับว่า Line ได้เปิดตัวบริการใหม่คือ Line Notify เมื่อไม่นานที่ผ่านมา
 ซึ่งตัวไลน์ Notify เนี่ยจะแตกต่างกัน Line Bot ตรงที่ว่าจะตอบเราไม่ได้ และเวลาจะใช้ก็ต้องเชิญเข้า Group ก่อน
 ซึ่งประโยชน์ของมันคือใช้สำหรับติดตามดูความเคลื่อนไหวของ service หรือ server ของเราก็ได้ ซึ่ง Line ก็มี Partner สำหรับบริการเราชื่อ"
 date: 2017-03-17 22:41:00
 author: "ป๋าแพะ"
-image: "img/moniter/cover.jpg"
-optimized_image: "img/moniter/cover.jpg"
-categories:
- - server
- - backend
+hero: "img/moniter/cover.jpg"
 tags: 
  - node.js
  - line-notify
+ - server
+ - backend
 ---
-หลายคนคงจะทราบกันอยู่แล้วนะครับว่า Line ได้เปิดตัวบริการใหม่คือ Line Notify เมื่อไม่นานที่ผ่านมา
+หลายคนคงจะทราบกันอยู่แล้วนะครับว่า Line ได้เปิดตัวบริการใหม่คือ Line Notify 
+{: .lead}
+
+เมื่อไม่นานที่ผ่านมา
 ซึ่งตัวไลน์ Notify เนี่ยจะแตกต่างกัน Line Bot ตรงที่ว่าจะตอบเราไม่ได้ และเวลาจะใช้ก็ต้องเชิญเข้า Group ก่อน
 ซึ่งประโยชน์ของมันคือใช้สำหรับติดตามดูความเคลื่อนไหวของ service หรือ server ของเราก็ได้ ซึ่ง Line ก็มี Partner สำหรับบริการเราชื่อ <a href="https://mackerel.io/" target="_blank">Mackerel</a> แต่ประเด็อคือมันเสียตังน่ะสิ (= =") ซึ่งแน่นอนว่าโปรแกรมเมอร์สายประหยัดอย่างเราไม่ยอมเสียเงินแน่นอน 555+ เพราะฉะนั้นเรามาเขียนเองกันดีกว่า
 
+<!–-break-–>
 # Required & Install
 
 สิ่งที่ต้องการในการ Monitor เซิฟเวอร์แบบ Low Cost ของเรามีดังนี้
@@ -39,19 +39,19 @@ tags:
 <img src="{{ site.baseurl }}/img/moniter/img02.png" alt="สร้าง Token">
 <span class="caption text-muted">เลือก 1-on-1 chat ถ้าอยากคุยคนเดียว</span>
 เมื่อสร้างเสร็จจะได้ Token มาหนึ่งอันให้ก๊อบปี้เก็บไว้ก่อน (อย่าทำหายล่ะ!) ต่อมาเรามาเริ่มเขียนโค้ดเพื่อส่งการแจ้งเตือนกันเถอะทำตามคุณครูนะค่ะเด็กๆ
-<pre>
+~~~js
     mkdir monitor-server
     cd moniter-server
     npm init
     npm install monitor request --save
-</pre>
+~~~
 <ul>
     <li>monitor ใช้สำหรับติดตามการทำงานของ server</li>
     <li>request ใช้สำหรับส่ง request ไปยัง Line Notify (จริงๆ เขียนเองก็ได้แต่ขี้เกียจ 555)</li>
 </ul>
 ต่อมาสร้างไฟล์ index.js และใส่ Code ข้างล่างลงไป
 <b>index.js</b>
-{% highlight javascript %}
+~~~js
 const Monitor = require('monitor');
 const request = require('request')
 const LOW_MEMORY_THRESHOLD = 100000000;
@@ -92,16 +92,16 @@ processMonitor.connect((error) => {
     process.exit(1);
   }
 });
-{% endhighlight%} 
+~~~
 อธิบาย Code
-{% highlight javascript %}
+~~~js
 const Monitor = require('monitor');
 const request = require('request')
 const LOW_MEMORY_THRESHOLD = 100000000;
 const token = 'token';
-{% endhighlight %}
+~~~
 เรียกใช้งาน Module Monitor และ request ตั้งค่าแรมที่น้อยที่สุดหากน้อยกว่านี้ให้แจ้งเตือนใส่ token เตรียม (อย่าลืมใส่ token ของคุณล่ะ)
-{% highlight javascript %}
+~~~js
 var options = {
   probeClass: 'Process',
   initParams: {
@@ -109,9 +109,9 @@ var options = {
   }
 }
 var processMonitor = new Monitor(options);
-{% endhighlight %}
+~~~
 เซ็ท Option สำหรับ Monitor และให้วนเช็คทุกๆ 10000 milliseconds และสร้างการ Monitor ใหม่
-{% highlight javascript %}
+~~~js
 processMonitor.on('change', () => {
   var freemem = processMonitor.get('freemem');
   var msg = "Your Free memory Left "+freemem;
@@ -130,24 +130,30 @@ processMonitor.on('change', () => {
      console.log(JSON.stringify(err));
   })
 });
-{% endhighlight %}
+~~~
 เมื่อสถานะของ Monitor เปลี่ยนจะเข้า event change ให้ดึงจำนวนแรมที่เหลือ และส่ง request ไปที่ Line Notify โดยฝัง token ไปกับ  Header และส่งข้อความที่สร้างขึ้นไปด้วย ซึ่งจะเห็นว่าจริงๆแล้ว Line Notify เนี่ยแค่ request ไปให้ถูกก็พอไม่จำเป็นต้องติดตั้ง Library อะไรของ Line เพิ่มเติมพิเศษเลย
 <blockquote>Line Notify แค่ส่ง request ไปให้ถูกก็พอไม่จำเป็นต้องไปติดตั้ง Library ให้วุ่นวาย</blockquote>
-{% highlight javascript %}
+
+~~~js
 processMonitor.connect((error) => {
   if (error) {
     console.error('Error connecting with the process probe: ', error);
     process.exit(1);
   }
 });
-{% endhighlight%} 
-ให้แสดง error และปิดโปรแกรมหากไม่สามารถดึงข้อมูลมาได้ เมื่อโค้ดเสร็จแล้วก็มาทำสอบกันด้วยคำสั่ง
-<pre>node index.js</pre>
+~~~
+
+ให้แสดง error และปิดโปรแกรมหากไม่สามารถดึงข้อมูลมาได้ เมื่อโค้ดเสร็จแล้วก็มาทดสอบกันด้วยคำสั่ง
+
+~~~js
+node index.js
+~~~
+
 จะเห็นว่ามีไลน์ขึ้นมาดังภาพ
 <img src="{{ site.baseurl }}/img/moniter/img03.png" alt="ผลการทดสอบ">
 <span class="caption text-muted">รันปุ๊บขึ้นปั๊บ ถ้าไม่รับปั๊บก็คงไม่ขึ้นปุ๊บ</span>
 ต่อมาจะเห็นว่าตอนนี้มันแจ้งเตือนบ่อยจนหน้ารำคาญให้เราปรับปปรุง Code ใน change event เป็นดังนี้
-{% highlight javascript %}
+~~~js
 processMonitor.on('change', () => {
   var freemem = processMonitor.get('freemem');
   if (freemem < LOW_MEMORY_THRESHOLD) {
@@ -168,7 +174,7 @@ processMonitor.on('change', () => {
     })
 }
 });
-{% endhighlight %}
+~~~
 
 # Conclusion
 

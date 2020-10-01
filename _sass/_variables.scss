@@ -1,24 +1,22 @@
-/**
- * Set up here the general appearance of the theme.
- */
+// Variables
+//-------------------------------
 
-$themeColor: map-get($theme, themeColor) !default;
-$primaryDark: map-get($theme, primaryDark) !default;
-$accentDark: map-get($theme, accentDark) !default;
-$lightGray: map-get($theme, lightGray) !default;
-$texts: map-get($theme, texts) !default;
+$sans-serif: -apple-system, BlinkMacSystemFont, San Francisco Text, Helvetica, Arial, "Helvetica Neue", Roboto, "Segoe UI", sans-serif;
+$serif: Menlo, Monaco, Courier, monospace, serif;
+// $base-font-family: $sans-serif;
+$base-font-weight: 400;
+$base-font-weight-bold: 700;
 
-// Breakpoints
-$breakpoints: (
-  sm: 37.5rem
-);
+$base-font-size: 20px;
+$mobile-font-size: 18px;
+$lead-font-size: 1.15em;
+$blog-title-size: 2.5rem;
+$post-title-size: 4.25rem;
+$base-line-height: 1.6;
+$code-line-height: 1.4;
 
-// Margins
-$rowMargin: 10px;
-$itemMargin: 15px;
+$footnote-font-size: 0.75em;
+$magic: 1.618em;
 
-// Sizes
-$itemMinWidth: 300px;
-
-// Settings
-$maxItemsPerRow: 6;
+$hero-heading-color: #fff;
+$hero-date-color: #ccc;

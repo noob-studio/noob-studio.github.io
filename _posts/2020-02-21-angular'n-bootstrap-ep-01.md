@@ -1,15 +1,11 @@
 ---
 layout: post
-comments: true
 title: "Programming 101 - Angular 'n Bootstrap EP. 01"
-subtitle: "สอนใช้งาน Angular เบื้องต้น และการติดตั้ง Bootstrap 4 ร่วมกับ Angular 8"
-description: "ในบทความนี้เราจะมาสอนการใช้งาน Bootstrap 4 ร่วมกับ Angular 8 รวมทั้ง Angular Component และการใช้ Bootstrap Theme เบื้องต้นสำหรับเริ่ม Project ใหม่"
+description: "สอนใช้งาน Angular เบื้องต้น และการติดตั้ง Bootstrap 4 ร่วมกับ Angular 8 ในบทความนี้เราจะมาสอนการใช้งาน Bootstrap 4 ร่วมกับ Angular 8 รวมทั้ง Angular Component และการใช้ Bootstrap Theme เบื้องต้นสำหรับเริ่ม Project ใหม่"
 date: 2020-02-21 15:33:00
 author: freeweed
-image: "img/angular/cover.jpg"
-optimized_image: "img/angular/cover.jpg"
-categories:
- - Programming101
+hero: "img/angular/cover.jpg"
+overlay: red
 tags: 
  - node.js
  - Programing101
@@ -18,13 +14,13 @@ tags:
  - Angular
  - Bootstrap
  - jquery
- - รับงาน
- - รับทำเว็บไซด์
- - รับเขียนโปรแกรม
- - รับพัฒนาระบบ
+
 ---
-<img src="{{ site.baseurl }}/img/angular/cover.jpg" alt="บริการรับทำเว็บไซด์ แอพพลิเคชัน ระบบสำหรับใช้ในองค์กร เว็บขายของระบบ E-commerce หรือระบบต่างๆ"/>
+สอนใช้งาน Angular เบื้องต้น และการติดตั้ง Bootstrap 4 ร่วมกับ Angular 8 ในบทความนี้เราจะมาสอนการใช้งาน Bootstrap 4 ร่วมกับ Angular 8 รวมทั้ง Angular Component และการใช้ Bootstrap Theme เบื้องต้นสำหรับเริ่ม Project ใหม่
+{: .lead}
+
 สวัสดีครับห่างหายจากการเขียนบล๊อคไปนาน วันนี้ผมก็จะกลับมาเขียนใหม่นะครับ โดยมารอบนี้จะเขียนเป็นซีรี่เลยชื่อซีรี่ว่า Angular 'n Bootstrap โดยเนื้อหาในซีรี่นี้เราจะสอนตั้งแต่เริ่มต้นการใช้งาน สอนไปเรื่อยๆ แล้วแต่อารมณ์คนเขียนนะครับ แต่สัญญาว่ารอบนี้จะเขียนยาวๆ ไม่หายไปไหนแล้วนะจ๊ะ ปล. เราจะเน้นการปฎิบัติมากกว่าทฤษฎีนะครับ เพราะทฤษฎีเราไม่มีเรามีแต่ทฤษเดา 55555
+<!–-break-–>
 
 # Prepare
 
