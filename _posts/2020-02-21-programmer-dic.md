@@ -4,7 +4,7 @@ title: "Programming 101 - Progrmammer Dictionary"
 description: "พจนานุกรมสำหรับโปรแกรมเมอร์ ในบทความนี้ผมก็ได้รวบรวมความรู้ความเข้าใจในภาษาที่โปรแกรมเมอร์้ใช้โดยหวังว่า จะทำให้ผู้อ่านเข้าใจสิ่งมีชีวิตที่เรียกว่าโปรแกรมเมอร์มากขึ้นไม่มากก็น้อยนะครับ "
 date: 2020-02-21 15:00:00
 author: freeweed
-hero: "img/dictionary/cover.jpg"
+hero: "{{site.url}}/img/dictionary/cover.jpg"
 categories:
 tags: 
  - dictionary

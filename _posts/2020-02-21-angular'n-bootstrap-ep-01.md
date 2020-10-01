@@ -4,7 +4,7 @@ title: "Programming 101 - Angular 'n Bootstrap EP. 01"
 description: "สอนใช้งาน Angular เบื้องต้น และการติดตั้ง Bootstrap 4 ร่วมกับ Angular 8 ในบทความนี้เราจะมาสอนการใช้งาน Bootstrap 4 ร่วมกับ Angular 8 รวมทั้ง Angular Component และการใช้ Bootstrap Theme เบื้องต้นสำหรับเริ่ม Project ใหม่"
 date: 2020-02-21 15:33:00
 author: freeweed
-hero: "img/angular/cover.jpg"
+hero: "{{site.url}}/img/angular/cover.jpg"
 overlay: red
 tags: 
  - node.js

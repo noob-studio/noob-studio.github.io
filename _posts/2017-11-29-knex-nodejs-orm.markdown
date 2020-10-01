@@ -5,7 +5,7 @@ description: "วิธีการใช้ knex.js จัดการฐาน
 date: 2017-11-29 10:38
 author:     "ป๋าแพะ"
 published: true
-hero: 'img/node-orm/cover.jpg'
+hero: '{{site.url}}/img/node-orm/cover.jpg'
 categories:
  - backend
  - database

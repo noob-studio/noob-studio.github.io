@@ -5,7 +5,7 @@ title: "วิธีทำ Notification(แจ้งเตือน) ให้ I
 description: "วิธี push notification สำหรับ Ionic 2 แบบง่ายๆด้วย Firebase และ Node.js สวัสดีครับหลังจากคราวก่อนได้เขียนวิธีสร้าง แอพพลิเคชันแชทแบบง่ายๆ ด้วย Ionic2 Node jsก็มีคนบอกว่าอยากให้เขียนวิธีการแจ้งเตือนให้มือถือและผมก็คิดเรื่องจะเขียนไม่ออกด้วยครับช่วงนี้เพราะฉะนั้นวันนี้ีเราทำแจ้งเตือนกันเถอะ 555 โดยแจ้งเตือนเนี่ยมี 2 แบบคือแบบ Local Notification และไม่ Local โดยจะแตกต่างกันดังนี้"
 date: 2017-03-28 22:41:00
 author: "ป๋าแพะ"
-hero: "img/ionic-notification/cover.jpg"
+hero: "{{site.url}}/img/ionic-notification/cover.jpg"
 categories:
  - mobile
 tags: 

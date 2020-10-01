@@ -6,7 +6,7 @@ description: "วิธีการ push notification สำหรับ Ionic 2
 date: 2017-03-28 22:41:00
 author: "ป๋าแพะ"
 published: true
-hero: "img/ionic-local-notification/cover.jpg"
+hero: "{{site.url}}/img/ionic-local-notification/cover.jpg"
 categories:
  - mobile
 tags: 
