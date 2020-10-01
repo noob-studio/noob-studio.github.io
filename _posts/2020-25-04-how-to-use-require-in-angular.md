@@ -5,7 +5,7 @@ description: >
     บทความนี้เป็นวิธีง่ายๆ สำหรับคนที่ต้องการเรียกใช้งาน node module ต่างๆ ใน Angular 8 ผมเชื่อว่าหลายๆ คนก็น่าจะรู้แล้วแต่ว่า บางคนก็ยังไม่รู้นะครับ
 date: 2020-04-25 15:00:00
 author: freeweed
-hero: "./img/node-require/cover.jpg"
+hero: "img/node-require/cover.jpg"
 tags: 
  - Tip&Trick
  - Angular 8
