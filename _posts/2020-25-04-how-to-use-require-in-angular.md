@@ -29,7 +29,7 @@ Try `npm i @types/node` and then add `node` to the types field in your tsconfig.
 
 วิธีแก้ก็ง่ายๆ เปิด Termianl ขึ้นมา พิมพ์ตามที่มันบอกเลยจ้า
 
-```
+```js
 npm i @types/node --save
 ```
 
