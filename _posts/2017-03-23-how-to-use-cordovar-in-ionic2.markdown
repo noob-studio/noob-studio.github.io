@@ -33,13 +33,13 @@ tags:
 
 ถ้าเจอปัญหาแบบในรูปข้างต้นนะครับสรุปวิธีแก้ง่ายๆเลยนะครับประกาศสิ่งที่มันต้องการในไฟล์ที่จะใช้งานหลัง import ซ่ะเช่น ในรูปข้างบนจะเห็นว่ามันไม่รู้จัก screen.orientation ก็แนะนำให้มันรู้จักซ่ะ เช่น
 
-~~~js
+{% highlight javascript %}
 import ...
 
 declare var screen:any;
 
 ...
-~~~
+{% endhighlight %}
 
 เป็นอันเรียบร้อยนะจ๊ะพอลองรันอีกครั้งจะเห็นว่าเขียวแล้วหลังจากนั้นก็เขียน Code ได้ตามปกตินะจ๊ะ
 <img src="{{ site.baseurl }}/img/cordovar-ionic/img02.png" alt="การค้นหา Google ด้วย Selenium">

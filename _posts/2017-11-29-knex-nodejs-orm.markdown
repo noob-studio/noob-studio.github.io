@@ -45,7 +45,7 @@ npm install -–save knex mysql
 # Connect Database
 
 <p>ต่อไปเรามาสร้าง CRUD จาก knex กันนะครับโดยขั้นตอนแรกให้เพิ่มทำการ connect ฐานข้อมูลก่อนดังนี้</p>
-~~~js
+{% highlight javascript %}
 this.knex = knex({
     client: 'mysql',
     connection: {
@@ -55,54 +55,54 @@ this.knex = knex({
         database : 'knex'
     }
 });
-~~~
+{% endhighlight %}
 <p>บรรทัดนี้เป็นการเชื่อมต่อกับฐานข้อมูลนะครับโดยใส่รายละเอียดต่างๆ เข้าไป client คือบอกว่าเราใช้ฐานข้อมูลประเภทอะไรส่วน connection ก็คือรายละเอียดทั่วๆไปของฐานข้อมูล</p>
 
 # Do table Job
 
 <p>ก่อนที่เราจะสร้าง CRUD ได้ เราจำเป็นต้องมีตารางสำหรับทดสอบก่อนโดยเราสามารถจัดการกับตารางได้โดยใช้คำสั่งต่อไปนี้</p>
-~~~js
+{% highlight javascript %}
 await this.knex.schema.dropTableIfExists('Blog');
 await this.knex.schema.createTableIfNotExists('Blog', (tbl) => {
     tbl.increments('id').primary().unique().index();
     tbl.string('name');
     tbl.string('writer');
 });
-~~~
+{% endhighlight %}
 
 คำสั่งข้างล่างนี้
 
-~~~js
+{% highlight javascript %}
 this.knex.schema.dropTableIfExists('Blog');
-~~~ 
+{% endhighlight %} 
 คือการ Drop ตารางถ้าหากว่ามีตารางนี้แล้ว เทียบได้กับ คำสั่ง
 
-~~~sql 
+{% highlight sql %} 
 DROP TABLE IF EXIST ‘Blog’
-~~~ 
+{% endhighlight %} 
 
 ใน MySQLและ 
 
-~~~js
+{% highlight javascript %}
 this.knex.schema.createTableIfNotExists('Blog', (tbl) => {
 	...
 }); 
-~~~
+{% endhighlight %}
 
 <p>คือคำสั่งสำหรับตารางถ้ายังไม่มี</p>
 
-~~~js
+{% highlight javascript %}
 tbl.increments('id').primary().unique().index();
 tbl.string('name');
 tbl.string('writer');
-~~~
+{% endhighlight %}
 
 <p>คือการ set structure ให้ตาราง Blog โดยเทียบได้กับคำสั่ง</p>
 
-~~~sql
+{% highlight sql %}
 CREATE TABLE IF NOT EXISTS ‘Blog’ (‘id’ INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
 ‘name’ VARCHAR(255), ‘writer’ VARCHAR(255));
-~~~
+{% endhighlight %}
 
 <p>ซึ่ง data type ใน knex มีครอบคลุมทุกประเภทใน MySQL โดยสามารถดูเพ่ิมเติมได้ที่ <a herf="http://knexjs.org/#Schema-Building" target="_blank">knexjs.org</a></p>
 
@@ -111,25 +111,25 @@ CREATE TABLE IF NOT EXISTS ‘Blog’ (‘id’ INT UNSIGNED NOT NULL AUTO_INCRE
 ต่อมาเรามาเริ่ม insert ข้อมูลชุดแรกลงฐานข้อมูลกัน โดยการ insert ข้อมูลของ knex มี 2 แบบคือ แบบธรรมดา และ แบบ Batch สำหรับ insert ข้อมูลจำนวนมาก
 	ตัวอย่างคำสั่ง insert ข้อมูลธรรมดา
 
-~~~js
+{% highlight javascript %}
     await this.knex('Blog').insert({name: 'lonely insert', writer: 'lonely man'});
-~~~
+{% endhighlight %}
 
 เทียบได้กับ
 
-~~~sql
+{% highlight sql %}
 INSERT INTO Blog (‘name’, ‘writer’) VALUES (‘lonely insert’,’lonely man’);
-~~~
+{% endhighlight %}
 
 หาต้องการ insert ID ให้เอาตัวแปลไปรับได้เลย เช่น 
 
-~~~js
+{% highlight javascript %}
 let id = await this.knex('Blog').insert({name: 'lonely insert', writer: 'lonely man'});
-~~~
+{% endhighlight %}
 
 ตัวอย่างคำสั่ง insert ข้อมูลแบบ Batch สำหรับ insert ข้อมูลจำนวนมาก
 
-~~~js
+{% highlight javascript %}
 await this.knex.batchInsert('Blog',[{
         name: 'hello world',
         writer: 'mike'
@@ -140,39 +140,39 @@ await this.knex.batchInsert('Blog',[{
         name: 'this is awesome lib',
         writer: 'mike'
 }]);
-~~~
+{% endhighlight %}
 
 เทียบได้กับ
 
-~~~sql
+{% highlight sql %}
 INSERT INTO Blog (‘name’, ‘writer’) VALUES (‘hello world’,’mike’),(‘hello awesome’, ’nun’),(‘this is awesome lib’, ‘mike’);
-~~~
+{% endhighlight %}
 
 # READ
 
 เมื่อเรา insert  ข้อมูลลงฐานข้อมูลเสร็จแล้วต่อมาเราจะทำการอ่านข้อมูลจากฐานข้อมูลซึ่งเราสามารถทำได้โดยใช้คำสั่งดังนี้
 
-~~~js
+{% highlight javascript %}
 let data = await this.knex('Blog').select();
-~~~
+{% endhighlight %}
 
 เทียบได้กับ
 
-~~~sql
+{% highlight sql %}
 SELECT * FROM Blog
-~~~
+{% endhighlight %}
 
 หรือหากต้องการใส่เงื่อนไขในการคิวรี่ข้อมูลก็สามารถทำได้ดังนี้
 
-~~~js
+{% highlight javascript %}
 let data = await this.knex('Blog').where({writer: 'mike'}).select();
-~~~
+{% endhighlight %}
 
 เทียบได้กับ
 
-~~~sql
+{% highlight sql %}
 SELECT * FROM Blog WHERE writer = ‘mike’
-~~~
+{% endhighlight %}
 
 นอกจากนี้คำสั่งที่ใช้การคิวรี่อื่นๆ เช่น JOIN, COUNT, SUM, GROUP BY และอื่นๆ knex ก็รองรับนะครับโดยสามารถดูตัวอย่างการใช้งานได้ที่นี่นะครับ  <a herf="http://knexjs.org/" target="_blank">knexjs.org</a>
 
@@ -182,29 +182,29 @@ SELECT * FROM Blog WHERE writer = ‘mike’
 
 READ เสร็จแล้วต่อมาก็คือ UPDATE ซึ่งใน การ UPDATE ก็สามารถทำได้ดังนี้
 
-~~~js
+{% highlight javascript %}
 await this.knex('Blog').where({writer: 'lonely man'}).update({name: 'not alone insert'});
-~~~
+{% endhighlight %}
 
  เทียบได้กับ
 
-~~~sql
+{% highlight sql %}
 UPDATE Blog SET name = 'not alone insert' WHERE writer = 'lonely man'
-~~~
+{% endhighlight %}
 
 # DELETE
 
 สุดท้ายแล้วนะครับเมื่อเรา CREATE READ UPDATE จนหนำใจแล้วพอเราเริ่มเบื่อเราก็ลบมันทิ้งโดยใช้คำสั่งดังนี้
 
-~~~js
+{% highlight javascript %}
 await this.knex('Blog').where({writer: 'mike'}).del();
-~~~
+{% endhighlight %}
 
 เทียบได้กับ
 
-~~~sql
+{% highlight sql %}
 DELETE from Blog WHERE writer = 'mike'
-~~~
+{% endhighlight %}
 
 # Conclusion
 

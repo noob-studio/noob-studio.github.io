@@ -151,9 +151,9 @@
    <li>Android Studio เพราะว่าเราต้องการตัว Android SDK นะจ๊ะถ้าใครไม่มีสามารถดาวโหลดได้ <a href="https://developer.android.com/studio/index.html" target="_blank">ที่นี่</a> (จริงๆแล้วดาวโหลดแค่ SDK tool ก็ได้แต่ว่าผมว่าลง Android Studio ไปเลยจะเวิร์คกว่า)
    <li>Geanymotion เป็น emulator ทดสอบแอพของเรานะครับถ้าใครไม่มีสามารถดาวโหลดได้ <a href="https://www.genymotion.com/" target="_blank">ที่นี่</a>
    <li>Ionic2 ติดตั้งสามารถด้วยคำสั่งนี้ 
-    ~~~js
+    {% highlight javascript %}
     npm install -g cordova ionic
-    ~~~ 
+    {% endhighlight %} 
    <li>ในบทความนี้จะไม่ลงรายละเอียดถึงตัว Angular2 เยอะนะครับควรจะศึกษามาบ้างเล็กน้อยเพื่อความเข้าใจ
 </ul>
 <h1 id="start-server">Start Server</h1>
@@ -229,13 +229,13 @@
 <p>ส่ง msg ที่ได้รับให้ผู้ใช้ทุกคน
 <blockquote>
 ถ้าหากต้องการส่งให้ทุกคนยกเว้นตัวคนส่งเองให้ใส่เป็น
-~~~js
+{% highlight javascript %}
 client.broadcast.emit('msg', message);
-~~~
+{% endhighlight %}
 แต่ถ้าต้องการส่งกลับไปให้คนส่งคนเดียวเท่านั้น(แล้วจะเรียกว่า chat ไหมหนอ) ให้ใส่เป็น
-~~~js
+{% highlight javascript %}
 client.emit('msg', message);
-~~~
+{% endhighlight %}
 </blockquote>
 <div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="nx">server</span><span class="p">.</span><span class="nx">listen</span><span class="p">(</span><span class="mi">5555</span><span class="p">,</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
     <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'Program running on port : 5555'</span><span class="p">);</span>

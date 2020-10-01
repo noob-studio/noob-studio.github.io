@@ -32,33 +32,33 @@ tags:
 - Node.js เวอร์ชันล่าสุด <a href="https://nodejs.org/en/" target="_blank">Download</a>
 - Chrome Webdriver สำหรับ window สามารถดาวโหลดได้ <a href="https://github.com/SeleniumHQ/selenium/tree/master/javascript/node/selenium-webdriver" target="_blank">ที่นี่</a>
 - Chrome Webdriver สำหรับ Mac สามารถติดตั้งโดยใช้ Homebrew ได้ใครไม่มีสามารถดาวโหลดได้ <a href="https://brew.sh/" target="_blank">ที่นี่</a> เมื่อติดตั้ง Homebrew เสร็จแล้วให้พิมพ์คำสั่งนี้ 
-~~~js 
+{% highlight javascript %} 
 brew install chromedriver
-~~~
+{% endhighlight %}
 - Chrome Webdriver สำหรับ Linux สามารถติดตั้งโดยใช้คำสั่งนี้ 
-~~~js
+{% highlight javascript %}
 sudo apt-get install unzip;
 wget -O /tmp/chromedriver.zip http://chromedriver.googlecode.com/files/chromedriver_linux64_19.0.1068.0.zip 
 && sudo unzip /tmp/chromedriver.zip chromedriver -d /usr/local/bin/;
-~~~
+{% endhighlight %}
 
 
 # Start
 
 <p>เมื่อเราทำการติดตั้ง และดาวโหลดสิ่งที่ต้องการมาแล้วก็มาเริ่มกันเถอะเปิด Terminal ขึ้นมาและพิมพ์คำสั่งตามนี้นะจ๊ะเด็กๆ</p>
 
-~~~js
+{% highlight javascript %}
 mkdir selenium-ep01
 cd selenium-ep01
 npm init
 npm install selenium-webdriver --save
-~~~
+{% endhighlight %}
 
 <p>เมื่อดำเนินการเสร็จแล้วสำหรับผู้ใช้ window ให้ลากไฟล์ webdriver ที่ดาวโหลดมามาใส่ สำหรับคนใช้ Mac กับ Linux ไม่ต้องนะจ๊ะ อิอิ ต่อมาเปิด Text editor สร้างไฟล์ชื่อ index.js ขึ้นมาแล้วใส่คำสั่งตามนี้</p>
 
 <p><b>index.js</b></p>
 
-~~~js
+{% highlight javascript %}
 var webdriver = require('selenium-webdriver'),
     By = webdriver.By,
     until = webdriver.until;
@@ -71,15 +71,15 @@ driver.get('http://www.google.com/ncr');
 driver.findElement(By.name('q')).sendKeys('webdriver');
 driver.findElement(By.name('btnG')).click();
 driver.wait(until.titleIs('webdriver - Google Search'), 1000);
-~~~
+{% endhighlight %}
 
 <p>อธิบาย Code</p>
 
-~~~js
+{% highlight javascript %}
 var webdriver = require('selenium-webdriver'),
     By = webdriver.By,
     until = webdriver.until;
-~~~
+{% endhighlight %}
 
 <p>ดึง Module ของ selenium-webdriver มาใช้และ Module อื่นๆที่จำเป็นมาใช้
     <ul>
@@ -88,35 +88,35 @@ var webdriver = require('selenium-webdriver'),
 </ul>
 </p>
 
-~~~js
+{% highlight javascript %}
 var driver = new webdriver.Builder()
     .forBrowser('chrome')
     .build();
-~~~
+{% endhighlight %}
 
 <p>สร้าง driver สำหรับ Google Chrome (สั่งให้เปิด Browser)</p>
 
-~~~js
+{% highlight javascript %}
 driver.get('http://www.google.com/ncr');
-~~~
+{% endhighlight %}
 
 <p>เปิด Browser ไปที่ url https://www.google.com/ncr</p>
 
-~~~js
+{% highlight javascript %}
 driver.findElement(By.name('q')).sendKeys('webdriver');
-~~~
+{% endhighlight %}
 <p>หา Element ที่ attribute name ว่า q (ช่อง input) และใส่ค่าว่า webdriver</p>
-~~~js
+{% highlight javascript %}
 driver.findElement(By.name('btnG')).click();
-~~~
+{% endhighlight %}
 <p>หา Element ที่ attribute name ว่า btnG (ปุ่มค้นหา) และคลิ๊ก</p>
-~~~js
+{% highlight javascript %}
 driver.wait(until.titleIs('webdriver - Google Search'), 1000);
-~~~
+{% endhighlight %}
 <p>รอจน title ของเว็ปขึ้นว่า 'webdriver - Google Search' เป็นอันเสร็จสิ้นกระบวนความรันด้วยคำสั่ง</p>
-~~~js
+{% highlight javascript %}
 node index.js
-~~~
+{% endhighlight %}
 <p>เมื่อรันเสร็จจะได้ผลดังภาพ</p>
 <img src="{{ site.baseurl }}/img/selenium/img01.gif" alt="การค้นหา Google ด้วย Selenium">
 <span class="caption text-muted">ค้นหา Google ด้วย Selenium</span>

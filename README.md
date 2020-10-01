@@ -100,7 +100,7 @@ Tags and tag pages are supported by using Jekyll's native collections functional
 dactl is built almost entirely with `rem`s (instead of pixels). `rem`s are like `em`s, but instead of building on the immediate parent's font-size, they build on the root element, `<html>`.
 
 By default, dactl uses the following:
-~~~
+{% endhighlight %}
 html {
   font-size: 20px;
   line-height: 1.6;
@@ -110,7 +110,7 @@ html {
     font-size: 18px;
   }
 }
-~~~
+{% endhighlight %}
 To easily scale your site's typography and components, simply customize the base font-sizes found in `_sass/variables.scss` file.
 
 (Lifted from [here](https://github.com/poole/poole#rems-font-size-and-scaling))

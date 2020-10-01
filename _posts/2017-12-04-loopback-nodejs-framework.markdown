@@ -95,17 +95,17 @@ datasource: null
 ```
 
 เป็น
-~~~js
+{% highlight javascript %}
 ...
 datasource: ‘mysql’ (ชื่อของ datasource ที่เราสร้างขึ้น)
 ...
-~~~
+{% endhighlight %}
 <p>เพียงเท่านี้ก็เสร็จเรียบร้อยในขั้นตอนการเชื่อมต่อกับฐานข้อมูลแล้วต่อไปเราก็จะมาสร้างตารางจาก model ของเรากัน</p>
 
 # Automigrate
 
 <p>เมื่อเรามี model แล้ว เชื่อมต่อฐานข้อมูลแล้ว ต่อมาเราก็จะทำการสร้างตารางสำหรับ model ของเรากันโดยเปิด editor ขึ้นมาแล้วสร้างไฟล์ชื่ออะไรก็ได้ใส่ไว้ในไดเรคทอรี่ server/boot โดยใส่ code ดังนี้</p>
-~~~js
+{% highlight javascript %}
 module.exports = (app) => {
 	app.dataSources.mysql.automigrate('blog', (err) => {
 		if (err) throw err;
@@ -127,15 +127,15 @@ module.exports = (app) => {
 		});
 	});
 };
-~~~
+{% endhighlight %}
 <p>code ด้านบนอธิบายได้ดังนี้</p>
-~~~js
+{% highlight javascript %}
 app.dataSources.mysql.automigrate('blog', (err) => {
   ...
 });
-~~~
+{% endhighlight %}
 <p>เป็นฟังชันสำหรับ migrate ฐานข้อมูลของ loopback โดยส่ง parameter เข้าไปสองตัวคือ model ที่ต้องการ migrate และ callback</p>
-~~~js
+{% highlight javascript %}
 app.models.blog.create([{
 	name: 'test1',
 	author: 'mike',
@@ -143,16 +143,16 @@ app.models.blog.create([{
 },
         ...
 ]);
-~~~
+{% endhighlight %}
 <p>คือการเพิ่มข้อมูลใส่ในตารางที่เราทำการ migrate <span style="color:red">** มีข้อควรระวังคือหากในตารางนั้นมีข้อมูลอยู่แล้วจะถูกเขียนทับ **</span></p>
-~~~js
+{% highlight javascript %}
 ...
 (err, blog) => {
 	if (err) throw err;
 	console.log('Models created: \n', blog);
 }
 ...
-~~~
+{% endhighlight %}
 <p>คือการ handle callback เมื่อทำการ migrate สำเร็จ หลังจากนั้นเมื่อเราเตรียมทุกอย่างพร้อมเราจึงเริ่มทำรัน REST api ของเราโดยพิมพ์คำสั่ง</p>
 <pre>
 node .
@@ -174,15 +174,15 @@ node .
 # Custom API
 
 <p>เพราะในชีวิตจริง API เราของไม่ได้มีแต่ CRUD ต้องฟังชันการทำงานอื่นๆ ซึ่งใน loopback เนี่ยเราสามารถทำ API เอกได้ง่ายๆดังนี้เปิดไฟล์ Model ของเราขึ้นมาซึ่งไฟล์ Model ของเราจะอยู่ที่ common/models/ชื่อโมเดล.js ซึ่งพอเราเปิดขึ้นมาก็จะเป็นไฟล์ไม่ได้ทำๆ (ไฟล์เปล่าๆ) ที่มีข้อมูลหล่อมแหล่มดังนี้</p>
-~~~js
+{% highlight javascript %}
 'use strict';
 
 module.exports = function(Blog) {
 
 };
-~~~
+{% endhighlight %}
 <p>ให้เราสอดใส่ Code เข้าไปดังนี้</p>
-~~~js
+{% highlight javascript %}
 module.exports = function(Blog) {
 
 	Blog.hello = function(msg, callback){
@@ -205,23 +205,23 @@ module.exports = function(Blog) {
 		}
 	);
 };
-~~~
+{% endhighlight %}
 <p>Code ข้างบนมีการทำงานคือเมื่อมีคน route ผ่าน method get มาที่ http://localhost:3000/api/blog/hello พร้อม parameter ชื่อ msg ก็จะตอบกลับดังรูปตัวอย่าง</p>
 <img src="{{ site.baseurl }}/img/loopback/example.png" alt="สอนใช้งาน loopback">
 <p>โดย Code ข้างบนมีการทำงานดังนี้</p>
-~~~js
+{% highlight javascript %}
 module.exports = function(Blog) {
 ...
 };
-~~~
+{% endhighlight %}
 <p>export module ของเราส่วน Parameter Blog ที่เข้ามาก็คือ model ของเราพร้อมฟังก์ชันเสริมต่างๆ นาๆที่ loopback เพิ่มมาให้</p>
-~~~js
+{% highlight javascript %}
 Blog.hello = function(msg, callback){
 	callback(null, msg)
 }
-~~~
+{% endhighlight %}
 <p>เพิ่มฟังชันชื่อ hello เข้าไปใน model Blog โดยที่ parameter ที่ส่งเข้าไปตัวแรก msg คือค่าที่รับมาจาก request และ callback นี่ loopback ส่งเข้ามาให้เราสำหรับส่งข้อมูลกลับไปเมื่อเราทำงานเสร็จแล้ว จะสังเกตุเห็นว่าใน loopback รับ parameter 2 ตัว ตัวแรกที่เป็น null คือerr ในกรณีที่มี err ตัวที่สองคือค่าที่เราจะ response ออกไป</p>
-~~~js
+{% highlight javascript %}
 Blog.remoteMethod(
     'hello', {
         http: {
@@ -238,40 +238,40 @@ Blog.remoteMethod(
         }
     }
 );
-~~~
+{% endhighlight %}
 <p>คือการตั้งค่า Custom API ของเรา </p>
-~~~js
+{% highlight javascript %}
 'hello', {
 ...
 }
-~~~
+{% endhighlight %}
 <p>คือบอกว่าตั้งค่าของฟังก์ชันไหน</p>
-~~~js
+{% highlight javascript %}
 ...
 http: {
 	path: '/hello',
 	verb: 'get'
 },
 ...
-~~~
+{% endhighlight %}
 <p>คือการเซ็ทพาท และ method ที่เข้ามา</p>
-~~~js
+{% highlight javascript %}
 ...
 accepts: {
 	arg: 'msg', 
 	type: 'string'
 },
 ...
-~~~
+{% endhighlight %}
 <p>คือการเซ็ท parameter ที่จะเข้ามา arg คือชื่อ type คือประเภท</p>
-~~~js
+{% highlight javascript %}
 ...
 returns: {
 	arg: 'word',
 	type: 'string'
 }
 ...
-~~~
+{% endhighlight %}
 <p>คือการเซ็ทข้อมูล response ที่จะออกไปก็เหมือนเดิมครับ arg คือชื่อ และ type คือประเภท</p>
 
 # Conclusion

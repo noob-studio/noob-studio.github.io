@@ -1724,9 +1724,9 @@ ionic run android
     &lt;li&gt;Geanymotion เป็น emulator ทดสอบแอพของเรานะครับถ้าใครไม่มีสามารถดาวโหลดได้ &lt;a href=&quot;https://www.genymotion.com/&quot; target=&quot;_blank&quot;&gt;ที่นี่&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;Ionic2 ติดตั้งสามารถด้วยคำสั่งนี้ 
 
-    ~~~js
+    {% highlight javascript %}
     npm install -g cordova ionic
-    ~~~ 
+    {% endhighlight %} 
 
     &lt;/li&gt;
     &lt;li&gt;ในบทความนี้จะไม่ลงรายละเอียดถึงตัว Angular2 เยอะนะครับควรจะศึกษามาบ้างเล็กน้อยเพื่อความเข้าใจ&lt;/li&gt;
@@ -1811,13 +1811,13 @@ ionic run android
 &lt;p&gt;ส่ง msg ที่ได้รับให้ผู้ใช้ทุกคน&lt;/p&gt;
 &lt;blockquote&gt;
 ถ้าหากต้องการส่งให้ทุกคนยกเว้นตัวคนส่งเองให้ใส่เป็น
-~~~js
+{% highlight javascript %}
 client.broadcast.emit('msg', message);
-~~~
+{% endhighlight %}
 แต่ถ้าต้องการส่งกลับไปให้คนส่งคนเดียวเท่านั้น(แล้วจะเรียกว่า chat ไหมหนอ) ให้ใส่เป็น
-~~~js
+{% highlight javascript %}
 client.emit('msg', message);
-~~~
+{% endhighlight %}
 &lt;/blockquote&gt;
 &lt;div class=&quot;language-js highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nx&quot;&gt;server&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;listen&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;5555&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
     &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'Program running on port : 5555'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;

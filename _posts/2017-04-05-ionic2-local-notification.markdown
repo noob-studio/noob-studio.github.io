@@ -23,7 +23,7 @@ tags:
 # Start Ionic
 
 เอาล่ะครับเรามาเริ่มกันเถอะขั้นตอนก็ไม่มีไรมากเหมือนเดิมครับสร้างแอพขึ้นมาและ add cordova plugin ตามนี้ขึ้นไป
-~~~
+{% endhighlight %}
 ionic start ionic-local-notification blank --v2
 cd ionic-local-notification
 ionic platform add android
@@ -31,7 +31,7 @@ ionic plugin add cordova-plugin-background-mode
 npm install --save @ionic-native/background-mode
 ionic plugin add de.appplant.cordova.plugin.local-notification
 npm install --save @ionic-native/local-notifications
-~~~
+{% endhighlight %}
 
 <ul>
 <li>cordova-plugin-background-mode ใช้สำหรับให้แอพทำงานได้แม้ user จะออกจากแอพไปแล้ว</li>
@@ -39,24 +39,24 @@ npm install --save @ionic-native/local-notifications
 </ul>
 ต่อมาให้เปิดไฟล์ src/app/app.component.ts ขึ้นมาและเพิ่ม Code ไปดังนี้
 
-~~~js
+{% highlight javascript %}
 import { BackgroundMode } from '@ionic-native/background-mode';
 import { LocalNotifications } from '@ionic-native/local-notifications';
-~~~
+{% endhighlight %}
 
 import module ที่ต้องการใช้นะครับโดยรายละเอียดก็ตามที่เขียนอธิบายไว้ข้างบน
 
-~~~js
+{% highlight javascript %}
 constructor(
     ..., 
     private bgMode: BackgroundMode,
     private localNoti: LocalNotifications
 ) 
-~~~
+{% endhighlight %}
 
 ประการศตัวแปร private ชื่อ bgMode, localNoti โดยนำค่ามาจาก Module BackgroundMode และ LocalNotifications ตามลำดับ ต่อมาเพิ่มการทำงานเข้าไปใน constructor ดังนี้
 
-~~~js
+{% highlight javascript %}
 constructor(
     ...
 ){
@@ -79,25 +79,25 @@ constructor(
       })
     });
 }
-~~~
+{% endhighlight %}
 
 เพียงแค่นี้ก็เป็นอันเสร็จแล้วนะจ๊ะสำหรับการทำงานที่เราใส่ไปมีดังนี้นะครับ
 
-~~~js
+{% highlight javascript %}
 this.bgMode.enable();
-~~~
+{% endhighlight %}
 
 เปิด Mode การทำงานแบบ background
 
-~~~js
+{% highlight javascript %}
 this.bgMode.on('activate').subscribe(() => {
 ...
 })
-~~~
+{% endhighlight %}
 
 เป็น event ที่เกิดขึ้นเมื่อ application ทำงานแบบ background mode
 
-~~~js
+{% highlight javascript %}
 var today = new Date();
 var pm_6 = new Date();
 pm_6.setDate(today.getDate());
@@ -105,17 +105,17 @@ pm_6.setHours(18);
 pm_6.setMinutes(00);
 pm_6.setSeconds(0);
 var at_6_pm = new Date(pm_6);
-~~~
+{% endhighlight %}
 
 สร้างวันเวลาสำหรับแจ้งเตือนโดยให้ตั้งเป็น 6 โมง
 
-~~~js
+{% highlight javascript %}
 this.localNoti.schedule({
     text: 'แจ้งเตือนตอน 6 โมง',
     firstAt: at_6_pm,
     every: 'day'
 });
-~~~
+{% endhighlight %}
 
 ตั้งค่าการแจ้งเตือนโดยมีรายละเอียดดังนี้
 <ul>
