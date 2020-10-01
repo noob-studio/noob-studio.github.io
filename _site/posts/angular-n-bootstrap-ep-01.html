@@ -24,26 +24,26 @@
 <meta property="og:description" content="สอนใช้งาน Angular เบื้องต้น และการติดตั้ง Bootstrap 4 ร่วมกับ Angular 8 ในบทความนี้เราจะมาสอนการใช้งาน Bootstrap 4 ร่วมกับ Angular 8 รวมทั้ง Angular Component และการใช้ Bootstrap Theme เบื้องต้นสำหรับเริ่ม Project ใหม่">
 <meta property="og:url" content="http://localhost:4000/posts/angular-n-bootstrap-ep-01">
 <meta property="og:site_name" content="Noob Studio">
-<link rel="stylesheet" href="/noob-studio.github.io/assets/vendor/normalize-css/normalize.css">
-<link rel="stylesheet" href="/noob-studio.github.io/assets/css/main.css">
+<link rel="stylesheet" href="/assets/vendor/normalize-css/normalize.css">
+<link rel="stylesheet" href="/assets/css/main.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Rubik:400,400italic,700,700italic">
 <style>
     html {
       font-family: "Rubik", -apple-system, BlinkMacSystemFont, "Helvetica Neue", sans-serif;
     }
 </style>
-<link rel="stylesheet" href="/noob-studio.github.io/assets/css/bf.css">
+<link rel="stylesheet" href="/assets/css/bf.css">
    <body>
        <div class="wrapper" id="blep">
           <header>
    <div class="menu">
      <div class="logo">
-        <a href="/noob-studio.github.io//">Noob Studio</a>
+        <a href="/">Noob Studio</a>
      </div>
        <ul>
-           <li><a href="/noob-studio.github.io//about">about</a>
-           <li><a href="/noob-studio.github.io//archive">archive</a>
-           <li><a href="/noob-studio.github.io//noob-engine">noob engine</a>
+           <li><a href="/about">about</a>
+           <li><a href="/archive">archive</a>
+           <li><a href="/noob-engine">noob engine</a>
        </ul>
    </div>
    <div class="social">
@@ -57,7 +57,7 @@
               <span class="icon-mail_outline"></span>
             </a>
        <li>
-            <a href="/noob-studio.github.io//feed.xml" target="_blank">
+            <a href="/feed.xml" target="_blank">
                 <span class="icon-rss_feed"></span>
             </a>
        <li>
@@ -73,7 +73,7 @@
     margin-bottom: 2em;
   }
   .angular-n-bootstrap-ep-01::before {
-    background-image: url('/noob-studio.github.io/img/angular/cover.jpg');
+    background-image: url('/img/angular/cover.jpg');
     background-size: cover;
     /* -webkit-filter: grayscale(1) brightness(0.5) contrast(0.5); */
     content:'';
@@ -126,13 +126,13 @@
      <div class="post-meta">
         <span>21/02/2020</span>
         <span>
-              <a href="/noob-studio.github.io/tag/node.js">#node.js</a>
-              <a href="/noob-studio.github.io/tag/Programing101">#Programing101</a>
-              <a href="/noob-studio.github.io/tag/Typescript">#Typescript</a>
-              <a href="/noob-studio.github.io/tag/javascript">#javascript</a>
-              <a href="/noob-studio.github.io/tag/Angular">#Angular</a>
-              <a href="/noob-studio.github.io/tag/Bootstrap">#Bootstrap</a>
-              <a href="/noob-studio.github.io/tag/jquery">#jquery</a>
+              <a href="/tag/node.js">#node.js</a>
+              <a href="/tag/Programing101">#Programing101</a>
+              <a href="/tag/Typescript">#Typescript</a>
+              <a href="/tag/javascript">#javascript</a>
+              <a href="/tag/Angular">#Angular</a>
+              <a href="/tag/Bootstrap">#Bootstrap</a>
+              <a href="/tag/jquery">#jquery</a>
         </span>
      </div>
    </div>
@@ -155,7 +155,7 @@
 </code></pre>
 </div>
 <p>จะขึ้นหน้าจอถามว่าต้องการใช้ style ประเภทไหนผมเลือก css และมีคำสั่งถามว่าต้องการใช้ angular route หรือไม่ให้ตอบ yes
-<p><img src="/noob-studio.github.io//img/angular/ep01/start-angular.png" alt="บริการรับทำเว็บไซด์ แอพพลิเคชัน ระบบสำหรับใช้ในองค์กร เว็บขายของระบบ E-commerce หรือระบบต่างๆ" />
+<p><img src="/img/angular/ep01/start-angular.png" alt="บริการรับทำเว็บไซด์ แอพพลิเคชัน ระบบสำหรับใช้ในองค์กร เว็บขายของระบบ E-commerce หรือระบบต่างๆ" />
 <p>เมื่อทำการตั้งค่าเสร็จให้พิมพ์คำสั่ง
 <div class="language-plaintext highlighter-rouge"><pre class="highlight"><code>cd awesome-angular
 </code></pre>
@@ -197,7 +197,7 @@
 </div>
 <h2 id="change-theme-optional">Change Theme (Optional)</h2>
 <p>หากต้องการเปลี่ยนธีมให้เปิดไปที่เว็บไซด์ <a href="https://bootswatch.com/">bootswatch</a> โดยเว็บนี้รวบรวม Theme Bootstrap ตั้งต้นไว้ให้เราเอาไปพัฒนาต่อง่าย
-<p><img src="/noob-studio.github.io//img/angular/ep01/bootstrapwatch.png" alt="บริการรับทำเว็บไซด์ แอพพลิเคชัน ระบบสำหรับใช้ในองค์กร เว็บขายของระบบ E-commerce หรือระบบต่างๆ" />
+<p><img src="/img/angular/ep01/bootstrapwatch.png" alt="บริการรับทำเว็บไซด์ แอพพลิเคชัน ระบบสำหรับใช้ในองค์กร เว็บขายของระบบ E-commerce หรือระบบต่างๆ" />
 <p>เมื่อเลือก theme ได้แล้วให้คลิ๊กที่ ชื่อ Theme และ bootstrap.min.css เว็บไซด์จะทำการดาวโหลดไฟล์ <strong>bootstrap.min.css</strong> นำไฟล์ไปวางไว้ที่ <strong>src/assets/css/</strong>
 <p>และเปิดไฟล์ <strong>angular.json</strong> อีกครั้งเพื่อแก้ไข
 <div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="err">...</span><span class="w">
@@ -213,11 +213,11 @@
 </code></pre>
 </div>
 <p>แล้วเปิด Browser ไปที่ <a href="http://localhost:4200" target="_blank">localhost:4200</a> จะพบหน้าตาดังนี้
-<p><img src="/noob-studio.github.io//img/angular/ep01/result.png" alt="บริการรับทำเว็บไซด์ แอพพลิเคชัน ระบบสำหรับใช้ในองค์กร เว็บขายของระบบ E-commerce หรือระบบต่างๆ" />
+<p><img src="/img/angular/ep01/result.png" alt="บริการรับทำเว็บไซด์ แอพพลิเคชัน ระบบสำหรับใช้ในองค์กร เว็บขายของระบบ E-commerce หรือระบบต่างๆ" />
 <p>ต่อมาเราจะมาทำความรู้จักกับ Angular Component และ Angular Route เบื้องต้น
 <h1 id="angular-component">Angular Component</h1>
 <p>ใน Angular หน้าเว็บจะเป็นแบบ single page หมายความว่าตัว Angular มองส่วนประกอบต่างๆ ของหน้าเว็บแยกเป็นส่วนแยกออกจากกัน(Component) แล้วนำมาประกอบกันเพื่อให้การเป็นเว็บไซด์ โดยวันนี้เว็บไซด์ที่เราจะทำเราจะแยก Component เป็น 3 ส่วนง่ายๆ ดังนี้
-<p><img src="/noob-studio.github.io//img/angular/ep01/component.png" alt="บริการรับทำเว็บไซด์ แอพพลิเคชัน ระบบสำหรับใช้ในองค์กร เว็บขายของระบบ E-commerce หรือระบบต่างๆ" />
+<p><img src="/img/angular/ep01/component.png" alt="บริการรับทำเว็บไซด์ แอพพลิเคชัน ระบบสำหรับใช้ในองค์กร เว็บขายของระบบ E-commerce หรือระบบต่างๆ" />
 <ul>
  <li>App Component คือที่วางหน้าหลักของเรา
  <li>Navbar Component มีไว้สำหรับนำทางไปที่หน้าต่างๆ
@@ -403,7 +403,7 @@ ng generate component page/features
 </code></pre>
 </div>
 <p>แล้วเปิดไปที่หน้า <a href="http://localhost:4200">http://localhost:4200</a> หน้าเว็บก็จะแสดงผลหน้าตาเว็บไซด์ประมาณนี้
-<img src="/noob-studio.github.io//img/angular/ep01/screenshot.png" alt="บริการรับทำเว็บไซด์ แอพพลิเคชัน ระบบสำหรับใช้ในองค์กร เว็บขายของระบบ E-commerce หรือระบบต่างๆ" />
+<img src="/img/angular/ep01/screenshot.png" alt="บริการรับทำเว็บไซด์ แอพพลิเคชัน ระบบสำหรับใช้ในองค์กร เว็บขายของระบบ E-commerce หรือระบบต่างๆ" />
 <p>หากกดข้างบนเปลี่ยนไปที่หน้าอื่นก็จะขึ้นว่า about works!! หรือ features works!!
 <blockquote>
  <p>หากเราสังเกตุจะเห็นว่าเว็บไซด์ได้ถูก redirect ไปที่ <a href="http://localhost:4200/home">http://localhost:4200/home</a>
@@ -451,22 +451,22 @@ ng generate component page/features
 <h2>Related posts</h2>
 <ul class="related-posts">
    <li>
-    <a href="/noob-studio.github.io//posts/seneca-nodejs-microservice">
+    <a href="/posts/seneca-nodejs-microservice">
         <span>เขียน Microservice ด้วย Node.js และ Seneca.js</span>
         <small>18/01</small>
     </a>
    <li>
-    <a href="/noob-studio.github.io//posts/loopback-nodejs-framework">
+    <a href="/posts/loopback-nodejs-framework">
         <span>เขียน RESTful API ใน Node.js แบบ 'โคตรไว' ด้วย Loopback</span>
         <small>04/12</small>
     </a>
    <li>
-    <a href="/noob-studio.github.io//posts/knex-nodejs-orm">
+    <a href="/posts/knex-nodejs-orm">
         <span>วิธีใช้ knex.js จัดการฐานข้อมูล MySQL ใน Node.js</span>
         <small>29/11</small>
     </a>
    <li>
-    <a href="/noob-studio.github.io//posts/ionic2-local-notification">
+    <a href="/posts/ionic2-local-notification">
         <span>วิธีทำ Notification (แจ้งเตือน) ให้ Ionic2 แบบไม่ต้องมี server</span>
         <small>29/03</small>
     </a>
@@ -477,8 +477,8 @@ ng generate component page/features
     <span>written by Freeweed</span>
 </footer>
        </div>
-<script type="text/javascript" src="/noob-studio.github.io/assets/js/theme.js"></script>
-<script type="text/javascript" src="/noob-studio.github.io/assets/js/barefoot.js"></script>
+<script type="text/javascript" src="/assets/js/theme.js"></script>
+<script type="text/javascript" src="/assets/js/barefoot.js"></script>
     <script>
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),

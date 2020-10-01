@@ -5,7 +5,7 @@ description: "วิธีการเขียน RESTful API ด้วยค�
 date: 2017-12-04 13:52
 author: "freeweed"
 published: true
-hero: '{{site.url}}/img/loopback/cover.jpg'
+hero: '/img/loopback/cover.jpg'
 categories:
  - backend
  - framework

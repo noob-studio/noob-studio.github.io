@@ -24,26 +24,26 @@
 <meta property="og:description" content="วิธีการเขียน RESTful API ด้วยความเร็วแสงด้วย Loopback เนื่องจากผมได้มีโอกาศไปรับงานนึงเกี่ยวกับการจัดการ Stock สินค้าซึ่งจาก Scale งานเนี่ยน่าจะใช้เวลาพัฒนาประมาณ 2 อาทิตย์แต่ลูกค้าแบบว่าเร่งมากบอกน้องพี่ขอ 7 วันได้ไหม!! แม่เจ้าาาา รีบไปไหนเนี่ยพ่อคู๊ณณ แต่ถือเป็นโชคดีที่ก่อนหน้าที่ทำงานของผมได้ให้ผมทำ research เกี่ยวกับ node.js framework ตัวนึงชื่อว่า loopback ซึ่งหลังจากได้ลองใช้ขอบอกเลยว่ามันดีมากเลยอ่ะแกรร แบบว่าของมันต้องใช้อ่ะแกรร ว่าแล้วเราก็มาลองใช้งานกันเลยเถอะ">
 <meta property="og:url" content="http://localhost:4000/posts/loopback-nodejs-framework">
 <meta property="og:site_name" content="Noob Studio">
-<link rel="stylesheet" href="/noob-studio.github.io/assets/vendor/normalize-css/normalize.css">
-<link rel="stylesheet" href="/noob-studio.github.io/assets/css/main.css">
+<link rel="stylesheet" href="/assets/vendor/normalize-css/normalize.css">
+<link rel="stylesheet" href="/assets/css/main.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Rubik:400,400italic,700,700italic">
 <style>
     html {
       font-family: "Rubik", -apple-system, BlinkMacSystemFont, "Helvetica Neue", sans-serif;
     }
 </style>
-<link rel="stylesheet" href="/noob-studio.github.io/assets/css/bf.css">
+<link rel="stylesheet" href="/assets/css/bf.css">
    <body>
        <div class="wrapper" id="blep">
           <header>
    <div class="menu">
      <div class="logo">
-        <a href="/noob-studio.github.io//">Noob Studio</a>
+        <a href="/">Noob Studio</a>
      </div>
        <ul>
-           <li><a href="/noob-studio.github.io//about">about</a>
-           <li><a href="/noob-studio.github.io//archive">archive</a>
-           <li><a href="/noob-studio.github.io//noob-engine">noob engine</a>
+           <li><a href="/about">about</a>
+           <li><a href="/archive">archive</a>
+           <li><a href="/noob-engine">noob engine</a>
        </ul>
    </div>
    <div class="social">
@@ -57,7 +57,7 @@
               <span class="icon-mail_outline"></span>
             </a>
        <li>
-            <a href="/noob-studio.github.io//feed.xml" target="_blank">
+            <a href="/feed.xml" target="_blank">
                 <span class="icon-rss_feed"></span>
             </a>
        <li>
@@ -73,7 +73,7 @@
     margin-bottom: 2em;
   }
   .loopback-nodejs-framework::before {
-    background-image: url('/noob-studio.github.io/img/loopback/cover.jpg');
+    background-image: url('/img/loopback/cover.jpg');
     background-size: cover;
     /* -webkit-filter: grayscale(1) brightness(0.5) contrast(0.5); */
     content:'';
@@ -126,8 +126,8 @@
      <div class="post-meta">
         <span>04/12/2017</span>
         <span>
-              <a href="/noob-studio.github.io/tag/node.js">#node.js</a>
-              <a href="/noob-studio.github.io/tag/javascript">#javascript</a>
+              <a href="/tag/node.js">#node.js</a>
+              <a href="/tag/javascript">#javascript</a>
         </span>
      </div>
    </div>
@@ -147,7 +147,7 @@ Enter name of the directory to contain the project: hello-loopback (ไฟล์
 Which version of LoopBack would you like to use? เวอร์ชันของ loopback ในที่นี้เลือกเวอร์ชัน 3.x
 What kind of application do you have in mind? เลือกค่าพื้นฐานของ api ในที่นี้เลือก empty-server
 </pre>
-<p><img src="/noob-studio.github.io//img/loopback/setup.png" alt="สอนใช้งาน loopback" />
+<p><img src="/img/loopback/setup.png" alt="สอนใช้งาน loopback" />
 <p>เมื่อใส่รายละเอียดต่างๆ เสร็จแล้ว loopback จะทำสร้างไฟล์ต่างๆ ตามที่เรา setup ไว้เป็นอันเสร็จขั้นตอนแรก
 <h1 id="create-model">Create Model</h1>
 <p>เมื่อเรา setup เสร็จแล้วเราก็จะมาสร้าง model แรกกันโดยมีขั้นตอนดังนี้<pre>
@@ -161,14 +161,14 @@ Expose blog via the REST API? Y (model นี้เป็น REST api หรื�
 Custom plural form: /blog (path ของ model นี้)
 Common model or server only? common (model นี้จะเอาไว้ที่ไหนในไดเรคทอรี่ server หรือ common)
 </pre>
-<p><img src="/noob-studio.github.io//img/loopback/model.png" alt="สอนใช้งาน loopback" />
+<p><img src="/img/loopback/model.png" alt="สอนใช้งาน loopback" />
 <p>เมื่อ setup model เสร็จมันก็จะให้เราใส่ property ของ model โดยมีรายละเอียดดังนี้<pre>
 Property name: name (ชื่อของ property)
 Property type: string (ประเภทของ property)
 Required? Y (จำเป็นต้องใส่หรือไม่)
 Default value[leave blank for none]: (ค่า default ของ property นี้)
 </pre>
-<p><img src="/noob-studio.github.io//img/loopback/property.png" alt="สอนใช้งาน loopback" />
+<p><img src="/img/loopback/property.png" alt="สอนใช้งาน loopback" />
 <p>เมื่อเราใส่ property เสร็จมันก็จะวนถามใหม่เรื่อยๆ ให้เราใส่เรื่อยๆ จนกว่าจะพอใจเมื่อพอใจแล้วตรง Property name: ให้เว้นว่างไว้มันก็จะออกจากการสร้าง model
 <p>เมื่อเราเข้าไปดูในไดเรคทอรี่ common/models ก็จะเห็นไฟล์ชื่อ model ของเรา 2 ไฟล์คือ .js (จะอธิบายต่อไป) และ .json เก็บข้อมูลต่างๆ ของ model เรา
 <h1 id="connect-database">Connect database</h1>
@@ -186,7 +186,7 @@ password: (ใส่ password)
 database: test (ใส่ฐานข้อมูลที่ต้องเชื่อมต่อ)
 Install loopback-connector-mysql@^2.2: Y (ต้องการติดตั้ง loopback-connector-mysql หรือไม่)
 </pre>
-<p><img src="/noob-studio.github.io//img/loopback/datasource.png" alt="สอนใช้งาน loopback" />
+<p><img src="/img/loopback/datasource.png" alt="สอนใช้งาน loopback" />
 หลังจากนั้นไปที่ไฟล์ server/model-config.js แก้ตรง
 <div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="p">...</span>
 <span class="nl">datasource</span><span class="p">:</span> <span class="kc">null</span>
@@ -254,16 +254,16 @@ Install loopback-connector-mysql@^2.2: Y (ต้องการติดตั�
 node .
 </pre>
 <p>เมื่อเข้าไปดูในฐานข้อมูลก็จะพบตารางชื่อตาม model ของเราโดยที่มีข้อมูลตามที่เรา insert เข้าไปดังภาพ
-<p><img src="/noob-studio.github.io//img/loopback/database1.png" alt="สอนใช้งาน loopback" />
+<p><img src="/img/loopback/database1.png" alt="สอนใช้งาน loopback" />
 <h1 id="ทดลองใช้-api">ทดลองใช้ API</h1>
 <p>หลังจากที่เรารัน REST api แล้วให้ลองเปิด browser เข้าไปที่ path 127.0.0.1:3000/explorer จะพบหน้าตาสำหรับทดลอง api ดังภาพ
-<p><img src="/noob-studio.github.io//img/loopback/explorer.png" alt="สอนใช้งาน loopback" />
+<p><img src="/img/loopback/explorer.png" alt="สอนใช้งาน loopback" />
 <p>หากเราต้องเพิ่มข้อมูลเข้าสู่ตารางให้เลือกที่ post ใส่ข้อมูลลงไป และกดที่ try out ดังภาพ
-<p><img src="/noob-studio.github.io//img/loopback/post.png" alt="สอนใช้งาน loopback" />
+<p><img src="/img/loopback/post.png" alt="สอนใช้งาน loopback" />
 <p>หลังจากนั้นเมื่อเราเข้าไปดูที่ฐานข้อมูลก็จะเห็นข้อมูลที่เราเพิ่มไปเมื่อกี้เข้ามา
-<p><img src="/noob-studio.github.io//img/loopback/database.png" alt="สอนใช้งาน loopback" />
+<p><img src="/img/loopback/database.png" alt="สอนใช้งาน loopback" />
 <p>หรือหากลองเปิด Browser แล้วเข้าไปที่ http://localhost:3000/api/blog ก็จะเห็นข้อมูลในฐานข้อมูลเราดังภาพเพียงแค่นี้เราก็สร้าง RESTful API สำหรับ CRUD เสร็จแล้วนะครับต่อไปเราจะมาทำ Custom API กัน
-<p><img src="/noob-studio.github.io//img/loopback/browser_open.png" alt="สอนใช้งาน loopback" />
+<p><img src="/img/loopback/browser_open.png" alt="สอนใช้งาน loopback" />
 <h1 id="custom-api">Custom API</h1>
 <p>เพราะในชีวิตจริง API เราของไม่ได้มีแต่ CRUD ต้องฟังชันการทำงานอื่นๆ ซึ่งใน loopback เนี่ยเราสามารถทำ API เอกได้ง่ายๆดังนี้เปิดไฟล์ Model ของเราขึ้นมาซึ่งไฟล์ Model ของเราจะอยู่ที่ common/models/ชื่อโมเดล.js ซึ่งพอเราเปิดขึ้นมาก็จะเป็นไฟล์ไม่ได้ทำๆ (ไฟล์เปล่าๆ) ที่มีข้อมูลหล่อมแหล่มดังนี้
 <div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="s1">'use strict'</span><span class="p">;</span>
@@ -299,7 +299,7 @@ node .
 </code></pre>
 </div>
 <p>Code ข้างบนมีการทำงานคือเมื่อมีคน route ผ่าน method get มาที่ http://localhost:3000/api/blog/hello พร้อม parameter ชื่อ msg ก็จะตอบกลับดังรูปตัวอย่าง
-<p><img src="/noob-studio.github.io//img/loopback/example.png" alt="สอนใช้งาน loopback" />
+<p><img src="/img/loopback/example.png" alt="สอนใช้งาน loopback" />
 <p>โดย Code ข้างบนมีการทำงานดังนี้
 <div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">Blog</span><span class="p">)</span> <span class="p">{</span>
 <span class="p">...</span>
@@ -372,22 +372,22 @@ node .
 <h2>Related posts</h2>
 <ul class="related-posts">
    <li>
-    <a href="/noob-studio.github.io//posts/angular-n-bootstrap-ep-01">
+    <a href="/posts/angular-n-bootstrap-ep-01">
         <span>Programming 101 - Angular 'n Bootstrap EP. 01</span>
         <small>21/02</small>
     </a>
    <li>
-    <a href="/noob-studio.github.io//posts/seneca-nodejs-microservice">
+    <a href="/posts/seneca-nodejs-microservice">
         <span>เขียน Microservice ด้วย Node.js และ Seneca.js</span>
         <small>18/01</small>
     </a>
    <li>
-    <a href="/noob-studio.github.io//posts/knex-nodejs-orm">
+    <a href="/posts/knex-nodejs-orm">
         <span>วิธีใช้ knex.js จัดการฐานข้อมูล MySQL ใน Node.js</span>
         <small>29/11</small>
     </a>
    <li>
-    <a href="/noob-studio.github.io//posts/ionic2-notification">
+    <a href="/posts/ionic2-notification">
         <span>วิธีทำ Notification(แจ้งเตือน) ให้ Ionic2 ด้วย Firebase และ Node.js</span>
         <small>29/03</small>
     </a>
@@ -398,8 +398,8 @@ node .
     <span>written by Freeweed</span>
 </footer>
        </div>
-<script type="text/javascript" src="/noob-studio.github.io/assets/js/theme.js"></script>
-<script type="text/javascript" src="/noob-studio.github.io/assets/js/barefoot.js"></script>
+<script type="text/javascript" src="/assets/js/theme.js"></script>
+<script type="text/javascript" src="/assets/js/barefoot.js"></script>
     <script>
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),

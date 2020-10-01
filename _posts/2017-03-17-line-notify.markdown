@@ -6,7 +6,7 @@ description: "เขียนสคริปแจ้งเตือนการ
 ซึ่งประโยชน์ของมันคือใช้สำหรับติดตามดูความเคลื่อนไหวของ service หรือ server ของเราก็ได้ ซึ่ง Line ก็มี Partner สำหรับบริการเราชื่อ"
 date: 2017-03-17 22:41:00
 author: "ป๋าแพะ"
-hero: "{{site.url}}/img/moniter/cover.jpg"
+hero: "/img/moniter/cover.jpg"
 tags: 
  - node.js
  - line-notify

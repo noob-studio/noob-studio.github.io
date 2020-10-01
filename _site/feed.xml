@@ -4,10 +4,10 @@
     <title>Noob Studio</title>
     <description>This is my codex, One day I will die but my code will be forever.
 </description>
-    <link>http://localhost:4000/noob-studio.github.io//</link>
-    <atom:link href="http://localhost:4000/noob-studio.github.io//feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Thu, 01 Oct 2020 13:11:23 +0700</pubDate>
-    <lastBuildDate>Thu, 01 Oct 2020 13:11:23 +0700</lastBuildDate>
+    <link>http://localhost:4000/</link>
+    <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Thu, 01 Oct 2020 14:04:32 +0700</pubDate>
+    <lastBuildDate>Thu, 01 Oct 2020 14:04:32 +0700</lastBuildDate>
     <generator>Jekyll v3.9.0</generator>
     
       <item>
@@ -15,10 +15,8 @@
         <description>&lt;h1 id=&quot;problem&quot;&gt;Problem&lt;/h1&gt;
 &lt;p class=&quot;lead&quot;&gt;เชื่อว่าหลายๆ คนคงเคยประสบปัญหาในการพยายามจะใช้ node module บางตัวใน angular 8 นะครับเพราะว่าพอเราใช้ &lt;strong&gt;&lt;em&gt;require&lt;/em&gt;&lt;/strong&gt; เรียก module เข้ามาพอรันก็จะเจอ error ว่า&lt;/p&gt;
 
-&lt;div class=&quot;language-js highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nx&quot;&gt;Cannot&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;find&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;name&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'require'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Do&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;you&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;need&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;to&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;install&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;type&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;definitions&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;node&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;?&lt;/span&gt; 
-&lt;span class=&quot;nx&quot;&gt;Try&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;`&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;npm&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;@&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;types&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;node&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;`&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;and&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;then&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;add&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;`&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;node&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;`&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;to&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;the&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;types&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;field&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;your&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;tsconfig&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;nx&quot;&gt;Cannot&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;find&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;name&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'require'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Do&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;you&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;need&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;to&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;install&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;type&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;definitions&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;node&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;?&lt;/span&gt; 
+&lt;span class=&quot;nx&quot;&gt;Try&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;`&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;npm&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;@&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;types&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;node&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;`&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;and&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;then&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;add&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;`&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;node&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;`&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;to&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;the&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;types&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;field&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;your&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;tsconfig&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;&amp;lt;!–-break-–&amp;gt;&lt;/p&gt;
 
@@ -26,28 +24,24 @@
 
 &lt;p&gt;วิธีแก้ก็ง่ายๆ เปิด Termianl ขึ้นมา พิมพ์ตามที่มันบอกเลยจ้า&lt;/p&gt;
 
-&lt;div class=&quot;language-js highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nx&quot;&gt;npm&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;@&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;types&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;node&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;--&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;save&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;nx&quot;&gt;npm&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;@&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;types&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;node&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;--&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;save&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;หลังจากนั้นให้เปิดไฟล์ &lt;strong&gt;&lt;em&gt;tsconfig.app.json&lt;/em&gt;&lt;/strong&gt; ขึ้นมาแล้วเพิ่มโค้ดเข้าไปดังนี้&lt;/p&gt;
 
-&lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;s2&quot;&gt;&quot;compilerOptions&quot;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-json&quot; data-lang=&quot;json&quot;&gt;&lt;span class=&quot;s2&quot;&gt;&quot;compilerOptions&quot;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
     &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;...&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
     &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&quot;types&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;node&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
     &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&quot;typeRoots&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;node_modules/@types&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
     &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;...&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;แค่นี้ก็เรียบร้อยแล้วจ้าา หวังว่าเพื่อนๆจะได้ความรู้จากบทความนี้ไม่มากก็น้อยนะครับ&lt;/p&gt;
 
 &lt;p&gt;ปล. ขอให้เพื่อนๆ พี่ๆ น้องๆ ทุกคนอยู่บ้านปลอดภัยหายจาก Covid นะครับ&lt;/p&gt;
 </description>
         <pubDate>Sat, 25 Apr 2020 22:00:00 +0700</pubDate>
-        <link>http://localhost:4000/noob-studio.github.io//posts/how-to-use-require-in-angular</link>
-        <guid isPermaLink="true">http://localhost:4000/noob-studio.github.io//posts/how-to-use-require-in-angular</guid>
+        <link>http://localhost:4000/posts/how-to-use-require-in-angular</link>
+        <guid isPermaLink="true">http://localhost:4000/posts/how-to-use-require-in-angular</guid>
         
         <category>Tip&amp;Trick</category>
         
@@ -90,7 +84,7 @@
 
 &lt;p&gt;จะขึ้นหน้าจอถามว่าต้องการใช้ style ประเภทไหนผมเลือก css และมีคำสั่งถามว่าต้องการใช้ angular route หรือไม่ให้ตอบ yes&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/noob-studio.github.io//img/angular/ep01/start-angular.png&quot; alt=&quot;บริการรับทำเว็บไซด์ แอพพลิเคชัน ระบบสำหรับใช้ในองค์กร เว็บขายของระบบ E-commerce หรือระบบต่างๆ&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/img/angular/ep01/start-angular.png&quot; alt=&quot;บริการรับทำเว็บไซด์ แอพพลิเคชัน ระบบสำหรับใช้ในองค์กร เว็บขายของระบบ E-commerce หรือระบบต่างๆ&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;เมื่อทำการตั้งค่าเสร็จให้พิมพ์คำสั่ง&lt;/p&gt;
 
@@ -142,7 +136,7 @@
 &lt;h2 id=&quot;change-theme-optional&quot;&gt;Change Theme (Optional)&lt;/h2&gt;
 &lt;p&gt;หากต้องการเปลี่ยนธีมให้เปิดไปที่เว็บไซด์ &lt;a href=&quot;https://bootswatch.com/&quot;&gt;bootswatch&lt;/a&gt; โดยเว็บนี้รวบรวม Theme Bootstrap ตั้งต้นไว้ให้เราเอาไปพัฒนาต่อง่าย&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/noob-studio.github.io//img/angular/ep01/bootstrapwatch.png&quot; alt=&quot;บริการรับทำเว็บไซด์ แอพพลิเคชัน ระบบสำหรับใช้ในองค์กร เว็บขายของระบบ E-commerce หรือระบบต่างๆ&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/img/angular/ep01/bootstrapwatch.png&quot; alt=&quot;บริการรับทำเว็บไซด์ แอพพลิเคชัน ระบบสำหรับใช้ในองค์กร เว็บขายของระบบ E-commerce หรือระบบต่างๆ&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;เมื่อเลือก theme ได้แล้วให้คลิ๊กที่ ชื่อ Theme และ bootstrap.min.css เว็บไซด์จะทำการดาวโหลดไฟล์ &lt;strong&gt;bootstrap.min.css&lt;/strong&gt; นำไฟล์ไปวางไว้ที่ &lt;strong&gt;src/assets/css/&lt;/strong&gt;&lt;/p&gt;
 
@@ -163,14 +157,14 @@
 
 &lt;p&gt;แล้วเปิด Browser ไปที่ &lt;a href=&quot;http://localhost:4200&quot; target=&quot;_blank&quot;&gt;localhost:4200&lt;/a&gt; จะพบหน้าตาดังนี้&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/noob-studio.github.io//img/angular/ep01/result.png&quot; alt=&quot;บริการรับทำเว็บไซด์ แอพพลิเคชัน ระบบสำหรับใช้ในองค์กร เว็บขายของระบบ E-commerce หรือระบบต่างๆ&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/img/angular/ep01/result.png&quot; alt=&quot;บริการรับทำเว็บไซด์ แอพพลิเคชัน ระบบสำหรับใช้ในองค์กร เว็บขายของระบบ E-commerce หรือระบบต่างๆ&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;ต่อมาเราจะมาทำความรู้จักกับ Angular Component และ Angular Route เบื้องต้น&lt;/p&gt;
 
 &lt;h1 id=&quot;angular-component&quot;&gt;Angular Component&lt;/h1&gt;
 &lt;p&gt;ใน Angular หน้าเว็บจะเป็นแบบ single page หมายความว่าตัว Angular มองส่วนประกอบต่างๆ ของหน้าเว็บแยกเป็นส่วนแยกออกจากกัน(Component) แล้วนำมาประกอบกันเพื่อให้การเป็นเว็บไซด์ โดยวันนี้เว็บไซด์ที่เราจะทำเราจะแยก Component เป็น 3 ส่วนง่ายๆ ดังนี้&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/noob-studio.github.io//img/angular/ep01/component.png&quot; alt=&quot;บริการรับทำเว็บไซด์ แอพพลิเคชัน ระบบสำหรับใช้ในองค์กร เว็บขายของระบบ E-commerce หรือระบบต่างๆ&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/img/angular/ep01/component.png&quot; alt=&quot;บริการรับทำเว็บไซด์ แอพพลิเคชัน ระบบสำหรับใช้ในองค์กร เว็บขายของระบบ E-commerce หรือระบบต่างๆ&quot; /&gt;&lt;/p&gt;
 
 &lt;ul&gt;
   &lt;li&gt;App Component คือที่วางหน้าหลักของเรา&lt;/li&gt;
@@ -382,7 +376,7 @@ ng generate component page/features
 &lt;/div&gt;
 
 &lt;p&gt;แล้วเปิดไปที่หน้า &lt;a href=&quot;http://localhost:4200&quot;&gt;http://localhost:4200&lt;/a&gt; หน้าเว็บก็จะแสดงผลหน้าตาเว็บไซด์ประมาณนี้
-&lt;img src=&quot;/noob-studio.github.io//img/angular/ep01/screenshot.png&quot; alt=&quot;บริการรับทำเว็บไซด์ แอพพลิเคชัน ระบบสำหรับใช้ในองค์กร เว็บขายของระบบ E-commerce หรือระบบต่างๆ&quot; /&gt;&lt;/p&gt;
+&lt;img src=&quot;/img/angular/ep01/screenshot.png&quot; alt=&quot;บริการรับทำเว็บไซด์ แอพพลิเคชัน ระบบสำหรับใช้ในองค์กร เว็บขายของระบบ E-commerce หรือระบบต่างๆ&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;หากกดข้างบนเปลี่ยนไปที่หน้าอื่นก็จะขึ้นว่า about works!! หรือ features works!!&lt;/p&gt;
 
@@ -435,8 +429,8 @@ ng generate component page/features
 &lt;p&gt;เป็นอันเรียบร้อยไปแล้วนะครับสำหรับ Angular ‘n Bootstrap EP 01 ยังไงเพื่อนๆชอบไม่ชอบก็สามารถเข้ามาติชมกันที่แฟนเพจ noob studio ได้นะครับ สำหรับเพื่อนๆคนไหนที่สนใจตัวอย่างโค้ด สามารถดูได้ที่ &lt;a href=&quot;https://github.com/noob-studio/angular-bootstrap&quot; target=&quot;_blank&quot;&gt;github&lt;/a&gt; ของเรานะจ๊ะ&lt;/p&gt;
 </description>
         <pubDate>Fri, 21 Feb 2020 22:33:00 +0700</pubDate>
-        <link>http://localhost:4000/noob-studio.github.io//posts/angular-n-bootstrap-ep-01</link>
-        <guid isPermaLink="true">http://localhost:4000/noob-studio.github.io//posts/angular-n-bootstrap-ep-01</guid>
+        <link>http://localhost:4000/posts/angular-n-bootstrap-ep-01</link>
+        <guid isPermaLink="true">http://localhost:4000/posts/angular-n-bootstrap-ep-01</guid>
         
         <category>node.js</category>
         
@@ -533,8 +527,8 @@ ng generate component page/features
 &lt;/table&gt;
 </description>
         <pubDate>Fri, 21 Feb 2020 22:00:00 +0700</pubDate>
-        <link>http://localhost:4000/noob-studio.github.io//posts/programmer-dic</link>
-        <guid isPermaLink="true">http://localhost:4000/noob-studio.github.io//posts/programmer-dic</guid>
+        <link>http://localhost:4000/posts/programmer-dic</link>
+        <guid isPermaLink="true">http://localhost:4000/posts/programmer-dic</guid>
         
         <category>dictionary</category>
         
@@ -576,7 +570,7 @@ Microservice คือแนวคิดการพัฒนาโปรแก�
 &lt;p&gt;
 ถึง Microservice จะดูเทพมากมายขนาดไหนก็ยังมีปัญหาเรื่องความซ้ำซ้อนของระบบและการคุยกันระหว่าง service อยู่ดีเช่น การถอนเงินจากสถาปัตยกรรมของระบบข้างต้นถ้าผู้ใช้จะถอนเงินก็จะมี flow ประมาณนี้
 &lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;/noob-studio.github.io//img/seneca/seneca-1.png&quot; alt=&quot;เขียน Microservice ด้วย Node.js และ Seneca.js&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/img/seneca/seneca-1.png&quot; alt=&quot;เขียน Microservice ด้วย Node.js และ Seneca.js&quot; /&gt;&lt;/p&gt;
 &lt;p&gt;
 จาก flow จะเห็นว่าเมื่อโอนเงินเสร็จระบบ payment ต้องส่งข้อความไปถึงสองครั้งเพื่อบอกระบบ sms กับ balance ว่าโอนเงินเสร็จแล้วนะ แล้วถ้าเกิดวันนึงอยากจะเพิ่มระบบ log เพื่อมาเก็บ transaction เข้าออกของทั้งระบบ แต่ละทีมก็ต้องไป implement เพิ่มเพื่อให้ส่งข้อความไปบอกระบบ log ว่าโอนแล้วนะ ฝากแล้วนะ ส่ง sms แล้วนะ อีกวุ่นวายเข้าไปใหญ่
 &lt;/p&gt;
@@ -672,7 +666,7 @@ npm install seneca --save
 &lt;p&gt;
 คือการบอกให้รอฟังสิ่งที่ service อื่นตะโกนมานะครับโดยจะต้อง match กับ &lt;pre&gt;'service:hello'&lt;/pre&gt; เท่านั้นถึงจะทำงาน แล้วเราก็ส่ง function hello เข้าไปเพียงแค่นี้พอเราลองรัน service ทั้งสองตัวและเรียกไปที่ &lt;a href=&quot;http://localhost:3000?name=noob&quot; target=&quot;_blank&quot;&gt;http://localhost:3000?name=noob&lt;/a&gt; ก็จะมี response ตอบกลับมาตามรูปนะจ๊ะ
 &lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;/noob-studio.github.io//img/seneca/reponse.png&quot; alt=&quot;เขียน Microservice ด้วย Node.js และ Seneca.js&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/img/seneca/reponse.png&quot; alt=&quot;เขียน Microservice ด้วย Node.js และ Seneca.js&quot; /&gt;&lt;/p&gt;
 &lt;p&gt;หากต้องการ fix port, protocol, ip ก็สามารถทำได้ดังนี้ &lt;/p&gt;
 
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;c1&quot;&gt;//interface service&lt;/span&gt;
@@ -689,8 +683,8 @@ npm install seneca --save
 &lt;/p&gt;
 </description>
         <pubDate>Thu, 18 Jan 2018 17:11:00 +0700</pubDate>
-        <link>http://localhost:4000/noob-studio.github.io//posts/seneca-nodejs-microservice</link>
-        <guid isPermaLink="true">http://localhost:4000/noob-studio.github.io//posts/seneca-nodejs-microservice</guid>
+        <link>http://localhost:4000/posts/seneca-nodejs-microservice</link>
+        <guid isPermaLink="true">http://localhost:4000/posts/seneca-nodejs-microservice</guid>
         
         <category>node.js</category>
         
@@ -705,7 +699,7 @@ npm install seneca --save
     
       <item>
         <title>เขียน RESTful API ใน Node.js แบบ 'โคตรไว' ด้วย Loopback</title>
-        <description>&lt;!-- &lt;img src=&quot;/noob-studio.github.io//img/loopback/cover.jpg&quot; alt=&quot;สอนใช้งาน loopback&quot;/&gt; --&gt;
+        <description>&lt;!-- &lt;img src=&quot;/img/loopback/cover.jpg&quot; alt=&quot;สอนใช้งาน loopback&quot;/&gt; --&gt;
 &lt;p class=&quot;lead&quot;&gt;เนื่องจากผมได้มีโอกาศไปรับงานนึงเกี่ยวกับการจัดการ Stock สินค้าซึ่งจาก Scale งานเนี่ยน่าจะใช้เวลาพัฒนาประมาณ 2 อาทิตย์แต่ลูกค้าแบบว่าเร่งมากบอกน้องพี่ขอ 7 วันได้ไหม!!&lt;/p&gt;
 
 &lt;p&gt;แม่เจ้าาาา รีบไปไหนเนี่ยพ่อคู๊ณณ แต่ถือเป็นโชคดีที่ก่อนหน้าที่ทำงานของผมได้ให้ผมทำ research เกี่ยวกับ node.js framework ตัวนึงชื่อว่า &lt;a href=&quot;http://loopback.io&quot; target=&quot;_blank&quot;&gt;loopback&lt;/a&gt; ซึ่งหลังจากได้ลองใช้ขอบอกเลยว่ามันดีมากเลยอ่ะแกรร แบบว่าของมันต้องใช้อ่ะแกรร ว่าแล้วเราก็มาลองใช้งานกันเลยเถอะ 
@@ -729,7 +723,7 @@ Enter name of the directory to contain the project: hello-loopback (ไฟล์
 Which version of LoopBack would you like to use? เวอร์ชันของ loopback ในที่นี้เลือกเวอร์ชัน 3.x
 What kind of application do you have in mind? เลือกค่าพื้นฐานของ api ในที่นี้เลือก empty-server
 &lt;/pre&gt;
-&lt;p&gt;&lt;img src=&quot;/noob-studio.github.io//img/loopback/setup.png&quot; alt=&quot;สอนใช้งาน loopback&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/img/loopback/setup.png&quot; alt=&quot;สอนใช้งาน loopback&quot; /&gt;&lt;/p&gt;
 &lt;p&gt;เมื่อใส่รายละเอียดต่างๆ เสร็จแล้ว loopback จะทำสร้างไฟล์ต่างๆ ตามที่เรา setup ไว้เป็นอันเสร็จขั้นตอนแรก&lt;/p&gt;
 
 &lt;h1 id=&quot;create-model&quot;&gt;Create Model&lt;/h1&gt;
@@ -747,7 +741,7 @@ Expose blog via the REST API? Y (model นี้เป็น REST api หรื�
 Custom plural form: /blog (path ของ model นี้)
 Common model or server only? common (model นี้จะเอาไว้ที่ไหนในไดเรคทอรี่ server หรือ common)
 &lt;/pre&gt;
-&lt;p&gt;&lt;img src=&quot;/noob-studio.github.io//img/loopback/model.png&quot; alt=&quot;สอนใช้งาน loopback&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/img/loopback/model.png&quot; alt=&quot;สอนใช้งาน loopback&quot; /&gt;&lt;/p&gt;
 &lt;p&gt;เมื่อ setup model เสร็จมันก็จะให้เราใส่ property ของ model โดยมีรายละเอียดดังนี้&lt;/p&gt;
 &lt;pre&gt;
 Property name: name (ชื่อของ property)
@@ -755,7 +749,7 @@ Property type: string (ประเภทของ property)
 Required? Y (จำเป็นต้องใส่หรือไม่)
 Default value[leave blank for none]: (ค่า default ของ property นี้)
 &lt;/pre&gt;
-&lt;p&gt;&lt;img src=&quot;/noob-studio.github.io//img/loopback/property.png&quot; alt=&quot;สอนใช้งาน loopback&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/img/loopback/property.png&quot; alt=&quot;สอนใช้งาน loopback&quot; /&gt;&lt;/p&gt;
 &lt;p&gt;เมื่อเราใส่ property เสร็จมันก็จะวนถามใหม่เรื่อยๆ ให้เราใส่เรื่อยๆ จนกว่าจะพอใจเมื่อพอใจแล้วตรง Property name: ให้เว้นว่างไว้มันก็จะออกจากการสร้าง model&lt;/p&gt;
 &lt;p&gt;เมื่อเราเข้าไปดูในไดเรคทอรี่ common/models ก็จะเห็นไฟล์ชื่อ model ของเรา 2 ไฟล์คือ .js (จะอธิบายต่อไป) และ .json เก็บข้อมูลต่างๆ ของ model เรา&lt;/p&gt;
 
@@ -777,7 +771,7 @@ password: (ใส่ password)
 database: test (ใส่ฐานข้อมูลที่ต้องเชื่อมต่อ)
 Install loopback-connector-mysql@^2.2: Y (ต้องการติดตั้ง loopback-connector-mysql หรือไม่)
 &lt;/pre&gt;
-&lt;p&gt;&lt;img src=&quot;/noob-studio.github.io//img/loopback/datasource.png&quot; alt=&quot;สอนใช้งาน loopback&quot; /&gt;
+&lt;p&gt;&lt;img src=&quot;/img/loopback/datasource.png&quot; alt=&quot;สอนใช้งาน loopback&quot; /&gt;
 หลังจากนั้นไปที่ไฟล์ server/model-config.js แก้ตรง&lt;/p&gt;
 &lt;div class=&quot;language-js highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;...&lt;/span&gt;
 &lt;span class=&quot;nl&quot;&gt;datasource&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;null&lt;/span&gt;
@@ -849,18 +843,18 @@ Install loopback-connector-mysql@^2.2: Y (ต้องการติดตั�
 node .
 &lt;/pre&gt;
 &lt;p&gt;เมื่อเข้าไปดูในฐานข้อมูลก็จะพบตารางชื่อตาม model ของเราโดยที่มีข้อมูลตามที่เรา insert เข้าไปดังภาพ&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;/noob-studio.github.io//img/loopback/database1.png&quot; alt=&quot;สอนใช้งาน loopback&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/img/loopback/database1.png&quot; alt=&quot;สอนใช้งาน loopback&quot; /&gt;&lt;/p&gt;
 
 &lt;h1 id=&quot;ทดลองใช้-api&quot;&gt;ทดลองใช้ API&lt;/h1&gt;
 
 &lt;p&gt;หลังจากที่เรารัน REST api แล้วให้ลองเปิด browser เข้าไปที่ path 127.0.0.1:3000/explorer จะพบหน้าตาสำหรับทดลอง api ดังภาพ&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;/noob-studio.github.io//img/loopback/explorer.png&quot; alt=&quot;สอนใช้งาน loopback&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/img/loopback/explorer.png&quot; alt=&quot;สอนใช้งาน loopback&quot; /&gt;&lt;/p&gt;
 &lt;p&gt;หากเราต้องเพิ่มข้อมูลเข้าสู่ตารางให้เลือกที่ post ใส่ข้อมูลลงไป และกดที่ try out ดังภาพ&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;/noob-studio.github.io//img/loopback/post.png&quot; alt=&quot;สอนใช้งาน loopback&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/img/loopback/post.png&quot; alt=&quot;สอนใช้งาน loopback&quot; /&gt;&lt;/p&gt;
 &lt;p&gt;หลังจากนั้นเมื่อเราเข้าไปดูที่ฐานข้อมูลก็จะเห็นข้อมูลที่เราเพิ่มไปเมื่อกี้เข้ามา&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;/noob-studio.github.io//img/loopback/database.png&quot; alt=&quot;สอนใช้งาน loopback&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/img/loopback/database.png&quot; alt=&quot;สอนใช้งาน loopback&quot; /&gt;&lt;/p&gt;
 &lt;p&gt;หรือหากลองเปิด Browser แล้วเข้าไปที่ http://localhost:3000/api/blog ก็จะเห็นข้อมูลในฐานข้อมูลเราดังภาพเพียงแค่นี้เราก็สร้าง RESTful API สำหรับ CRUD เสร็จแล้วนะครับต่อไปเราจะมาทำ Custom API กัน&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;/noob-studio.github.io//img/loopback/browser_open.png&quot; alt=&quot;สอนใช้งาน loopback&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/img/loopback/browser_open.png&quot; alt=&quot;สอนใช้งาน loopback&quot; /&gt;&lt;/p&gt;
 
 &lt;h1 id=&quot;custom-api&quot;&gt;Custom API&lt;/h1&gt;
 
@@ -898,7 +892,7 @@ node .
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 &lt;p&gt;Code ข้างบนมีการทำงานคือเมื่อมีคน route ผ่าน method get มาที่ http://localhost:3000/api/blog/hello พร้อม parameter ชื่อ msg ก็จะตอบกลับดังรูปตัวอย่าง&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;/noob-studio.github.io//img/loopback/example.png&quot; alt=&quot;สอนใช้งาน loopback&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/img/loopback/example.png&quot; alt=&quot;สอนใช้งาน loopback&quot; /&gt;&lt;/p&gt;
 &lt;p&gt;โดย Code ข้างบนมีการทำงานดังนี้&lt;/p&gt;
 &lt;div class=&quot;language-js highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nx&quot;&gt;module&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;exports&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Blog&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;...&lt;/span&gt;
@@ -970,8 +964,8 @@ node .
 &lt;p&gt;เป็นอันเสร็จเรียบร้อยแล้วนะครับสำหรับการใช้ loopback สร้าง RESTful API เบื้องต้นในตอนต่อไป (ถ้าไม่ลืม) จะมาสอนใช้งาน loopback ร่วมกับ Angular 2 กันนะจ๊ะจุ๊ปปาก &amp;lt;3 สามารถดูตัวอย่าง source code ได้ &lt;a href=&quot;https://github.com/freeweed/loopback-example&quot; target=&quot;_blank&quot;&gt;ที่นี่&lt;/a&gt; นะจ๊ะ&lt;/p&gt;
 </description>
         <pubDate>Mon, 04 Dec 2017 13:52:00 +0700</pubDate>
-        <link>http://localhost:4000/noob-studio.github.io//posts/loopback-nodejs-framework</link>
-        <guid isPermaLink="true">http://localhost:4000/noob-studio.github.io//posts/loopback-nodejs-framework</guid>
+        <link>http://localhost:4000/posts/loopback-nodejs-framework</link>
+        <guid isPermaLink="true">http://localhost:4000/posts/loopback-nodejs-framework</guid>
         
         <category>node.js</category>
         
@@ -1178,8 +1172,8 @@ npm install -–save knex mysql
 &lt;a href=&quot;https://github.com/freeweed/knex-example&quot; target=&quot;_blank&quot;&gt;Github&lt;/a&gt;&lt;/p&gt;
 </description>
         <pubDate>Wed, 29 Nov 2017 10:38:00 +0700</pubDate>
-        <link>http://localhost:4000/noob-studio.github.io//posts/knex-nodejs-orm</link>
-        <guid isPermaLink="true">http://localhost:4000/noob-studio.github.io//posts/knex-nodejs-orm</guid>
+        <link>http://localhost:4000/posts/knex-nodejs-orm</link>
+        <guid isPermaLink="true">http://localhost:4000/posts/knex-nodejs-orm</guid>
         
         <category>node.js</category>
         
@@ -1198,7 +1192,7 @@ npm install -–save knex mysql
     
       <item>
         <title>วิธีทำ Notification (แจ้งเตือน) ให้ Ionic2 แบบไม่ต้องมี server</title>
-        <description>&lt;p class=&quot;lead&quot;&gt;ต่อเนื่องจากบทความที่แล้วนะครับกับ &lt;a href=&quot;/noob-studio.github.io//posts/ionic2-notification&quot;&gt;การส่งแจ้งเตือนให้แอพพลิเคชันด้วย Firebase และ Node.js &lt;/a&gt;&lt;/p&gt;
+        <description>&lt;p class=&quot;lead&quot;&gt;ต่อเนื่องจากบทความที่แล้วนะครับกับ &lt;a href=&quot;/posts/ionic2-notification&quot;&gt;การส่งแจ้งเตือนให้แอพพลิเคชันด้วย Firebase และ Node.js &lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;หลายคนอาจจะรู้สึกว่าโหยทำไมมันเยอะแยะขนาดนี้เนี่ยแค่อยากแจ้งเตือนให้เข้ามาแอพกูหน่อยวันล่ะครั้งก็ยังดีไรแบบนี้ (คิดถึงแอพเกมที่เวลาไม่ได้เข้านานแล้วส่งแจ้งเตือนมาว่า หมู่บ้านต้องการคุณ!) ประมาณนี้จะสังเกตุเห็นว่าการแจ้งเตือนแบบนี้ไม่ได้ต้องการนำเสนอข้อมูลเหมือนกันแจ้งเตือนปกติเราแค่อยากจะเตือนให้ผู้ใช้เข้ามาในแอพเราหรืออะไรก็ว่าไปเป็นที่มาของการทำ Local Notification (แจ้งเตือนจากตัวแอพเองนั่นเองนะจ๊ะ)
 &amp;lt;!–-break-–&amp;gt;&lt;/p&gt;
@@ -1309,8 +1303,8 @@ npm install --save @ionic-native/local-notifications
 
 </description>
         <pubDate>Wed, 29 Mar 2017 05:41:00 +0700</pubDate>
-        <link>http://localhost:4000/noob-studio.github.io//posts/ionic2-local-notification</link>
-        <guid isPermaLink="true">http://localhost:4000/noob-studio.github.io//posts/ionic2-local-notification</guid>
+        <link>http://localhost:4000/posts/ionic2-local-notification</link>
+        <guid isPermaLink="true">http://localhost:4000/posts/ionic2-local-notification</guid>
         
         <category>Ionic framework</category>
         
@@ -1325,8 +1319,8 @@ npm install --save @ionic-native/local-notifications
     
       <item>
         <title>วิธีทำ Notification(แจ้งเตือน) ให้ Ionic2 ด้วย Firebase และ Node.js</title>
-        <description>&lt;!-- &lt;img src=&quot;/noob-studio.github.io//img/ionic-notification/cover.jpg&quot; alt=&quot;วิธีทำ Notification(แจ้งเตือน) ให้ Ionic2 ด้วย Firebase และ Node.js&quot;/&gt; --&gt;
-&lt;p&gt;สวัสดีครับหลังจากคราวก่อนได้เขียนวิธีสร้าง &lt;a href=&quot;/noob-studio.github.io//posts/ionic-chat&quot;&gt;แอพพลิเคชันแชทแบบง่ายๆ ด้วย Ionic2 Node.js&lt;/a&gt; 
+        <description>&lt;!-- &lt;img src=&quot;/img/ionic-notification/cover.jpg&quot; alt=&quot;วิธีทำ Notification(แจ้งเตือน) ให้ Ionic2 ด้วย Firebase และ Node.js&quot;/&gt; --&gt;
+&lt;p&gt;สวัสดีครับหลังจากคราวก่อนได้เขียนวิธีสร้าง &lt;a href=&quot;/posts/ionic-chat&quot;&gt;แอพพลิเคชันแชทแบบง่ายๆ ด้วย Ionic2 Node.js&lt;/a&gt; 
 {: .lead}
 
 ก็มีคนบอกว่าอยากให้เขียนวิธีการแจ้งเตือนให้มือถือและผมก็คิดเรื่องจะเขียนไม่ออกด้วยครับช่วงนี้เพราะฉะนั้นวันนี้ีเราทำแจ้งเตือนกันเถอะ 555 โดยแจ้งเตือนเนี่ยมี 2 แบบคือแบบ Local Notification และไม่ Local โดยจะแตกต่างกันดังนี้&lt;/p&gt;
@@ -1351,10 +1345,10 @@ npm install --save @ionic-native/local-notifications
 &lt;h1 id=&quot;init-firebase&quot;&gt;Init Firebase&lt;/h1&gt;
 
 &lt;p&gt;ขั้นแรกให้เราเปิดเว็ปไซด์ &lt;a href=&quot;https://firebase.google.com/?hl=en&quot; target=&quot;_blank&quot;&gt;Firebase&lt;/a&gt; ขึ้นมาพร้อม Login ให้เรียบร้อยหากยังไม่มีโปรเจคให้สร้างโปรเจคด้วยนะครับ
-&lt;img src=&quot;/noob-studio.github.io//img/ionic-notification/img01.png&quot; /&gt;
+&lt;img src=&quot;/img/ionic-notification/img01.png&quot; /&gt;
 &lt;span class=&quot;caption text-muted&quot;&gt;สร้างโปรเจคขึ้นมาใน Firebase&lt;/span&gt;
 หลังจากนั้นกดเข้ามาใน Project และไปที่ Project Settings &amp;gt; Cloud Messaging จะเห็นหน้าจอแบบภาพข้างล่างนะครับให้จดเลข Server Key และ Sender ID ไว้นะจ๊ะ
-&lt;img src=&quot;/noob-studio.github.io//img/ionic-notification/img02.png&quot; /&gt;
+&lt;img src=&quot;/img/ionic-notification/img02.png&quot; /&gt;
 &lt;span class=&quot;caption text-muted&quot;&gt;จด Server Key กับ Sender ID ไว้ให้ดีนะจ๊ะต้องใช้&lt;/span&gt;&lt;/p&gt;
 &lt;ul&gt;
     &lt;li&gt;Server Key ใช้สำหรับใส่ใน Server ของเรา&lt;/li&gt;
@@ -1595,10 +1589,10 @@ npm install --save @ionic-native/push
 &lt;pre&gt;
 ionic run android
 &lt;/pre&gt;
-&lt;p&gt;&lt;img src=&quot;/noob-studio.github.io//img/ionic-notification/img03.jpg&quot; /&gt;
+&lt;p&gt;&lt;img src=&quot;/img/ionic-notification/img03.jpg&quot; /&gt;
 &lt;span class=&quot;caption text-muted&quot;&gt;ผลลัพท์เมื่อรันแอพ&lt;/span&gt;&lt;/p&gt;
 &lt;p&gt;เมื่อแอพเริ่มทำงานจะมีการ alert แบบนี้ปรากฎขึ้นมาแบบนี้&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;/noob-studio.github.io//img/ionic-notification/img04.png&quot; /&gt;
+&lt;p&gt;&lt;img src=&quot;/img/ionic-notification/img04.png&quot; /&gt;
 &lt;span class=&quot;caption text-muted&quot;&gt;token ของแอพที่แสดงใน server&lt;/span&gt;&lt;/p&gt;
 &lt;p&gt;ส่วนใน server จะแสดง token ของเราที่ได้รับมาจากแอพให้ก๊อป token มาใส่ใน route /send แบบข้างล่างนี้&lt;/p&gt;
 &lt;div class=&quot;language-js highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;...&lt;/span&gt;
@@ -1609,7 +1603,7 @@ ionic run android
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 &lt;p&gt;หลังจากนั้นให้ลองออกจากแอพแล้วเปิด Browser ไปที่พาท &lt;a href=&quot;http://localhost:5555/send&quot; target=&quot;_blank&quot;&gt;http://localhost:5555/send&lt;/a&gt; จะมีแจ้งเตือนขึ้นดังภาพ&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;/noob-studio.github.io//img/ionic-notification/img04.jpg&quot; /&gt;
+&lt;p&gt;&lt;img src=&quot;/img/ionic-notification/img04.jpg&quot; /&gt;
 &lt;span class=&quot;caption text-muted&quot;&gt;เย้ๆ มีแจ้งเตือนแล้วจ้า&lt;/span&gt;&lt;/p&gt;
 
 &lt;h1 id=&quot;conclution&quot;&gt;Conclution&lt;/h1&gt;
@@ -1624,8 +1618,8 @@ ionic run android
 &lt;p&gt;สำหรับ Code บน git ก็แปะไว้ก่อนเหมือนเดิมนะครับเพราะช่วงนี้ผมงานเยอะมากๆเลยอ่ะ = =&quot;&lt;/p&gt;
 </description>
         <pubDate>Wed, 29 Mar 2017 05:41:00 +0700</pubDate>
-        <link>http://localhost:4000/noob-studio.github.io//posts/ionic2-notification</link>
-        <guid isPermaLink="true">http://localhost:4000/noob-studio.github.io//posts/ionic2-notification</guid>
+        <link>http://localhost:4000/posts/ionic2-notification</link>
+        <guid isPermaLink="true">http://localhost:4000/posts/ionic2-notification</guid>
         
         <category>node.js</category>
         
@@ -1659,7 +1653,7 @@ ionic run android
 
 &lt;h1 id=&quot;fix-it&quot;&gt;Fix it&lt;/h1&gt;
 
-&lt;p&gt;&lt;img src=&quot;/noob-studio.github.io//img/cordovar-ionic/img01.png&quot; alt=&quot;การค้นหา Google ด้วย Selenium&quot; /&gt;
+&lt;p&gt;&lt;img src=&quot;/img/cordovar-ionic/img01.png&quot; alt=&quot;การค้นหา Google ด้วย Selenium&quot; /&gt;
 &lt;span class=&quot;caption text-muted&quot;&gt;มันคือไรอ่ะหนูไม่รู้จัก T^T&lt;/span&gt;&lt;/p&gt;
 
 &lt;p&gt;ถ้าเจอปัญหาแบบในรูปข้างต้นนะครับสรุปวิธีแก้ง่ายๆเลยนะครับประกาศสิ่งที่มันต้องการในไฟล์ที่จะใช้งานหลัง import ซ่ะเช่น ในรูปข้างบนจะเห็นว่ามันไม่รู้จัก screen.orientation ก็แนะนำให้มันรู้จักซ่ะ เช่น&lt;/p&gt;
@@ -1673,7 +1667,7 @@ ionic run android
 &lt;/div&gt;
 
 &lt;p&gt;เป็นอันเรียบร้อยนะจ๊ะพอลองรันอีกครั้งจะเห็นว่าเขียวแล้วหลังจากนั้นก็เขียน Code ได้ตามปกตินะจ๊ะ
-&lt;img src=&quot;/noob-studio.github.io//img/cordovar-ionic/img02.png&quot; alt=&quot;การค้นหา Google ด้วย Selenium&quot; /&gt;
+&lt;img src=&quot;/img/cordovar-ionic/img02.png&quot; alt=&quot;การค้นหา Google ด้วย Selenium&quot; /&gt;
 &lt;span class=&quot;caption text-muted&quot;&gt;ไม่งอแงแล้วนะจ๊ะ&lt;/span&gt;&lt;/p&gt;
 
 &lt;h1 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h1&gt;
@@ -1689,8 +1683,8 @@ ionic run android
 &lt;/blockquote&gt;
 </description>
         <pubDate>Thu, 23 Mar 2017 07:24:00 +0700</pubDate>
-        <link>http://localhost:4000/noob-studio.github.io//posts/how-to-use-cordovar-in-ionic2</link>
-        <guid isPermaLink="true">http://localhost:4000/noob-studio.github.io//posts/how-to-use-cordovar-in-ionic2</guid>
+        <link>http://localhost:4000/posts/how-to-use-cordovar-in-ionic2</link>
+        <guid isPermaLink="true">http://localhost:4000/posts/how-to-use-cordovar-in-ionic2</guid>
         
         <category>ionic framework</category>
         
@@ -1833,7 +1827,7 @@ client.emit('msg', message);
 &lt;p&gt;เริ่มต้นการทำงานของ server ที่ port 5555 ด้วยคำสั่ง&lt;/p&gt;
 &lt;pre&gt;node index.js&lt;/pre&gt;
 &lt;p&gt;เมื่อทดลองเข้าผ่านหน้าเว็ปไปที่ &lt;a href=&quot;http://localhost:5555&quot; target=&quot;_blank&quot;&gt;http://localhost:5555&lt;/a&gt; จะได้หน้าตาดังภาพข้างล่างนี้
-&lt;img src=&quot;/noob-studio.github.io//img/ionic-chat/img01.png&quot; alt=&quot;ทดลองรัน server&quot; /&gt;
+&lt;img src=&quot;/img/ionic-chat/img01.png&quot; alt=&quot;ทดลองรัน server&quot; /&gt;
 &lt;span class=&quot;caption text-muted&quot;&gt;ทดลองรัน server ผ่าน Browser&lt;/span&gt;&lt;/p&gt;
 
 &lt;h1 id=&quot;start-ionic2&quot;&gt;Start Ionic2&lt;/h1&gt;
@@ -1891,7 +1885,7 @@ cd ionic-chat-client
 &lt;/div&gt;
 &lt;p&gt;*ngFor=”…” คือการสั่งให้วนลูปของ Angular2 ส่วน {{ msg }} คือการแสดงค่า Object ของ Angular2 หรือเรียกว่า Two-way binding (จะไว้อธิบายในบทความต่อๆไปนะครับ) และส่วนสุดท้าย (click)=”send()” คือการควบคุม event click นะครับถ้าเป็น Javascript ธรรมดาก็อารมณ์ Onclick ประมาณนั้น
 รันจากนั้นเมื่อทดสอบรันด้วยคำสั่ง &amp;lt;pre&amp;gt;ionic serve&amp;lt;/pre&amp;gt; ionic จะทำการเปิด Browser ขึ้นมาและจะได้หน้าตาเปล่าๆ ประมาณนี้นะครับ
-&lt;img src=&quot;/noob-studio.github.io//img/ionic-chat/img02.png&quot; alt=&quot;ทดสอบรันแอพ&quot; /&gt;
+&lt;img src=&quot;/img/ionic-chat/img02.png&quot; alt=&quot;ทดสอบรันแอพ&quot; /&gt;
 &lt;span class=&quot;caption text-muted&quot;&gt;ทดสอบรันแอพผ่าน Browser&lt;/span&gt;
 ต่อมาให้เราเปิดไฟล์ Page/home/home.ts ขึ้นมาและแก้ไขให้เป็นดังนี้นะครับ&lt;/p&gt;
 &lt;div class=&quot;language-js highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kr&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Component&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'@angular/core'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
@@ -1967,10 +1961,10 @@ cd ionic-chat-client
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 &lt;p&gt;ส่งข้อความไปให้ server ผ่านทางท่อ msg แค่นี้เหลาะครับเสร็จแล้วหลังจากนั้นลองดูที่ terminal ที่รัน server ของเราถ้าขึ้นว่า Client connected… ดังภาพเป็นอันเรียบร้อยโรงเรียนเตรียม 
-&lt;img src=&quot;/noob-studio.github.io//img/ionic-chat/img03.png&quot; alt=&quot;แอพเสร็จแล้ว&quot; /&gt;
+&lt;img src=&quot;/img/ionic-chat/img03.png&quot; alt=&quot;แอพเสร็จแล้ว&quot; /&gt;
 &lt;span class=&quot;caption text-muted&quot;&gt;มีการเชื่อมต่อจาก client สู่ server&lt;/span&gt;
 ลองเปิด Browser ไปที่ &lt;a href=&quot;http://localhost:8100/&quot; target=&quot;_blank&quot;&gt;http://localhost:8100&lt;/a&gt; 2 หน้าต่างและทดสอบใช้จะได้ผลลัพท์ดังภาพ
-&lt;img src=&quot;/noob-studio.github.io//img/ionic-chat/img04.gif&quot; alt=&quot;ทดสอบเล่นแอพ&quot; /&gt;
+&lt;img src=&quot;/img/ionic-chat/img04.gif&quot; alt=&quot;ทดสอบเล่นแอพ&quot; /&gt;
 &lt;span class=&quot;caption text-muted&quot;&gt;แชทได้แล้วจ้า&lt;/span&gt;
 สำหรับใครที่ต้องการทดสอบบน emulator ให้เปิด geanymotion และเปลี่ยน socketHost ไป ip เครื่องตัวเองเช่น&lt;/p&gt;
 &lt;div class=&quot;language-js highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;socketHost&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;192.168.1.28:5555&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
@@ -1992,8 +1986,8 @@ ionic run android
 &lt;p&gt;สำหรับ Code บน git แปะไว้ก่อนนะครับเพราะตอนที่เขียนบทความนี้ดึกมากแล้วง่วงมักๆ ถ้าไม่ลืมจะตามมาอัพให้นะครับ&lt;/p&gt;
 </description>
         <pubDate>Sun, 19 Mar 2017 03:07:00 +0700</pubDate>
-        <link>http://localhost:4000/noob-studio.github.io//posts/ionic-chat</link>
-        <guid isPermaLink="true">http://localhost:4000/noob-studio.github.io//posts/ionic-chat</guid>
+        <link>http://localhost:4000/posts/ionic-chat</link>
+        <guid isPermaLink="true">http://localhost:4000/posts/ionic-chat</guid>
         
         <category>node.js</category>
         

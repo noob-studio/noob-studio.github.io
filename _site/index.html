@@ -23,26 +23,26 @@
 ">
 <meta property="og:url" content="http://localhost:4000/">
 <meta property="og:site_name" content="Noob Studio">
-<link rel="stylesheet" href="/noob-studio.github.io/assets/vendor/normalize-css/normalize.css">
-<link rel="stylesheet" href="/noob-studio.github.io/assets/css/main.css">
+<link rel="stylesheet" href="/assets/vendor/normalize-css/normalize.css">
+<link rel="stylesheet" href="/assets/css/main.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Rubik:400,400italic,700,700italic">
 <style>
     html {
       font-family: "Rubik", -apple-system, BlinkMacSystemFont, "Helvetica Neue", sans-serif;
     }
 </style>
-<link rel="stylesheet" href="/noob-studio.github.io/assets/css/bf.css">
+<link rel="stylesheet" href="/assets/css/bf.css">
    <body>
        <div class="wrapper" id="blep">
           <header>
    <div class="menu">
      <div class="logo">
-        <a href="/noob-studio.github.io//">Noob Studio</a>
+        <a href="/">Noob Studio</a>
      </div>
        <ul>
-           <li><a href="/noob-studio.github.io//about">about</a>
-           <li><a href="/noob-studio.github.io//archive">archive</a>
-           <li><a href="/noob-studio.github.io//noob-engine">noob engine</a>
+           <li><a href="/about">about</a>
+           <li><a href="/archive">archive</a>
+           <li><a href="/noob-engine">noob engine</a>
        </ul>
    </div>
    <div class="social">
@@ -56,7 +56,7 @@
               <span class="icon-mail_outline"></span>
             </a>
        <li>
-            <a href="/noob-studio.github.io//feed.xml" target="_blank">
+            <a href="/feed.xml" target="_blank">
                 <span class="icon-rss_feed"></span>
             </a>
        <li>
@@ -72,7 +72,7 @@
     margin-bottom: 2em;
   }
   .how-to-use-require-in-angular::before {
-    background-image: url('/noob-studio.github.io/./img/node-require/cover.jpg');
+    background-image: url('/img/node-require/cover.jpg');
     background-size: cover;
     /* -webkit-filter: grayscale(1) brightness(0.5) contrast(0.5); */
     content:'';
@@ -120,29 +120,27 @@
   ">
    <div class="heading-container hero-heading hero-heading-blog">
      <h1>
-          <a href="/noob-studio.github.io/posts/how-to-use-require-in-angular" title="วิธีใช้งาน require('...') ใน Angular 8">วิธีใช้งาน require('...') ใน Angular 8</a>
+          <a href="/posts/how-to-use-require-in-angular" title="วิธีใช้งาน require('...') ใน Angular 8">วิธีใช้งาน require('...') ใน Angular 8</a>
      </h1>
      <div class="
         post-meta
       ">
         <span>25/04/2020</span>
         <span>
-              <a href="/noob-studio.github.io/tag/Tip&Trick">#Tip&Trick</a>
-              <a href="/noob-studio.github.io/tag/Angular 8">#Angular 8</a>
-              <a href="/noob-studio.github.io/tag/Ionic">#Ionic</a>
-              <a href="/noob-studio.github.io/tag/Typescript - Programming101">#Typescript - Programming101</a>
+              <a href="/tag/Tip&Trick">#Tip&Trick</a>
+              <a href="/tag/Angular 8">#Angular 8</a>
+              <a href="/tag/Ionic">#Ionic</a>
+              <a href="/tag/Typescript - Programming101">#Typescript - Programming101</a>
         </span>
      </div>
    </div>
  </div>
      <h1 id="problem">Problem</h1>
 <p class="lead">เชื่อว่าหลายๆ คนคงเคยประสบปัญหาในการพยายามจะใช้ node module บางตัวใน angular 8 นะครับเพราะว่าพอเราใช้ <strong><em>require</em></strong> เรียก module เข้ามาพอรันก็จะเจอ error ว่า
-<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="nx">Cannot</span> <span class="nx">find</span> <span class="nx">name</span> <span class="s1">'require'</span><span class="p">.</span> <span class="nx">Do</span> <span class="nx">you</span> <span class="nx">need</span> <span class="nx">to</span> <span class="nx">install</span> <span class="nx">type</span> <span class="nx">definitions</span> <span class="k">for</span> <span class="nx">node</span><span class="p">?</span> 
-<span class="nx">Try</span> <span class="err">`</span><span class="nx">npm</span> <span class="nx">i</span> <span class="err">@</span><span class="nx">types</span><span class="o">/</span><span class="nx">node</span><span class="err">`</span> <span class="nx">and</span> <span class="nx">then</span> <span class="nx">add</span> <span class="err">`</span><span class="nx">node</span><span class="err">`</span> <span class="nx">to</span> <span class="nx">the</span> <span class="nx">types</span> <span class="nx">field</span> <span class="k">in</span> <span class="nx">your</span> <span class="nx">tsconfig</span><span class="p">.</span>
-</code></pre>
-</div>
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">Cannot</span> <span class="nx">find</span> <span class="nx">name</span> <span class="s1">'require'</span><span class="p">.</span> <span class="nx">Do</span> <span class="nx">you</span> <span class="nx">need</span> <span class="nx">to</span> <span class="nx">install</span> <span class="nx">type</span> <span class="nx">definitions</span> <span class="k">for</span> <span class="nx">node</span><span class="p">?</span> 
+<span class="nx">Try</span> <span class="err">`</span><span class="nx">npm</span> <span class="nx">i</span> <span class="err">@</span><span class="nx">types</span><span class="o">/</span><span class="nx">node</span><span class="err">`</span> <span class="nx">and</span> <span class="nx">then</span> <span class="nx">add</span> <span class="err">`</span><span class="nx">node</span><span class="err">`</span> <span class="nx">to</span> <span class="nx">the</span> <span class="nx">types</span> <span class="nx">field</span> <span class="k">in</span> <span class="nx">your</span> <span class="nx">tsconfig</span><span class="p">.</span></code></pre></figure>
        <div class="readmore">
-          <a href="/noob-studio.github.io//posts/how-to-use-require-in-angular" role="button">Read more</a>
+          <a href="/posts/how-to-use-require-in-angular" role="button">Read more</a>
        <div>
 </article>
  <hr>
@@ -152,7 +150,7 @@
     margin-bottom: 2em;
   }
   .angular-n-bootstrap-ep-01::before {
-    background-image: url('/noob-studio.github.io/img/angular/cover.jpg');
+    background-image: url('/img/angular/cover.jpg');
     background-size: cover;
     /* -webkit-filter: grayscale(1) brightness(0.5) contrast(0.5); */
     content:'';
@@ -200,20 +198,20 @@
   ">
    <div class="heading-container hero-heading hero-heading-blog">
      <h1>
-          <a href="/noob-studio.github.io/posts/angular-n-bootstrap-ep-01" title="Programming 101 - Angular 'n Bootstrap EP. 01">Programming 101 - Angular 'n Bootstrap EP. 01</a>
+          <a href="/posts/angular-n-bootstrap-ep-01" title="Programming 101 - Angular 'n Bootstrap EP. 01">Programming 101 - Angular 'n Bootstrap EP. 01</a>
      </h1>
      <div class="
         post-meta
       ">
         <span>21/02/2020</span>
         <span>
-              <a href="/noob-studio.github.io/tag/node.js">#node.js</a>
-              <a href="/noob-studio.github.io/tag/Programing101">#Programing101</a>
-              <a href="/noob-studio.github.io/tag/Typescript">#Typescript</a>
-              <a href="/noob-studio.github.io/tag/javascript">#javascript</a>
-              <a href="/noob-studio.github.io/tag/Angular">#Angular</a>
-              <a href="/noob-studio.github.io/tag/Bootstrap">#Bootstrap</a>
-              <a href="/noob-studio.github.io/tag/jquery">#jquery</a>
+              <a href="/tag/node.js">#node.js</a>
+              <a href="/tag/Programing101">#Programing101</a>
+              <a href="/tag/Typescript">#Typescript</a>
+              <a href="/tag/javascript">#javascript</a>
+              <a href="/tag/Angular">#Angular</a>
+              <a href="/tag/Bootstrap">#Bootstrap</a>
+              <a href="/tag/jquery">#jquery</a>
         </span>
      </div>
    </div>
@@ -221,7 +219,7 @@
      <p class="lead">สอนใช้งาน Angular เบื้องต้น และการติดตั้ง Bootstrap 4 ร่วมกับ Angular 8 ในบทความนี้เราจะมาสอนการใช้งาน Bootstrap 4 ร่วมกับ Angular 8 รวมทั้ง Angular Component และการใช้ Bootstrap Theme เบื้องต้นสำหรับเริ่ม Project ใหม่
 <p>สวัสดีครับห่างหายจากการเขียนบล๊อคไปนาน วันนี้ผมก็จะกลับมาเขียนใหม่นะครับ โดยมารอบนี้จะเขียนเป็นซีรี่เลยชื่อซีรี่ว่า Angular ‘n Bootstrap โดยเนื้อหาในซีรี่นี้เราจะสอนตั้งแต่เริ่มต้นการใช้งาน สอนไปเรื่อยๆ แล้วแต่อารมณ์คนเขียนนะครับ แต่สัญญาว่ารอบนี้จะเขียนยาวๆ ไม่หายไปไหนแล้วนะจ๊ะ ปล. เราจะเน้นการปฎิบัติมากกว่าทฤษฎีนะครับ เพราะทฤษฎีเราไม่มีเรามีแต่ทฤษเดา 55555
        <div class="readmore">
-          <a href="/noob-studio.github.io//posts/angular-n-bootstrap-ep-01" role="button">Read more</a>
+          <a href="/posts/angular-n-bootstrap-ep-01" role="button">Read more</a>
        <div>
 </article>
  <hr>
@@ -231,7 +229,7 @@
     margin-bottom: 2em;
   }
   .programmer-dic::before {
-    background-image: url('/noob-studio.github.io/./img/dictionary/cover.jpg');
+    background-image: url('/img/dictionary/cover.jpg');
     background-size: cover;
     /* -webkit-filter: grayscale(1) brightness(0.5) contrast(0.5); */
     content:'';
@@ -279,16 +277,16 @@
   ">
    <div class="heading-container hero-heading hero-heading-blog">
      <h1>
-          <a href="/noob-studio.github.io/posts/programmer-dic" title="Programming 101 - Progrmammer Dictionary">Programming 101 - Progrmammer Dictionary</a>
+          <a href="/posts/programmer-dic" title="Programming 101 - Progrmammer Dictionary">Programming 101 - Progrmammer Dictionary</a>
      </h1>
      <div class="
         post-meta
       ">
         <span>21/02/2020</span>
         <span>
-              <a href="/noob-studio.github.io/tag/dictionary">#dictionary</a>
-              <a href="/noob-studio.github.io/tag/Programing101">#Programing101</a>
-              <a href="/noob-studio.github.io/tag/บ่น">#บ่น</a>
+              <a href="/tag/dictionary">#dictionary</a>
+              <a href="/tag/Programing101">#Programing101</a>
+              <a href="/tag/บ่น">#บ่น</a>
         </span>
      </div>
    </div>
@@ -298,7 +296,7 @@
  <p>บทความนี้ผมคิดขึ้นเองใช้อ้างอิงอะไรไม่ได้ทั้งนั้นนะครับ 5555
 </blockquote>
        <div class="readmore">
-          <a href="/noob-studio.github.io//posts/programmer-dic" role="button">Read more</a>
+          <a href="/posts/programmer-dic" role="button">Read more</a>
        <div>
 </article>
  <hr>
@@ -308,7 +306,7 @@
     margin-bottom: 2em;
   }
   .seneca-nodejs-microservice::before {
-    background-image: url('/noob-studio.github.io/./img/seneca/cover.jpg');
+    background-image: url('/img/seneca/cover.jpg');
     background-size: cover;
     /* -webkit-filter: grayscale(1) brightness(0.5) contrast(0.5); */
     content:'';
@@ -356,17 +354,17 @@
   ">
    <div class="heading-container hero-heading hero-heading-blog">
      <h1>
-          <a href="/noob-studio.github.io/posts/seneca-nodejs-microservice" title="เขียน Microservice ด้วย Node.js และ Seneca.js">เขียน Microservice ด้วย Node.js และ Seneca.js</a>
+          <a href="/posts/seneca-nodejs-microservice" title="เขียน Microservice ด้วย Node.js และ Seneca.js">เขียน Microservice ด้วย Node.js และ Seneca.js</a>
      </h1>
      <div class="
         post-meta
       ">
         <span>18/01/2018</span>
         <span>
-              <a href="/noob-studio.github.io/tag/node.js">#node.js</a>
-              <a href="/noob-studio.github.io/tag/microservice">#microservice</a>
-              <a href="/noob-studio.github.io/tag/javascript">#javascript</a>
-              <a href="/noob-studio.github.io/tag/backend">#backend</a>
+              <a href="/tag/node.js">#node.js</a>
+              <a href="/tag/microservice">#microservice</a>
+              <a href="/tag/javascript">#javascript</a>
+              <a href="/tag/backend">#backend</a>
         </span>
      </div>
    </div>
@@ -376,7 +374,7 @@
 <p>
 Microservice คือแนวคิดการพัฒนาโปรแกรมแบบแยกโปรแกรมเป็นส่วนเล็กๆ ที่สามารถทำงานแยกออกจากกันได้มี environment แยกออกจากกัน แต่ก็สามารถทำงานร่วมกันได้เพื่อรวมกันกลายเป็นระบบที่ใหญ่ขึ้น ยกตัวอย่างเช่น ระบบธนาคาร (คลาสสิคสุดๆ) 
        <div class="readmore">
-          <a href="/noob-studio.github.io//posts/seneca-nodejs-microservice" role="button">Read more</a>
+          <a href="/posts/seneca-nodejs-microservice" role="button">Read more</a>
        <div>
 </article>
  <hr>
@@ -386,7 +384,7 @@ Microservice คือแนวคิดการพัฒนาโปรแก�
     margin-bottom: 2em;
   }
   .loopback-nodejs-framework::before {
-    background-image: url('/noob-studio.github.io/img/loopback/cover.jpg');
+    background-image: url('/img/loopback/cover.jpg');
     background-size: cover;
     /* -webkit-filter: grayscale(1) brightness(0.5) contrast(0.5); */
     content:'';
@@ -434,15 +432,15 @@ Microservice คือแนวคิดการพัฒนาโปรแก�
   ">
    <div class="heading-container hero-heading hero-heading-blog">
      <h1>
-          <a href="/noob-studio.github.io/posts/loopback-nodejs-framework" title="เขียน RESTful API ใน Node.js แบบ 'โคตรไว' ด้วย Loopback">เขียน RESTful API ใน Node.js แบบ 'โคตรไว' ด้วย Loopback</a>
+          <a href="/posts/loopback-nodejs-framework" title="เขียน RESTful API ใน Node.js แบบ 'โคตรไว' ด้วย Loopback">เขียน RESTful API ใน Node.js แบบ 'โคตรไว' ด้วย Loopback</a>
      </h1>
      <div class="
         post-meta
       ">
         <span>04/12/2017</span>
         <span>
-              <a href="/noob-studio.github.io/tag/node.js">#node.js</a>
-              <a href="/noob-studio.github.io/tag/javascript">#javascript</a>
+              <a href="/tag/node.js">#node.js</a>
+              <a href="/tag/javascript">#javascript</a>
         </span>
      </div>
    </div>
@@ -450,7 +448,7 @@ Microservice คือแนวคิดการพัฒนาโปรแก�
 <p class="lead">เนื่องจากผมได้มีโอกาศไปรับงานนึงเกี่ยวกับการจัดการ Stock สินค้าซึ่งจาก Scale งานเนี่ยน่าจะใช้เวลาพัฒนาประมาณ 2 อาทิตย์แต่ลูกค้าแบบว่าเร่งมากบอกน้องพี่ขอ 7 วันได้ไหม!!
 <p>แม่เจ้าาาา รีบไปไหนเนี่ยพ่อคู๊ณณ แต่ถือเป็นโชคดีที่ก่อนหน้าที่ทำงานของผมได้ให้ผมทำ research เกี่ยวกับ node.js framework ตัวนึงชื่อว่า <a href="http://loopback.io" target="_blank">loopback</a> ซึ่งหลังจากได้ลองใช้ขอบอกเลยว่ามันดีมากเลยอ่ะแกรร แบบว่าของมันต้องใช้อ่ะแกรร ว่าแล้วเราก็มาลองใช้งานกันเลยเถอะ
        <div class="readmore">
-          <a href="/noob-studio.github.io//posts/loopback-nodejs-framework" role="button">Read more</a>
+          <a href="/posts/loopback-nodejs-framework" role="button">Read more</a>
        <div>
 </article>
 <nav class="pagination" role="navigation">
@@ -459,7 +457,7 @@ Microservice คือแนวคิดการพัฒนาโปรแก�
    <li class="pagination-item-prev" >
       <span>&laquo; Previous</span>
    <li class="pagination-item-next" >
-      <a rel="next" href="/noob-studio.github.io//page-2/">Next &raquo;</a>
+      <a rel="next" href="/page-2/">Next &raquo;</a>
  </ul>
 <hr/>
 </nav>
@@ -469,8 +467,8 @@ Microservice คือแนวคิดการพัฒนาโปรแก�
     <span>written by Freeweed</span>
 </footer>
        </div>
-<script type="text/javascript" src="/noob-studio.github.io/assets/js/theme.js"></script>
-<script type="text/javascript" src="/noob-studio.github.io/assets/js/barefoot.js"></script>
+<script type="text/javascript" src="/assets/js/theme.js"></script>
+<script type="text/javascript" src="/assets/js/barefoot.js"></script>
     <script>
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),

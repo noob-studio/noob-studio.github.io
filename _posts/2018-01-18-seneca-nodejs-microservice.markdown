@@ -5,7 +5,7 @@ description: "วิธีใช้งาน Seneca.js ช่วยให้ส�
 date: 2018-01-18 17:11
 author: "ป๋าแพะ"
 published: true
-hero: '{{site.url}}/img/seneca/cover.jpg'
+hero: '/img/seneca/cover.jpg'
 overlay: green
 tags: 
  - node.js
