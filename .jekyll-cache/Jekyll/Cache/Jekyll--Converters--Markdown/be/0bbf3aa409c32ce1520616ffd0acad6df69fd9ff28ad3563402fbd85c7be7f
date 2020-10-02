@@ -1,0 +1,281 @@
+I"ő<!-- <img src="/img/ionic-notification/cover.jpg" alt="วิธีทำ Notification(แจ้งเตือน) ให้ Ionic2 ด้วย Firebase และ Node.js"/> -->
+<p>สวัสดีครับหลังจากคราวก่อนได้เขียนวิธีสร้าง <a href="/ionic-chat">แอพพลิเคชันแชทแบบง่ายๆ ด้วย Ionic2 Node.js</a> 
+
+
+ก็มีคนบอกว่าอยากให้เขียนวิธีการแจ้งเตือนให้มือถือและผมก็คิดเรื่องจะเขียนไม่ออกด้วยครับช่วงนี้เพราะฉะนั้นวันนี้ีเราทำแจ้งเตือนกันเถอะ 555 โดยแจ้งเตือนเนี่ยมี 2 แบบคือแบบ Local Notification และไม่ Local โดยจะแตกต่างกันดังนี้</p>
+<!--more-->
+
+<ul>
+<li>Local Notification (เกมเตือนให้รับของประจำวัน) ไม่จำเป็นต้องมี Server เป็นการตั้งค่าให้แจ้งเตือนตามเวลาที่ตั้งไว้ข้อดีคือง่ายแต่มีข้อเสียคือข้อมูลจะตายตัวไม่มีการเปลี่ยนแปลง (ไว้บทความถัดไปนะจ๊ะ)</li>
+<li>ไม่ Local (facebook, line) จำเป็นต้องมี Server เพื่อส่งแจ้งเตือนให้แอพพลิเคชันมีข้อดีคือสามารถแจ้งเตือนเมื่อไหร่ก็ได้ข้อมูลสามารถยืดหยุ่นตาม Server ส่งมาให้ (สอนในบทความนี้)</li>
+</ul>
+<blockquote>แจ้งเตือนที่มีข้อมูลแบบไม่ตายตัว(app แชททั่วไป) ต้องมี server แจ้งเตือนแบบตายตัว(เช่น เกมเตือนให้รับของประจำวัน) ไม่จำเป็นต้องมี server</blockquote>
+
+<h1 id="required--install">Required &amp; Install</h1>
+
+<p>สิ่งที่จะใช้ในการทำแจ้งเตือนของบทความนี้มีดังนี้</p>
+<ul>
+    <li>Node.js เวอร์ชันล่าสุด</li>
+    <li>gmail (คิดว่าทุกคนคงจะมีนะจ๊ะ)</li>
+    <li>มือถือ Android (ใช้ทดสอบ)</li>
+    <li>ในการทดสอบโทรศัพท์มือถือและคอมเครื่องที่ใช้เป็น server ต้องต่อเน็ตวงเดียวกันนะจ๊ะ (Wifi อันเดียวกัน)</li>
+</ul>
+
+<h1 id="init-firebase">Init Firebase</h1>
+
+<p>ขั้นแรกให้เราเปิดเว็ปไซด์ <a href="https://firebase.google.com/?hl=en" target="_blank">Firebase</a> ขึ้นมาพร้อม Login ให้เรียบร้อยหากยังไม่มีโปรเจคให้สร้างโปรเจคด้วยนะครับ
+<img src="/img/ionic-notification/img01.png" />
+<span class="caption text-muted">สร้างโปรเจคขึ้นมาใน Firebase</span>
+หลังจากนั้นกดเข้ามาใน Project และไปที่ Project Settings &gt; Cloud Messaging จะเห็นหน้าจอแบบภาพข้างล่างนะครับให้จดเลข Server Key และ Sender ID ไว้นะจ๊ะ
+<img src="/img/ionic-notification/img02.png" />
+<span class="caption text-muted">จด Server Key กับ Sender ID ไว้ให้ดีนะจ๊ะต้องใช้</span></p>
+<ul>
+    <li>Server Key ใช้สำหรับใส่ใน Server ของเรา</li>
+    <li>Sender ID ใช้สำหรับใส่ในแอพของเรา</li>
+</ul>
+
+<h1 id="start-server">Start Server</h1>
+
+<p>เมื่อเราตั้งค่า Firebase เสร็จแล้วต่อไปเรามาเริ่มสร้าง Server สำหรับส่งแจ้งเตือนกันนะจ๊ะ</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="nx">mkdir</span> <span class="nx">ionic</span><span class="o">-</span><span class="nx">notification</span>
+    <span class="nx">cd</span> <span class="nx">ionic</span><span class="o">-</span><span class="nx">notification</span>
+    <span class="nx">npm</span> <span class="nx">init</span>
+    <span class="nx">npm</span> <span class="nx">install</span> <span class="nx">node</span><span class="o">-</span><span class="nx">gcm</span> <span class="nx">express</span> <span class="o">--</span><span class="nx">save</span>
+</code></pre></div></div>
+
+<p>node-gcm ใช้สำหรับส่งแจ้งเตือนนะครับส่วน express ใช้เป็น server
+<b>index.js</b></p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">express</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">express</span><span class="dl">'</span><span class="p">);</span>
+<span class="kd">const</span> <span class="nx">gcm</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">node-gcm</span><span class="dl">'</span><span class="p">);</span>
+<span class="kd">const</span> <span class="nx">bodyParser</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">body-parser</span><span class="dl">'</span><span class="p">);</span>
+<span class="kd">const</span> <span class="nx">app</span> <span class="o">=</span> <span class="nx">express</span><span class="p">();</span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span> <span class="nx">bodyParser</span><span class="p">.</span><span class="nx">json</span><span class="p">()</span> <span class="p">);</span>
+
+<span class="kd">const</span> <span class="nx">server_key</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">XXXXXXXXXXX</span><span class="dl">'</span><span class="p">;</span> <span class="c1">// server key</span>
+
+<span class="kd">var</span> <span class="nx">send</span> <span class="o">=</span> <span class="p">(</span><span class="nx">token</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="kd">let</span> <span class="nx">retry_times</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
+  <span class="kd">let</span> <span class="nx">sender</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">gcm</span><span class="p">.</span><span class="nx">Sender</span><span class="p">(</span><span class="nx">server_key</span><span class="p">);</span>
+  <span class="kd">let</span> <span class="nx">message</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">gcm</span><span class="p">.</span><span class="nx">Message</span><span class="p">();</span>
+  <span class="nx">message</span><span class="p">.</span><span class="nx">addData</span><span class="p">(</span><span class="dl">'</span><span class="s1">title</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">Hello Lady~!</span><span class="dl">'</span><span class="p">);</span>
+  <span class="nx">message</span><span class="p">.</span><span class="nx">addData</span><span class="p">(</span><span class="dl">'</span><span class="s1">message</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">Hello Beutiful Girl!</span><span class="dl">'</span><span class="p">);</span>
+  <span class="nx">sender</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="nx">message</span><span class="p">,</span> <span class="nx">token</span><span class="p">,</span> <span class="nx">retry_times</span><span class="p">,</span> <span class="p">(</span><span class="nx">result</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">send noti!</span><span class="dl">'</span><span class="p">);</span>
+  <span class="p">},</span> <span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">cant send noti T^T</span><span class="dl">'</span><span class="p">);</span>
+  <span class="p">})</span>
+<span class="p">}</span>
+
+<span class="nx">app</span><span class="p">.</span><span class="kd">get</span><span class="p">(</span><span class="dl">'</span><span class="s1">/</span><span class="dl">'</span><span class="p">,</span> <span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="nx">res</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="dl">"</span><span class="s2">This is basic route</span><span class="dl">"</span><span class="p">);</span>
+<span class="p">});</span>
+
+
+<span class="nx">app</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span><span class="dl">'</span><span class="s1">/open</span><span class="dl">'</span><span class="p">,</span> <span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="cm">/*insert token to DB*/</span>
+  <span class="kd">let</span> <span class="nx">token</span> <span class="o">=</span> <span class="nx">req</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">token</span><span class="p">.</span><span class="nx">registrationId</span><span class="p">;</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">token</span><span class="p">));</span>
+  <span class="nx">send</span><span class="p">(</span><span class="nx">token</span><span class="p">);</span>
+<span class="p">})</span>
+
+<span class="nx">app</span><span class="p">.</span><span class="kd">get</span><span class="p">(</span><span class="dl">'</span><span class="s1">/send</span><span class="dl">'</span><span class="p">,</span> <span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="kd">let</span> <span class="nx">token</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">XXXXXXXXXXXXX</span><span class="dl">'</span><span class="p">;</span> <span class="c1">//token</span>
+  <span class="nx">send</span><span class="p">(</span><span class="nx">token</span><span class="p">);</span>
+  <span class="nx">res</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="dl">"</span><span class="s2">send notification</span><span class="dl">"</span><span class="p">);</span>
+<span class="p">})</span>
+
+<span class="nx">app</span><span class="p">.</span><span class="nx">listen</span><span class="p">(</span><span class="mi">5555</span><span class="p">,</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">Program running on port : 5555</span><span class="dl">'</span><span class="p">);</span>
+<span class="p">});</span>
+
+</code></pre></div></div>
+
+<p>เรียบร้อยครับสั้นดีใช่ไหมครับสำหรับ Code ฝั่ง Server ของเราต่อไปอธิบาย Code นะครับ</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">express</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">express</span><span class="dl">'</span><span class="p">);</span>
+<span class="kd">const</span> <span class="nx">gcm</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">node-gcm</span><span class="dl">'</span><span class="p">);</span>
+<span class="kd">const</span> <span class="nx">bodyParser</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">body-parser</span><span class="dl">'</span><span class="p">);</span>
+<span class="kd">const</span> <span class="nx">app</span> <span class="o">=</span> <span class="nx">express</span><span class="p">();</span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span> <span class="nx">bodyParser</span><span class="p">.</span><span class="nx">json</span><span class="p">()</span> <span class="p">);</span>
+
+<span class="kd">const</span> <span class="nx">server_key</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">XXXXXXXXXXX</span><span class="dl">'</span><span class="p">;</span> <span class="c1">// server key</span>
+</code></pre></div></div>
+<p>เรียกใช้งาน Module ที่จำเป็นนะครับ node-cgm ใช้ส่งแจ้งเตือนส่วน bodyParse ใช้แปลงค่า input ที่ส่งผ่าน Post มานะครับ และสุดท้ายสร้าง server โดยใช้ express นะครับ ตรง server_key ให้ใส่ server_key ที่เราจดมาตะกี้ลงไปนะครับ (อันที่ยาวๆอ่ะ)</p>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">app</span><span class="p">.</span><span class="kd">get</span><span class="p">(</span><span class="dl">'</span><span class="s1">/</span><span class="dl">'</span><span class="p">,</span> <span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="nx">res</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="dl">"</span><span class="s2">This is home page</span><span class="dl">"</span><span class="p">);</span>
+<span class="p">});</span>
+
+<span class="nx">app</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span><span class="dl">'</span><span class="s1">/open</span><span class="dl">'</span><span class="p">,</span> <span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="p">...</span>
+<span class="p">})</span>
+
+<span class="nx">app</span><span class="p">.</span><span class="kd">get</span><span class="p">(</span><span class="dl">'</span><span class="s1">/send</span><span class="dl">'</span><span class="p">,</span> <span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="p">...</span>
+<span class="p">})</span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">listen</span><span class="p">(</span><span class="mi">5555</span><span class="p">,</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">Program running on port : 5555</span><span class="dl">'</span><span class="p">);</span>
+<span class="p">});</span>
+</code></pre></div></div>
+<p>app.get ต่างๆคือการ route นะครับว่าเข้ามาผ่าน url นี้ให้ทำอะไรส่วน app.listen คือให้เริ่มทำงานที่ port ไหน</p>
+<ul>
+<li> เข้ามาผ่าน / ให้ตอบกลับไปว่านี่คือ Home Page นะย๊ะ</li> 
+<li> /open รับ token เข้ามาผ่าน Post /open จริงๆตรงนี้ให้เราเก็บข้อมูล token เข้าสู่ฐานข้อมูลเพื่อใช้แจ้งเตือนในโอกาศต่อไป</li>
+<li> /send เมื่อมีการส่ง Get เข้ามาผ่าน /send ให้ส่งแจ้งเตือนไปตาม token ที่เรากับไว้ในฐานข้อมูล</li>
+</ul>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="kd">let</span> <span class="nx">retry_times</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
+  <span class="kd">let</span> <span class="nx">sender</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">gcm</span><span class="p">.</span><span class="nx">Sender</span><span class="p">(</span><span class="nx">server_key</span><span class="p">);</span>
+  <span class="kd">let</span> <span class="nx">message</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">gcm</span><span class="p">.</span><span class="nx">Message</span><span class="p">();</span>
+  <span class="kd">let</span> <span class="nx">token</span> <span class="o">=</span> <span class="nx">req</span><span class="p">.</span><span class="nx">params</span><span class="p">.</span><span class="nx">token</span><span class="p">;</span>
+  <span class="nx">message</span><span class="p">.</span><span class="nx">addData</span><span class="p">(</span><span class="dl">'</span><span class="s1">title</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">Hello Lady~!</span><span class="dl">'</span><span class="p">);</span>
+  <span class="nx">message</span><span class="p">.</span><span class="nx">addData</span><span class="p">(</span><span class="dl">'</span><span class="s1">message</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">Hello Beutiful Girl!</span><span class="dl">'</span><span class="p">);</span>
+</code></pre></div></div>
+<p>เตรียมตัวแปรสำหรับส่งแจ้งเตือน</p>
+<ul>
+<li>retry_times ถ้าส่งไม่สำเร็จจะให้ลองส่งใหม่กี่ครั้งสำหรับลูกผู้ชายอย่างผมให้โอกาศใครไม่เกิน 3 ครั้ง</li>
+<li>sender สร้าง sender ใช้สำหรับส่งแจ้งเตือน</li>
+<li>message สร้างข้อความสำหรับส่งไปให้มือถือของเรา</li>
+<li>token รหัสของมือถือที่มีการเชื่อมต่อเข้ามา</li>
+<li>message.addData ตั้งค่าต่างๆของ message เช่น หัวข้อ ข้อความ เสียงเป็นต้น</li>
+</ul>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">sender</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="nx">message</span><span class="p">,</span> <span class="nx">token</span><span class="p">,</span> <span class="nx">retry_times</span><span class="p">,</span> <span class="p">(</span><span class="nx">result</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">send noti!</span><span class="dl">'</span><span class="p">);</span>
+    <span class="nx">res</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="dl">'</span><span class="s1">you get message</span><span class="dl">'</span><span class="p">);</span>
+  <span class="p">},</span> <span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">cant send noti T^T</span><span class="dl">'</span><span class="p">);</span>
+    <span class="nx">res</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="dl">'</span><span class="s1">cant send message</span><span class="dl">'</span><span class="p">);</span>
+  <span class="p">})</span>
+</code></pre></div></div>
+<p>sender.send ส่งแจ้งเตือนไปที่มือถือเมื่อทดสอบรันด้วยคำสั่งข้างล่างนี้เป็นอันเสร็จนะแจ๊ะ</p>
+<pre>
+  node index.js
+  Program running on port : 5555
+</pre>
+
+<h1 id="start-ionic">Start Ionic</h1>
+
+<p>เอาล่ะไม่ต้องบรรยายมากมาเริ่มกันเตอะ</p>
+<pre>
+ionic start ionic-notification-client blank --v2
+cd ionic-notification-client
+ionic platform add android
+cordova plugin add phonegap-plugin-push --variable SENDER_ID="XXXXXXX"
+npm install --save @ionic-native/push
+</pre>
+<p>SENDER_ID คือ id ที่ได้มาจาก Firebase ตอนแรกนะครับ(อันสั้นๆ) ต่อมาให้เปิดไฟล์ src/app/app.module.ts เพิ่ม Push เข้าไปใน Provider ตามข้างล่างนี้</p>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="nx">providers</span><span class="p">:</span> <span class="p">[</span><span class="nx">Push</span><span class="p">,</span> <span class="p">...</span> <span class="p">]</span>
+</code></pre></div></div>
+<p>ต่อมาเราเปิดไฟล์ src/app/app.component.ts เพิ่ม Code ดังนี้เข้าไป</p>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="p">{</span> <span class="nx">Push</span><span class="p">,</span> <span class="nx">PushObject</span><span class="p">,</span> <span class="nx">PushOptions</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">@ionic-native/push</span><span class="dl">'</span><span class="p">;</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">Http</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">@angular/http</span><span class="dl">'</span><span class="p">;</span>
+</code></pre></div></div>
+<p>import module ที่ต้องการใช้โดยมีรายละเอียดดังนี้</p>
+<ul>
+<li>Push, PushObject, PushOptions ใช้สำหรับส่ง Notification ไปที่มือถือ</li>
+<li>Http สำหรับส่ง Http ไปที่ Server ของเรา</li>
+</ul>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">constructor</span><span class="p">(</span>
+    <span class="p">...,</span> 
+    <span class="kr">private</span> <span class="nx">push</span><span class="p">:</span> <span class="nx">Push</span>
+<span class="p">)</span> 
+</code></pre></div></div>
+<p>ประกาศตัวแปร private ชื่อ push โดยนำค่ามาจาก Module Push (ที่ import มาข้างบนอ่ะ)</p>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">constructor</span><span class="p">(</span>
+    <span class="p">...</span>
+<span class="p">){</span>
+    <span class="nx">platform</span><span class="p">.</span><span class="nx">ready</span><span class="p">().</span><span class="nx">then</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+      <span class="p">...</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">initPushNotification</span><span class="p">();</span>
+    <span class="p">});</span>
+<span class="p">}</span>
+</code></pre></div></div>
+<p>เรียกใช้ฟังชันชื่อ initPushNotification เมื่อแอพพร้อมทำงาน</p>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">initPushNotification</span><span class="p">(){</span>
+    <span class="kd">const</span> <span class="nx">options</span><span class="p">:</span> <span class="nx">PushOptions</span> <span class="o">=</span> <span class="p">{</span>
+       <span class="na">android</span><span class="p">:</span> <span class="p">{</span>
+           <span class="na">senderID</span><span class="p">:</span> <span class="dl">'</span><span class="s1">492553210615</span><span class="dl">'</span><span class="p">,</span>
+           <span class="na">sound</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+           <span class="na">vibrate</span><span class="p">:</span> <span class="kc">true</span>
+       <span class="p">}</span>
+    <span class="p">};</span>
+    <span class="kd">const</span> <span class="nx">pushObject</span><span class="p">:</span> <span class="nx">PushObject</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">push</span><span class="p">.</span><span class="nx">init</span><span class="p">(</span><span class="nx">options</span><span class="p">);</span>
+
+    <span class="nx">pushObject</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="dl">'</span><span class="s1">registration</span><span class="dl">'</span><span class="p">).</span><span class="nx">subscribe</span><span class="p">(</span>
+      <span class="nx">data</span> <span class="o">=&gt;</span> <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">http</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span><span class="dl">'</span><span class="s1">http://192.168.1.11:5555/open</span><span class="dl">'</span><span class="p">,{</span><span class="na">token</span><span class="p">:</span> <span class="nx">data</span><span class="p">}).</span><span class="nx">subscribe</span><span class="p">(</span><span class="nx">res</span> <span class="o">=&gt;</span> <span class="p">{</span>
+              <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">register send</span><span class="dl">'</span><span class="p">);</span>
+        <span class="p">});</span>
+    <span class="p">});</span>
+    <span class="nx">pushObject</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="dl">'</span><span class="s1">notification</span><span class="dl">'</span><span class="p">).</span><span class="nx">subscribe</span><span class="p">(</span>
+      <span class="nx">notification</span> <span class="o">=&gt;</span> <span class="p">{</span>
+        <span class="nx">alert</span><span class="p">(</span><span class="dl">'</span><span class="s1">You are in app</span><span class="dl">'</span><span class="p">);</span>
+      <span class="p">});</span>
+  <span class="p">}</span>
+</code></pre></div></div>
+<p>สร้างฟังชันชื่อ initPushNotification สำหรับรับและส่งแจ้งเตือน <br /><b style="color:red;">หมายเหตุ</b> http://192.168.1.11 ให้ใส่เป็น ip  เครื่องตัวเองนะจ๊ะ</p>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">options</span><span class="p">:</span> <span class="nx">PushOptions</span> <span class="o">=</span> <span class="p">{</span>
+       <span class="na">android</span><span class="p">:</span> <span class="p">{</span>
+           <span class="na">senderID</span><span class="p">:</span> <span class="dl">'</span><span class="s1">492553210615</span><span class="dl">'</span><span class="p">,</span>
+           <span class="na">sound</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+           <span class="na">vibrate</span><span class="p">:</span> <span class="kc">true</span>
+       <span class="p">}</span>
+    <span class="p">};</span>
+</code></pre></div></div>
+<p>เตรียมค่า option ต่างๆสำหรับการแจ้งเตือน</p>
+<ul>
+<li>senderID รหัสที่ได้มาจาก Firebase (รหัสเดียวกับตอนที่ add plugin อันสั้นๆ)</li>
+<li>sound ตั้งค่าเสียง</li>
+<li>vibrate ตั้งค่าสั่น</li>
+</ul>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">pushObject</span><span class="p">:</span> <span class="nx">PushObject</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">push</span><span class="p">.</span><span class="nx">init</span><span class="p">(</span><span class="nx">options</span><span class="p">);</span>
+</code></pre></div></div>
+<p>ตั่งค่า option สำหรับแจ้งเตือน</p>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">pushObject</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="dl">'</span><span class="s1">registration</span><span class="dl">'</span><span class="p">).</span><span class="nx">subscribe</span><span class="p">(</span>
+  <span class="nx">data</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="p">...</span>
+  <span class="p">}</span>
+<span class="p">);</span>
+</code></pre></div></div>
+<p>เป็น event ที่เกิดขึ้นเมื่อเปิด app โดยจะ return data ซึ่งมี token ของมือถือเครื่องนั้นๆ</p>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="k">this</span><span class="p">.</span><span class="nx">http</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span><span class="dl">'</span><span class="s1">http://192.168.1.11:5555/open</span><span class="dl">'</span><span class="p">,{</span><span class="na">token</span><span class="p">:</span> <span class="nx">data</span><span class="p">}).</span><span class="nx">subscribe</span><span class="p">(</span><span class="nx">res</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">register send</span><span class="dl">'</span><span class="p">);</span>
+  <span class="p">});</span>
+</code></pre></div></div>
+<p>ส่ง token ไปที่ server ของเราเพื่อบันทึกข้อมูลหรืออะไรก็ว่าไป</p>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">pushObject</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="dl">'</span><span class="s1">notification</span><span class="dl">'</span><span class="p">).</span><span class="nx">subscribe</span><span class="p">(</span>
+    <span class="nx">notification</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="nx">alert</span><span class="p">(</span><span class="dl">'</span><span class="s1">You are in app</span><span class="dl">'</span><span class="p">);</span>
+<span class="p">});</span>
+</code></pre></div></div>
+<p>เป็น event ที่เกิดขึ้นเมื่อได้รับการแจ้งเตือนจาก server เพียงแค่นี้เป็นอันเรียบร้อยโรงเรียนเตรียมแล้วจ้าทดสอบรันแอพด้วยคำสั่ง</p>
+<pre>
+ionic run android
+</pre>
+<p><img src="/img/ionic-notification/img03.jpg" />
+<span class="caption text-muted">ผลลัพท์เมื่อรันแอพ</span></p>
+<p>เมื่อแอพเริ่มทำงานจะมีการ alert แบบนี้ปรากฎขึ้นมาแบบนี้</p>
+<p><img src="/img/ionic-notification/img04.png" />
+<span class="caption text-muted">token ของแอพที่แสดงใน server</span></p>
+<p>ส่วนใน server จะแสดง token ของเราที่ได้รับมาจากแอพให้ก๊อป token มาใส่ใน route /send แบบข้างล่างนี้</p>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">...</span>
+<span class="nx">app</span><span class="p">.</span><span class="kd">get</span><span class="p">(</span><span class="dl">'</span><span class="s1">/send</span><span class="dl">'</span><span class="p">,</span> <span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="kd">let</span> <span class="nx">token</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">fF6tMEynuYg:APA91bH8phSueoBfdOVMchBvBaxyyJVx4fe5msoZVbGAwLqAf...</span><span class="dl">'</span><span class="p">;</span> <span class="c1">//token</span>
+  <span class="p">...</span>
+<span class="p">})</span>
+</code></pre></div></div>
+<p>หลังจากนั้นให้ลองออกจากแอพแล้วเปิด Browser ไปที่พาท <a href="http://localhost:5555/send" target="_blank">http://localhost:5555/send</a> จะมีแจ้งเตือนขึ้นดังภาพ</p>
+<p><img src="/img/ionic-notification/img04.jpg" />
+<span class="caption text-muted">เย้ๆ มีแจ้งเตือนแล้วจ้า</span></p>
+
+<h1 id="conclution">Conclution</h1>
+
+<p>เพียงเท่านี้ก็เสร็จแล้วจ้าสำหรับการแจ้งเตือนในบทความนี้ยังเป็นพื้นฐานมากๆ นะครับเพื่อนๆต้องเอาไปปรับปรุงต่อเพื่อนำมาใช้จริงต่อไปนะจ๊ะ</p>
+<p>ศึกษาเพิ่มเติม
+    <ul>
+        <li><a href="https://ionicframework.com/" target="_blank">Ionic2</a></li>
+        <li><a href="https://firebase.google.com/docs/cloud-messaging/" target="_blank">Firebase</a></li>
+    </ul>
+</p>
+<p>สำหรับ Code บน git ก็แปะไว้ก่อนเหมือนเดิมนะครับเพราะช่วงนี้ผมงานเยอะมากๆเลยอ่ะ = ="</p>
+:ET

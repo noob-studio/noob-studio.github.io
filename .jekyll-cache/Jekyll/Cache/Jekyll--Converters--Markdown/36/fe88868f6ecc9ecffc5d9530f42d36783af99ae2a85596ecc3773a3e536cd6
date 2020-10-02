@@ -1,0 +1,103 @@
+I"/7<p>ในการจะทดสอบการทำงานของเว็ปไซด์ซักเว็ปหนึ่งเนี่ยเป็นเรื่องที่เหนื่อยและสิ้นเปลืองพลังงานชีวิตมากมายเลยนะครับ</p>
+
+<p>ยิ่งถ้าเป็นเว็ปไซด์ใหญ่ๆมีลิงค์มีปุ่มให้กดเยอะแยะด้วยแล้วยิ่งไม่ต้องสืบว่าจะใช้เวลานานซักแค่ไหน ดังนั้นจะดีแค่ไหนถ้าเราสามารถเขียน Bot ขึ้นมาเพื่อให้สามารถตรวจสอบการทำงานของเว็ปไซดโดยที่เราไม่ต้องทำอะไรเลยนั่งจิ๊บกาแฟชิลๆ อิอิ
+<!--more--></p>
+
+<blockquote>โปรแกรมเมอร์ที่เก่งคือโปรแกรมเมอร์ที่ขี้เกียจ ปล. ขี้เกียจในทางที่ดีนะ</blockquote>
+
+<p>เชื่อไหมครับว่าไม่ได้มีแต่เราที่ขี้เกียจใครๆ เขาก็ขี้เกียจกันทั้งนั้น (= =") แบบนี้จึงมีคนพัฒนาสิ่งที่เรียกว่า <a href="https://github.com/SeleniumHQ/selenium/tree/master/javascript/node/selenium-webdriver" target="_blank">Selenium Webdriver</a> ขึ้นเจ้า Selenium เนี่ยถ้าว่าง่ายๆก็คือ บอทสำหรับทดสอบการทดงานของเว็ปไซด์นั่นเอง</p>
+
+<h1 id="required--install">Required &amp; Install</h1>
+
+<p>ในการใช้ Selenium มีสิ่งที่ต้องการดังนี้</p>
+
+<ul>
+  <li>พื้นฐาน Node.js นิดหน่อย (จริงๆ ตัว Selenium เขียนได้กับหลายภาษาเช่น Java, Python แต่ผมชอบ Node.js อ่ะมีไรป่ะ)</li>
+  <li>Node.js เวอร์ชันล่าสุด <a href="https://nodejs.org/en/" target="_blank">Download</a></li>
+  <li>Chrome Webdriver สำหรับ window สามารถดาวโหลดได้ <a href="https://github.com/SeleniumHQ/selenium/tree/master/javascript/node/selenium-webdriver" target="_blank">ที่นี่</a></li>
+  <li>Chrome Webdriver สำหรับ Mac สามารถติดตั้งโดยใช้ Homebrew ได้ใครไม่มีสามารถดาวโหลดได้ <a href="https://brew.sh/" target="_blank">ที่นี่</a> เมื่อติดตั้ง Homebrew เสร็จแล้วให้พิมพ์คำสั่งนี้
+    <div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">brew</span> <span class="nx">install</span> <span class="nx">chromedriver</span>
+</code></pre></div>    </div>
+  </li>
+  <li>Chrome Webdriver สำหรับ Linux สามารถติดตั้งโดยใช้คำสั่งนี้
+    <div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">sudo</span> <span class="nx">apt</span><span class="o">-</span><span class="kd">get</span> <span class="nx">install</span> <span class="nx">unzip</span><span class="p">;</span>
+<span class="nx">wget</span> <span class="o">-</span><span class="nx">O</span> <span class="o">/</span><span class="nx">tmp</span><span class="o">/</span><span class="nx">chromedriver</span><span class="p">.</span><span class="nx">zip</span> <span class="nx">http</span><span class="p">:</span><span class="c1">//chromedriver.googlecode.com/files/chromedriver_linux64_19.0.1068.0.zip </span>
+<span class="o">&amp;&amp;</span> <span class="nx">sudo</span> <span class="nx">unzip</span> <span class="o">/</span><span class="nx">tmp</span><span class="o">/</span><span class="nx">chromedriver</span><span class="p">.</span><span class="nx">zip</span> <span class="nx">chromedriver</span> <span class="o">-</span><span class="nx">d</span> <span class="o">/</span><span class="nx">usr</span><span class="o">/</span><span class="nx">local</span><span class="o">/</span><span class="nx">bin</span><span class="o">/</span><span class="p">;</span>
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+<h1 id="start">Start</h1>
+
+<p>เมื่อเราทำการติดตั้ง และดาวโหลดสิ่งที่ต้องการมาแล้วก็มาเริ่มกันเถอะเปิด Terminal ขึ้นมาและพิมพ์คำสั่งตามนี้นะจ๊ะเด็กๆ</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">mkdir</span> <span class="nx">selenium</span><span class="o">-</span><span class="nx">ep01</span>
+<span class="nx">cd</span> <span class="nx">selenium</span><span class="o">-</span><span class="nx">ep01</span>
+<span class="nx">npm</span> <span class="nx">init</span>
+<span class="nx">npm</span> <span class="nx">install</span> <span class="nx">selenium</span><span class="o">-</span><span class="nx">webdriver</span> <span class="o">--</span><span class="nx">save</span>
+</code></pre></div></div>
+
+<p>เมื่อดำเนินการเสร็จแล้วสำหรับผู้ใช้ window ให้ลากไฟล์ webdriver ที่ดาวโหลดมามาใส่ สำหรับคนใช้ Mac กับ Linux ไม่ต้องนะจ๊ะ อิอิ ต่อมาเปิด Text editor สร้างไฟล์ชื่อ index.js ขึ้นมาแล้วใส่คำสั่งตามนี้</p>
+
+<p><b>index.js</b></p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">webdriver</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">selenium-webdriver</span><span class="dl">'</span><span class="p">),</span>
+    <span class="nx">By</span> <span class="o">=</span> <span class="nx">webdriver</span><span class="p">.</span><span class="nx">By</span><span class="p">,</span>
+    <span class="nx">until</span> <span class="o">=</span> <span class="nx">webdriver</span><span class="p">.</span><span class="nx">until</span><span class="p">;</span>
+
+<span class="kd">var</span> <span class="nx">driver</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">webdriver</span><span class="p">.</span><span class="nx">Builder</span><span class="p">()</span>
+    <span class="p">.</span><span class="nx">forBrowser</span><span class="p">(</span><span class="dl">'</span><span class="s1">chrome</span><span class="dl">'</span><span class="p">)</span>
+    <span class="p">.</span><span class="nx">build</span><span class="p">();</span>
+
+<span class="nx">driver</span><span class="p">.</span><span class="kd">get</span><span class="p">(</span><span class="dl">'</span><span class="s1">http://www.google.com/ncr</span><span class="dl">'</span><span class="p">);</span>
+<span class="nx">driver</span><span class="p">.</span><span class="nx">findElement</span><span class="p">(</span><span class="nx">By</span><span class="p">.</span><span class="nx">name</span><span class="p">(</span><span class="dl">'</span><span class="s1">q</span><span class="dl">'</span><span class="p">)).</span><span class="nx">sendKeys</span><span class="p">(</span><span class="dl">'</span><span class="s1">webdriver</span><span class="dl">'</span><span class="p">);</span>
+<span class="nx">driver</span><span class="p">.</span><span class="nx">findElement</span><span class="p">(</span><span class="nx">By</span><span class="p">.</span><span class="nx">name</span><span class="p">(</span><span class="dl">'</span><span class="s1">btnG</span><span class="dl">'</span><span class="p">)).</span><span class="nx">click</span><span class="p">();</span>
+<span class="nx">driver</span><span class="p">.</span><span class="nx">wait</span><span class="p">(</span><span class="nx">until</span><span class="p">.</span><span class="nx">titleIs</span><span class="p">(</span><span class="dl">'</span><span class="s1">webdriver - Google Search</span><span class="dl">'</span><span class="p">),</span> <span class="mi">1000</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>อธิบาย Code</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">webdriver</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">selenium-webdriver</span><span class="dl">'</span><span class="p">),</span>
+    <span class="nx">By</span> <span class="o">=</span> <span class="nx">webdriver</span><span class="p">.</span><span class="nx">By</span><span class="p">,</span>
+    <span class="nx">until</span> <span class="o">=</span> <span class="nx">webdriver</span><span class="p">.</span><span class="nx">until</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p>ดึง Module ของ selenium-webdriver มาใช้และ Module อื่นๆที่จำเป็นมาใช้
+    <ul>
+        <li>By ใช้เข้าถึง Element ต่างๆในหน้าเว็ป</li>
+        <li>until เพื่อรอการทำงานของ Browser</li>
+</ul>
+</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">driver</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">webdriver</span><span class="p">.</span><span class="nx">Builder</span><span class="p">()</span>
+    <span class="p">.</span><span class="nx">forBrowser</span><span class="p">(</span><span class="dl">'</span><span class="s1">chrome</span><span class="dl">'</span><span class="p">)</span>
+    <span class="p">.</span><span class="nx">build</span><span class="p">();</span>
+</code></pre></div></div>
+
+<p>สร้าง driver สำหรับ Google Chrome (สั่งให้เปิด Browser)</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">driver</span><span class="p">.</span><span class="kd">get</span><span class="p">(</span><span class="dl">'</span><span class="s1">http://www.google.com/ncr</span><span class="dl">'</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>เปิด Browser ไปที่ url https://www.google.com/ncr</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">driver</span><span class="p">.</span><span class="nx">findElement</span><span class="p">(</span><span class="nx">By</span><span class="p">.</span><span class="nx">name</span><span class="p">(</span><span class="dl">'</span><span class="s1">q</span><span class="dl">'</span><span class="p">)).</span><span class="nx">sendKeys</span><span class="p">(</span><span class="dl">'</span><span class="s1">webdriver</span><span class="dl">'</span><span class="p">);</span>
+</code></pre></div></div>
+<p>หา Element ที่ attribute name ว่า q (ช่อง input) และใส่ค่าว่า webdriver</p>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">driver</span><span class="p">.</span><span class="nx">findElement</span><span class="p">(</span><span class="nx">By</span><span class="p">.</span><span class="nx">name</span><span class="p">(</span><span class="dl">'</span><span class="s1">btnG</span><span class="dl">'</span><span class="p">)).</span><span class="nx">click</span><span class="p">();</span>
+</code></pre></div></div>
+<p>หา Element ที่ attribute name ว่า btnG (ปุ่มค้นหา) และคลิ๊ก</p>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">driver</span><span class="p">.</span><span class="nx">wait</span><span class="p">(</span><span class="nx">until</span><span class="p">.</span><span class="nx">titleIs</span><span class="p">(</span><span class="dl">'</span><span class="s1">webdriver - Google Search</span><span class="dl">'</span><span class="p">),</span> <span class="mi">1000</span><span class="p">);</span>
+</code></pre></div></div>
+<p>รอจน title ของเว็ปขึ้นว่า 'webdriver - Google Search' เป็นอันเสร็จสิ้นกระบวนความรันด้วยคำสั่ง</p>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">node</span> <span class="nx">index</span><span class="p">.</span><span class="nx">js</span>
+</code></pre></div></div>
+<p>เมื่อรันเสร็จจะได้ผลดังภาพ</p>
+<p><img src="/img/selenium/img01.gif" alt="การค้นหา Google ด้วย Selenium" />
+<span class="caption text-muted">ค้นหา Google ด้วย Selenium</span></p>
+
+<h1 id="conclusion">Conclusion</h1>
+
+<p>ศึกษาเพิ่มเติม <a href="http://seleniumhq.github.io/selenium/docs/api/javascript/module/selenium-webdriver/" target="_blank">Selenium API</a></p>
+<p>สามารถดาวโหลด Code ได้ที่นี่ <a href="https://github.com/noob-studio/selenium-ep01" target="_blank">Github</a></p>
+:ET

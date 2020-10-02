@@ -1,17 +1,20 @@
+/* ==========================================================================
+   0. Font Awesome by @fontawesome - https://fontawesome.com
+   License - https://fontawesome.com/license/free
+   ========================================================================== */
 @font-face {
-  font-family: 'icomoon';
-  src:  url('../vendor/icomoon/icomoon.eot?g4m7fo');
-  src:  url('../vendor/icomoon/icomoon.eot?g4m7fo#iefix') format('embedded-opentype'),
-    url('../vendor/icomoon/icomoon.ttf?g4m7fo') format('truetype'),
-    url('../vendor/icomoon/icomoon.woff?g4m7fo') format('woff'),
-    url('../vendor/icomoon/icomoon.svg?g4m7fo#icomoon') format('svg');
+  font-family: 'FontAwesome';
+  src:
+    url('../fonts/fontawesome.ttf?471qre') format('truetype'),
+    url('../fonts/fontawesome.woff?471qre') format('woff'),
+    url('../fonts/fontawesome.svg?471qre#FontAwesome') format('svg');
   font-weight: normal;
   font-style: normal;
 }
 
-[class^="icon-"], [class*=" icon-"] {
+[class^="fa-"], [class*=" fa-"] {
   /* use !important to prevent issues with browser extensions that change fonts */
-  font-family: 'icomoon' !important;
+  font-family: 'FontAwesome' !important;
   speak: none;
   font-style: normal;
   font-weight: normal;
@@ -24,51 +27,63 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-.icon-check_box:before {
-  content: "\e834";
+.fa-rss:before {
+  content: "\f09e";
 }
-.icon-warning:before {
-  content: "\e002";
+.fa-envelope:before {
+  content: "\f0e0";
 }
-.icon-local_offer:before {
-  content: "\e54e";
+.fa-linkedin:before {
+  content: "\f08c";
 }
-.icon-more_horiz:before {
-  content: "\e5d3";
+.fa-twitter:before {
+  content: "\f099";
 }
-.icon-code:before {
-  content: "\e86f";
+.fa-facebook:before {
+  content: "\f09a";
 }
-.icon-info:before {
-  content: "\e88e";
+.fa-github:before {
+  content: "\f09b";
 }
-.icon-invert_colors:before {
-  content: "\e891";
+.fa-pinterest:before {
+  content: "\f0d2";
 }
-.icon-language:before {
-  content: "\e894";
+.fa-youtube:before {
+  content: "\f167";
 }
-.icon-search:before {
-  content: "\e900";
+.fa-stack-overflow:before {
+  content: "\f16c";
 }
-.icon-invert_colors2:before {
-  content: "\e901";
+.fa-instagram:before {
+  content: "\f16d";
 }
-.icon-rss_feed:before {
-  content: "\e902";
+.fa-dribbble:before {
+  content: "\f17d";
 }
-.icon-mail_outline:before {
-  content: "\e903";
+.fa-reddit:before {
+  content: "\f1a1";
 }
-.icon-github:before {
-  content: "\e904";
+.fa-codepen:before {
+  content: "\f1cb";
 }
-.icon-stackoverflow:before {
-  content: "\e905";
+.fa-medium:before {
+  content: "\f23a";
 }
-.icon-twitter:before {
-  content: "\e906";
+.fa-product-hunt:before {
+  content: "\f288";
 }
-.icon-youtube:before {
-  content: "\e907";
+.fa-gitlab:before {
+  content: "\f296";
+}
+.fa-quora:before {
+  content: "\f2c4";
+}
+.fa-patreon:before {
+  content: "\f3d9";
+}
+.fa-vimeo:before {
+  content: "\f40a";
+}
+.fa-dev:before {
+  content: "\f6cc";
 }

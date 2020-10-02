@@ -1,0 +1,29 @@
+I"�<h1 id="problem">Problem</h1>
+<p>เชื่อว่าหลายๆ คนคงเคยประสบปัญหาในการพยายามจะใช้ node module บางตัวใน angular 8 นะครับเพราะว่าพอเราใช้ <strong><em>require</em></strong> เรียก module เข้ามาพอรันก็จะเจอ error ว่า</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">Cannot</span> <span class="nx">find</span> <span class="nx">name</span> <span class="dl">'</span><span class="s1">require</span><span class="dl">'</span><span class="p">.</span> <span class="nx">Do</span> <span class="nx">you</span> <span class="nx">need</span> <span class="nx">to</span> <span class="nx">install</span> <span class="nx">type</span> <span class="nx">definitions</span> <span class="k">for</span> <span class="nx">node</span><span class="p">?</span> 
+<span class="nx">Try</span> <span class="s2">`npm i @types/node`</span> <span class="nx">and</span> <span class="nx">then</span> <span class="nx">add</span> <span class="s2">`node`</span> <span class="nx">to</span> <span class="nx">the</span> <span class="nx">types</span> <span class="nx">field</span> <span class="k">in</span> <span class="nx">your</span> <span class="nx">tsconfig</span><span class="p">.</span>
+</code></pre></div></div>
+<!--more-->
+
+<h1 id="solution">Solution</h1>
+
+<p>วิธีแก้ก็ง่ายๆ เปิด Termianl ขึ้นมา พิมพ์ตามที่มันบอกเลยจ้า</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">npm</span> <span class="nx">i</span> <span class="p">@</span><span class="nd">types</span><span class="sr">/node --sav</span><span class="err">e
+</span></code></pre></div></div>
+
+<p>หลังจากนั้นให้เปิดไฟล์ <strong><em>tsconfig.app.json</em></strong> ขึ้นมาแล้วเพิ่มโค้ดเข้าไปดังนี้</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nl">"compilerOptions"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="err">...</span><span class="w">
+    </span><span class="nl">"types"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="s2">"node"</span><span class="w"> </span><span class="p">],</span><span class="w">
+    </span><span class="nl">"typeRoots"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="s2">"node_modules/@types"</span><span class="w"> </span><span class="p">]</span><span class="w">
+    </span><span class="err">...</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p>แค่นี้ก็เรียบร้อยแล้วจ้าา หวังว่าเพื่อนๆจะได้ความรู้จากบทความนี้ไม่มากก็น้อยนะครับ</p>
+
+<p>ปล. ขอให้เพื่อนๆ พี่ๆ น้องๆ ทุกคนอยู่บ้านปลอดภัยหายจาก Covid นะครับ</p>
+:ET

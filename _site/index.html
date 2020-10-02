@@ -1,480 +1,280 @@
 <!DOCTYPE html>
-<html lang="en">
-   <head>
-       <meta charset="utf-8">
-<meta http-equiv="x-ua-compatible" content="ie=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
-<title>Noob Studio </title>
-<!---->
-<meta name="description" content="This is my codex, One day I will die but my code will be forever.
-">
-<link rel="canonical" href="http://localhost:4000/">
-<meta name="twitter:card" content="summary" />
-<meta name="twitter:title" content="Blog" />
-<meta name="twitter:description" content="This is my codex, One day I will die but my code will be forever.
-" />
-<meta name="twitter:image" content="http://localhost:4000" />
-<meta name="author" content="">
-<link rel="author" href="">
-<meta property="og:locale" content="">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Blog">
-<meta property="og:description" content="This is my codex, One day I will die but my code will be forever.
-">
-<meta property="og:url" content="http://localhost:4000/">
-<meta property="og:site_name" content="Noob Studio">
-<link rel="stylesheet" href="/assets/vendor/normalize-css/normalize.css">
-<link rel="stylesheet" href="/assets/css/main.css">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Rubik:400,400italic,700,700italic">
-<style>
-    html {
-      font-family: "Rubik", -apple-system, BlinkMacSystemFont, "Helvetica Neue", sans-serif;
-    }
-</style>
-<link rel="stylesheet" href="/assets/css/bf.css">
-   <body>
-       <div class="wrapper" id="blep">
-          <header>
-   <div class="menu">
-     <div class="logo">
-        <a href="/">Noob Studio</a>
-     </div>
-       <ul>
-           <li><a href="/about">about</a>
-           <li><a href="/archive">archive</a>
-           <li><a href="/noob-engine">noob engine</a>
-       </ul>
-   </div>
-   <div class="social">
-     <ul>
-       <li>
-            <a href="https://github.com/noob-studio" target="_blank" class="smaller">
-              <span class="icon-github"></span>
-            </a>
-       <li>
-            <a href="mailto:noob.studio101@gmail.com" target="_blank">
-              <span class="icon-mail_outline"></span>
-            </a>
-       <li>
-            <a href="/feed.xml" target="_blank">
-                <span class="icon-rss_feed"></span>
-            </a>
-       <li>
-            <a href="#" onclick="switchTheme()" title="Switch theme?">
-              <span class="icon-invert_colors" id="theme-switcher"></span>
-            </a>
-     </ul>
-   </div>
+<html lang="th">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Noob Studio</title>
+  <meta name="description" content="การเขียนโปรมแกรมเป็นงานศิลปะ งานศิลปะที่ดีควรจะสวย และมีประโยชน์">
+  <link rel="canonical" href="http://localhost:4000/">
+  <link rel="alternate" type="application/rss+xml" title="Noob Studio Feed"
+    href="http://localhost:4000/feed.xml">
+  
+  <link rel="shortcut icon" href="/images/favicon.ico" type="image/png" />
+  
+  <!-- Styles -->
+  <!-- <link href="https://fonts.googleapis.com/css?family=Lato:400,400i,700,700i%7CNoto+Serif:400,400i,700,700i&display=swap" rel="stylesheet"> -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Rubik:400,400italic,700,700italic">
+  <link href="/assets/css/style.css" rel="stylesheet">
+</head>
+<body>
+
+  <div id="page" class="site">
+    <div class="inner">
+      <header class="site-header">
+  
+  <h1 class="site-title"><a class="logo-text" href="/">Noob Studio</a></h1>
+  
+  <nav class="site-navigation">
+    <div class="site-navigation-wrap">
+      <h2 class="screen-reader-text">Main navigation</h2>
+      <ul class="menu">
+        
+        
+        
+        <li class="menu-item nav-current">
+          <a class="nav-current" href="/">Home</a>
+        </li>
+        
+        
+        
+        <li class="menu-item ">
+          <a class="" href="/about/">About</a>
+        </li>
+        
+        
+        
+        <li class="menu-item ">
+          <a class="" href="/tags/">Tags</a>
+        </li>
+        
+        
+        
+        <li class="menu-item ">
+          <a class="" href="https://noob-studio.github.io/noob-engine">Noob Engine</a>
+        </li>
+        
+      </ul><!-- .menu -->
+      <button id="menu-close" class="menu-toggle"><span class="screen-reader-text">Close Menu</span><span
+          class="icon-close" aria-hidden="true"></span></button>
+    </div><!-- .site-navigation-wrap -->
+  </nav><!-- .site-navigation -->
+  <button id="menu-open" class="menu-toggle"><span class="screen-reader-text">Open Menu</span><span class="icon-menu" aria-hidden="true"></span></button>
 </header>
-<article class="blog">
-<style>
-  .how-to-use-require-in-angular {
-    margin-bottom: 2em;
-  }
-  .how-to-use-require-in-angular::before {
-    background-image: url('/img/node-require/cover.jpg');
-    background-size: cover;
-    /* -webkit-filter: grayscale(1) brightness(0.5) contrast(0.5); */
-    content:'';
-    position:absolute;
-    width: 100%;
-    left: 0;
-    top: 0;
-    z-index: -2;
-  }
-  .how-to-use-require-in-angular::after {
-    content:'';
-    position:absolute;
-    width: 100%;
-    left: 0;
-    top: 0;
-    background-color: rgba(0,0,0,.4);
-    /*mix-blend-mode: darken;
-    mix-blend-mode: color-burn;
-    mix-blend-mode: hard-light;*/
-    mix-blend-mode: darken;
-    z-index: -1;
-  }
-  .how-to-use-require-in-angular-container,
-  .how-to-use-require-in-angular-container::before,
-  .how-to-use-require-in-angular-container::after {
-    height: 25rem;
-  }
-  .how-to-use-require-in-angular-bleed-container,
-  .how-to-use-require-in-angular-bleed-container::before,
-  .how-to-use-require-in-angular-bleed-container::after {
-    height: 35rem;
-  }
-    @media (max-width: 48rem) {
-        .how-to-use-require-in-angular-container,
-        .how-to-use-require-in-angular-container::before,
-        .how-to-use-require-in-angular-container::after{
-            height: 20rem;
-            margin-bottom: 3rem;
-        }
-    }
-</style>
- <div class="
-    post-title-container
-        how-to-use-require-in-angular how-to-use-require-in-angular-container hero-hov
-  ">
-   <div class="heading-container hero-heading hero-heading-blog">
-     <h1>
-          <a href="/posts/how-to-use-require-in-angular" title="วิธีใช้งาน require('...') ใน Angular 8">วิธีใช้งาน require('...') ใน Angular 8</a>
-     </h1>
-     <div class="
-        post-meta
-      ">
-        <span>25/04/2020</span>
-        <span>
-              <a href="/tag/Tip&Trick">#Tip&Trick</a>
-              <a href="/tag/Angular 8">#Angular 8</a>
-              <a href="/tag/Ionic">#Ionic</a>
-              <a href="/tag/Typescript - Programming101">#Typescript - Programming101</a>
-        </span>
-     </div>
-   </div>
- </div>
-     <h1 id="problem">Problem</h1>
-<p class="lead">เชื่อว่าหลายๆ คนคงเคยประสบปัญหาในการพยายามจะใช้ node module บางตัวใน angular 8 นะครับเพราะว่าพอเราใช้ <strong><em>require</em></strong> เรียก module เข้ามาพอรันก็จะเจอ error ว่า
-<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">Cannot</span> <span class="nx">find</span> <span class="nx">name</span> <span class="s1">'require'</span><span class="p">.</span> <span class="nx">Do</span> <span class="nx">you</span> <span class="nx">need</span> <span class="nx">to</span> <span class="nx">install</span> <span class="nx">type</span> <span class="nx">definitions</span> <span class="k">for</span> <span class="nx">node</span><span class="p">?</span> 
-<span class="nx">Try</span> <span class="err">`</span><span class="nx">npm</span> <span class="nx">i</span> <span class="err">@</span><span class="nx">types</span><span class="o">/</span><span class="nx">node</span><span class="err">`</span> <span class="nx">and</span> <span class="nx">then</span> <span class="nx">add</span> <span class="err">`</span><span class="nx">node</span><span class="err">`</span> <span class="nx">to</span> <span class="nx">the</span> <span class="nx">types</span> <span class="nx">field</span> <span class="k">in</span> <span class="nx">your</span> <span class="nx">tsconfig</span><span class="p">.</span></code></pre></figure>
-       <div class="readmore">
-          <a href="/posts/how-to-use-require-in-angular" role="button">Read more</a>
-       <div>
-</article>
- <hr>
-<article class="blog">
-<style>
-  .angular-n-bootstrap-ep-01 {
-    margin-bottom: 2em;
-  }
-  .angular-n-bootstrap-ep-01::before {
-    background-image: url('/img/angular/cover.jpg');
-    background-size: cover;
-    /* -webkit-filter: grayscale(1) brightness(0.5) contrast(0.5); */
-    content:'';
-    position:absolute;
-    width: 100%;
-    left: 0;
-    top: 0;
-    z-index: -2;
-  }
-  .angular-n-bootstrap-ep-01::after {
-    content:'';
-    position:absolute;
-    width: 100%;
-    left: 0;
-    top: 0;
-    background-color: rgba(0,0,0,.4);
-    /*mix-blend-mode: darken;
-    mix-blend-mode: color-burn;
-    mix-blend-mode: hard-light;*/
-    mix-blend-mode: darken;
-    z-index: -1;
-  }
-  .angular-n-bootstrap-ep-01-container,
-  .angular-n-bootstrap-ep-01-container::before,
-  .angular-n-bootstrap-ep-01-container::after {
-    height: 25rem;
-  }
-  .angular-n-bootstrap-ep-01-bleed-container,
-  .angular-n-bootstrap-ep-01-bleed-container::before,
-  .angular-n-bootstrap-ep-01-bleed-container::after {
-    height: 35rem;
-  }
-    @media (max-width: 48rem) {
-        .angular-n-bootstrap-ep-01-container,
-        .angular-n-bootstrap-ep-01-container::before,
-        .angular-n-bootstrap-ep-01-container::after{
-            height: 20rem;
-            margin-bottom: 3rem;
-        }
-    }
-</style>
- <div class="
-    post-title-container
-        angular-n-bootstrap-ep-01 angular-n-bootstrap-ep-01-container hero-hov
-  ">
-   <div class="heading-container hero-heading hero-heading-blog">
-     <h1>
-          <a href="/posts/angular-n-bootstrap-ep-01" title="Programming 101 - Angular 'n Bootstrap EP. 01">Programming 101 - Angular 'n Bootstrap EP. 01</a>
-     </h1>
-     <div class="
-        post-meta
-      ">
-        <span>21/02/2020</span>
-        <span>
-              <a href="/tag/node.js">#node.js</a>
-              <a href="/tag/Programing101">#Programing101</a>
-              <a href="/tag/Typescript">#Typescript</a>
-              <a href="/tag/javascript">#javascript</a>
-              <a href="/tag/Angular">#Angular</a>
-              <a href="/tag/Bootstrap">#Bootstrap</a>
-              <a href="/tag/jquery">#jquery</a>
-        </span>
-     </div>
-   </div>
- </div>
-     <p class="lead">สอนใช้งาน Angular เบื้องต้น และการติดตั้ง Bootstrap 4 ร่วมกับ Angular 8 ในบทความนี้เราจะมาสอนการใช้งาน Bootstrap 4 ร่วมกับ Angular 8 รวมทั้ง Angular Component และการใช้ Bootstrap Theme เบื้องต้นสำหรับเริ่ม Project ใหม่
-<p>สวัสดีครับห่างหายจากการเขียนบล๊อคไปนาน วันนี้ผมก็จะกลับมาเขียนใหม่นะครับ โดยมารอบนี้จะเขียนเป็นซีรี่เลยชื่อซีรี่ว่า Angular ‘n Bootstrap โดยเนื้อหาในซีรี่นี้เราจะสอนตั้งแต่เริ่มต้นการใช้งาน สอนไปเรื่อยๆ แล้วแต่อารมณ์คนเขียนนะครับ แต่สัญญาว่ารอบนี้จะเขียนยาวๆ ไม่หายไปไหนแล้วนะจ๊ะ ปล. เราจะเน้นการปฎิบัติมากกว่าทฤษฎีนะครับ เพราะทฤษฎีเราไม่มีเรามีแต่ทฤษเดา 55555
-       <div class="readmore">
-          <a href="/posts/angular-n-bootstrap-ep-01" role="button">Read more</a>
-       <div>
-</article>
- <hr>
-<article class="blog">
-<style>
-  .programmer-dic {
-    margin-bottom: 2em;
-  }
-  .programmer-dic::before {
-    background-image: url('/img/dictionary/cover.jpg');
-    background-size: cover;
-    /* -webkit-filter: grayscale(1) brightness(0.5) contrast(0.5); */
-    content:'';
-    position:absolute;
-    width: 100%;
-    left: 0;
-    top: 0;
-    z-index: -2;
-  }
-  .programmer-dic::after {
-    content:'';
-    position:absolute;
-    width: 100%;
-    left: 0;
-    top: 0;
-    background-color: rgba(0,0,0,.4);
-    /*mix-blend-mode: darken;
-    mix-blend-mode: color-burn;
-    mix-blend-mode: hard-light;*/
-    mix-blend-mode: darken;
-    z-index: -1;
-  }
-  .programmer-dic-container,
-  .programmer-dic-container::before,
-  .programmer-dic-container::after {
-    height: 25rem;
-  }
-  .programmer-dic-bleed-container,
-  .programmer-dic-bleed-container::before,
-  .programmer-dic-bleed-container::after {
-    height: 35rem;
-  }
-    @media (max-width: 48rem) {
-        .programmer-dic-container,
-        .programmer-dic-container::before,
-        .programmer-dic-container::after{
-            height: 20rem;
-            margin-bottom: 3rem;
-        }
-    }
-</style>
- <div class="
-    post-title-container
-        programmer-dic programmer-dic-container hero-hov
-  ">
-   <div class="heading-container hero-heading hero-heading-blog">
-     <h1>
-          <a href="/posts/programmer-dic" title="Programming 101 - Progrmammer Dictionary">Programming 101 - Progrmammer Dictionary</a>
-     </h1>
-     <div class="
-        post-meta
-      ">
-        <span>21/02/2020</span>
-        <span>
-              <a href="/tag/dictionary">#dictionary</a>
-              <a href="/tag/Programing101">#Programing101</a>
-              <a href="/tag/บ่น">#บ่น</a>
-        </span>
-     </div>
-   </div>
- </div>
-     <p class="lead">คือผมมีผมด้อยตั้งแต่สมัยเข้ามหาลัยใหม่ๆ แบบว่าเวลาพวกอาจารย์กับรุ่นพี่ แล้วก็เด็กเทพๆ เค้าคุยกันเราแม่ง งง สัสๆ ผมเลยคิดว่าถ้าเรามีพจนานุกรมนิยามพวกนี้ให้คนกากๆ อย่างเราเข้าใจบ้างก็คงจะดี ผมก็เลยเขียนบทความนี้ขึ้นมา
-<blockquote>
- <p>บทความนี้ผมคิดขึ้นเองใช้อ้างอิงอะไรไม่ได้ทั้งนั้นนะครับ 5555
-</blockquote>
-       <div class="readmore">
-          <a href="/posts/programmer-dic" role="button">Read more</a>
-       <div>
-</article>
- <hr>
-<article class="blog">
-<style>
-  .seneca-nodejs-microservice {
-    margin-bottom: 2em;
-  }
-  .seneca-nodejs-microservice::before {
-    background-image: url('/img/seneca/cover.jpg');
-    background-size: cover;
-    /* -webkit-filter: grayscale(1) brightness(0.5) contrast(0.5); */
-    content:'';
-    position:absolute;
-    width: 100%;
-    left: 0;
-    top: 0;
-    z-index: -2;
-  }
-  .seneca-nodejs-microservice::after {
-    content:'';
-    position:absolute;
-    width: 100%;
-    left: 0;
-    top: 0;
-    background-color: rgba(0,0,0,.4);
-    /*mix-blend-mode: darken;
-    mix-blend-mode: color-burn;
-    mix-blend-mode: hard-light;*/
-    mix-blend-mode: darken;
-    z-index: -1;
-  }
-  .seneca-nodejs-microservice-container,
-  .seneca-nodejs-microservice-container::before,
-  .seneca-nodejs-microservice-container::after {
-    height: 25rem;
-  }
-  .seneca-nodejs-microservice-bleed-container,
-  .seneca-nodejs-microservice-bleed-container::before,
-  .seneca-nodejs-microservice-bleed-container::after {
-    height: 35rem;
-  }
-    @media (max-width: 48rem) {
-        .seneca-nodejs-microservice-container,
-        .seneca-nodejs-microservice-container::before,
-        .seneca-nodejs-microservice-container::after{
-            height: 20rem;
-            margin-bottom: 3rem;
-        }
-    }
-</style>
- <div class="
-    post-title-container
-        seneca-nodejs-microservice seneca-nodejs-microservice-container hero-hov
-  ">
-   <div class="heading-container hero-heading hero-heading-blog">
-     <h1>
-          <a href="/posts/seneca-nodejs-microservice" title="เขียน Microservice ด้วย Node.js และ Seneca.js">เขียน Microservice ด้วย Node.js และ Seneca.js</a>
-     </h1>
-     <div class="
-        post-meta
-      ">
-        <span>18/01/2018</span>
-        <span>
-              <a href="/tag/node.js">#node.js</a>
-              <a href="/tag/microservice">#microservice</a>
-              <a href="/tag/javascript">#javascript</a>
-              <a href="/tag/backend">#backend</a>
-        </span>
-     </div>
-   </div>
- </div>
-     <p class="lead">ในช่วง 2-3 ปีที่ผ่านกระแส Microservice ได้มาแรงมากๆ โดยที่ทำงานผมปัจจุบันแอพพลิเคชัน แอพเดียวนี่มี Microservice support อยู่หลังบ้านเป็น 10 ระบบแล้ว ดังนั้นถ้าผมไม่พูดถึงมันจะไม่เทรนนะจ๊ะ แต่จะไม่ลงรายละเอียดในส่วนของทฤษฎีเยอะนะครับเพราะมีพี่ๆ เขียนไว้เยอะแล้ว เรามันสายบู๊อยู่แล้วว่ะฮ่ะฮ่ะ
-<h1 id="microservice-คืออะไร">Microservice คืออะไร</h1>
-<p>
-Microservice คือแนวคิดการพัฒนาโปรแกรมแบบแยกโปรแกรมเป็นส่วนเล็กๆ ที่สามารถทำงานแยกออกจากกันได้มี environment แยกออกจากกัน แต่ก็สามารถทำงานร่วมกันได้เพื่อรวมกันกลายเป็นระบบที่ใหญ่ขึ้น ยกตัวอย่างเช่น ระบบธนาคาร (คลาสสิคสุดๆ) 
-       <div class="readmore">
-          <a href="/posts/seneca-nodejs-microservice" role="button">Read more</a>
-       <div>
-</article>
- <hr>
-<article class="blog">
-<style>
-  .loopback-nodejs-framework {
-    margin-bottom: 2em;
-  }
-  .loopback-nodejs-framework::before {
-    background-image: url('/img/loopback/cover.jpg');
-    background-size: cover;
-    /* -webkit-filter: grayscale(1) brightness(0.5) contrast(0.5); */
-    content:'';
-    position:absolute;
-    width: 100%;
-    left: 0;
-    top: 0;
-    z-index: -2;
-  }
-  .loopback-nodejs-framework::after {
-    content:'';
-    position:absolute;
-    width: 100%;
-    left: 0;
-    top: 0;
-    background-color: rgba(0,0,0,.4);
-    /*mix-blend-mode: darken;
-    mix-blend-mode: color-burn;
-    mix-blend-mode: hard-light;*/
-    mix-blend-mode: darken;
-    z-index: -1;
-  }
-  .loopback-nodejs-framework-container,
-  .loopback-nodejs-framework-container::before,
-  .loopback-nodejs-framework-container::after {
-    height: 25rem;
-  }
-  .loopback-nodejs-framework-bleed-container,
-  .loopback-nodejs-framework-bleed-container::before,
-  .loopback-nodejs-framework-bleed-container::after {
-    height: 35rem;
-  }
-    @media (max-width: 48rem) {
-        .loopback-nodejs-framework-container,
-        .loopback-nodejs-framework-container::before,
-        .loopback-nodejs-framework-container::after{
-            height: 20rem;
-            margin-bottom: 3rem;
-        }
-    }
-</style>
- <div class="
-    post-title-container
-        loopback-nodejs-framework loopback-nodejs-framework-container hero-hov
-  ">
-   <div class="heading-container hero-heading hero-heading-blog">
-     <h1>
-          <a href="/posts/loopback-nodejs-framework" title="เขียน RESTful API ใน Node.js แบบ 'โคตรไว' ด้วย Loopback">เขียน RESTful API ใน Node.js แบบ 'โคตรไว' ด้วย Loopback</a>
-     </h1>
-     <div class="
-        post-meta
-      ">
-        <span>04/12/2017</span>
-        <span>
-              <a href="/tag/node.js">#node.js</a>
-              <a href="/tag/javascript">#javascript</a>
-        </span>
-     </div>
-   </div>
- </div>
-<p class="lead">เนื่องจากผมได้มีโอกาศไปรับงานนึงเกี่ยวกับการจัดการ Stock สินค้าซึ่งจาก Scale งานเนี่ยน่าจะใช้เวลาพัฒนาประมาณ 2 อาทิตย์แต่ลูกค้าแบบว่าเร่งมากบอกน้องพี่ขอ 7 วันได้ไหม!!
-<p>แม่เจ้าาาา รีบไปไหนเนี่ยพ่อคู๊ณณ แต่ถือเป็นโชคดีที่ก่อนหน้าที่ทำงานของผมได้ให้ผมทำ research เกี่ยวกับ node.js framework ตัวนึงชื่อว่า <a href="http://loopback.io" target="_blank">loopback</a> ซึ่งหลังจากได้ลองใช้ขอบอกเลยว่ามันดีมากเลยอ่ะแกรร แบบว่าของมันต้องใช้อ่ะแกรร ว่าแล้วเราก็มาลองใช้งานกันเลยเถอะ
-       <div class="readmore">
-          <a href="/posts/loopback-nodejs-framework" role="button">Read more</a>
-       <div>
-</article>
-<nav class="pagination" role="navigation">
-<hr/>
- <ul>
-   <li class="pagination-item-prev" >
-      <span>&laquo; Previous</span>
-   <li class="pagination-item-next" >
-      <a rel="next" href="/page-2/">Next &raquo;</a>
- </ul>
-<hr/>
-</nav>
-           <footer>
-    <span>This is my codex, One day I will die but my code will be forever.
-</span>
-    <span>written by Freeweed</span>
-</footer>
-       </div>
-<script type="text/javascript" src="/assets/js/theme.js"></script>
-<script type="text/javascript" src="/assets/js/barefoot.js"></script>
-    <script>
-      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-      ga('create', 'UA-93921891-1', 'auto');
-      ga('send', 'pageview');
-    </script>
+
+
+<div class="site-description fadeInDown delay_05s">
+  <p>การเขียนโปรมแกรมเป็นงานศิลปะ งานศิลปะที่ดีควรจะสวย และมีประโยชน์</p>
+</div><!-- .site-description -->
+
+      <main class="main-content fadeInDown delay_075s">
+
+  
+  <article class="post">
+    <header class="post-header">
+      <time class="post-date" datetime="2020-04-25">April 25, 2020</time>
+      <h2 class="post-title"><a href="/how-to-use-require-in-angular" rel="bookmark">วิธีใช้งาน require('...') ใน Angular 8</a></h2>
+      <div class="post-meta">
+        By <span class="post-author">Freeweed</span><span
+          class="post-tags"> in
+          <a href="/tags/#Tip%26Trick" rel="tag">Tip&Trick</a>, <a href="/tags/#Angular+8" rel="tag">Angular 8</a>, <a href="/tags/#Ionic" rel="tag">Ionic</a>, <a href="/tags/#Typescript+-+Programming101" rel="tag">Typescript - Programming101</a></span>
+      </div><!-- .post-meta -->
+      
+      <figure class="post-thumbnail image-card width-wide">
+        <a href="/how-to-use-require-in-angular"><img src="/img/node-require/cover.jpg"
+            alt="วิธีใช้งาน require('...') ใน Angular 8"></a>
+      </figure><!-- .post-thumbnail -->
+      
+    </header><!-- .post-header -->
+    <div class="post-content">
+      
+      <h1 id="problem">Problem</h1>
+<p>เชื่อว่าหลายๆ คนคงเคยประสบปัญหาในการพยายามจะใช้ node module บางตัวใน angular 8 นะครับเพราะว่าพอเราใช้ <strong><em>require</em></strong> เรียก module เข้ามาพอรันก็จะเจอ error ว่า</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">Cannot</span> <span class="nx">find</span> <span class="nx">name</span> <span class="dl">'</span><span class="s1">require</span><span class="dl">'</span><span class="p">.</span> <span class="nx">Do</span> <span class="nx">you</span> <span class="nx">need</span> <span class="nx">to</span> <span class="nx">install</span> <span class="nx">type</span> <span class="nx">definitions</span> <span class="k">for</span> <span class="nx">node</span><span class="p">?</span> 
+<span class="nx">Try</span> <span class="s2">`npm i @types/node`</span> <span class="nx">and</span> <span class="nx">then</span> <span class="nx">add</span> <span class="s2">`node`</span> <span class="nx">to</span> <span class="nx">the</span> <span class="nx">types</span> <span class="nx">field</span> <span class="k">in</span> <span class="nx">your</span> <span class="nx">tsconfig</span><span class="p">.</span>
+</code></pre></div></div>
+
+      <p class="read-more"><a href="/how-to-use-require-in-angular" class="read-more-link">Continue reading &rarr;</a>
+      </p>
+      
+    </div><!-- .post-content -->
+  </article><!-- .post -->
+  
+  <article class="post">
+    <header class="post-header">
+      <time class="post-date" datetime="2020-02-21">February 21, 2020</time>
+      <h2 class="post-title"><a href="/angular'n-bootstrap-ep-01" rel="bookmark">Programming 101 - Angular 'n Bootstrap EP. 01</a></h2>
+      <div class="post-meta">
+        By <span class="post-author">Freeweed</span><span
+          class="post-tags"> in
+          <a href="/tags/#node.js" rel="tag">node.js</a>, <a href="/tags/#Programing101" rel="tag">Programing101</a>, <a href="/tags/#Typescript" rel="tag">Typescript</a>, <a href="/tags/#javascript" rel="tag">javascript</a>, <a href="/tags/#Angular" rel="tag">Angular</a>, <a href="/tags/#Bootstrap" rel="tag">Bootstrap</a>, <a href="/tags/#jquery" rel="tag">jquery</a></span>
+      </div><!-- .post-meta -->
+      
+      <figure class="post-thumbnail image-card width-wide">
+        <a href="/angular'n-bootstrap-ep-01"><img src="/img/angular/cover.jpg"
+            alt="Programming 101 - Angular 'n Bootstrap EP. 01"></a>
+      </figure><!-- .post-thumbnail -->
+      
+    </header><!-- .post-header -->
+    <div class="post-content">
+      
+      <p>สอนใช้งาน Angular เบื้องต้น และการติดตั้ง Bootstrap 4 ร่วมกับ Angular 8 ในบทความนี้เราจะมาสอนการใช้งาน Bootstrap 4 ร่วมกับ Angular 8 รวมทั้ง Angular Component และการใช้ Bootstrap Theme เบื้องต้นสำหรับเริ่ม Project ใหม่</p>
+
+
+      <p class="read-more"><a href="/angular'n-bootstrap-ep-01" class="read-more-link">Continue reading &rarr;</a>
+      </p>
+      
+    </div><!-- .post-content -->
+  </article><!-- .post -->
+  
+  <article class="post">
+    <header class="post-header">
+      <time class="post-date" datetime="2020-02-21">February 21, 2020</time>
+      <h2 class="post-title"><a href="/programmer-dic" rel="bookmark">Programming 101 - Progrmammer Dictionary</a></h2>
+      <div class="post-meta">
+        By <span class="post-author">Freeweed</span><span
+          class="post-tags"> in
+          <a href="/tags/#dictionary" rel="tag">dictionary</a>, <a href="/tags/#Programing101" rel="tag">Programing101</a>, <a href="/tags/#%E0%B8%9A%E0%B9%88%E0%B8%99" rel="tag">บ่น</a></span>
+      </div><!-- .post-meta -->
+      
+      <figure class="post-thumbnail image-card width-wide">
+        <a href="/programmer-dic"><img src="/img/dictionary/cover.jpg"
+            alt="Programming 101 - Progrmammer Dictionary"></a>
+      </figure><!-- .post-thumbnail -->
+      
+    </header><!-- .post-header -->
+    <div class="post-content">
+      
+      <p>คือผมมีผมด้อยตั้งแต่สมัยเข้ามหาลัยใหม่ๆ แบบว่าเวลาพวกอาจารย์กับรุ่นพี่ แล้วก็เด็กเทพๆ เค้าคุยกันเราแม่ง งง สัสๆ ผมเลยคิดว่าถ้าเรามีพจนานุกรมนิยามพวกนี้ให้คนกากๆ อย่างเราเข้าใจบ้างก็คงจะดี ผมก็เลยเขียนบทความนี้ขึ้นมา</p>
+
+
+      <p class="read-more"><a href="/programmer-dic" class="read-more-link">Continue reading &rarr;</a>
+      </p>
+      
+    </div><!-- .post-content -->
+  </article><!-- .post -->
+  
+  <article class="post">
+    <header class="post-header">
+      <time class="post-date" datetime="2020-01-05">January 5, 2020</time>
+      <h2 class="post-title"><a href="/Graphic-Designer-On-The-Road" rel="bookmark">Graphic Designer On The Road</a></h2>
+      <div class="post-meta">
+        By <span class="post-author">Freeweed</span><span
+          class="post-tags"> in
+          <a href="/tags/#tips" rel="tag">tips</a>, <a href="/tags/#work" rel="tag">work</a></span>
+      </div><!-- .post-meta -->
+      
+      <figure class="post-thumbnail image-card width-wide">
+        <a href="/Graphic-Designer-On-The-Road"><img src="/images/road.jpg"
+            alt="Graphic Designer On The Road"></a>
+      </figure><!-- .post-thumbnail -->
+      
+    </header><!-- .post-header -->
+    <div class="post-content">
+      
+      <p>A graphic designer is a professional within the graphic design and graphic arts industry who assembles together images, typography, or motion graphics to create a piece of design. A graphic designer creates the graphics primarily for published, printed or electronic media, such as brochures (sometimes) and advertising. They are also sometimes responsible for typesetting, illustration, user interfaces, web design, or take a teaching position. A core responsibility of the designer’s job is to present information in a way that is both accessible and memorable.</p>
+
+
+      <p class="read-more"><a href="/Graphic-Designer-On-The-Road" class="read-more-link">Continue reading &rarr;</a>
+      </p>
+      
+    </div><!-- .post-content -->
+  </article><!-- .post -->
+  
+  <article class="post">
+    <header class="post-header">
+      <time class="post-date" datetime="2019-01-04">January 4, 2019</time>
+      <h2 class="post-title"><a href="/a-week-with-the-apple-watch" rel="bookmark">Review: A Week With the Apple Watch</a></h2>
+      <div class="post-meta">
+        By <span class="post-author">Freeweed</span><span
+          class="post-tags"> in
+          <a href="/tags/#tips" rel="tag">tips</a>, <a href="/tags/#work" rel="tag">work</a></span>
+      </div><!-- .post-meta -->
+      
+      <figure class="post-thumbnail image-card width-wide">
+        <a href="/a-week-with-the-apple-watch"><img src="/images/apple-watch.jpg"
+            alt="Review: A Week With the Apple Watch"></a>
+      </figure><!-- .post-thumbnail -->
+      
+    </header><!-- .post-header -->
+    <div class="post-content">
+      
+      <p>The <strong>Apple Watch</strong> is a smartwatch developed by <a href="http://www.apple.com/">Apple Inc</a>. It incorporates fitness tracking and health-oriented capabilities as well as integration with iOS and other Apple products and services. The device is available in four variants: Apple Watch Sport, Apple Watch, Apple Watch Hermès, and Apple Watch Edition. The Watch is distinguished by different combinations of cases and first or third party interchangeable bands. Apple Watch relies on a wirelessly connected iPhone to perform many of its default functions such as calling and texting. It is compatible with the iPhone 5 or later models running iOS 8.2 or later, through the use of Bluetooth or Wi-Fi.</p>
+
+
+      <p class="read-more"><a href="/a-week-with-the-apple-watch" class="read-more-link">Continue reading &rarr;</a>
+      </p>
+      
+    </div><!-- .post-content -->
+  </article><!-- .post -->
+  
+
+  
+  <nav class="pagination">
+    <h2 class="screen-reader-text">Posts navigation</h2>
+    <div class="nav-links">
+      
+      <span class="page-number">Page 1 of 4</span>
+      
+      <a href="/page2/" class="older-posts">Older Posts &rarr;</a>
+      
+    </div>
+  </nav><!-- .pagination -->
+  
+
+</main><!-- .site-main -->
+      <footer class="site-footer">
+  <div class="offsite-links">
     
+      
+<a href="https://twitter.com/" target="_blank" rel="noopener">
+  <span class="fa-twitter" aria-hidden="true"></span>
+  <span class="screen-reader-text">Twitter</span>
+</a>
+
+<a href="https://github.com/" target="_blank" rel="noopener">
+  <span class="fa-github" aria-hidden="true"></span>
+  <span class="screen-reader-text">GitHub</span>
+</a>
+
+<a href="https://www.instagram.com/" target="_blank" rel="noopener">
+  <span class="fa-instagram" aria-hidden="true"></span>
+  <span class="screen-reader-text">Instagram</span>
+</a>
+
+<a href="https://www.linkedin.com/" target="_blank" rel="noopener">
+  <span class="fa-linkedin" aria-hidden="true"></span>
+  <span class="screen-reader-text">LinkedIn</span>
+</a>
+
+    
+  </div><!-- .offsite-links -->
+  <div class="footer-bottom">
+    <div class="site-info">
+      <p>This is my codex, One day I will die but my code will be forever.</p>
+
+    </div><!-- .site-info -->
+    <a href="#page" id="back-to-top" class="back-to-top"><span class="screen-reader-text">Back to the top </span>&#8593;</a>
+  </div><!-- .footer-bottom -->
+</footer><!-- .site-footer -->
+
+    </div><!-- .inner -->
+  </div><!-- .site -->
+
+  <!-- Scripts -->
+  
+    <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-93921891-1', 'auto');
+  ga('send', 'pageview');
+</script>
+  
+  <script src="/assets/js/plugins.js"></script>
+  <script src="/assets/js/custom.js"></script>
+
+</body>
+</html>

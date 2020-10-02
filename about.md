@@ -1,27 +1,16 @@
 ---
 layout: page
-title: About
-permalink: /about/
-published: true
+title: About this blog
+description: An optional about page for Scriptor Jekyll theme
+feature_image: images/about.jpg
 ---
 
-<div class="page" markdown="1">
+**John Doe** is a Senior Art Director from [Vilnius](https://en.wikipedia.org/wiki/Vilnius), Lithuania. After graduating from The College of Visual Arts with a degree in Communication Design, he worked for three small graphic design shops where he honed his design style and sensibility.
 
-{% capture page_subtitle %}
-<img
-    class="me"
-    alt="{{ author.name }}"
-    src="{{ site.author.photo | relative_url }}"
-    srcset="{{ site.author.photo2x | relative_url }} 2x"
-/>
-{% endcapture %}
+His work has been recognized by Communication Arts, Print, How, ID, IdN, AIGA, Effie, Archive, Graphis, AdFed and Rockport. Graphic Design USA named him a person to watch in 2015.
 
-{% include page/title.html title=page.title subtitle=page_subtitle %}
+>The world always seems brighter when you’ve just made something that wasn’t there before. <cite>Neil Gaiman</cite>
 
-## Freeweed
-> To see the world, things dangerous to come to, to see behind walls, draw closer, to find each other, and to feel. That is the purpose of life. - The Secret Life of Walter Mitty 
+As a hobby, John Doe authors the most influential design blog in Lithuania with over 100,000 page views a month. He lives in Vilnius with his beautiful wife, two boys and one girl.
 
-เนื้อหาในเว็บไซต์นี้เป็นการจดบันทึกการเดินทางของชีวิตคนๆหนึ่งสำหรับ เก็บรวบรวมความรู้ ประสบการณ์ และความคิดเห็นส่วนตัว หวังว่าคงจะมีประโยชน์สำหรับ บุคคลที่เข้ามาอ่านไม่มากก็น้อย ขอบคุณครับ
-
-
-</div>
+*Thank You for reading!*

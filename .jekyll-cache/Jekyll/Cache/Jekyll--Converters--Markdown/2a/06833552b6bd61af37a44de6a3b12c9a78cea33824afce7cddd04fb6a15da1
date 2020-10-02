@@ -1,0 +1,356 @@
+I";�<p>สอนใช้งาน Angular เบื้องต้น และการติดตั้ง Bootstrap 4 ร่วมกับ Angular 8 ในบทความนี้เราจะมาสอนการใช้งาน Bootstrap 4 ร่วมกับ Angular 8 รวมทั้ง Angular Component และการใช้ Bootstrap Theme เบื้องต้นสำหรับเริ่ม Project ใหม่</p>
+
+<!--more-->
+
+<p>สวัสดีครับห่างหายจากการเขียนบล๊อคไปนาน วันนี้ผมก็จะกลับมาเขียนใหม่นะครับ โดยมารอบนี้จะเขียนเป็นซีรี่เลยชื่อซีรี่ว่า Angular ‘n Bootstrap โดยเนื้อหาในซีรี่นี้เราจะสอนตั้งแต่เริ่มต้นการใช้งาน สอนไปเรื่อยๆ แล้วแต่อารมณ์คนเขียนนะครับ แต่สัญญาว่ารอบนี้จะเขียนยาวๆ ไม่หายไปไหนแล้วนะจ๊ะ ปล. เราจะเน้นการปฎิบัติมากกว่าทฤษฎีนะครับ เพราะทฤษฎีเราไม่มีเรามีแต่ทฤษเดา 55555</p>
+
+<h1 id="prepare">Prepare</h1>
+
+<p>สิ่งที่ต้องการก่อนเริ่มอ่านบทความนี้</p>
+
+<ul>
+  <li>ความรู้พื้นฐาน Javascript</li>
+  <li>ความรู้พื้นฐาน Bootstrap</li>
+  <li>ติดตั้ง <a href="https://angular.io/" target="_blank">Angular CLI</a> บนเครื่องให้เรียบร้อย</li>
+</ul>
+
+<blockquote>
+  <p>Angular คือ Javascript Framework ตัวนึงเกิดขึ้นมาตั้งแต่ปี 2016 โดยในปัจจุบันก็มาถึง version 8 แล้วนะครับ ข้อดีของ Angular คือ Code สามารถนำไป reuse ได้ง่ายเครื่องไม้เครื่องมือมีครบ และที่สำคัญคือ two-way binding ทำให้ทุกอย่างง่ายขึ้นเยอะ สำหรับข้อมูลเพิ่มเติมอื่นๆ สามารถหาอ่านได้ที่ <a href="https://angular.io/" target="_blank">angular.io</a> นะครับ</p>
+</blockquote>
+
+<h1 id="new-angular-project">New Angular Project</h1>
+<p>เปิด Terminal ขึ้นมาแล้วพิมพ์คำสั่ง</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">ng</span> <span class="k">new</span> <span class="nx">awesome</span><span class="o">-</span><span class="nx">angular</span>
+</code></pre></div></div>
+
+<p>จะขึ้นหน้าจอถามว่าต้องการใช้ style ประเภทไหนผมเลือก css และมีคำสั่งถามว่าต้องการใช้ angular route หรือไม่ให้ตอบ yes</p>
+
+<p><img src="/img/angular/ep01/start-angular.png" alt="บริการรับทำเว็บไซด์ แอพพลิเคชัน ระบบสำหรับใช้ในองค์กร เว็บขายของระบบ E-commerce หรือระบบต่างๆ" /></p>
+
+<p>เมื่อทำการตั้งค่าเสร็จให้พิมพ์คำสั่ง</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">cd</span> <span class="nx">awesome</span><span class="o">-</span><span class="nx">angular</span>
+</code></pre></div></div>
+
+<p>เพื่อเข้าไปใน Directory Project โดย Project จะมีโครงสร้างที่ต้องสนใจ ดังนี้</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">awesome</span><span class="o">-</span><span class="nx">angular</span>
+<span class="err">├──</span> <span class="nx">src</span> 
+<span class="err">│</span>   <span class="err">├──</span> <span class="nx">assets</span> <span class="c1">// สำหรับเก็บ assets ต่างๆ ที่ต้องการใช้ใน Project</span>
+<span class="err">│</span>   <span class="err">│</span>   <span class="err">├──</span> <span class="nx">css</span>
+<span class="err">│</span>   <span class="err">│</span>   <span class="err">├──</span> <span class="nx">js</span>
+<span class="err">│</span>   <span class="err">│</span>   <span class="err">├──</span> <span class="nx">image</span>
+<span class="err">│</span>   <span class="err">└──</span> <span class="nx">app</span>
+<span class="err">│</span>       <span class="err">├──</span> <span class="nx">app</span><span class="o">-</span><span class="nx">routing</span><span class="p">.</span><span class="nx">module</span><span class="p">.</span><span class="nx">ts</span> <span class="c1">// ที่สำหรับวาง route</span>
+<span class="err">│</span>       <span class="err">├──</span> <span class="nx">app</span><span class="p">.</span><span class="nx">component</span><span class="p">.</span><span class="nx">css</span> <span class="c1">// โค้ด css สำหรับ component หลัก</span>
+<span class="err">│</span>       <span class="err">├──</span> <span class="nx">app</span><span class="p">.</span><span class="nx">component</span><span class="p">.</span><span class="nx">ts</span> <span class="c1">// สำหรับวาง logic component หลัก</span>
+<span class="err">│</span>       <span class="err">├──</span> <span class="nx">app</span><span class="p">.</span><span class="nx">component</span><span class="p">.</span><span class="nx">html</span> <span class="c1">// template html ของ component หลัก</span>
+<span class="err">│</span>       <span class="err">└──</span> <span class="nx">app</span><span class="p">.</span><span class="nx">module</span><span class="p">.</span><span class="nx">html</span> <span class="c1">// module หลักของระบบ</span>
+<span class="err">├──</span> <span class="nx">angular</span><span class="p">.</span><span class="nx">json</span> <span class="c1">// เก็บ setting สำหรับ angular cli</span>
+<span class="err">└──</span> <span class="kr">package</span><span class="p">.</span><span class="nx">json</span> <span class="c1">// เก็บ setting และ package ต่างๆของโปรเจค</span>
+</code></pre></div></div>
+
+<h1 id="install-bootstrap">Install Bootstrap</h1>
+<p>เมื่อเราสร้างโปรเจคเสร็จแล้วนะครับต่อมาเราก็จะมาทำการติดตั้ง Bootstrap Plugin ให้ Angular กันนะครับโดยขั้นตอนก็มีง่ายๆ โดยพิมพ์คำสั่ง</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">npm</span> <span class="nx">install</span> <span class="nx">boostrap</span> <span class="nx">jquery</span> <span class="nx">popper</span><span class="p">.</span><span class="nx">js</span> <span class="o">--</span><span class="nx">save</span>
+</code></pre></div></div>
+
+<p>เมื่อติดตั้งเสร็จแล้วให้เปิดไฟล์ชื่อว่า <strong>angular.json</strong> และเพิ่มรายละเอียดดังนี้</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">...</span><span class="w">
+</span><span class="nl">"styles"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="s2">"src/styles.css"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"./node_modules/bootstrap/dist/css/bootstrap.min.css"</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">เพิ่ม</span><span class="w">
+</span><span class="p">]</span><span class="err">,</span><span class="w">
+</span><span class="nl">"scripts"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="s2">"./node_modules/jquery/dist/jquery.min.js"</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">เพิ่ม</span><span class="w">
+    </span><span class="s2">"./node_modules/bootstrap/dist/js/bootstrap.js"</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">เพิ่ม</span><span class="w">
+</span><span class="p">]</span><span class="err">,</span><span class="w">
+</span><span class="err">...</span><span class="w">
+</span></code></pre></div></div>
+
+<h2 id="change-theme-optional">Change Theme (Optional)</h2>
+<p>หากต้องการเปลี่ยนธีมให้เปิดไปที่เว็บไซด์ <a href="https://bootswatch.com/">bootswatch</a> โดยเว็บนี้รวบรวม Theme Bootstrap ตั้งต้นไว้ให้เราเอาไปพัฒนาต่อง่าย</p>
+
+<p><img src="/img/angular/ep01/bootstrapwatch.png" alt="บริการรับทำเว็บไซด์ แอพพลิเคชัน ระบบสำหรับใช้ในองค์กร เว็บขายของระบบ E-commerce หรือระบบต่างๆ" /></p>
+
+<p>เมื่อเลือก theme ได้แล้วให้คลิ๊กที่ ชื่อ Theme และ bootstrap.min.css เว็บไซด์จะทำการดาวโหลดไฟล์ <strong>bootstrap.min.css</strong> นำไฟล์ไปวางไว้ที่ <strong>src/assets/css/</strong></p>
+
+<p>และเปิดไฟล์ <strong>angular.json</strong> อีกครั้งเพื่อแก้ไข</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">...</span><span class="w">
+</span><span class="nl">"styles"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="s2">"src/styles.css"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"src/assets/css/bootstrap.min.css"</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">แก้ไข</span><span class="w">
+</span><span class="p">]</span><span class="err">,</span><span class="w">
+</span><span class="err">...</span><span class="w">
+</span></code></pre></div></div>
+<p>หลังจากนั้นพิมพ์คำสั่ง</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">ng</span><span class="w"> </span><span class="err">serve</span><span class="w">
+</span></code></pre></div></div>
+
+<p>แล้วเปิด Browser ไปที่ <a href="http://localhost:4200" target="_blank">localhost:4200</a> จะพบหน้าตาดังนี้</p>
+
+<p><img src="/img/angular/ep01/result.png" alt="บริการรับทำเว็บไซด์ แอพพลิเคชัน ระบบสำหรับใช้ในองค์กร เว็บขายของระบบ E-commerce หรือระบบต่างๆ" /></p>
+
+<p>ต่อมาเราจะมาทำความรู้จักกับ Angular Component และ Angular Route เบื้องต้น</p>
+
+<h1 id="angular-component">Angular Component</h1>
+<p>ใน Angular หน้าเว็บจะเป็นแบบ single page หมายความว่าตัว Angular มองส่วนประกอบต่างๆ ของหน้าเว็บแยกเป็นส่วนแยกออกจากกัน(Component) แล้วนำมาประกอบกันเพื่อให้การเป็นเว็บไซด์ โดยวันนี้เว็บไซด์ที่เราจะทำเราจะแยก Component เป็น 3 ส่วนง่ายๆ ดังนี้</p>
+
+<p><img src="/img/angular/ep01/component.png" alt="บริการรับทำเว็บไซด์ แอพพลิเคชัน ระบบสำหรับใช้ในองค์กร เว็บขายของระบบ E-commerce หรือระบบต่างๆ" /></p>
+
+<ul>
+  <li>App Component คือที่วางหน้าหลักของเรา</li>
+  <li>Navbar Component มีไว้สำหรับนำทางไปที่หน้าต่างๆ</li>
+  <li>Content Component มีไว้สำหรับวาง Content ต่างๆ ของเว็บไซด์ของเรา</li>
+</ul>
+
+<h1 id="create-component">Create Component</h1>
+<p>ต่อมาเราจะมาสร้าง Angular Component กันนะครับวิธีสร้างก็ง่ายๆ ให้เปิด terminal ขึ้นมาแล้วพิมพ์คำสั่งว่า</p>
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">ng</span><span class="w"> </span><span class="err">generate</span><span class="w"> </span><span class="err">component</span><span class="w"> </span><span class="err">shared/navbar</span><span class="w">
+</span><span class="err">ng</span><span class="w"> </span><span class="err">generate</span><span class="w"> </span><span class="err">component</span><span class="w"> </span><span class="err">page/about</span><span class="w">
+</span><span class="err">ng</span><span class="w"> </span><span class="err">generate</span><span class="w"> </span><span class="err">component</span><span class="w"> </span><span class="err">page/home</span><span class="w">
+</span><span class="err">ng</span><span class="w"> </span><span class="err">generate</span><span class="w"> </span><span class="err">component</span><span class="w"> </span><span class="err">page/features</span><span class="w">
+</span></code></pre></div></div>
+
+<h2 id="command-description">Command Description</h2>
+<ul>
+  <li><code class="highlighter-rouge">ng generate</code> หรือ <code class="highlighter-rouge">ng g</code> คือคำสั่งสำหรับสร้างส่วนประกอบของ angular</li>
+  <li><code class="highlighter-rouge">component</code> หรือ <code class="highlighter-rouge">c</code> คือสื่งที่ต้องการสร้างซึ่งมีหลายอย่างเช่น component pipe service module เป็นต้น</li>
+  <li><code class="highlighter-rouge">shared/navbar</code> คือชื่อสิ่งที่ต้องการสร้าง การใส่ shared/ ข้างหน้าหมายความว่าสร้างไว้ใน Directory ชื่อว่า Shared ซึ่งถ้าไม่มี Angular CLI จะทำการสร้าง Directory ให้</li>
+</ul>
+
+<p>หลังจากพิมพ์คำสั่งเสร็จแล้วเมื่อดูในโปรเจค Directory จะพบไฟล์เพิ่มขึ้นมาดังนี้</p>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">...</span>
+<span class="err">│</span>   <span class="err">└──</span> <span class="nx">app</span>
+<span class="err">│</span>       <span class="err">├──</span> <span class="nx">page</span> <span class="c1">// เพิ่มใหม่</span>
+<span class="err">│</span>       <span class="err">│</span>   <span class="err">├──</span> <span class="nx">about</span> <span class="c1">// หน้า about</span>
+<span class="err">│</span>       <span class="err">│</span>   <span class="err">│</span>   <span class="err">├──</span> <span class="nx">about</span><span class="p">.</span><span class="nx">component</span><span class="p">.</span><span class="nx">css</span>
+<span class="err">│</span>       <span class="err">│</span>   <span class="err">│</span>   <span class="err">├──</span> <span class="nx">about</span><span class="p">.</span><span class="nx">component</span><span class="p">.</span><span class="nx">html</span>
+<span class="err">│</span>       <span class="err">│</span>   <span class="err">│</span>   <span class="err">├──</span> <span class="nx">about</span><span class="p">.</span><span class="nx">component</span><span class="p">.</span><span class="nx">spec</span><span class="p">.</span><span class="nx">ts</span>
+<span class="err">│</span>       <span class="err">│</span>   <span class="err">│</span>   <span class="err">├──</span> <span class="nx">about</span><span class="p">.</span><span class="nx">component</span><span class="p">.</span><span class="nx">ts</span>
+<span class="err">│</span>       <span class="err">│</span>   <span class="err">├──</span> <span class="nx">home</span> <span class="c1">// หน้า home</span>
+<span class="err">│</span>       <span class="err">│</span>   <span class="err">│</span>   <span class="err">├──</span> <span class="nx">home</span><span class="p">.</span><span class="nx">component</span><span class="p">.</span><span class="nx">css</span>
+<span class="err">│</span>       <span class="err">│</span>   <span class="err">│</span>   <span class="err">├──</span> <span class="nx">home</span><span class="p">.</span><span class="nx">component</span><span class="p">.</span><span class="nx">html</span>
+<span class="err">│</span>       <span class="err">│</span>   <span class="err">│</span>   <span class="err">├──</span> <span class="nx">home</span><span class="p">.</span><span class="nx">component</span><span class="p">.</span><span class="nx">spec</span><span class="p">.</span><span class="nx">ts</span>
+<span class="err">│</span>       <span class="err">│</span>   <span class="err">│</span>   <span class="err">├──</span> <span class="nx">about</span><span class="p">.</span><span class="nx">component</span><span class="p">.</span><span class="nx">ts</span>
+<span class="err">│</span>       <span class="err">│</span>   <span class="err">├──</span> <span class="nx">features</span> <span class="c1">// หน้า features</span>
+<span class="err">│</span>       <span class="err">│</span>   <span class="err">│</span>   <span class="err">├──</span> <span class="nx">features</span><span class="p">.</span><span class="nx">component</span><span class="p">.</span><span class="nx">css</span>
+<span class="err">│</span>       <span class="err">│</span>   <span class="err">│</span>   <span class="err">├──</span> <span class="nx">features</span><span class="p">.</span><span class="nx">component</span><span class="p">.</span><span class="nx">html</span>
+<span class="err">│</span>       <span class="err">│</span>   <span class="err">│</span>   <span class="err">├──</span> <span class="nx">features</span><span class="p">.</span><span class="nx">component</span><span class="p">.</span><span class="nx">spec</span><span class="p">.</span><span class="nx">ts</span>
+<span class="err">│</span>       <span class="err">│</span>   <span class="err">│</span>   <span class="err">├──</span> <span class="nx">features</span><span class="p">.</span><span class="nx">component</span><span class="p">.</span><span class="nx">ts</span>
+<span class="err">│</span>       <span class="err">├──</span> <span class="nx">shared</span> <span class="c1">// เพิ่มใหม่</span>
+<span class="err">│</span>       <span class="err">│</span>   <span class="err">├──</span> <span class="nx">navbar</span> <span class="c1">// navbar</span>
+<span class="err">│</span>       <span class="err">│</span>   <span class="err">│</span>   <span class="err">├──</span> <span class="nx">navbar</span><span class="p">.</span><span class="nx">component</span><span class="p">.</span><span class="nx">css</span>
+<span class="err">│</span>       <span class="err">│</span>   <span class="err">│</span>   <span class="err">├──</span> <span class="nx">navbar</span><span class="p">.</span><span class="nx">component</span><span class="p">.</span><span class="nx">html</span>
+<span class="err">│</span>       <span class="err">│</span>   <span class="err">│</span>   <span class="err">├──</span> <span class="nx">navbar</span><span class="p">.</span><span class="nx">component</span><span class="p">.</span><span class="nx">spec</span><span class="p">.</span><span class="nx">ts</span>
+<span class="err">│</span>       <span class="err">│</span>   <span class="err">│</span>   <span class="err">├──</span> <span class="nx">navbar</span><span class="p">.</span><span class="nx">component</span><span class="p">.</span><span class="nx">ts</span>
+<span class="p">...</span>
+</code></pre></div></div>
+
+<h2 id="create-navbar">Create Navbar</h2>
+<p>ต่อมาเรามาทำ Navbar เพื่อสำหรับเป็น Navigation ไปที่ต่างๆ นะครับโดยให้เราเปิดไฟล์ <strong>navbar.component.html</strong> ขึ้นมาและใส่โค้ดดังนี้</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;nav</span> <span class="na">class=</span><span class="s">"navbar navbar-expand-lg navbar-dark bg-dark"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"navbar-brand"</span> <span class="na">href=</span><span class="s">"#"</span><span class="nt">&gt;</span>Navbar<span class="nt">&lt;/a&gt;</span>
+  <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"navbar-toggler"</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">data-toggle=</span><span class="s">"collapse"</span> <span class="na">data-target=</span><span class="s">"#navbarColor02"</span> <span class="na">aria-controls=</span><span class="s">"navbarColor02"</span> <span class="na">aria-expanded=</span><span class="s">"false"</span> <span class="na">aria-label=</span><span class="s">"Toggle navigation"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"navbar-toggler-icon"</span><span class="nt">&gt;&lt;/span&gt;</span>
+  <span class="nt">&lt;/button&gt;</span>
+
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"collapse navbar-collapse"</span> <span class="na">id=</span><span class="s">"navbarColor02"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">"navbar-nav mr-auto"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"nav-item active"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"nav-link"</span> <span class="na">[routerLink]=</span><span class="s">"['/home']"</span><span class="nt">&gt;</span>Home <span class="nt">&lt;/a&gt;</span>
+      <span class="nt">&lt;/li&gt;</span>
+      <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"nav-item"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"nav-link"</span> <span class="na">[routerLink]=</span><span class="s">"['/features']"</span><span class="nt">&gt;</span>Features<span class="nt">&lt;/a&gt;</span>
+      <span class="nt">&lt;/li&gt;</span>
+      <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"nav-item"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"nav-link"</span> <span class="na">[routerLink]=</span><span class="s">"['/about']"</span><span class="nt">&gt;</span>About<span class="nt">&lt;/a&gt;</span>
+      <span class="nt">&lt;/li&gt;</span>
+    <span class="nt">&lt;/ul&gt;</span>
+    <span class="nt">&lt;form</span> <span class="na">class=</span><span class="s">"form-inline my-2 my-lg-0"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;input</span> <span class="na">class=</span><span class="s">"form-control mr-sm-2"</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">placeholder=</span><span class="s">"Search"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"btn btn-secondary my-2 my-sm-0"</span> <span class="na">type=</span><span class="s">"submit"</span><span class="nt">&gt;</span>Search<span class="nt">&lt;/button&gt;</span>
+    <span class="nt">&lt;/form&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/nav&gt;</span>
+</code></pre></div></div>
+
+<p>โดยโค้ดที่สำคัญตรงนี้คือ</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"nav-link"</span> <span class="na">[routerLink]=</span><span class="s">"['/home']"</span><span class="nt">&gt;</span>Home <span class="nt">&lt;/a&gt;</span>
+</code></pre></div></div>
+
+<p>คำสัง <code class="highlighter-rouge">[routerLink]="['/home']"</code> คือบอกว่าให้ route ไปที่หน้าไหนคล้ายกับ <code class="highlighter-rouge">href="/home"</code></p>
+
+<h2 id="home-markup-optional">Home Markup (Optional)</h2>
+<p>เพื่อความสวยงามนะครับเรามาแต่งหน้า Home กันหน่อยให้เปิดไฟล์ <strong>home.component.html</strong> ขึ้นมาแล้วใส่ Code ดังนี้</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-light"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-md-5 p-lg-5 mx-auto my-5"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;h1</span> <span class="na">class=</span><span class="s">"display-4 font-weight-normal"</span><span class="nt">&gt;</span>Noob Studio Is The Best<span class="nt">&lt;/h1&gt;</span>
+    <span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"lead font-weight-normal"</span><span class="nt">&gt;</span>Noob Studio Is The Best. Freelance developer for hire him please see website <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"https://noob-studio.github.io"</span><span class="nt">&gt;</span>noob-stuio.github.io<span class="nt">&lt;/a&gt;&lt;/p&gt;</span>
+    <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"btn btn-outline-secondary"</span> <span class="na">href=</span><span class="s">"https://noob-studio.github.io"</span><span class="nt">&gt;</span>Go!<span class="nt">&lt;/a&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"product-device box-shadow d-none d-md-block"</span><span class="nt">&gt;&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"product-device product-device-2 box-shadow d-none d-md-block"</span><span class="nt">&gt;&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+</code></pre></div></div>
+
+<p>ปล. แอบขายของนิดนึงนะครับ 55555</p>
+
+<h1 id="angular-routing">Angular Routing</h1>
+<p>เมื่อเราเตรียมโครงสร้างของเว็บเสร็จแล้วต่อมาเราจะนำมาประกอบกันเพื่อให้กลายเป็นเว็บไซด์ต่างๆ นะจ๊ะ</p>
+
+<h2 id="set-route">Set Route</h2>
+<p>ขั้นตอนแรกให้เปิดไปที่ไฟล์ <strong>app-routing.module.ts</strong> และเพิ่มโค้ดดังนี้</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">...</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">AboutComponent</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">./page/about/about.component</span><span class="dl">'</span><span class="p">;</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">FeaturesComponent</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">./page/features/features.component</span><span class="dl">'</span><span class="p">;</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">HomeComponent</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">./page/home/home.component</span><span class="dl">'</span><span class="p">;</span>
+
+<span class="kd">const</span> <span class="nx">routes</span><span class="p">:</span> <span class="nx">Routes</span> <span class="o">=</span> <span class="p">[{</span>
+  <span class="na">path</span><span class="p">:</span> <span class="dl">''</span><span class="p">,</span>
+  <span class="na">redirectTo</span><span class="p">:</span> <span class="dl">'</span><span class="s1">home</span><span class="dl">'</span><span class="p">,</span>
+  <span class="na">pathMatch</span><span class="p">:</span> <span class="dl">'</span><span class="s1">full</span><span class="dl">'</span><span class="p">,</span>
+<span class="p">},{</span>
+  <span class="na">path</span><span class="p">:</span> <span class="dl">'</span><span class="s1">home</span><span class="dl">'</span><span class="p">,</span>
+  <span class="na">component</span><span class="p">:</span> <span class="nx">HomeComponent</span><span class="p">,</span>
+<span class="p">},{</span>
+  <span class="na">path</span><span class="p">:</span> <span class="dl">'</span><span class="s1">features</span><span class="dl">'</span><span class="p">,</span>
+  <span class="na">component</span><span class="p">:</span> <span class="nx">FeaturesComponent</span><span class="p">,</span>
+<span class="p">},{</span>
+  <span class="na">path</span><span class="p">:</span> <span class="dl">'</span><span class="s1">about</span><span class="dl">'</span><span class="p">,</span>
+  <span class="na">component</span><span class="p">:</span> <span class="nx">AboutComponent</span><span class="p">,</span>
+<span class="p">}];</span>
+
+<span class="p">@</span><span class="nd">NgModule</span><span class="p">({</span>
+<span class="p">...</span>
+</code></pre></div></div>
+
+<p>ขั้นตอนแรกให้เรา import component ต่างๆ ที่เราต้องการ route เข้ามานะครับให้สังเกตุว่าเราไม่ได้ import <code class="highlighter-rouge">navbar.component</code> เข้ามาเพราะเราไม่ได้ต้องการจะ route ไปที่ <code class="highlighter-rouge">navbar.component</code> นะครับ</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="p">{</span> <span class="nx">AboutComponent</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">./page/about/about.component</span><span class="dl">'</span><span class="p">;</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">FeaturesComponent</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">./page/features/features.component</span><span class="dl">'</span><span class="p">;</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">HomeComponent</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">./page/home/home.component</span><span class="dl">'</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p>ต่อมาเราทำการ set route ไว้ในตัวแปลชื่อว่า <code class="highlighter-rouge">routes</code> โดยมีประเภทเป็น <code class="highlighter-rouge">Routes</code> ที่ใส่ <code class="highlighter-rouge">const</code> ไว้เพื่อไม่ให้ตัวนี้สามารถแก้ไขได้ และหากสังเกตุจะเห็นว่ามันเป็น <code class="highlighter-rouge">json array</code></p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">routes</span><span class="p">:</span> <span class="nx">Routes</span> <span class="o">=</span> <span class="p">[{</span>
+<span class="p">...</span>
+<span class="p">}]</span>
+</code></pre></div></div>
+
+<p>ต่อมาเราอธิบายใส่ในของ route กันนะครับ object ตัวแรกคือการ set default ว่าถ้าเข้ามาที่ path แรกจะให้ route ไปที่ไหน</p>
+<ul>
+  <li><code class="highlighter-rouge">path:</code> หมายถึง path ที่ตรงกับ route นี้</li>
+  <li><code class="highlighter-rouge">redirectTo:</code> หมายถึงให้ redirect ไปที่ path ไหน</li>
+  <li><code class="highlighter-rouge">pathMatch:</code> ความตรงกันของ path (เงี่ยนไขที่จะ redirect)</li>
+</ul>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="err">path:</span><span class="w"> </span><span class="err">''</span><span class="p">,</span><span class="w">
+  </span><span class="err">redirectTo:</span><span class="w"> </span><span class="err">'home'</span><span class="p">,</span><span class="w">
+  </span><span class="err">pathMatch:</span><span class="w"> </span><span class="err">'full'</span><span class="p">,</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span><span class="err">...</span><span class="w">
+</span></code></pre></div></div>
+<p>ในส่วนสุดท้าย set route สำหรับวิ่งไปหน้าอื่นๆ นะครับ</p>
+<ul>
+  <li><code class="highlighter-rouge">path:</code> หมายถึง path ที่ตรงกับ route นี้</li>
+  <li><code class="highlighter-rouge">component:</code> หมายถึง component ที่ควบคุม route นี้ซึ่งเราได้ import มาตอนต้นแล้ว</li>
+</ul>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">...</span><span class="w">
+</span><span class="p">{</span><span class="w">
+  </span><span class="err">path:</span><span class="w"> </span><span class="err">'home'</span><span class="p">,</span><span class="w">
+  </span><span class="err">component:</span><span class="w"> </span><span class="err">HomeComponent</span><span class="p">,</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span><span class="err">...</span><span class="w">
+</span></code></pre></div></div>
+
+<p>แค่นี้ก็เป็นอันเสร็จสิ้นสำหรับการ Set Route แล้วนะครับ</p>
+
+<h2 id="assemble">Assemble</h2>
+<p>ส่วนสุดท้ายแล้วนะจ๊ะ เราจะมาประกอบร่าง Component ทั้งหมดกันก่อนอื่นให้เปิดไฟล​์ชื่อว่า <strong>app.component.html</strong> ขึ้นมาแล้วแก้เป็นแบบนี้</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;app-navbar&gt;&lt;/app-navbar&gt;</span>
+<span class="nt">&lt;router-outlet&gt;&lt;/router-outlet&gt;</span>
+</code></pre></div></div>
+
+<ul>
+  <li><code class="highlighter-rouge">&lt;app-navbar&gt;&lt;/app-navbar&gt;</code> คือ selector (แบบว่าเหมือนชื่อเล่นของ component เอาไว้เรียกใช้งานงี้มั้ง) มาจากไฟล์ <strong>navbar.component.ts</strong></li>
+</ul>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">...</span>
+<span class="p">@</span><span class="nd">Component</span><span class="p">({</span>
+  <span class="na">selector</span><span class="p">:</span> <span class="dl">'</span><span class="s1">app-navbar</span><span class="dl">'</span><span class="p">,</span> <span class="c1">// &lt;------ ตรงนี้</span>
+<span class="p">...</span>
+</code></pre></div></div>
+
+<ul>
+  <li><code class="highlighter-rouge">&lt;router-outlet&gt;&lt;/router-outlet&gt;</code> เป็น selector ของ Angular</li>
+</ul>
+
+<p>สุดท้ายพิมพ์คำสั่ง</p>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">ng</span> <span class="nx">serve</span>
+</code></pre></div></div>
+
+<p>แล้วเปิดไปที่หน้า <a href="http://localhost:4200">http://localhost:4200</a> หน้าเว็บก็จะแสดงผลหน้าตาเว็บไซด์ประมาณนี้
+<img src="/img/angular/ep01/screenshot.png" alt="บริการรับทำเว็บไซด์ แอพพลิเคชัน ระบบสำหรับใช้ในองค์กร เว็บขายของระบบ E-commerce หรือระบบต่างๆ" /></p>
+
+<p>หากกดข้างบนเปลี่ยนไปที่หน้าอื่นก็จะขึ้นว่า about works!! หรือ features works!!</p>
+
+<blockquote>
+  <p>หากเราสังเกตุจะเห็นว่าเว็บไซด์ได้ถูก redirect ไปที่ <a href="http://localhost:4200/home">http://localhost:4200/home</a></p>
+</blockquote>
+
+<h2 id="error-wtf">Error WTF!!</h2>
+<p>หากลองรันแล้วพบ error ให้ลองตรวจสอบไฟล์ <strong>app.module.ts</strong> ดูว่ามีการตั้งค่าดังนี้หรือไม่</p>
+
+<ul>
+  <li>import component ที่สร้างขึ้นและ <code class="highlighter-rouge">AppRoutingModule</code></li>
+</ul>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">...</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">AppRoutingModule</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">./app-routing.module</span><span class="dl">'</span><span class="p">;</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">HomeComponent</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">./page/home/home.component</span><span class="dl">'</span><span class="p">;</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">NavbarComponent</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">./shared/navbar/navbar.component</span><span class="dl">'</span><span class="p">;</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">AboutComponent</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">./page/about/about.component</span><span class="dl">'</span><span class="p">;</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">FeaturesComponent</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">./page/features/features.component</span><span class="dl">'</span><span class="p">;</span>
+<span class="p">...</span>
+</code></pre></div></div>
+
+<ul>
+  <li>เรียกใช้งาน component และ module ที่ import มาถูกต้อง</li>
+</ul>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">...</span>
+<span class="p">@</span><span class="nd">NgModule</span><span class="p">({</span>
+  <span class="na">declarations</span><span class="p">:</span> <span class="p">[</span> <span class="c1">// สำหรับใส่ component</span>
+    <span class="nx">AppComponent</span><span class="p">,</span>
+    <span class="nx">HomeComponent</span><span class="p">,</span>
+    <span class="nx">NavbarComponent</span><span class="p">,</span>
+    <span class="nx">AboutComponent</span><span class="p">,</span>
+    <span class="nx">FeaturesComponent</span>
+  <span class="p">],</span>
+  <span class="na">imports</span><span class="p">:</span> <span class="p">[</span> <span class="c1">// สำหรับใส่ module</span>
+    <span class="nx">BrowserModule</span><span class="p">,</span>
+    <span class="nx">AppRoutingModule</span>
+  <span class="p">],</span>
+  <span class="na">providers</span><span class="p">:</span> <span class="p">[],</span>
+  <span class="na">bootstrap</span><span class="p">:</span> <span class="p">[</span><span class="nx">AppComponent</span><span class="p">]</span>
+<span class="p">})</span>
+<span class="p">...</span>
+</code></pre></div></div>
+
+<h1 id="conclusion">Conclusion</h1>
+<p>เป็นอันเรียบร้อยไปแล้วนะครับสำหรับ Angular ‘n Bootstrap EP 01 ยังไงเพื่อนๆชอบไม่ชอบก็สามารถเข้ามาติชมกันที่แฟนเพจ noob studio ได้นะครับ สำหรับเพื่อนๆคนไหนที่สนใจตัวอย่างโค้ด สามารถดูได้ที่ <a href="https://github.com/noob-studio/angular-bootstrap" target="_blank">github</a> ของเรานะจ๊ะ</p>
+:ET

@@ -1,11 +1,10 @@
 source "https://rubygems.org"
 
-gem "jekyll", "~> 3.0"
-gem "rouge", "~> 1.0"
-gem "kramdown-parser-gfm"
+# This will help ensure the proper Jekyll version is running.
+gem "jekyll", "~> 4.0.0"
 
 group :jekyll_plugins do
-  gem "jekyll-feed"
-  gem "jekyll-paginate"
-  gem "jekyll-sitemap"
+  gem 'jekyll-paginate'
+  gem 'jekyll-sitemap'
 end
+

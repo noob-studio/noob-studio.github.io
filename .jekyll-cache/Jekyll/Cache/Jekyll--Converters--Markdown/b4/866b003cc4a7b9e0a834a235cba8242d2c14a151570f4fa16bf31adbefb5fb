@@ -1,0 +1,271 @@
+I"��<p>เบื่อไหมครับที่เวลาจะเขียนแอพขึ้นมาซักแอพหนึ่งเนี่ยต้องนั่งทำทั้ง Android iOS</p>
+
+<p>ไหนจะต้องเรียนรู้ภาษาใหม่ๆ ทั้ง Java Swift โหยลำบากวุ่นวายอ่ะ แล้วทำไมกูต้องไปเรียนรู้ภาษาใหม่ๆด้วยว่ะครับ ทั้งๆ ที่กูก็เขียบเว็ปเป็นอยู่แล้วทำไมจะเอาพวก Javascript CSS HTML มาทำแอพไม่ได้!! แต่ช้าก่อนนี่มันโลกยุค 2017 แล้วนะจ๊ะ TV Direct ขอนำเสนอ <a href="https://ionicframework.com/" target="_blank">Ionic2</a> !
+<!--more--></p>
+
+<blockquote>สมัยก่อนการทำแอพขึ้นมาซักแอพนึงเนี่ยต้องทำทั้ง iOS และ Android แต่เดี๋ยวนี้ไม่ต้องแล้ว</blockquote>
+
+<h1 id="what-is-ionic2">What is Ionic2</h1>
+
+<p>Ionic2 คือเครื่องมือที่ทำให้เราสามารถเขียนแอพเพียงครั้งเดียวสามารถทำงานได้ทุก Platform (หรือที่เรียกแบบเกร๋ๆ ว่า Cross Platform) โดยใช้แค่ Javascript CSS HTML ในการเขียนโปรแกรมซึ่งการทำงานของ Ionic2 ก็คือตัว Ionic2 จะทำตัวเป็นเหมือน Browser ที่แสดงเฉพาะเว็ปๆ เดียวก็คือเว็ปที่เราเขียนขึ้นมานั่นเองซึ่งเราจะเรียกแอพที่ทำงานในลักษณะนี้ว่า Hybrid App หลายคนอ่านมาถึงตรงนี้อาจจะคิดว่ามันก็คือเว็ปธรรมดาก็ไม่เหมือนแอพจริงๆ สิ ผมขอบอกตรงนี้นะครับนี่มันโลกยุคไหนแล้วถ้าไม่มีคนบอกผมนั่งยันนอนยันตะแคงข้างยันเลยว่ายังไงก็ดูไม่ออกเอาล่ะโม้มาเยอะแล้วมาเริ่มกันเถอะ</p>
+<blockquote>Javascript ที่ Ionic2 ใช้คือ <a href="https://angular.io/" target="_blank">Angular2</a> นะครับ</blockquote>
+
+<h1 id="required--install">Required &amp; Install</h1>
+
+<p>สิ่งที่ต้องการสำหรับใช้งาน</p>
+
+<ul>
+    <li>พื้นฐาน Node.js นิดหน่อย (อีกแล้วครับท่าน)</li>
+    <li>Node.js เวอร์ชันล่าสุด</li>
+    <li>Android Studio เพราะว่าเราต้องการตัว Android SDK นะจ๊ะถ้าใครไม่มีสามารถดาวโหลดได้ <a href="https://developer.android.com/studio/index.html" target="_blank">ที่นี่</a> (จริงๆแล้วดาวโหลดแค่ SDK tool ก็ได้แต่ว่าผมว่าลง Android Studio ไปเลยจะเวิร์คกว่า)</li>
+    <li>Geanymotion เป็น emulator ทดสอบแอพของเรานะครับถ้าใครไม่มีสามารถดาวโหลดได้ <a href="https://www.genymotion.com/" target="_blank">ที่นี่</a></li>
+    <li>Ionic2 ติดตั้งสามารถด้วยคำสั่งนี้ 
+
+    ```js
+    npm install -g cordova ionic
+    ``` 
+
+    </li>
+    <li>ในบทความนี้จะไม่ลงรายละเอียดถึงตัว Angular2 เยอะนะครับควรจะศึกษามาบ้างเล็กน้อยเพื่อความเข้าใจ</li>
+</ul>
+
+<h1 id="start-server">Start Server</h1>
+
+<p>เมื่อเรามีสิ่งที่ต้องหมดแล้วต่อมาก็มาเริ่มกันเถอะ โดยเราจะเริ่มจากทำฝั่ง Server ก่อนนะจ๊ะ</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="nx">mkdir</span> <span class="nx">ionic</span><span class="o">-</span><span class="nx">chat</span>
+    <span class="nx">cd</span> <span class="nx">ionic</span><span class="o">-</span><span class="nx">chat</span>
+    <span class="nx">npm</span> <span class="nx">init</span>
+    <span class="nx">npm</span> <span class="nx">install</span> <span class="nx">socket</span><span class="p">.</span><span class="nx">io</span> <span class="nx">express</span> <span class="o">--</span><span class="nx">save</span>
+</code></pre></div></div>
+
+<p>socket.io สำหรับรับส่งข้อความแบบ real time ส่วน express ใช้เป็น server (จริงๆไม่ต้องใช้ก็ได้แต่ผมขี้เกียจเขียนเองอ่ะมีไรป่ะ) เมื่อทำเสร็จแล้วให้สร้างไฟล์ index.js ขึ้นมาโดยใส่ Code ข้างล่างนี้ลงไป
+<b>index.js</b></p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">express</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">express</span><span class="dl">'</span><span class="p">);</span>
+<span class="kd">const</span> <span class="nx">app</span> <span class="o">=</span> <span class="nx">express</span><span class="p">();</span>
+<span class="kd">const</span> <span class="nx">server</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">http</span><span class="dl">'</span><span class="p">).</span><span class="nx">createServer</span><span class="p">(</span><span class="nx">app</span><span class="p">);</span>
+<span class="kd">const</span> <span class="nx">io</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">socket.io</span><span class="dl">'</span><span class="p">).</span><span class="nx">listen</span><span class="p">(</span><span class="nx">server</span><span class="p">);</span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">((</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">,</span> <span class="nx">next</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="nx">res</span><span class="p">.</span><span class="nx">header</span><span class="p">(</span><span class="dl">"</span><span class="s2">Access-Control-Allow-Origin</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">*</span><span class="dl">"</span><span class="p">);</span>
+    <span class="nx">res</span><span class="p">.</span><span class="nx">header</span><span class="p">(</span><span class="dl">"</span><span class="s2">Access-Control-Allow-Headers</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">Origin, X-Requested-With, Content-Type, Accept</span><span class="dl">"</span><span class="p">);</span>
+    <span class="nx">next</span><span class="p">();</span>
+<span class="p">});</span>
+<span class="nx">app</span><span class="p">.</span><span class="kd">get</span><span class="p">(</span><span class="dl">'</span><span class="s1">/</span><span class="dl">'</span><span class="p">,</span> <span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span> <span class="o">=&gt;</span><span class="p">{</span>
+    <span class="nx">res</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="dl">'</span><span class="s1">This is ma awesome server</span><span class="dl">'</span><span class="p">);</span>
+<span class="p">});</span>
+<span class="nx">io</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="dl">'</span><span class="s1">connection</span><span class="dl">'</span><span class="p">,</span> <span class="p">(</span><span class="nx">client</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">Client connected...</span><span class="dl">'</span><span class="p">);</span>
+    <span class="nx">client</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="dl">'</span><span class="s1">msg</span><span class="dl">'</span><span class="p">,</span> <span class="p">(</span><span class="nx">message</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+        <span class="nx">io</span><span class="p">.</span><span class="nx">emit</span><span class="p">(</span><span class="dl">'</span><span class="s1">msg</span><span class="dl">'</span><span class="p">,</span> <span class="nx">message</span><span class="p">);</span>
+    <span class="p">});</span>
+<span class="p">});</span>
+<span class="nx">server</span><span class="p">.</span><span class="nx">listen</span><span class="p">(</span><span class="mi">5555</span><span class="p">,</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">Program running on port : 5555</span><span class="dl">'</span><span class="p">);</span>
+<span class="p">});</span>
+</code></pre></div></div>
+
+<p>แค่นี้เหลาะครับสำหรับฝั่ง Server ของเราเป็นอันเรียบร้อยอธิบาย Code นะครับ</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">express</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">express</span><span class="dl">'</span><span class="p">);</span>
+<span class="kd">const</span> <span class="nx">app</span> <span class="o">=</span> <span class="nx">express</span><span class="p">();</span>
+<span class="kd">const</span> <span class="nx">server</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">http</span><span class="dl">'</span><span class="p">).</span><span class="nx">createServer</span><span class="p">(</span><span class="nx">app</span><span class="p">);</span>
+<span class="kd">const</span> <span class="nx">io</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">socket.io</span><span class="dl">'</span><span class="p">).</span><span class="nx">listen</span><span class="p">(</span><span class="nx">server</span><span class="p">);</span>
+</code></pre></div></div>
+<p>เรียกใช้และสร้าง server โดยใช้ express และผูก Socket.io ไว้กับ server ที่ถูกสร้างขึ้น</p>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">((</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">,</span> <span class="nx">next</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="nx">res</span><span class="p">.</span><span class="nx">header</span><span class="p">(</span><span class="dl">"</span><span class="s2">Access-Control-Allow-Origin</span><span class="dl">"</span><span class="p">);</span>
+    <span class="nx">res</span><span class="p">.</span><span class="nx">header</span><span class="p">(</span><span class="dl">"</span><span class="s2">Access-Control-Allow-Headers</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">Origin, X-Requested-With, Content-Type, Accept</span><span class="dl">"</span><span class="p">);</span>
+    <span class="nx">next</span><span class="p">();</span>
+<span class="p">});</span>
+</code></pre></div></div>
+<p>เซ็ท Header ให้เรียกใช้จาก server อื่นได้</p>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">app</span><span class="p">.</span><span class="kd">get</span><span class="p">(</span><span class="dl">'</span><span class="s1">/</span><span class="dl">'</span><span class="p">,</span> <span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span> <span class="o">=&gt;</span><span class="p">{</span>
+    <span class="nx">res</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="dl">'</span><span class="s1">This is ma awesome server</span><span class="dl">'</span><span class="p">);</span>
+<span class="p">});</span>
+</code></pre></div></div>
+<p>เซ็ท route สำหรับคนที่เข้ามาใน server ผ่านทาง browser</p>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">io</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="dl">'</span><span class="s1">connection</span><span class="dl">'</span><span class="p">,</span> <span class="p">(</span><span class="nx">client</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="p">...</span>
+<span class="p">});</span>
+</code></pre></div></div>
+<p>เป็น event ที่จะเกิดขึ้นเมื่อมีผู้ใช้เชื่อมต่อเข้ามาในท่อ</p>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">client</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="dl">'</span><span class="s1">msg</span><span class="dl">'</span><span class="p">,</span> <span class="p">(</span><span class="nx">message</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="p">...</span>
+<span class="p">});</span>
+</code></pre></div></div>
+<p>เป็น event ที่จะเกิดขึ้นเมื่อผู้ใช้ส่งข้อมูลเข้ามาผ่านท่อที่ชื่อว่า msg</p>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">io</span><span class="p">.</span><span class="nx">emit</span><span class="p">(</span><span class="dl">'</span><span class="s1">msg</span><span class="dl">'</span><span class="p">,</span> <span class="nx">message</span><span class="p">);</span>
+</code></pre></div></div>
+<p>ส่ง msg ที่ได้รับให้ผู้ใช้ทุกคน</p>
+<blockquote>
+ถ้าหากต้องการส่งให้ทุกคนยกเว้นตัวคนส่งเองให้ใส่เป็น
+
+```js
+client.broadcast.emit('msg', message);
+```
+
+แต่ถ้าต้องการส่งกลับไปให้คนส่งคนเดียวเท่านั้น(แล้วจะเรียกว่า chat ไหมหนอ) ให้ใส่เป็น
+
+```js
+client.emit('msg', message);
+```
+
+</blockquote>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">server</span><span class="p">.</span><span class="nx">listen</span><span class="p">(</span><span class="mi">5555</span><span class="p">,</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">Program running on port : 5555</span><span class="dl">'</span><span class="p">);</span>
+<span class="p">});</span>
+</code></pre></div></div>
+
+<p>เริ่มต้นการทำงานของ server ที่ port 5555 ด้วยคำสั่ง</p>
+<pre>node index.js</pre>
+<p>เมื่อทดลองเข้าผ่านหน้าเว็ปไปที่ <a href="http://localhost:5555" target="_blank">http://localhost:5555</a> จะได้หน้าตาดังภาพข้างล่างนี้
+<img src="/img/ionic-chat/img01.png" alt="ทดลองรัน server" />
+<span class="caption text-muted">ทดลองรัน server ผ่าน Browser</span></p>
+
+<h1 id="start-ionic2">Start Ionic2</h1>
+
+<p>เอาล่ะครับน่าจะถึงเวลาที่ทุกคนรอคอยได้เขียนแอพจริงๆซักที 5555 เริ่มด้วยคำสั่ง</p>
+<pre>
+ionic start ionic-chat-client blank --v2
+cd ionic-chat-client
+</pre>
+<p>เข้ามาจะเห็นไฟล์อะไรเยอะแยะเลยนะครับไม่ต้องตรงใจในตอนนี้เราสนใจแค่ในโฟรเดอร์ src ก็พอเมื่อเข้ามาจะเห็นว่าโครงสร้างมันคล้ายๆเว็ปไซด์เลยให้เปิดไฟล์ index.html ขึ้นมาหลังจากนั้นให้เพิ่มโหลด script นี้เข้าไป</p>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.7.3/socket.io.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
+</code></pre></div></div>
+
+<p>เข้าไปที่ Page/home/home.html และแก้ไข Code ให้เป็นดังนี้</p>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;ion-header&gt;</span>
+  <span class="nt">&lt;ion-navbar&gt;</span>
+    <span class="nt">&lt;ion-title&gt;</span>
+      Ionic Blank
+    <span class="nt">&lt;/ion-title&gt;</span>
+  <span class="nt">&lt;/ion-navbar&gt;</span>
+<span class="nt">&lt;/ion-header&gt;</span>
+
+<span class="nt">&lt;ion-content</span> <span class="na">padding</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;ion-card</span> <span class="na">*ngFor=</span><span class="s">"let msg of massage"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;ion-card-content&gt;</span>
+      
+
+    <span class="nt">&lt;/ion-card-content&gt;</span>
+  <span class="nt">&lt;/ion-card&gt;</span>
+<span class="nt">&lt;/ion-content&gt;</span>
+
+<span class="nt">&lt;ion-footer&gt;</span>
+  <span class="nt">&lt;ion-toolbar&gt;</span>
+    <span class="nt">&lt;ion-item&gt;</span>
+      <span class="nt">&lt;ion-label</span> <span class="na">fixed</span><span class="nt">&gt;</span>Massage: <span class="nt">&lt;/ion-label&gt;</span>
+      <span class="nt">&lt;ion-input</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">[(ngModel)]=</span><span class="s">"msg"</span><span class="nt">&gt;&lt;/ion-input&gt;</span>
+    <span class="nt">&lt;/ion-item&gt;</span>
+    <span class="nt">&lt;ion-buttons</span> <span class="na">end</span> <span class="na">(click)=</span><span class="s">"send()"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;button</span> <span class="na">ion-button</span> <span class="na">icon-right</span> <span class="na">color=</span><span class="s">"royal"</span><span class="nt">&gt;</span>
+        Send
+        <span class="nt">&lt;ion-icon</span> <span class="na">name=</span><span class="s">"send"</span><span class="nt">&gt;&lt;/ion-icon&gt;</span>
+      <span class="nt">&lt;/button&gt;</span>
+    <span class="nt">&lt;/ion-buttons&gt;</span>
+  <span class="nt">&lt;/ion-toolbar&gt;</span>
+<span class="nt">&lt;/ion-footer&gt;</span>
+</code></pre></div></div>
+<p>จาก Code ข้างบนจะมีจุดสังเกตุ 3 จุดดังนี้</p>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;ion-card</span> <span class="na">*ngFor=</span><span class="s">"let msg of massage"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;ion-card-content&gt;</span>
+      {{ msg }}
+    <span class="nt">&lt;/ion-card-content&gt;</span>
+<span class="nt">&lt;/ion-card&gt;</span>
+</code></pre></div></div>
+<p>*ngFor=”…” คือการสั่งให้วนลูปของ Angular2 ส่วน {{ msg }} คือการแสดงค่า Object ของ Angular2 หรือเรียกว่า Two-way binding (จะไว้อธิบายในบทความต่อๆไปนะครับ) และส่วนสุดท้าย (click)=”send()” คือการควบคุม event click นะครับถ้าเป็น Javascript ธรรมดาก็อารมณ์ Onclick ประมาณนั้น
+รันจากนั้นเมื่อทดสอบรันด้วยคำสั่ง &lt;pre&gt;ionic serve&lt;/pre&gt; ionic จะทำการเปิด Browser ขึ้นมาและจะได้หน้าตาเปล่าๆ ประมาณนี้นะครับ
+<img src="/img/ionic-chat/img02.png" alt="ทดสอบรันแอพ" />
+<span class="caption text-muted">ทดสอบรันแอพผ่าน Browser</span>
+ต่อมาให้เราเปิดไฟล์ Page/home/home.ts ขึ้นมาและแก้ไขให้เป็นดังนี้นะครับ</p>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="p">{</span> <span class="nx">Component</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">@angular/core</span><span class="dl">'</span><span class="p">;</span>
+
+<span class="k">import</span> <span class="p">{</span> <span class="nx">NavController</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">ionic-angular</span><span class="dl">'</span><span class="p">;</span>
+
+<span class="nx">declare</span> <span class="kd">var</span> <span class="nx">io</span><span class="p">;</span>
+
+<span class="p">@</span><span class="nd">Component</span><span class="p">({</span>
+  <span class="na">selector</span><span class="p">:</span> <span class="dl">'</span><span class="s1">page-home</span><span class="dl">'</span><span class="p">,</span>
+  <span class="na">templateUrl</span><span class="p">:</span> <span class="dl">'</span><span class="s1">home.html</span><span class="dl">'</span>
+<span class="p">})</span>
+<span class="k">export</span> <span class="kd">class</span> <span class="nx">HomePage</span> <span class="p">{</span>
+
+  <span class="nl">socketHost</span><span class="p">:</span> <span class="nx">string</span><span class="p">;</span>
+  <span class="nl">socket</span><span class="p">:</span> <span class="nx">any</span><span class="p">;</span>
+  <span class="nl">massage</span><span class="p">:</span> <span class="nx">any</span><span class="p">;</span>
+  <span class="nl">msg</span><span class="p">:</span> <span class="nx">string</span><span class="p">;</span>
+  <span class="kd">constructor</span><span class="p">(</span><span class="kr">public</span> <span class="nx">navCtrl</span><span class="p">:</span> <span class="nx">NavController</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">socketHost</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">http://localhost:5555</span><span class="dl">"</span><span class="p">;</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">massage</span> <span class="o">=</span> <span class="p">[];</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">socket</span> <span class="o">=</span> <span class="nx">io</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">socketHost</span><span class="p">);</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">socket</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="dl">"</span><span class="s2">msg</span><span class="dl">"</span><span class="p">,</span> <span class="p">(</span><span class="nx">msg</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">massage</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">msg</span><span class="p">);</span>
+    <span class="p">});</span>
+  <span class="p">}</span>
+
+  <span class="nx">send</span><span class="p">(){</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">socket</span><span class="p">.</span><span class="nx">emit</span><span class="p">(</span><span class="dl">"</span><span class="s2">msg</span><span class="dl">"</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">msg</span><span class="p">);</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">msg</span> <span class="o">=</span> <span class="dl">""</span><span class="p">;</span>
+  <span class="p">}</span>
+
+<span class="p">}</span>
+</code></pre></div></div>
+<p>อธิบาย Code นะครับ</p>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">declare</span> <span class="kd">var</span> <span class="nx">io</span><span class="p">;</span>
+</code></pre></div></div>
+<p>คือการประกาศตัวแปร io นะครับจริงๆไม่ต้องประกาศก็ได้แต่ตัว Typescript ไม่รู้จัก io เลยต้องประกาศไม่งั้นจะงอแงเอา</p>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="nx">socketHost</span><span class="p">:</span> <span class="nx">string</span><span class="p">;</span>
+  <span class="nl">socket</span><span class="p">:</span> <span class="nl">any</span><span class="p">:</span> <span class="nx">any</span><span class="p">;</span>
+  <span class="nl">massage</span><span class="p">:</span> <span class="nx">string</span><span class="p">[];</span>
+  <span class="nl">msg</span><span class="p">:</span> <span class="nx">string</span><span class="p">;</span>
+</code></pre></div></div>
+<p>ประกาศตัวแปลสำหรับเก็บค่าต่างๆ นะครับ</p>
+<ul>
+<li>socketHost เป็น string เก็บ url ของ server</li>
+<li>socket สำหรับเก็บ socket นะครับไม่รู้จะให้ type อะไรเลยใส่เป็น any (any คือท่าไม้ตายคิด type ไม่ออก any ไปก่อน 555)</li>
+<li>massage สำหรับเก็บข้อความที่ chat ไปมาเป็น string array</li>
+<li>msg สำหรับเก็บข้อความจากช่อง input เป็น string</li>
+</ul>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">this</span><span class="p">.</span><span class="nx">socketHost</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">http://localhost:5555</span><span class="dl">"</span><span class="p">;</span>
+<span class="k">this</span><span class="p">.</span><span class="nx">massage</span> <span class="o">=</span> <span class="p">[];</span>
+</code></pre></div></div>
+<p>กำหนดค่าสำหรับตัวแปลต่างๆ</p>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">this</span><span class="p">.</span><span class="nx">socket</span> <span class="o">=</span> <span class="nx">io</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">socketHost</span><span class="p">);</span>
+</code></pre></div></div>
+<p>สร้าง socket ขึ้นมา</p>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">this</span><span class="p">.</span><span class="nx">socket</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="dl">"</span><span class="s2">msg</span><span class="dl">"</span><span class="p">,</span> <span class="p">(</span><span class="nx">msg</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="k">this</span><span class="p">.</span><span class="nx">massage</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">msg</span><span class="p">);</span>
+<span class="p">});</span>
+</code></pre></div></div>
+<p>เมื่อได้รับข้อความจาก server ผ่านทางท่อ msg ให้ push ใส่ array massage</p>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">send</span><span class="p">(){</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">socket</span><span class="p">.</span><span class="nx">emit</span><span class="p">(</span><span class="dl">"</span><span class="s2">msg</span><span class="dl">"</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">msg</span><span class="p">);</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">msg</span> <span class="o">=</span> <span class="dl">""</span><span class="p">;</span>
+  <span class="p">}</span>
+</code></pre></div></div>
+<p>ส่งข้อความไปให้ server ผ่านทางท่อ msg แค่นี้เหลาะครับเสร็จแล้วหลังจากนั้นลองดูที่ terminal ที่รัน server ของเราถ้าขึ้นว่า Client connected… ดังภาพเป็นอันเรียบร้อยโรงเรียนเตรียม 
+<img src="/img/ionic-chat/img03.png" alt="แอพเสร็จแล้ว" />
+<span class="caption text-muted">มีการเชื่อมต่อจาก client สู่ server</span>
+ลองเปิด Browser ไปที่ <a href="http://localhost:8100/" target="_blank">http://localhost:8100</a> 2 หน้าต่างและทดสอบใช้จะได้ผลลัพท์ดังภาพ
+<img src="/img/ionic-chat/img04.gif" alt="ทดสอบเล่นแอพ" />
+<span class="caption text-muted">แชทได้แล้วจ้า</span>
+สำหรับใครที่ต้องการทดสอบบน emulator ให้เปิด geanymotion และเปลี่ยน socketHost ไป ip เครื่องตัวเองเช่น</p>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">this</span><span class="p">.</span><span class="nx">socketHost</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">192.168.1.28:5555</span><span class="dl">"</span><span class="p">;</span>
+</code></pre></div></div>
+<p>และทดสอบรันด้วยคำสั่งข้างล่างนี้ก็เป็นเรียบร้อย</p>
+<pre>
+ionic platform add android
+ionic run android
+</pre>
+
+<h1 id="conclusion">Conclusion</h1>
+
+<p>ศึกษาเพิ่มเติม</p>
+<ul>
+    <li><a href="https://ionicframework.com/" target="_blank">Ionic2</a></li>
+    <li><a href="https://socket.io/" target="_blank">socket.io</a></li>
+</ul>
+<p>สำหรับ Code บน git แปะไว้ก่อนนะครับเพราะตอนที่เขียนบทความนี้ดึกมากแล้วง่วงมักๆ ถ้าไม่ลืมจะตามมาอัพให้นะครับ</p>
+:ET

@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>แจ้งเตือนการทำงานของ Server แบบ Low cost ด้วย Line Notify</title>
+  <meta name="description" content="เขียนสคริปแจ้งเตือนการทำงานของ Server แบบไม่มีค่าใช้จ่ายด้วย Line Notify และ Node.js หลายคนคงจะทราบกันอยู่แล้วนะครับว่า Line ได้เปิดตัวบริการใหม่คือ Line Not...">
+  <link rel="canonical" href="http://localhost:4000/line-notify">
+  <link rel="alternate" type="application/rss+xml" title="Noob Studio Feed"
+    href="http://localhost:4000/feed.xml">
+  
+  <link rel="shortcut icon" href="/images/favicon.ico" type="image/png" />
+  
+  <!-- Styles -->
+  <!-- <link href="https://fonts.googleapis.com/css?family=Lato:400,400i,700,700i%7CNoto+Serif:400,400i,700,700i&display=swap" rel="stylesheet"> -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Rubik:400,400italic,700,700italic">
+  <link href="/assets/css/style.css" rel="stylesheet">
+</head>
+<body>
+
+  <div id="page" class="site">
+    <div class="inner">
+      <header class="site-header">
+  
+  <p class="site-title"><a class="logo-text" href="/">Noob Studio</a></p>
+  
+  <nav class="site-navigation">
+    <div class="site-navigation-wrap">
+      <h2 class="screen-reader-text">Main navigation</h2>
+      <ul class="menu">
+        
+        
+        
+        <li class="menu-item ">
+          <a class="" href="/">Home</a>
+        </li>
+        
+        
+        
+        <li class="menu-item ">
+          <a class="" href="/about/">About</a>
+        </li>
+        
+        
+        
+        <li class="menu-item ">
+          <a class="" href="/tags/">Tags</a>
+        </li>
+        
+        
+        
+        <li class="menu-item ">
+          <a class="" href="https://noob-studio.github.io/noob-engine">Noob Engine</a>
+        </li>
+        
+      </ul><!-- .menu -->
+      <button id="menu-close" class="menu-toggle"><span class="screen-reader-text">Close Menu</span><span
+          class="icon-close" aria-hidden="true"></span></button>
+    </div><!-- .site-navigation-wrap -->
+  </nav><!-- .site-navigation -->
+  <button id="menu-open" class="menu-toggle"><span class="screen-reader-text">Open Menu</span><span class="icon-menu" aria-hidden="true"></span></button>
+</header>
+
+
+      <main class="main-content fadeInDown delay_075s">
+
+  <article class="post">
+    <header class="post-header">
+      <time class="post-date" datetime="2017-03-18">March 18, 2017</time>
+      <h1 class="post-title">แจ้งเตือนการทำงานของ Server แบบ Low cost ด้วย Line Notify</h1>
+      <div class="post-meta">
+        By <span class="post-author">Freeweed</span><span class="post-tags"> in <a href="/tags/#node.js" rel="tag">node.js</a>, <a href="/tags/#line-notify" rel="tag">line-notify</a>, <a href="/tags/#server" rel="tag">server</a>, <a href="/tags/#backend" rel="tag">backend</a></span>
+      </div><!-- .post-meta -->
+      
+      <figure class="post-thumbnail image-card width-wide">
+        <img src="/img/moniter/cover.jpg" alt="แจ้งเตือนการทำงานของ Server แบบ Low cost ด้วย Line Notify">
+      </figure><!-- .post-thumbnail -->
+      
+    </header><!-- .post-header -->
+    <div class="post-content">
+      <p>หลายคนคงจะทราบกันอยู่แล้วนะครับว่า Line ได้เปิดตัวบริการใหม่คือ Line Notify</p>
+
+<p>เมื่อไม่นานที่ผ่านมา
+ซึ่งตัวไลน์ Notify เนี่ยจะแตกต่างกัน Line Bot ตรงที่ว่าจะตอบเราไม่ได้ และเวลาจะใช้ก็ต้องเชิญเข้า Group ก่อน
+ซึ่งประโยชน์ของมันคือใช้สำหรับติดตามดูความเคลื่อนไหวของ service หรือ server ของเราก็ได้ ซึ่ง Line ก็มี Partner สำหรับบริการเราชื่อ <a href="https://mackerel.io/" target="_blank">Mackerel</a> แต่ประเด็อคือมันเสียตังน่ะสิ (= =”) ซึ่งแน่นอนว่าโปรแกรมเมอร์สายประหยัดอย่างเราไม่ยอมเสียเงินแน่นอน 555+ เพราะฉะนั้นเรามาเขียนเองกันดีกว่า
+<!--more--></p>
+
+<h1 id="required--install">Required &amp; Install</h1>
+
+<p>สิ่งที่ต้องการในการ Monitor เซิฟเวอร์แบบ Low Cost ของเรามีดังนี้</p>
+<ul>
+    <li>ID Line เชื่อว่าทุกคนคงจะมีอยู่แล้วนะครัคงไม่สอนสมัคร (= =")</li>
+    <li>กลุ่มไลน์ที่ต้องการให้ส่งข้อความ (ตรงนี้แล้วแต่นะ)</li>
+    <li>ความรู้ Node.js (จริงๆใช้อะไรเขียนก็ได้แต่ผมชอบ Node.js อ่ะมีไรป่ะ)</li>
+</ul>
+
+<h1 id="start">Start</h1>
+
+<p>ขั้นตอนแรกให้เราเข้าสู่เว็ปไซด์ <a href="https://notify-bot.line.me/en/" target="_blank">Line Notify</a> และ Login ให้เรียบร้อยหลังจากนั้นกดที่ My Page ตามภาพ
+<img src="/img/moniter/img01.png" alt="เข้าสู่หน้า My Page" />
+<span class="caption text-muted">เมนู My Page จะปรากฏเมื่อคลิ๊กที่ชื่อไลน์ของคุณ</span>
+เลื่อนลงมาข้างล่างจะเห็นคำว่า Generate Token คลิ๊กโลดเมื่อคลิ๊กแล้วจะขึ้นหน้าตาดังภาพข้างล่างให้กรอกรายละเอียดให้เรียบร้อยในกรณีที่ต้องการให้ส่งข้อความให้เฉพาะตัวเองให้เลือก 1-on-1 chat
+<img src="/img/moniter/img02.png" alt="สร้าง Token" />
+<span class="caption text-muted">เลือก 1-on-1 chat ถ้าอยากคุยคนเดียว</span>
+เมื่อสร้างเสร็จจะได้ Token มาหนึ่งอันให้ก๊อบปี้เก็บไว้ก่อน (อย่าทำหายล่ะ!) ต่อมาเรามาเริ่มเขียนโค้ดเพื่อส่งการแจ้งเตือนกันเถอะทำตามคุณครูนะค่ะเด็กๆ</p>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="nx">mkdir</span> <span class="nx">monitor</span><span class="o">-</span><span class="nx">server</span>
+    <span class="nx">cd</span> <span class="nx">moniter</span><span class="o">-</span><span class="nx">server</span>
+    <span class="nx">npm</span> <span class="nx">init</span>
+    <span class="nx">npm</span> <span class="nx">install</span> <span class="nx">monitor</span> <span class="nx">request</span> <span class="o">--</span><span class="nx">save</span>
+</code></pre></div></div>
+<ul>
+    <li>monitor ใช้สำหรับติดตามการทำงานของ server</li>
+    <li>request ใช้สำหรับส่ง request ไปยัง Line Notify (จริงๆ เขียนเองก็ได้แต่ขี้เกียจ 555)</li>
+</ul>
+<p>ต่อมาสร้างไฟล์ index.js และใส่ Code ข้างล่างลงไป
+<b>index.js</b></p>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">Monitor</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">monitor</span><span class="dl">'</span><span class="p">);</span>
+<span class="kd">const</span> <span class="nx">request</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">request</span><span class="dl">'</span><span class="p">)</span>
+<span class="kd">const</span> <span class="nx">LOW_MEMORY_THRESHOLD</span> <span class="o">=</span> <span class="mi">100000000</span><span class="p">;</span>
+<span class="kd">const</span> <span class="nx">token</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">token</span><span class="dl">'</span><span class="p">;</span>
+
+<span class="kd">var</span> <span class="nx">options</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="na">probeClass</span><span class="p">:</span> <span class="dl">'</span><span class="s1">Process</span><span class="dl">'</span><span class="p">,</span>
+  <span class="na">initParams</span><span class="p">:</span> <span class="p">{</span>
+    <span class="na">pollInterval</span><span class="p">:</span> <span class="mi">10000</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+<span class="kd">var</span> <span class="nx">processMonitor</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Monitor</span><span class="p">(</span><span class="nx">options</span><span class="p">);</span>
+
+<span class="nx">processMonitor</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="dl">'</span><span class="s1">change</span><span class="dl">'</span><span class="p">,</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">freemem</span> <span class="o">=</span> <span class="nx">processMonitor</span><span class="p">.</span><span class="kd">get</span><span class="p">(</span><span class="dl">'</span><span class="s1">freemem</span><span class="dl">'</span><span class="p">);</span>
+  <span class="kd">var</span> <span class="nx">msg</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">Your Free memory Left </span><span class="dl">"</span><span class="o">+</span><span class="nx">freemem</span><span class="p">;</span>
+  <span class="nx">request</span><span class="p">({</span>
+     <span class="na">method</span><span class="p">:</span> <span class="dl">'</span><span class="s1">POST</span><span class="dl">'</span><span class="p">,</span>
+     <span class="na">uri</span><span class="p">:</span> <span class="dl">'</span><span class="s1">https://notify-api.line.me/api/notify</span><span class="dl">'</span><span class="p">,</span>
+     <span class="na">headers</span><span class="p">:</span> <span class="p">{</span>
+       <span class="dl">'</span><span class="s1">Content-Type</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">application/x-www-form-urlencoded</span><span class="dl">'</span><span class="p">,</span>
+  <span class="p">},</span>
+     <span class="dl">'</span><span class="s1">auth</span><span class="dl">'</span><span class="p">:</span> <span class="p">{</span>
+       <span class="dl">'</span><span class="s1">bearer</span><span class="dl">'</span><span class="p">:</span> <span class="nx">token</span>
+  <span class="p">},</span><span class="na">form</span><span class="p">:</span> <span class="p">{</span>
+       <span class="na">message</span><span class="p">:</span> <span class="nx">msg</span><span class="p">,</span>
+    <span class="p">}</span>
+  <span class="p">},</span> <span class="p">(</span><span class="nx">err</span><span class="p">,</span><span class="nx">httpResponse</span><span class="p">,</span><span class="nx">body</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+     <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">err</span><span class="p">));</span>
+     <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">httpResponse</span><span class="p">));</span>
+     <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">body</span><span class="p">));</span>
+  <span class="p">})</span>
+<span class="p">});</span>
+
+<span class="nx">processMonitor</span><span class="p">.</span><span class="nx">connect</span><span class="p">((</span><span class="nx">error</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="dl">'</span><span class="s1">Error connecting with the process probe: </span><span class="dl">'</span><span class="p">,</span> <span class="nx">error</span><span class="p">);</span>
+    <span class="nx">process</span><span class="p">.</span><span class="nx">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">});</span>
+</code></pre></div></div>
+<p>อธิบาย Code</p>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">Monitor</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">monitor</span><span class="dl">'</span><span class="p">);</span>
+<span class="kd">const</span> <span class="nx">request</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">request</span><span class="dl">'</span><span class="p">)</span>
+<span class="kd">const</span> <span class="nx">LOW_MEMORY_THRESHOLD</span> <span class="o">=</span> <span class="mi">100000000</span><span class="p">;</span>
+<span class="kd">const</span> <span class="nx">token</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">token</span><span class="dl">'</span><span class="p">;</span>
+</code></pre></div></div>
+<p>เรียกใช้งาน Module Monitor และ request ตั้งค่าแรมที่น้อยที่สุดหากน้อยกว่านี้ให้แจ้งเตือนใส่ token เตรียม (อย่าลืมใส่ token ของคุณล่ะ)</p>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">options</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="na">probeClass</span><span class="p">:</span> <span class="dl">'</span><span class="s1">Process</span><span class="dl">'</span><span class="p">,</span>
+  <span class="na">initParams</span><span class="p">:</span> <span class="p">{</span>
+    <span class="na">pollInterval</span><span class="p">:</span> <span class="mi">10000</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+<span class="kd">var</span> <span class="nx">processMonitor</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Monitor</span><span class="p">(</span><span class="nx">options</span><span class="p">);</span>
+</code></pre></div></div>
+<p>เซ็ท Option สำหรับ Monitor และให้วนเช็คทุกๆ 10000 milliseconds และสร้างการ Monitor ใหม่</p>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">processMonitor</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="dl">'</span><span class="s1">change</span><span class="dl">'</span><span class="p">,</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">freemem</span> <span class="o">=</span> <span class="nx">processMonitor</span><span class="p">.</span><span class="kd">get</span><span class="p">(</span><span class="dl">'</span><span class="s1">freemem</span><span class="dl">'</span><span class="p">);</span>
+  <span class="kd">var</span> <span class="nx">msg</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">Your Free memory Left </span><span class="dl">"</span><span class="o">+</span><span class="nx">freemem</span><span class="p">;</span>
+  <span class="nx">request</span><span class="p">({</span>
+     <span class="na">method</span><span class="p">:</span> <span class="dl">'</span><span class="s1">POST</span><span class="dl">'</span><span class="p">,</span>
+     <span class="na">uri</span><span class="p">:</span> <span class="dl">'</span><span class="s1">https://notify-api.line.me/api/notify</span><span class="dl">'</span><span class="p">,</span>
+     <span class="na">headers</span><span class="p">:</span> <span class="p">{</span>
+       <span class="dl">'</span><span class="s1">Content-Type</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">application/x-www-form-urlencoded</span><span class="dl">'</span><span class="p">,</span>
+  <span class="p">},</span>
+     <span class="dl">'</span><span class="s1">auth</span><span class="dl">'</span><span class="p">:</span> <span class="p">{</span>
+       <span class="dl">'</span><span class="s1">bearer</span><span class="dl">'</span><span class="p">:</span> <span class="nx">token</span>
+  <span class="p">},</span><span class="na">form</span><span class="p">:</span> <span class="p">{</span>
+       <span class="na">message</span><span class="p">:</span> <span class="nx">msg</span><span class="p">,</span>
+    <span class="p">}</span>
+  <span class="p">},</span> <span class="p">(</span><span class="nx">err</span><span class="p">,</span><span class="nx">httpResponse</span><span class="p">,</span><span class="nx">body</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+     <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">err</span><span class="p">));</span>
+  <span class="p">})</span>
+<span class="p">});</span>
+</code></pre></div></div>
+<p>เมื่อสถานะของ Monitor เปลี่ยนจะเข้า event change ให้ดึงจำนวนแรมที่เหลือ และส่ง request ไปที่ Line Notify โดยฝัง token ไปกับ  Header และส่งข้อความที่สร้างขึ้นไปด้วย ซึ่งจะเห็นว่าจริงๆแล้ว Line Notify เนี่ยแค่ request ไปให้ถูกก็พอไม่จำเป็นต้องติดตั้ง Library อะไรของ Line เพิ่มเติมพิเศษเลย</p>
+<blockquote>Line Notify แค่ส่ง request ไปให้ถูกก็พอไม่จำเป็นต้องไปติดตั้ง Library ให้วุ่นวาย</blockquote>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">processMonitor</span><span class="p">.</span><span class="nx">connect</span><span class="p">((</span><span class="nx">error</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="dl">'</span><span class="s1">Error connecting with the process probe: </span><span class="dl">'</span><span class="p">,</span> <span class="nx">error</span><span class="p">);</span>
+    <span class="nx">process</span><span class="p">.</span><span class="nx">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">});</span>
+</code></pre></div></div>
+
+<p>ให้แสดง error และปิดโปรแกรมหากไม่สามารถดึงข้อมูลมาได้ เมื่อโค้ดเสร็จแล้วก็มาทดสอบกันด้วยคำสั่ง</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">node</span> <span class="nx">index</span><span class="p">.</span><span class="nx">js</span>
+</code></pre></div></div>
+
+<p>จะเห็นว่ามีไลน์ขึ้นมาดังภาพ
+<img src="/img/moniter/img03.png" alt="ผลการทดสอบ" />
+<span class="caption text-muted">รันปุ๊บขึ้นปั๊บ ถ้าไม่รับปั๊บก็คงไม่ขึ้นปุ๊บ</span>
+ต่อมาจะเห็นว่าตอนนี้มันแจ้งเตือนบ่อยจนหน้ารำคาญให้เราปรับปปรุง Code ใน change event เป็นดังนี้</p>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">processMonitor</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="dl">'</span><span class="s1">change</span><span class="dl">'</span><span class="p">,</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">freemem</span> <span class="o">=</span> <span class="nx">processMonitor</span><span class="p">.</span><span class="kd">get</span><span class="p">(</span><span class="dl">'</span><span class="s1">freemem</span><span class="dl">'</span><span class="p">);</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">freemem</span> <span class="o">&lt;</span> <span class="nx">LOW_MEMORY_THRESHOLD</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">msg</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">Low memory warning: </span><span class="dl">'</span> <span class="o">+</span> <span class="nx">freemem</span><span class="p">;</span>
+    <span class="nx">request</span><span class="p">({</span>
+         <span class="na">method</span><span class="p">:</span> <span class="dl">'</span><span class="s1">POST</span><span class="dl">'</span><span class="p">,</span>
+         <span class="na">uri</span><span class="p">:</span> <span class="dl">'</span><span class="s1">https://notify-api.line.me/api/notify</span><span class="dl">'</span><span class="p">,</span>
+         <span class="na">headers</span><span class="p">:</span> <span class="p">{</span>
+           <span class="dl">'</span><span class="s1">Content-Type</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">application/x-www-form-urlencoded</span><span class="dl">'</span><span class="p">,</span>
+         <span class="p">},</span>
+         <span class="dl">'</span><span class="s1">auth</span><span class="dl">'</span><span class="p">:</span> <span class="p">{</span>
+           <span class="dl">'</span><span class="s1">bearer</span><span class="dl">'</span><span class="p">:</span> <span class="nx">token</span>
+         <span class="p">},</span><span class="na">form</span><span class="p">:</span> <span class="p">{</span>
+           <span class="na">message</span><span class="p">:</span> <span class="nx">msg</span><span class="p">,</span>
+         <span class="p">}</span>
+    <span class="p">},</span> <span class="p">(</span><span class="nx">err</span><span class="p">,</span><span class="nx">httpResponse</span><span class="p">,</span><span class="nx">body</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+         <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">err</span><span class="p">));</span>
+    <span class="p">})</span>
+<span class="p">}</span>
+<span class="p">});</span>
+</code></pre></div></div>
+
+<h1 id="conclusion">Conclusion</h1>
+
+<p>เพียงเท่านี้เราก็จะได้รับการแจ้งเตือนเมื่อแรมเราเหลือน้อยกว่าที่เรากำหนดไว้แล้วล่ะครับสำหรับคนที่ต้องการตรวจสอบอย่างอื่นเช่น CPU, heapTotal, heapUsed สามารถดูได้ <a href="http://lorenwest.github.io/node-monitor/doc/classes/ProcessProbe.html" target="_blank">ที่นี่</a>
+สำหรับคนที่ต้องการใช้ฟังชันอื่นๆของ Line Notify สามารถดูได้ <a href="https://notify-bot.line.me/doc/en/" target="_blank">ที่นี่</a>
+สามารถดาวโหลด Code ได้ที่นี่ <a href="https://github.com/noob-studio/monitor-server" target="_blank">Github</a></p>
+
+    </div><!-- .post-content -->
+    <div class="post-share">
+      <span>Share:</span>
+      <a target="_blank"
+        href="https://twitter.com/intent/tweet?text=%E0%B9%81%E0%B8%88%E0%B9%89%E0%B8%87%E0%B9%80%E0%B8%95%E0%B8%B7%E0%B8%AD%E0%B8%99%E0%B8%81%E0%B8%B2%E0%B8%A3%E0%B8%97%E0%B9%8D%E0%B8%B2%E0%B8%87%E0%B8%B2%E0%B8%99%E0%B8%82%E0%B8%AD%E0%B8%87%20Server%20%E0%B9%81%E0%B8%9A%E0%B8%9A%20Low%20cost%20%E0%B8%94%E0%B9%89%E0%B8%A7%E0%B8%A2%20Line%20Notify&amp;url=http://localhost:4000/line-notify" rel="noopener">Twitter</a>
+      <a target="_blank"
+        href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:4000/line-notify&amp;t=%E0%B9%81%E0%B8%88%E0%B9%89%E0%B8%87%E0%B9%80%E0%B8%95%E0%B8%B7%E0%B8%AD%E0%B8%99%E0%B8%81%E0%B8%B2%E0%B8%A3%E0%B8%97%E0%B9%8D%E0%B8%B2%E0%B8%87%E0%B8%B2%E0%B8%99%E0%B8%82%E0%B8%AD%E0%B8%87%20Server%20%E0%B9%81%E0%B8%9A%E0%B8%9A%20Low%20cost%20%E0%B8%94%E0%B9%89%E0%B8%A7%E0%B8%A2%20Line%20Notify" rel="noopener">Facebook</a>
+    </div><!-- .share-post -->
+    <div class="author-box">
+      
+      <div class="author-avatar" style="background-image: url('images/spongebob.jpg')"><span class="screen-reader-text">Freeweed's Picture</span></div>
+      
+      <div class="author-details">
+        <h2 class="author-title">About Freeweed</h2>
+        <div class="author-bio"><p>Freeweed is a programmer, freelance, thinker, dreamer, weed smoker and more.</p>
+</div>
+        
+        <span class="author-location">Thailand, Bangkok</span>
+        
+        
+        <span class="author-website"><a href="noob-studio.github.io" target="_blank" rel="noopener">noob-studio.github.io</a></span>
+        
+      </div><!-- .author-details -->
+    </div><!-- .author-box -->
+  </article><!-- .post -->
+
+  
+
+</main><!-- .main-content -->
+      <footer class="site-footer">
+  <div class="offsite-links">
+    
+      
+<a href="https://twitter.com/" target="_blank" rel="noopener">
+  <span class="fa-twitter" aria-hidden="true"></span>
+  <span class="screen-reader-text">Twitter</span>
+</a>
+
+<a href="https://github.com/" target="_blank" rel="noopener">
+  <span class="fa-github" aria-hidden="true"></span>
+  <span class="screen-reader-text">GitHub</span>
+</a>
+
+<a href="https://www.instagram.com/" target="_blank" rel="noopener">
+  <span class="fa-instagram" aria-hidden="true"></span>
+  <span class="screen-reader-text">Instagram</span>
+</a>
+
+<a href="https://www.linkedin.com/" target="_blank" rel="noopener">
+  <span class="fa-linkedin" aria-hidden="true"></span>
+  <span class="screen-reader-text">LinkedIn</span>
+</a>
+
+    
+  </div><!-- .offsite-links -->
+  <div class="footer-bottom">
+    <div class="site-info">
+      <p>This is my codex, One day I will die but my code will be forever.</p>
+
+    </div><!-- .site-info -->
+    <a href="#page" id="back-to-top" class="back-to-top"><span class="screen-reader-text">Back to the top </span>&#8593;</a>
+  </div><!-- .footer-bottom -->
+</footer><!-- .site-footer -->
+
+    </div><!-- .inner -->
+  </div><!-- .site -->
+
+  <!-- Scripts -->
+  
+    <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-93921891-1', 'auto');
+  ga('send', 'pageview');
+</script>
+  
+  <script src="/assets/js/plugins.js"></script>
+  <script src="/assets/js/custom.js"></script>
+
+</body>
+</html>

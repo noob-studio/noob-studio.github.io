@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>เขียน Microservice ด้วย Node.js และ Seneca.js</title>
+  <meta name="description" content="วิธีใช้งาน Seneca.js ช่วยให้สามารถสื่อสารระหว่าง Microservice ได้ดีขึ้น ในช่วง 2-3 ปีที่ผ่านกระแส Microservice ได้มาแรงมากๆ โดยที่ทำงานผมปัจจุบันแอพพลิเคชัน ...">
+  <link rel="canonical" href="http://localhost:4000/seneca-nodejs-microservice">
+  <link rel="alternate" type="application/rss+xml" title="Noob Studio Feed"
+    href="http://localhost:4000/feed.xml">
+  
+  <link rel="shortcut icon" href="/images/favicon.ico" type="image/png" />
+  
+  <!-- Styles -->
+  <!-- <link href="https://fonts.googleapis.com/css?family=Lato:400,400i,700,700i%7CNoto+Serif:400,400i,700,700i&display=swap" rel="stylesheet"> -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Rubik:400,400italic,700,700italic">
+  <link href="/assets/css/style.css" rel="stylesheet">
+</head>
+<body>
+
+  <div id="page" class="site">
+    <div class="inner">
+      <header class="site-header">
+  
+  <p class="site-title"><a class="logo-text" href="/">Noob Studio</a></p>
+  
+  <nav class="site-navigation">
+    <div class="site-navigation-wrap">
+      <h2 class="screen-reader-text">Main navigation</h2>
+      <ul class="menu">
+        
+        
+        
+        <li class="menu-item ">
+          <a class="" href="/">Home</a>
+        </li>
+        
+        
+        
+        <li class="menu-item ">
+          <a class="" href="/about/">About</a>
+        </li>
+        
+        
+        
+        <li class="menu-item ">
+          <a class="" href="/tags/">Tags</a>
+        </li>
+        
+        
+        
+        <li class="menu-item ">
+          <a class="" href="https://noob-studio.github.io/noob-engine">Noob Engine</a>
+        </li>
+        
+      </ul><!-- .menu -->
+      <button id="menu-close" class="menu-toggle"><span class="screen-reader-text">Close Menu</span><span
+          class="icon-close" aria-hidden="true"></span></button>
+    </div><!-- .site-navigation-wrap -->
+  </nav><!-- .site-navigation -->
+  <button id="menu-open" class="menu-toggle"><span class="screen-reader-text">Open Menu</span><span class="icon-menu" aria-hidden="true"></span></button>
+</header>
+
+
+      <main class="main-content fadeInDown delay_075s">
+
+  <article class="post">
+    <header class="post-header">
+      <time class="post-date" datetime="2018-01-18">January 18, 2018</time>
+      <h1 class="post-title">เขียน Microservice ด้วย Node.js และ Seneca.js</h1>
+      <div class="post-meta">
+        By <span class="post-author">Freeweed</span><span class="post-tags"> in <a href="/tags/#node.js" rel="tag">node.js</a>, <a href="/tags/#microservice" rel="tag">microservice</a>, <a href="/tags/#javascript" rel="tag">javascript</a>, <a href="/tags/#backend" rel="tag">backend</a></span>
+      </div><!-- .post-meta -->
+      
+      <figure class="post-thumbnail image-card width-wide">
+        <img src="/img/seneca/cover.jpg" alt="เขียน Microservice ด้วย Node.js และ Seneca.js">
+      </figure><!-- .post-thumbnail -->
+      
+    </header><!-- .post-header -->
+    <div class="post-content">
+      <p>ในช่วง 2-3 ปีที่ผ่านกระแส Microservice ได้มาแรงมากๆ โดยที่ทำงานผมปัจจุบันแอพพลิเคชัน แอพเดียวนี่มี Microservice support อยู่หลังบ้านเป็น 10 ระบบแล้ว ดังนั้นถ้าผมไม่พูดถึงมันจะไม่เทรนนะจ๊ะ แต่จะไม่ลงรายละเอียดในส่วนของทฤษฎีเยอะนะครับเพราะมีพี่ๆ เขียนไว้เยอะแล้ว เรามันสายบู๊อยู่แล้วว่ะฮ่ะฮ่ะ</p>
+
+<!--more-->
+
+<h1 id="microservice-คืออะไร">Microservice คืออะไร</h1>
+<p>
+Microservice คือแนวคิดการพัฒนาโปรแกรมแบบแยกโปรแกรมเป็นส่วนเล็กๆ ที่สามารถทำงานแยกออกจากกันได้มี environment แยกออกจากกัน แต่ก็สามารถทำงานร่วมกันได้เพื่อรวมกันกลายเป็นระบบที่ใหญ่ขึ้น ยกตัวอย่างเช่น ระบบธนาคาร (คลาสสิคสุดๆ) 
+
+
+ในระบบธนาคารหนึ่งธนาคารก็จะมีระบบต่างๆ ประมาณนี้<br /><br />
+	1. payment โอนเงิน / จ่ายเงิน<br />
+	2. balance จัดการยอดเงินผู้ใช้<br />
+	3. deposit ฝากเงิน<br />
+	4. sms แจ้งเตือนฝากถอน<br /><br />
+	อันนี้คือตัวอย่างคร่าวๆ นะครับจากตัวอย่างเราจะเห็นว่าถ้าเป็นสมัยก่อนเขียนไว้ในระบบเดียวกัน (Monolithic) ซึ่งจะว่าดีก็ดีในแบบของเค้านะครับแต่ว่าเราจะไม่พูดเพราะก็คงรู้ๆ กันอยู่แล้ว ข้อเสียที่สำคัญของสถาปัตยกรรมลักษณะนี้คือ<br /><br />
+	1. ถ้าระบบล่มจะล่มหมดเลย<br />
+	2. ทั้งทีมจำเป็นต้องถนัดเครื่องมือเดียวกันเช่น ถ้าใช้ Node.js ก็ต้อง Node.js ทั้งระบบ<br />
+	3. ดูแลรักษายาก<br /><br />
+	นี่แค่ที่ผมคิดออกนะครับเพราะเหตุนี้แนวคิด Mircroservice จึงเกิดขึ้นเพื่อมาแก้ปัญหาของสถาปัตยกรรมแบบเก่าโดยเขียนระบบที่กล่าวมาข้างต้น แยกกันดังนี้<br /><br />
+	1. payment โอนเงิน / จ่ายเงิน อย่างเดียวสายเปย์ ฐานข้อมูลก็เก็บแค่ transaction ที่โอนอย่างเดียว<br />
+	2. balance จัดการยอดเงิน วันๆทำแต่บัญชีอย่างเดียวไม่ต้องทำอะไรละ ฐานข้อมูลเก็บแค่ยอดเงินของผู้ใช้แต่ละคนพอ<br />
+	3. deposit ฝากเงิน ฝากเดียวจ้างกใครให้เงินมาเก็บๆ อย่างเดียวไม่สนใจอะไร ฐานข้อมูลก็เก็บแค่ transaction ที่ถอนอย่างเดียว<br />
+	4. sms แจ้งเตือนฝากถอนฟ้องอย่างเดียวจ้าใครฝากใครถอนโอนเงินให้ใครรู้หมดเก็บแค่ข้อมูล sms ที่ออกไปก็พอ<br /><br />
+	จะเห็นว่าถ้าออกแบบสถาปัตยกรรมระบบในรูปแบบนี้จะช่วยแก้ปัญหาที่กล่าวมาข้างต้นได้ถ้าระบบใดระบบหนึ่งล่มระบบอื่นก็ยังสามารถทำงานอยู่ได้ เช่น โอนเงินล่ม แต่ก็ยังสามารถฝากเงินได้อยู่ดี ทีม balance อยากใช้ PHP ทีม sms จะใช้ node.js ก็ไม่มีปัญหาระบบไหนพังก็ดูแลเป็นระบบๆ ไป
+</p>
+
+<h1 id="ปัญหาของ-microservice">ปัญหาของ Microservice</h1>
+
+<p>
+ถึง Microservice จะดูเทพมากมายขนาดไหนก็ยังมีปัญหาเรื่องความซ้ำซ้อนของระบบและการคุยกันระหว่าง service อยู่ดีเช่น การถอนเงินจากสถาปัตยกรรมของระบบข้างต้นถ้าผู้ใช้จะถอนเงินก็จะมี flow ประมาณนี้
+</p>
+<p><img src="/img/seneca/seneca-1.png" alt="เขียน Microservice ด้วย Node.js และ Seneca.js" /></p>
+<p>
+จาก flow จะเห็นว่าเมื่อโอนเงินเสร็จระบบ payment ต้องส่งข้อความไปถึงสองครั้งเพื่อบอกระบบ sms กับ balance ว่าโอนเงินเสร็จแล้วนะ แล้วถ้าเกิดวันนึงอยากจะเพิ่มระบบ log เพื่อมาเก็บ transaction เข้าออกของทั้งระบบ แต่ละทีมก็ต้องไป implement เพิ่มเพื่อให้ส่งข้อความไปบอกระบบ log ว่าโอนแล้วนะ ฝากแล้วนะ ส่ง sms แล้วนะ อีกวุ่นวายเข้าไปใหญ่
+</p>
+
+<h1 id="แนวคิดของ-senecajs">แนวคิดของ Seneca.js</h1>
+
+<p>
+จากปัญหาข้างบนจึงมีคนคิดขึ้นมาได้ว่าถ้างั้นแทนที่เราจะส่งต้องข้อความไปบอกทีละ Microservice ว่าทำนั่นแล้วนะทำนี่แล้วนะ เราก็ให้ Microservice ของเราตะโกนไปว่าฉันทำเสร็จแล้วนะ ทีนี้ Microservice ตัวไหนที่รออยู่ก็สามารถรับข้อความไปได้เลยไม่ต้องไล่ส่งข้อความไปบอกทีละคนอยู่ ถ้าต่อไปมี Microservice อื่นที่ต้องใช้ข้อความนี้ก็เอามาประกอบได้เลยไม่ต้องไปแก้อันเก่าแค่รอรับข้อความก็พอ ซึ่งก็คือ Seneca.jsนั่นเอง Seneca.js เนี่ยเค้าบอกว่าตัวเองคือ
+</p>
+<blockquote>
+Seneca is a microservices toolkit for Node.js.
+It helps you write clean, organized code that you can scale and deploy at any time.
+</blockquote>
+<p>
+แปลไทยก็ประมาณว่า seneca คือเครื่องมือที่ช่วยให้สถาปัตยกรรม Microservice ที่ implement ด้วย Node.js ชีวิตดีขึ้นว่างั้นเถอะ (สรุปเอาดื้อๆ) มันจะดีอย่างที่เค้าว่าหรือเปล่า ต่อไปเรามาลองใช้ Seneca.js กันนะครับ โดยเพื่อความสมจริง เราจะทำ Microservice 2 ตัวดังนี้ <br /><br />
+1. interface รับชื่อมาจาก Microservice<br />
+2. hello เอาชื่อมาส่งข้อความกลับไปว่า Hello ‘...'<br />
+</p>
+
+<h1 id="install">Install</h1>
+
+<pre>
+//interface service
+mkdir interface
+cd interface
+npm init
+npm install seneca express body-parser --save
+
+//plus service
+mkdir plus
+cd plus
+npm init
+npm install seneca --save
+</pre>
+
+<h1 id="implement-seneca">Implement Seneca</h1>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">//interface service</span>
+<span class="kd">const</span> <span class="nx">app</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">express</span><span class="dl">'</span><span class="p">)(),</span>
+      <span class="nx">seneca</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">seneca</span><span class="dl">'</span><span class="p">)();</span>
+                    
+<span class="nx">app</span><span class="p">.</span><span class="kd">get</span><span class="p">(</span><span class="dl">'</span><span class="s1">/</span><span class="dl">'</span><span class="p">,</span> <span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+   <span class="kd">let</span> <span class="nx">name</span> <span class="o">=</span> <span class="nx">req</span><span class="p">.</span><span class="nx">query</span><span class="p">.</span><span class="nx">name</span><span class="p">;</span>
+   <span class="nx">seneca</span><span class="p">.</span><span class="nx">client</span><span class="p">().</span><span class="nx">act</span><span class="p">({</span><span class="na">service</span><span class="p">:</span> <span class="dl">'</span><span class="s1">hello</span><span class="dl">'</span><span class="p">,</span> <span class="na">name</span><span class="p">:</span> <span class="nx">name</span><span class="p">},</span> <span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">result</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+       <span class="k">if</span> <span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="k">return</span> <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span>
+       <span class="nx">res</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="nx">result</span><span class="p">.</span><span class="nx">answer</span><span class="p">)</span>
+    <span class="p">});</span>
+<span class="p">})</span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">listen</span><span class="p">(</span><span class="mi">3000</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">Listening on port: 3000</span><span class="dl">'</span><span class="p">);</span>
+<span class="p">});</span>
+</code></pre></div></div>
+
+<p>
+จาก Code ข้างบนจะเห็นว่าก็ใช้ express ธรรมดาสิ่งที่อยากให้โฟกัสก็คือ
+</p>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">seneca</span><span class="p">.</span><span class="nx">client</span><span class="p">().</span><span class="nx">act</span><span class="p">({</span><span class="na">service</span><span class="p">:</span> <span class="dl">'</span><span class="s1">hello</span><span class="dl">'</span><span class="p">,</span> <span class="na">name</span><span class="p">:</span> <span class="nx">name</span><span class="p">},</span> <span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">result</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+	<span class="k">if</span> <span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="k">return</span> <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span>
+    <span class="nx">res</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="nx">result</span><span class="p">.</span><span class="nx">answer</span><span class="p">)</span>
+<span class="p">});</span>
+</code></pre></div></div>
+<p>
+คำสั่ง
+</p>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">seneca</span><span class="p">.</span><span class="nx">client</span><span class="p">().</span><span class="nx">act</span><span class="p">({</span><span class="na">service</span><span class="p">:</span> <span class="dl">'</span><span class="s1">hello</span><span class="dl">'</span><span class="p">,</span> <span class="na">name</span><span class="p">:</span> <span class="nx">name</span><span class="p">});</span> 
+</code></pre></div></div>
+<p>
+คือการสั่งให้ seneca ตะโกนออกไปนะครับ ซึ่งค่าที่ส่งไปเป็นแบบ key-value
+</p>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">result</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="k">return</span> <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span>
+    <span class="nx">res</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="nx">result</span><span class="p">.</span><span class="nx">answer</span><span class="p">)</span>
+<span class="p">});</span>
+</code></pre></div></div>
+<p>
+คือการ handle สิ่งที่ตอบกลับมา <br />ต่อมาเราจะมาดูในส่วนของ Microservice hello กันนะครับ
+</p>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">//hello service</span>
+<span class="kd">const</span> <span class="nx">seneca</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">seneca</span><span class="dl">'</span><span class="p">)();</span>
+<span class="kd">let</span> <span class="nx">hello</span> <span class="o">=</span> <span class="p">(</span><span class="nx">msg</span><span class="p">,</span> <span class="nx">reply</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="nx">reply</span><span class="p">(</span><span class="kc">null</span><span class="p">,</span> <span class="p">{</span><span class="na">answer</span><span class="p">:</span> <span class="p">(</span><span class="dl">'</span><span class="s1">Hello </span><span class="dl">'</span> <span class="o">+</span> <span class="nx">msg</span><span class="p">.</span><span class="nx">name</span><span class="p">)})</span>
+<span class="p">};</span>
+
+<span class="nx">seneca</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="dl">'</span><span class="s1">service:hello</span><span class="dl">'</span><span class="p">,</span> <span class="nx">hello</span><span class="p">).</span><span class="nx">listen</span><span class="p">();</span>
+</code></pre></div></div>
+<p>คำสั่ง </p>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">seneca</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="dl">'</span><span class="s1">service:hello</span><span class="dl">'</span><span class="p">,</span> <span class="nx">hello</span><span class="p">).</span><span class="nx">listen</span><span class="p">();</span> 
+</code></pre></div></div>
+<p>
+คือการบอกให้รอฟังสิ่งที่ service อื่นตะโกนมานะครับโดยจะต้อง match กับ <pre>'service:hello'</pre> เท่านั้นถึงจะทำงาน แล้วเราก็ส่ง function hello เข้าไปเพียงแค่นี้พอเราลองรัน service ทั้งสองตัวและเรียกไปที่ <a href="http://localhost:3000?name=noob" target="_blank">http://localhost:3000?name=noob</a> ก็จะมี response ตอบกลับมาตามรูปนะจ๊ะ
+</p>
+<p><img src="/img/seneca/reponse.png" alt="เขียน Microservice ด้วย Node.js และ Seneca.js" /></p>
+<p>หากต้องการ fix port, protocol, ip ก็สามารถทำได้ดังนี้ </p>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">//interface service</span>
+<span class="p">.</span><span class="nx">client</span><span class="p">({</span> <span class="na">port</span><span class="p">:</span> <span class="mi">8080</span><span class="p">,</span> <span class="na">host</span><span class="p">:</span> <span class="dl">'</span><span class="s1">192.168.0.2</span><span class="dl">'</span><span class="p">,</span><span class="na">type</span><span class="p">:</span> <span class="dl">'</span><span class="s1">http</span><span class="dl">'</span> <span class="p">})</span>
+<span class="c1">//hello service</span>
+<span class="p">.</span><span class="nx">listen</span><span class="p">({</span> <span class="na">port</span><span class="p">:</span> <span class="mi">8080</span><span class="p">,</span> <span class="na">host</span><span class="p">:</span> <span class="dl">'</span><span class="s1">192.168.0.2</span><span class="dl">'</span><span class="p">,</span><span class="na">type</span><span class="p">:</span> <span class="dl">'</span><span class="s1">http</span><span class="dl">'</span> <span class="p">})</span>
+</code></pre></div></div>
+<p>นอกจากนี้ seneca.js ยังมีลูกเล่น และ plugin อีกเยอะแยะมากมายบรรยายไม่หมดเลยนะครับโดยสามารถเข้าไปดูเพิ่มเติมได้ที่ <a href="http://senecajs.org/" target="_blank">http://senecajs.org/</a></p>
+
+<h1 id="conclusion">Conclusion</h1>
+
+<p>
+จากที่ลองใช้งานดู seneca.js เป็นเครื่องมือที่สามารถประยุกต์ใช้งานได้หลากหลายมากๆ แล้วแต่ว่าจะเอาไปทำอะไร ไม่ว่าเป็น healthcheck, log system, แชร์ config, แชร์ library ระหว่าง service, ส่ง message ไปหา service อื่น, etc. เรียกว่าของมันต้องมี เชื่อผมเถอะแล้วชีิวิตจะง่ายขึ้น! เหมือนเดิมครับตัวอย่าง code สามารถดูได้ <a href="https://github.com/noob-studio/seneca-example" target="_blank">ที่นี่</a> ถ้าชอบก็อย่าลืมกดไลค์กดแชร์ด้วยนะครับบ จุ๊บปาก &lt;3
+</p>
+
+    </div><!-- .post-content -->
+    <div class="post-share">
+      <span>Share:</span>
+      <a target="_blank"
+        href="https://twitter.com/intent/tweet?text=%E0%B9%80%E0%B8%82%E0%B8%B5%E0%B8%A2%E0%B8%99%20Microservice%20%E0%B8%94%E0%B9%89%E0%B8%A7%E0%B8%A2%20Node.js%20%E0%B9%81%E0%B8%A5%E0%B8%B0%20Seneca.js&amp;url=http://localhost:4000/seneca-nodejs-microservice" rel="noopener">Twitter</a>
+      <a target="_blank"
+        href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:4000/seneca-nodejs-microservice&amp;t=%E0%B9%80%E0%B8%82%E0%B8%B5%E0%B8%A2%E0%B8%99%20Microservice%20%E0%B8%94%E0%B9%89%E0%B8%A7%E0%B8%A2%20Node.js%20%E0%B9%81%E0%B8%A5%E0%B8%B0%20Seneca.js" rel="noopener">Facebook</a>
+    </div><!-- .share-post -->
+    <div class="author-box">
+      
+      <div class="author-avatar" style="background-image: url('images/spongebob.jpg')"><span class="screen-reader-text">Freeweed's Picture</span></div>
+      
+      <div class="author-details">
+        <h2 class="author-title">About Freeweed</h2>
+        <div class="author-bio"><p>Freeweed is a programmer, freelance, thinker, dreamer, weed smoker and more.</p>
+</div>
+        
+        <span class="author-location">Thailand, Bangkok</span>
+        
+        
+        <span class="author-website"><a href="noob-studio.github.io" target="_blank" rel="noopener">noob-studio.github.io</a></span>
+        
+      </div><!-- .author-details -->
+    </div><!-- .author-box -->
+  </article><!-- .post -->
+
+  
+
+</main><!-- .main-content -->
+      <footer class="site-footer">
+  <div class="offsite-links">
+    
+      
+<a href="https://twitter.com/" target="_blank" rel="noopener">
+  <span class="fa-twitter" aria-hidden="true"></span>
+  <span class="screen-reader-text">Twitter</span>
+</a>
+
+<a href="https://github.com/" target="_blank" rel="noopener">
+  <span class="fa-github" aria-hidden="true"></span>
+  <span class="screen-reader-text">GitHub</span>
+</a>
+
+<a href="https://www.instagram.com/" target="_blank" rel="noopener">
+  <span class="fa-instagram" aria-hidden="true"></span>
+  <span class="screen-reader-text">Instagram</span>
+</a>
+
+<a href="https://www.linkedin.com/" target="_blank" rel="noopener">
+  <span class="fa-linkedin" aria-hidden="true"></span>
+  <span class="screen-reader-text">LinkedIn</span>
+</a>
+
+    
+  </div><!-- .offsite-links -->
+  <div class="footer-bottom">
+    <div class="site-info">
+      <p>This is my codex, One day I will die but my code will be forever.</p>
+
+    </div><!-- .site-info -->
+    <a href="#page" id="back-to-top" class="back-to-top"><span class="screen-reader-text">Back to the top </span>&#8593;</a>
+  </div><!-- .footer-bottom -->
+</footer><!-- .site-footer -->
+
+    </div><!-- .inner -->
+  </div><!-- .site -->
+
+  <!-- Scripts -->
+  
+    <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-93921891-1', 'auto');
+  ga('send', 'pageview');
+</script>
+  
+  <script src="/assets/js/plugins.js"></script>
+  <script src="/assets/js/custom.js"></script>
+
+</body>
+</html>

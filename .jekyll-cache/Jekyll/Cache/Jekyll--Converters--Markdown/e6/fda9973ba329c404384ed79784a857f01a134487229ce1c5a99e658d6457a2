@@ -1,0 +1,102 @@
+I"�3<p>ต่อเนื่องจากบทความที่แล้วนะครับกับ <a href="/ionic2-notification">การส่งแจ้งเตือนให้แอพพลิเคชันด้วย Firebase และ Node.js </a></p>
+
+<p>หลายคนอาจจะรู้สึกว่าโหยทำไมมันเยอะแยะขนาดนี้เนี่ยแค่อยากแจ้งเตือนให้เข้ามาแอพกูหน่อยวันล่ะครั้งก็ยังดีไรแบบนี้ (คิดถึงแอพเกมที่เวลาไม่ได้เข้านานแล้วส่งแจ้งเตือนมาว่า หมู่บ้านต้องการคุณ!) ประมาณนี้จะสังเกตุเห็นว่าการแจ้งเตือนแบบนี้ไม่ได้ต้องการนำเสนอข้อมูลเหมือนกันแจ้งเตือนปกติเราแค่อยากจะเตือนให้ผู้ใช้เข้ามาในแอพเราหรืออะไรก็ว่าไปเป็นที่มาของการทำ Local Notification (แจ้งเตือนจากตัวแอพเองนั่นเองนะจ๊ะ)
+<!--more--></p>
+
+<h1 id="start-ionic">Start Ionic</h1>
+
+<p>เอาล่ะครับเรามาเริ่มกันเถอะขั้นตอนก็ไม่มีไรมากเหมือนเดิมครับสร้างแอพขึ้นมาและ add cordova plugin ตามนี้ขึ้นไป</p>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">ionic</span> <span class="nx">start</span> <span class="nx">ionic</span><span class="o">-</span><span class="nx">local</span><span class="o">-</span><span class="nx">notification</span> <span class="nx">blank</span> <span class="o">--</span><span class="nx">v2</span>
+<span class="nx">cd</span> <span class="nx">ionic</span><span class="o">-</span><span class="nx">local</span><span class="o">-</span><span class="nx">notification</span>
+<span class="nx">ionic</span> <span class="nx">platform</span> <span class="nx">add</span> <span class="nx">android</span>
+<span class="nx">ionic</span> <span class="nx">plugin</span> <span class="nx">add</span> <span class="nx">cordova</span><span class="o">-</span><span class="nx">plugin</span><span class="o">-</span><span class="nx">background</span><span class="o">-</span><span class="nx">mode</span>
+<span class="nx">npm</span> <span class="nx">install</span> <span class="o">--</span><span class="nx">save</span> <span class="p">@</span><span class="nd">ionic</span><span class="o">-</span><span class="nx">native</span><span class="o">/</span><span class="nx">background</span><span class="o">-</span><span class="nx">mode</span>
+<span class="nx">ionic</span> <span class="nx">plugin</span> <span class="nx">add</span> <span class="nx">de</span><span class="p">.</span><span class="nx">appplant</span><span class="p">.</span><span class="nx">cordova</span><span class="p">.</span><span class="nx">plugin</span><span class="p">.</span><span class="nx">local</span><span class="o">-</span><span class="nx">notification</span>
+<span class="nx">npm</span> <span class="nx">install</span> <span class="o">--</span><span class="nx">save</span> <span class="p">@</span><span class="nd">ionic</span><span class="o">-</span><span class="nx">native</span><span class="o">/</span><span class="nx">local</span><span class="o">-</span><span class="nx">notifications</span>
+</code></pre></div></div>
+
+<ul>
+<li>cordova-plugin-background-mode ใช้สำหรับให้แอพทำงานได้แม้ user จะออกจากแอพไปแล้ว</li>
+<li>local-notification คือพระเอกของงานนี้นะครับใช้สำหรับแจ้งเตือนแบบไม่ต้องมี server นั่นเอง</li>
+</ul>
+<p>ต่อมาให้เปิดไฟล์ src/app/app.component.ts ขึ้นมาและเพิ่ม Code ไปดังนี้</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="p">{</span> <span class="nx">BackgroundMode</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">@ionic-native/background-mode</span><span class="dl">'</span><span class="p">;</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">LocalNotifications</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">@ionic-native/local-notifications</span><span class="dl">'</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p>import module ที่ต้องการใช้นะครับโดยรายละเอียดก็ตามที่เขียนอธิบายไว้ข้างบน</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">constructor</span><span class="p">(</span>
+    <span class="p">...,</span> 
+    <span class="kr">private</span> <span class="nx">bgMode</span><span class="p">:</span> <span class="nx">BackgroundMode</span><span class="p">,</span>
+    <span class="kr">private</span> <span class="nx">localNoti</span><span class="p">:</span> <span class="nx">LocalNotifications</span>
+<span class="p">)</span> 
+</code></pre></div></div>
+
+<p>ประการศตัวแปร private ชื่อ bgMode, localNoti โดยนำค่ามาจาก Module BackgroundMode และ LocalNotifications ตามลำดับ ต่อมาเพิ่มการทำงานเข้าไปใน constructor ดังนี้</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">constructor</span><span class="p">(</span>
+    <span class="p">...</span>
+<span class="p">){</span>
+    <span class="nx">platform</span><span class="p">.</span><span class="nx">ready</span><span class="p">().</span><span class="nx">then</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+      <span class="p">...</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">bgMode</span><span class="p">.</span><span class="nx">enable</span><span class="p">();</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">bgMode</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="dl">'</span><span class="s1">activate</span><span class="dl">'</span><span class="p">).</span><span class="nx">subscribe</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+          <span class="kd">var</span> <span class="nx">today</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">();</span>
+          <span class="kd">var</span> <span class="nx">pm_6</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">();</span>
+          <span class="nx">pm_6</span><span class="p">.</span><span class="nx">setDate</span><span class="p">(</span><span class="nx">today</span><span class="p">.</span><span class="nx">getDate</span><span class="p">());</span>
+          <span class="nx">pm_6</span><span class="p">.</span><span class="nx">setHours</span><span class="p">(</span><span class="mi">18</span><span class="p">);</span>
+          <span class="nx">pm_6</span><span class="p">.</span><span class="nx">setMinutes</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+          <span class="nx">pm_6</span><span class="p">.</span><span class="nx">setSeconds</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+          <span class="kd">var</span> <span class="nx">at_6_pm</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">(</span><span class="nx">pm_6</span><span class="p">);</span>
+          <span class="k">this</span><span class="p">.</span><span class="nx">localNoti</span><span class="p">.</span><span class="nx">schedule</span><span class="p">({</span>
+            <span class="na">text</span><span class="p">:</span> <span class="dl">'</span><span class="s1">แจ้งเตือนตอน 6 โมง</span><span class="dl">'</span><span class="p">,</span>
+            <span class="na">firstAt</span><span class="p">:</span> <span class="nx">at_6_pm</span><span class="p">,</span>
+            <span class="na">every</span><span class="p">:</span> <span class="dl">'</span><span class="s1">day</span><span class="dl">'</span>
+          <span class="p">});</span>
+      <span class="p">})</span>
+    <span class="p">});</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>เพียงแค่นี้ก็เป็นอันเสร็จแล้วนะจ๊ะสำหรับการทำงานที่เราใส่ไปมีดังนี้นะครับ</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">this</span><span class="p">.</span><span class="nx">bgMode</span><span class="p">.</span><span class="nx">enable</span><span class="p">();</span>
+</code></pre></div></div>
+
+<p>เปิด Mode การทำงานแบบ background</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">this</span><span class="p">.</span><span class="nx">bgMode</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="dl">'</span><span class="s1">activate</span><span class="dl">'</span><span class="p">).</span><span class="nx">subscribe</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+<span class="p">...</span>
+<span class="p">})</span>
+</code></pre></div></div>
+
+<p>เป็น event ที่เกิดขึ้นเมื่อ application ทำงานแบบ background mode</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">today</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">();</span>
+<span class="kd">var</span> <span class="nx">pm_6</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">();</span>
+<span class="nx">pm_6</span><span class="p">.</span><span class="nx">setDate</span><span class="p">(</span><span class="nx">today</span><span class="p">.</span><span class="nx">getDate</span><span class="p">());</span>
+<span class="nx">pm_6</span><span class="p">.</span><span class="nx">setHours</span><span class="p">(</span><span class="mi">18</span><span class="p">);</span>
+<span class="nx">pm_6</span><span class="p">.</span><span class="nx">setMinutes</span><span class="p">(</span><span class="mi">00</span><span class="p">);</span>
+<span class="nx">pm_6</span><span class="p">.</span><span class="nx">setSeconds</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">at_6_pm</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">(</span><span class="nx">pm_6</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>สร้างวันเวลาสำหรับแจ้งเตือนโดยให้ตั้งเป็น 6 โมง</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">this</span><span class="p">.</span><span class="nx">localNoti</span><span class="p">.</span><span class="nx">schedule</span><span class="p">({</span>
+    <span class="na">text</span><span class="p">:</span> <span class="dl">'</span><span class="s1">แจ้งเตือนตอน 6 โมง</span><span class="dl">'</span><span class="p">,</span>
+    <span class="na">firstAt</span><span class="p">:</span> <span class="nx">at_6_pm</span><span class="p">,</span>
+    <span class="na">every</span><span class="p">:</span> <span class="dl">'</span><span class="s1">day</span><span class="dl">'</span>
+<span class="p">});</span>
+</code></pre></div></div>
+
+<p>ตั้งค่าการแจ้งเตือนโดยมีรายละเอียดดังนี้</p>
+<ul>
+<li>text ข้อความที่จะให้แจ้งเตือน</li>
+<li>firstAt ให้แจ้งเตือนเมื่อไหร่</li>
+<li>every ให้แจ้งเตือนเมื่อไหร่ใส่ Day ให้แจ้งเตือนทุกวันนั่นเอง</li>
+</ul>
+
+:ET
