@@ -23,7 +23,7 @@ tags:
 # Start Ionic
 
 เอาล่ะครับเรามาเริ่มกันเถอะขั้นตอนก็ไม่มีไรมากเหมือนเดิมครับสร้างแอพขึ้นมาและ add cordova plugin ตามนี้ขึ้นไป
-{% endhighlight %}
+{% highlight javascript %}
 ionic start ionic-local-notification blank --v2
 cd ionic-local-notification
 ionic platform add android

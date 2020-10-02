@@ -35,9 +35,9 @@ tags:
 # New Angular Project
 เปิด Terminal ขึ้นมาแล้วพิมพ์คำสั่ง
 
-```
+{% highlight javascript %}
 ng new awesome-angular
-```
+{% enghighlight %}
 
 จะขึ้นหน้าจอถามว่าต้องการใช้ style ประเภทไหนผมเลือก css และมีคำสั่งถามว่าต้องการใช้ angular route หรือไม่ให้ตอบ yes
 
@@ -45,13 +45,13 @@ ng new awesome-angular
 
 เมื่อทำการตั้งค่าเสร็จให้พิมพ์คำสั่ง
 
-```
+{% highlight javascript %}
 cd awesome-angular
-```
+{% endhighlight %}
 
 เพื่อเข้าไปใน Directory Project โดย Project จะมีโครงสร้างที่ต้องสนใจ ดังนี้
 
-``` javascript
+{% highlight javascript %}
 awesome-angular
 ├── src 
 │   ├── assets // สำหรับเก็บ assets ต่างๆ ที่ต้องการใช้ใน Project
@@ -66,18 +66,18 @@ awesome-angular
 │       └── app.module.html // module หลักของระบบ
 ├── angular.json // เก็บ setting สำหรับ angular cli
 └── package.json // เก็บ setting และ package ต่างๆของโปรเจค
-```
+{% endhighlight %}
 
 # Install Bootstrap
 เมื่อเราสร้างโปรเจคเสร็จแล้วนะครับต่อมาเราก็จะมาทำการติดตั้ง Bootstrap Plugin ให้ Angular กันนะครับโดยขั้นตอนก็มีง่ายๆ โดยพิมพ์คำสั่ง
 
-```
+{% highlight javascript %}
 npm install boostrap jquery popper.js --save
-```
+{% endhighlight %}
 
 เมื่อติดตั้งเสร็จแล้วให้เปิดไฟล์ชื่อว่า **angular.json** และเพิ่มรายละเอียดดังนี้
 
-```json
+{% highlight json %}
 ...
 "styles": [
     "src/styles.css",
@@ -88,7 +88,7 @@ npm install boostrap jquery popper.js --save
     "./node_modules/bootstrap/dist/js/bootstrap.js" // เพิ่ม
 ],
 ...
-```
+{% endhighlight %}
 
 ## Change Theme (Optional)
 หากต้องการเปลี่ยนธีมให้เปิดไปที่เว็บไซด์ <a href="https://bootswatch.com/">bootswatch</a> โดยเว็บนี้รวบรวม Theme Bootstrap ตั้งต้นไว้ให้เราเอาไปพัฒนาต่อง่าย
@@ -98,19 +98,20 @@ npm install boostrap jquery popper.js --save
 เมื่อเลือก theme ได้แล้วให้คลิ๊กที่ ชื่อ Theme และ bootstrap.min.css เว็บไซด์จะทำการดาวโหลดไฟล์ **bootstrap.min.css** นำไฟล์ไปวางไว้ที่ **src/assets/css/**
 
 และเปิดไฟล์ **angular.json** อีกครั้งเพื่อแก้ไข
-```json
+
+{% highlight json %}
 ...
 "styles": [
     "src/styles.css",
     "src/assets/css/bootstrap.min.css", // แก้ไข
 ],
 ...
-```
+{% endhighlight %}
 หลังจากนั้นพิมพ์คำสั่ง
 
-```
+{% highlight json %}
 ng serve
-```
+{% endhighlight %}
 
 แล้วเปิด Browser ไปที่ <a href="http://localhost:4200" target="_blank">localhost:4200</a> จะพบหน้าตาดังนี้
 
@@ -129,12 +130,12 @@ ng serve
 
 # Create Component
 ต่อมาเราจะมาสร้าง Angular Component กันนะครับวิธีสร้างก็ง่ายๆ ให้เปิด terminal ขึ้นมาแล้วพิมพ์คำสั่งว่า
-```
+{% highlight json %}
 ng generate component shared/navbar
 ng generate component page/about
 ng generate component page/home
 ng generate component page/features
-```
+{% endhighlight %}
 
 ## Command Description
 * `ng generate` หรือ `ng g` คือคำสั่งสำหรับสร้างส่วนประกอบของ angular
@@ -142,7 +143,7 @@ ng generate component page/features
 * `shared/navbar` คือชื่อสิ่งที่ต้องการสร้าง การใส่ shared/ ข้างหน้าหมายความว่าสร้างไว้ใน Directory ชื่อว่า Shared ซึ่งถ้าไม่มี Angular CLI จะทำการสร้าง Directory ให้
 
 หลังจากพิมพ์คำสั่งเสร็จแล้วเมื่อดูในโปรเจค Directory จะพบไฟล์เพิ่มขึ้นมาดังนี้
-```javascript
+{% highlight javascript %}
 ...
 │   └── app
 │       ├── page // เพิ่มใหม่
@@ -168,12 +169,12 @@ ng generate component page/features
 │       │   │   ├── navbar.component.spec.ts
 │       │   │   ├── navbar.component.ts
 ...
-```
+{% endhighlight %}
 
 ## Create Navbar
 ต่อมาเรามาทำ Navbar เพื่อสำหรับเป็น Navigation ไปที่ต่างๆ นะครับโดยให้เราเปิดไฟล์ **navbar.component.html** ขึ้นมาและใส่โค้ดดังนี้
 
-```html
+{% highlight html %}
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <a class="navbar-brand" href="#">Navbar</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
@@ -198,17 +199,20 @@ ng generate component page/features
     </form>
   </div>
 </nav>
-```
+{% endhighlight %}
+
 โดยโค้ดที่สำคัญตรงนี้คือ
-```html
+
+{% highlight html %}
 <a class="nav-link" [routerLink]="['/home']">Home </a>
-```
+{% endhighlight %}
+
 คำสัง `[routerLink]="['/home']"` คือบอกว่าให้ route ไปที่หน้าไหนคล้ายกับ `href="/home"`
 
 ## Home Markup (Optional)
 เพื่อความสวยงามนะครับเรามาแต่งหน้า Home กันหน่อยให้เปิดไฟล์ **home.component.html** ขึ้นมาแล้วใส่ Code ดังนี้
 
-```html
+{% highlight html %}
 <div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-light">
   <div class="col-md-5 p-lg-5 mx-auto my-5">
     <h1 class="display-4 font-weight-normal">Noob Studio Is The Best</h1>
@@ -218,7 +222,8 @@ ng generate component page/features
   <div class="product-device box-shadow d-none d-md-block"></div>
   <div class="product-device product-device-2 box-shadow d-none d-md-block"></div>
 </div>
-```
+{% endhighlight %}
+
 ปล. แอบขายของนิดนึงนะครับ 55555
 
 # Angular Routing
@@ -227,7 +232,7 @@ ng generate component page/features
 ## Set Route
 ขั้นตอนแรกให้เปิดไปที่ไฟล์ **app-routing.module.ts** และเพิ่มโค้ดดังนี้
 
-```javascript
+{% highlight javascript %}
 ...
 import { AboutComponent } from './page/about/about.component';
 import { FeaturesComponent } from './page/features/features.component';
@@ -250,75 +255,75 @@ const routes: Routes = [{
 
 @NgModule({
 ...
-```
+{% endhighlight %}
 
 ขั้นตอนแรกให้เรา import component ต่างๆ ที่เราต้องการ route เข้ามานะครับให้สังเกตุว่าเราไม่ได้ import `navbar.component` เข้ามาเพราะเราไม่ได้ต้องการจะ route ไปที่ `navbar.component` นะครับ
 
-```javascript
+{% highlight javascript %}
 import { AboutComponent } from './page/about/about.component';
 import { FeaturesComponent } from './page/features/features.component';
 import { HomeComponent } from './page/home/home.component';
-```
+{% endhighlight %}
 
 ต่อมาเราทำการ set route ไว้ในตัวแปลชื่อว่า `routes` โดยมีประเภทเป็น `Routes` ที่ใส่ `const` ไว้เพื่อไม่ให้ตัวนี้สามารถแก้ไขได้ และหากสังเกตุจะเห็นว่ามันเป็น `json array` 
 
-```javascript
+{% highlight javascript %}
 const routes: Routes = [{
 ...
 }]
-```
+{% endhighlight %}
 
 ต่อมาเราอธิบายใส่ในของ route กันนะครับ object ตัวแรกคือการ set default ว่าถ้าเข้ามาที่ path แรกจะให้ route ไปที่ไหน
 * `path:` หมายถึง path ที่ตรงกับ route นี้
 * `redirectTo:` หมายถึงให้ redirect ไปที่ path ไหน
 * `pathMatch:` ความตรงกันของ path (เงี่ยนไขที่จะ redirect)
 
-```json
+{% highlight json %}
 {
   path: '',
   redirectTo: 'home',
   pathMatch: 'full',
 }
 ...
-```
+{% endhighlight %}
 ในส่วนสุดท้าย set route สำหรับวิ่งไปหน้าอื่นๆ นะครับ
 * `path:` หมายถึง path ที่ตรงกับ route นี้
 * `component:` หมายถึง component ที่ควบคุม route นี้ซึ่งเราได้ import มาตอนต้นแล้ว
 
-```json
+{% highlight json %}
 ...
 {
   path: 'home',
   component: HomeComponent,
 }
 ...
-```
+{% endhighlight %}
 
 แค่นี้ก็เป็นอันเสร็จสิ้นสำหรับการ Set Route แล้วนะครับ
 
 ## Assemble
 ส่วนสุดท้ายแล้วนะจ๊ะ เราจะมาประกอบร่าง Component ทั้งหมดกันก่อนอื่นให้เปิดไฟล​์ชื่อว่า **app.component.html** ขึ้นมาแล้วแก้เป็นแบบนี้
 
-```html
+{% highlight html %}
 <app-navbar></app-navbar>
 <router-outlet></router-outlet>
-```
+{% endhighlight %}
 
 * `<app-navbar></app-navbar>` คือ selector (แบบว่าเหมือนชื่อเล่นของ component เอาไว้เรียกใช้งานงี้มั้ง) มาจากไฟล์ **navbar.component.ts**
 
-```javascript
+{% highlight javascript %}
 ...
 @Component({
   selector: 'app-navbar', // <------ ตรงนี้
 ...
-```
+{% endhighlight %}
 
 * `<router-outlet></router-outlet>` เป็น selector ของ Angular
 
 สุดท้ายพิมพ์คำสั่ง
-```
+{% highlight javascript %}
 ng serve
-```
+{% endhighlight %}
 
 แล้วเปิดไปที่หน้า <a href="http://localhost:4200">http://localhost:4200</a> หน้าเว็บก็จะแสดงผลหน้าตาเว็บไซด์ประมาณนี้
 <img src="{{ site.baseurl }}/img/angular/ep01/screenshot.png" alt="บริการรับทำเว็บไซด์ แอพพลิเคชัน ระบบสำหรับใช้ในองค์กร เว็บขายของระบบ E-commerce หรือระบบต่างๆ">
@@ -332,7 +337,7 @@ ng serve
 
 * import component ที่สร้างขึ้นและ `AppRoutingModule`
 
-```javascript
+{% highlight javascript %}
 ...
 import { AppRoutingModule } from './app-routing.module';
 import { HomeComponent } from './page/home/home.component';
@@ -340,11 +345,11 @@ import { NavbarComponent } from './shared/navbar/navbar.component';
 import { AboutComponent } from './page/about/about.component';
 import { FeaturesComponent } from './page/features/features.component';
 ...
-```
+{% endhighlight %}
 
 * เรียกใช้งาน component และ module ที่ import มาถูกต้อง
 
-```javascript
+{% highlight javascript %}
 ...
 @NgModule({
   declarations: [ // สำหรับใส่ component
@@ -362,7 +367,7 @@ import { FeaturesComponent } from './page/features/features.component';
   bootstrap: [AppComponent]
 })
 ...
-```
+{% endhighlight %}
 
 # Conclusion
 เป็นอันเรียบร้อยไปแล้วนะครับสำหรับ Angular 'n Bootstrap EP 01 ยังไงเพื่อนๆชอบไม่ชอบก็สามารถเข้ามาติชมกันที่แฟนเพจ noob studio ได้นะครับ สำหรับเพื่อนๆคนไหนที่สนใจตัวอย่างโค้ด สามารถดูได้ที่ <a href="https://github.com/noob-studio/angular-bootstrap" target="_blank">github</a> ของเรานะจ๊ะ
