@@ -9,7 +9,7 @@ categories:
 tags: 
  - dictionary
  - Programing101
- - บ่น
+ - life
 
 ---
 

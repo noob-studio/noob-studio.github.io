@@ -2,12 +2,96 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>Noob Studio</title>
-        <description>การเขียนโปรมแกรมเป็นงานศิลปะ งานศิลปะที่ดีควรจะสวย และมีประโยชน์</description>
+        <description>ชีวิตก็เหมือนการเขียนโค้ดถ้าคุณไม่เคย Compile คุณก็ไม่มีมีทางรู้ว่ามันใช้งานได้หรือไม่ - freeweed</description>
         <link>http://localhost:4000/</link>
         <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-        <pubDate>Fri, 02 Oct 2020 15:40:34 +0700</pubDate>
-        <lastBuildDate>Fri, 02 Oct 2020 15:40:34 +0700</lastBuildDate>
+        <pubDate>Sat, 03 Oct 2020 14:00:56 +0700</pubDate>
+        <lastBuildDate>Sat, 03 Oct 2020 14:00:56 +0700</lastBuildDate>
         <generator>Jekyll v4.0.1</generator>
+        
+            <item>
+                <title>อยากเป็นโปรแกรมเมอร์ต้องทำยังไง</title>
+                <description>&lt;p&gt;&lt;strong&gt;&lt;em&gt;บทความนี้เป็นคำแนะนำ จากความคิดเห็นส่วนตัวของผม&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;จุดเริ่มต้น&quot;&gt;จุดเริ่มต้น&lt;/h1&gt;
+&lt;p&gt;สำหรับคนที่เข้ามาอ่านบทความนี้ ผมคิดว่าน่าจะเป็นคนที่เพิ่งเริ่มสนใจการเขียนโปรแกรม หรือน้องๆ นักศึกษาที่กำลังอยากเข้ามาเรียนสาขาวิชานี้ ดังนั้นสิ่งที่ผมอยากให้คุณทำคือ&lt;/p&gt;
+
+&lt;p&gt;ปล. บทความนี้ยาวนิดนึงนะครับ
+&lt;!--more--&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;สำรวจตัวเอง&quot;&gt;สำรวจตัวเอง&lt;/h2&gt;
+&lt;p&gt;ว่าคุณอยากเป็นโปรแกรมเมอร์เพราะอะไร บางคนอาจจะอยากเป็นเพราะเห็นว่ารายได้ดี หรือว่าคิดว่าเป็นงานง่ายๆ สบายๆ หรือบางคนอาจจะชอบจริงๆ ไม่ว่าคุณจะอยากเป็นโปรแกรมเมอร์เพราะอะไรผมอยากให้คุณถามตัวเองว่า มันคุ้มค่าพอที่จะเหนื่อยหรือไม่ เพราะว่าการจะเป็นโปรแกรมเมอร์นั้นจริงๆ แล้วไม่ใช่งานที่สบายเลย แทบจะเรียกว่ากรรมกรไซเบอร์ด้วยซ้ำ พี่อยากจะบอกน้องๆว่า &lt;code class=&quot;highlighter-rouge&quot;&gt;หนีไป!&lt;/code&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;ไม่ว่าคุณจะอยากเป็นโปรแกรมเมอร์เพราะอะไรผมอยากให้คุณถามตัวเองว่า มันคุ้มค่าพอที่จะเหนื่อยหรือไม่&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;นี่คือข้อเท็จจริงเกี่ยวกับโปรแกรมเมอร์ที่อยากให้ทุกคนได้รู้เพื่อช่วยประกอบการตัดสินใจ&lt;/p&gt;
+
+&lt;h3 id=&quot;มหาลัยไม่ได้เน้นสอนเขียนโค้ด&quot;&gt;มหาลัยไม่ได้เน้นสอนเขียนโค้ด&lt;/h3&gt;
+&lt;p&gt;จากประสบกาณ์ตรงของผมที่สัมผัสมาพบว่ามหาลัยส่วนใหญ่ไม่ได้เน้นสอนเขียนโค้ดแต่จะเน้นสอน &lt;code class=&quot;highlighter-rouge&quot;&gt;วิธีคิด&lt;/code&gt; มากกว่า เพราะว่าวิธีการโค้ดคุณสามารถค้นหาใน Google ได้ง่ายๆ ใครๆก็สามารถเขียนได้ถ้าใช้ google เป็นแต่วิธีคิดนั้น เกิดขึ้นจากประสบการณ์การทำงาน การลองทำลองผิดลองถูก ไม่ใช่แค่ Search Google ก็เจอ คนที่เขียนโค้ดไม่ได้แล้วบอกว่าเพราะมหาลัยไม่ได้สอนเขียนโค้ดนั้นผมคิดว่าเขาเข้าใจผิด และตัวผมเองก็เคยคิดแบบนั้นเหมือนกันตอนเรียนมหาลัยว่าแม่งสอนกูเขียนแค่จักรยาน แต่ตอนทำโปรเจคจะให้กูสร้างยานอวกาศ พอโตขึ้นจึงเข้าใจสิ่งที่อาจารย์ต้องการจะสอนเรา เพราะฉะนั้นถ้าใครคิดจะไปเรียนมหาลัยเพื่อหัดเขียนโปรแกรม ผมบอกเลยว่าคุณอาจจะไม่ได้อย่างที่หวัง&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;คนที่เขียนโค้ดไม่ได้แล้วบอกว่าเพราะมหาลัยไม่ได้สอนเขียนโค้ดนั้นผมคิดว่าเขาเข้าใจผิด&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&quot;โปรแกรมเมอร์เป็นงานที่สบาย-แต่ว่าไม่สบาย&quot;&gt;โปรแกรมเมอร์เป็นงานที่สบาย แต่ว่าไม่สบาย&lt;/h3&gt;
+&lt;p&gt;ใช่ครับโปรแกรมเมอร์เป็นงานที่สบายทางกายมาก แต่ไม่สบายทางความคิดเลย เพราะว่าถึงจะนั่งน่าคอมเย็นๆ อยู่ตลอด แต่ว่าสมองต้องแปลงคำพูด หรือความต้องการของคนให้กลายเป็นโค้ดได้ รวมถึงการดูแลรักษาโค้ด แก้ปัญหาบัคต่างๆ ที่เกิดขึ้น หลังงานขึ้น production ไปแล้ว โดนผู้ใช้ด่า โดนเจ้านายกดดัน ใช่ครับนั่งหน้าคอมสบาย แต่นั่งหน้าคอมวันละ 10 ชั่วโมง ++ ไม่สบายเลย&lt;/p&gt;
+
+&lt;h3 id=&quot;โปรแกรมเมอร์เป็นงานที่รายได้ดี-ถ้าเก่ง&quot;&gt;โปรแกรมเมอร์เป็นงานที่รายได้ดี …ถ้าเก่ง&lt;/h3&gt;
+&lt;p&gt;ใช่ครับหลายๆ คนอาจจะเห็นประกาศรับสมัครงานโปรแกรมเมอร์เงินเดือนเริ่มต้น 60 - 100k บางคนเป็นฟรีแลนซ์นั่งจิ้มๆ คอมก็มีเงินใช้แล้วไม่ต้องไปทำงานประจำ ใช่ครับโปรแกรมเมอร์เป็นอาชีพที่รายได้ดีขนาดนั้นเลยเหลาะ แต่ว่าไม่ใช่ทุกคนครับที่จะได้รายได้ดีแบบนั้น โปรแกรมเมอร์จบใหม่รายได้เริ่มต้น 15,000 ขึ้นไปขึ้นอยู่กับความสามารถ ตัวผมเองเงินเดือนเริ่มต้นก็ได้แค่ 18,000 การที่คุณเป็นโปรแกรมเมอร์ที่เงินเดือน 40k++ คุณต้องมีอะไรซักอย่าง เช่น เป็นโปรแกรมเมอร์ที่สามารถจบงานคนเดียวได้ สื่อสารภาษาอังกฤษได้ แกะ Requirement เก่ง&lt;/p&gt;
+
+&lt;h3 id=&quot;เป็นโปรแกรมเมอร์ที่เก่งไม่ยาก-แต่ก็ไม่ง่าย&quot;&gt;เป็นโปรแกรมเมอร์ที่เก่งไม่ยาก แต่ก็ไม่ง่าย&lt;/h3&gt;
+&lt;p&gt;คุณเคยเห็นคนที่แค่เห็น error ก็สามารถแก้โค้ดได้เลยไหมครับ แบบรู้บรรทัดไหนผิดอะไร ไม่ต้องไล่โค้ดด้วยซ้ำ ผมจะบอกเทคนิคการเป็นโปรแกรมเมอร์ที่เก่งให้นะครับ ที่ผมพูดข้างบนทุกอย่าง จบงานคนเดียวได้ สื่อสารภาษาอังกฤษได้ หรือแกะ Requirement เก่งคุณสามารถทำได้ทุกอย่างโดยการฝึก&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;เทคนิคการเป็นโปรแกรมเมอร์ที่เก่งก็แค่ฝึก&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;ใช่ครับแค่ฝึก โปรเมอร์ที่คุณเห็นเก่งๆ ทุกคนผ่านช่วงเวลาที่โง่มาก่อน ผ่านเวลาที่อยากลำบากมากก่อนทั้งนั้นครับ ทุกคนต้องเคยเจอ error เจอบัคที่แก้ไม่ได้ ทุกคนก็ต้องพยายามแก้ให้ได้ครับ คนพวกนั้นถึงได้เก่งไงครับใช่ครับการฝึกมันไม่ยาก แต่ว่ามันก็ไม่ง่ายครับ ถ้าคุณเป็นนักศึกษาคุณต้องนั่งเขียนโค้ด ในขณะที่เพื่อนของคุณชวนกันไปกินเหล้า คุณต้องรู้จักห้ามใจตัวเอง ถ้าคุณเป็นผู้ใหญ่คุณต้องฝืนใจตัวเองหลังจาก ที่เลิกงานมา เพื่อให้นั่งหัดเขียนโค้ด แค่นี้เองครับ ถ้าคุณทำได้คุณก็จะเก่งทั้งโค้ด และภาษาได้โดยอัตโนมัติเพราะโลกของการเขียนโค้ด ทุกอย่างเป็นภาษาอังกฤษครับ คุณก็จะซึมซับได้เอง อย่างน้อยพูดไม่ได้ ก็ต้องอ่านออกบ้างเหลาะน่า 55555&lt;/p&gt;
+
+&lt;h2 id=&quot;การฝึกเป็นโปรแกรมเมอร์&quot;&gt;การฝึกเป็นโปรแกรมเมอร์&lt;/h2&gt;
+&lt;p&gt;เอาละครับสำหรับทุกคนที่ทนอ่านมาถึงตรงนี้ ก็คงคิดแล้วว่ามันคุ้มค่าเหนื่อย หรือไม่ก็นั่งขี้อยู่อยากอ่านอะไรเพลินๆ แต่ไม่ว่าคุณจะอ่านบทความนี้เพราะอะไร ต่อไปนี้คือคำแนะนำของผมครับ&lt;/p&gt;
+
+&lt;h3 id=&quot;คิดโจทย์&quot;&gt;คิดโจทย์&lt;/h3&gt;
+&lt;p&gt;ก่อนอื่นคุณต้องเข้าใจก่อนว่าทำไมถึงต้องมีซอฟแวร์ ก็เพราะคุณมีปัญหาครับ คุณมีความต้องการ คุณมีความ need อะไรซักอย่าง เช่น มีคนทำ lazada เพราะว่ามีคนต้องการขายของ มีคนทำแอพ line man เพราะว่ามีคนขี้เกียจไปซื้อของกินเอง มีคนทำ GRAP, Uber เพราะ Taxi มัน #@$%#$@^ เพราะฉะนั้นคุณลองคิดโจทย์ดูครับ ว่าคุณมีปัญหาอะไร อยากจะแก้ปัญหาอะไร&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;มีคนทำ lazada เพราะว่ามีคนต้องการขายของ มีคนแอพ lineman เพราะว่ามีคนขี้เกียจไปซื้อของกินเอง&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&quot;ออกแบบ&quot;&gt;ออกแบบ&lt;/h3&gt;
+&lt;p&gt;หลังจากที่คุณคิดโจทย์ได้แล้ว ให้คุณลองวาดไอเดียของคุณลงในกระดาษ จดบันทึกความต้องการคุณว่าคุณต้องการจะทำอะไรบ้าง ออกแบบฐานข้อมูล ลองคิดฟังชันต่างๆ ที่จำเป็นต้องใช้ในระบบของเราดูว่าระบบของเราควรจะทำอะไรได้บ้าง ไม่ต้องห่วงไม่มีถูกไม่มีผิด ไม่ต้องกลัวว่าจะทำไปแล้วใช่ไม่ได้ เพราะถ้ามันใช้ไม่ได้เราก็ออกแบบใหม่ เพิ่มนู่นแก้นี่คุณมีเวลา ทั้งชีวิตเพราะนี่คือการฝึก&lt;/p&gt;
+
+&lt;h3 id=&quot;การเลือกใช้ภาษา&quot;&gt;การเลือกใช้ภาษา&lt;/h3&gt;
+&lt;p&gt;หลังจากคุณออกแบบเสร็จเรียบร้อยแล้ว หลายคนน่าจะมีคำถามว่า แล้วเริ่มต้นหัดเขียนภาษาอะไรดีละผมบอกเลยว่าให้เริ่มจากภาษาที่คุณชอบ ให้เลือกจากภาษาที่คุณรู้สึกว่าเขียนแล้วสนุก เขียนแล้วมีความสุข เขียนแล้วเข้าใจมันครับ เพราะเราทำเพื่อหัด คุณไม่ต้องไปกังวลครับว่าจะหัดเขียนไปแล้วไม่มีประโยชน์ เพราะว่า&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;โปรแกรมเมอร์ที่เก่งๆ นั้นไม่ยึดติดกับภาษาครับ แน่นอนว่าแต่ละคนจะมีภาษาที่ตัวเอง Pro ภาษาที่ชอบที่รักหนึ่งภาษา แต่ว่าถ้าให้ไปเขียนภาษาอื่นเขาก็สามารถเขียนได้ครับ&lt;/li&gt;
+  &lt;li&gt;ทุกภาษาเขียนโปรแกรมในโลกคล้ายๆ กันคือก็มี if - else, loop, ตัวแปร, ฟังชันคล้ายๆกัน ดังนั้นการที่เราสามารถเขียนภาษานึงจนเข้าใจวิธีคิดจนทะลุปรุโปร่งแล้วนั้น เราก็จะสามารถไปเขียนโปรแกรมภาษาอื่นได้ครับ แน่นอนว่าอาจจะต้องเปิด Google ไปด้วยแต่ทุกวันนี้มีโปรแกรมเมอร์คนไหนไม่เปิด Google ตอนทำงานบ้าง?&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;อย่ากลัว-error&quot;&gt;อย่ากลัว error&lt;/h3&gt;
+&lt;p&gt;แน่นอนครับสิ่งที่โปรแกรมเมอร์มือใหม่กลัวที่สุดคือ error (ถ้ามือเก๋าจะกลัว prod issue 5555) ผลจากการกลัว error คืออะไร &lt;code class=&quot;highlighter-rouge&quot;&gt;ไม่กล้า save&lt;/code&gt; ครับ เขียนโปรแกรมสำหรับบางคนแล้วไม่กล้า save กล้ว compile พอเราไม่กล้า save ไม่กล้า compile ก็ทำให้เราไม่รู้ครับว่าเราทำไปถูกหรือเปล่า ผมบอกเลยครับ เวลาเจอ error ให้ยิ้มแล้วบอกว่าได้เวลาเก็บ exp แล้ว ยิ่ง error ยาก error ยาว error เยอะนี่ยิ่ง exp เยอะครับ ทุกครั้งที่เราจัดการ error ได้หนึ่งตัวเท่ากับเรา level up ไปอีกขั้น ไม่ต้องกลัวว่าจะเจอ error ที่แก้ไม่ได้เพราะทุกอย่างที่เราทำผมมั่นใจว่ามันมีคนเคยทำมาก่อนเคยเจอปัญหาเดียวกันมาก่อน แล้วทั้งนั้นครับ&lt;/p&gt;
+
+&lt;h2 id=&quot;บทส่งท้าย&quot;&gt;บทส่งท้าย&lt;/h2&gt;
+&lt;p&gt;ทำตามข้างบนเสร็จแล้วต้องทำยังไงต่อละ ฉันจะเป็นโปรแกรมเมอร์หรือยังนะ เก่งหรือยังนะ? คนเดียวที่รู้ก็คือตัวคุณเองครับ เวลาที่คุณได้รับ feedback จากลูกค้า หรือเวลาที่คุณทดลองใช้งานซอฟแวร์ของตัวเองคุณก็จะรู้ได้เองครับว่าคุณเป็นโปรแกรมเมอร์หรือยัง ถ้าคุณคิดว่าคุณเก่งพอแล้วก็คือคุณเก่งพอแล้วครับ ถ้าคุณคิดคุณยังไม่เก่ง คุณคิดว่าซอฟแวร์ของคุณยังใช้งานได้ไม่ดีพอ คุณก็แค่หัดเพิ่มไปเรื่อยๆ จนกว่าจะเก่งพอครับ การจะเป็นโปรแกรมเมอร์มันไม่มีทางลัด ไม่หลักสูตรเร่งรัดครับ มีแค่นี้ครับ ขอบคุณครับ&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;คุณสามารถบอกใครๆ ได้ว่าคุณสอบตก เพราะอาจารย์สอนไม่รู้เรื่อง แต่สุดท้ายคุณก็ยังสอบตก ในขณะที่เพื่อนของคุณสอบผ่านอยู่ดี&lt;/p&gt;
+&lt;/blockquote&gt;
+</description>
+                <pubDate>Sat, 03 Oct 2020 18:00:00 +0700</pubDate>
+                <link>http://localhost:4000/how-to-be-programmer</link>
+                <guid isPermaLink="true">http://localhost:4000/how-to-be-programmer</guid>
+                
+                <category>life</category>
+                
+                <category>Programming101</category>
+                
+                <category>Private opinion</category>
+                
+                
+            </item>
         
             <item>
                 <title>วิธีใช้งาน require('...') ใน Angular 8</title>
@@ -520,7 +604,7 @@
                 
                 <category>Programing101</category>
                 
-                <category>บ่น</category>
+                <category>life</category>
                 
                 
             </item>
@@ -1620,304 +1704,6 @@ ionic run android
                 
                 
                 <category>mobile</category>
-                
-            </item>
-        
-            <item>
-                <title>วิธีทำแอพแชทง่ายๆ ด้วย Ionic2</title>
-                <description>&lt;p&gt;เบื่อไหมครับที่เวลาจะเขียนแอพขึ้นมาซักแอพหนึ่งเนี่ยต้องนั่งทำทั้ง Android iOS&lt;/p&gt;
-
-&lt;p&gt;ไหนจะต้องเรียนรู้ภาษาใหม่ๆ ทั้ง Java Swift โหยลำบากวุ่นวายอ่ะ แล้วทำไมกูต้องไปเรียนรู้ภาษาใหม่ๆด้วยว่ะครับ ทั้งๆ ที่กูก็เขียบเว็ปเป็นอยู่แล้วทำไมจะเอาพวก Javascript CSS HTML มาทำแอพไม่ได้!! แต่ช้าก่อนนี่มันโลกยุค 2017 แล้วนะจ๊ะ TV Direct ขอนำเสนอ &lt;a href=&quot;https://ionicframework.com/&quot; target=&quot;_blank&quot;&gt;Ionic2&lt;/a&gt; !
-&lt;!--more--&gt;&lt;/p&gt;
-
-&lt;blockquote&gt;สมัยก่อนการทำแอพขึ้นมาซักแอพนึงเนี่ยต้องทำทั้ง iOS และ Android แต่เดี๋ยวนี้ไม่ต้องแล้ว&lt;/blockquote&gt;
-
-&lt;h1 id=&quot;what-is-ionic2&quot;&gt;What is Ionic2&lt;/h1&gt;
-
-&lt;p&gt;Ionic2 คือเครื่องมือที่ทำให้เราสามารถเขียนแอพเพียงครั้งเดียวสามารถทำงานได้ทุก Platform (หรือที่เรียกแบบเกร๋ๆ ว่า Cross Platform) โดยใช้แค่ Javascript CSS HTML ในการเขียนโปรแกรมซึ่งการทำงานของ Ionic2 ก็คือตัว Ionic2 จะทำตัวเป็นเหมือน Browser ที่แสดงเฉพาะเว็ปๆ เดียวก็คือเว็ปที่เราเขียนขึ้นมานั่นเองซึ่งเราจะเรียกแอพที่ทำงานในลักษณะนี้ว่า Hybrid App หลายคนอ่านมาถึงตรงนี้อาจจะคิดว่ามันก็คือเว็ปธรรมดาก็ไม่เหมือนแอพจริงๆ สิ ผมขอบอกตรงนี้นะครับนี่มันโลกยุคไหนแล้วถ้าไม่มีคนบอกผมนั่งยันนอนยันตะแคงข้างยันเลยว่ายังไงก็ดูไม่ออกเอาล่ะโม้มาเยอะแล้วมาเริ่มกันเถอะ&lt;/p&gt;
-&lt;blockquote&gt;Javascript ที่ Ionic2 ใช้คือ &lt;a href=&quot;https://angular.io/&quot; target=&quot;_blank&quot;&gt;Angular2&lt;/a&gt; นะครับ&lt;/blockquote&gt;
-
-&lt;h1 id=&quot;required--install&quot;&gt;Required &amp;amp; Install&lt;/h1&gt;
-
-&lt;p&gt;สิ่งที่ต้องการสำหรับใช้งาน&lt;/p&gt;
-
-&lt;ul&gt;
-    &lt;li&gt;พื้นฐาน Node.js นิดหน่อย (อีกแล้วครับท่าน)&lt;/li&gt;
-    &lt;li&gt;Node.js เวอร์ชันล่าสุด&lt;/li&gt;
-    &lt;li&gt;Android Studio เพราะว่าเราต้องการตัว Android SDK นะจ๊ะถ้าใครไม่มีสามารถดาวโหลดได้ &lt;a href=&quot;https://developer.android.com/studio/index.html&quot; target=&quot;_blank&quot;&gt;ที่นี่&lt;/a&gt; (จริงๆแล้วดาวโหลดแค่ SDK tool ก็ได้แต่ว่าผมว่าลง Android Studio ไปเลยจะเวิร์คกว่า)&lt;/li&gt;
-    &lt;li&gt;Geanymotion เป็น emulator ทดสอบแอพของเรานะครับถ้าใครไม่มีสามารถดาวโหลดได้ &lt;a href=&quot;https://www.genymotion.com/&quot; target=&quot;_blank&quot;&gt;ที่นี่&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;Ionic2 ติดตั้งสามารถด้วยคำสั่งนี้ 
-
-    ```js
-    npm install -g cordova ionic
-    ``` 
-
-    &lt;/li&gt;
-    &lt;li&gt;ในบทความนี้จะไม่ลงรายละเอียดถึงตัว Angular2 เยอะนะครับควรจะศึกษามาบ้างเล็กน้อยเพื่อความเข้าใจ&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h1 id=&quot;start-server&quot;&gt;Start Server&lt;/h1&gt;
-
-&lt;p&gt;เมื่อเรามีสิ่งที่ต้องหมดแล้วต่อมาก็มาเริ่มกันเถอะ โดยเราจะเริ่มจากทำฝั่ง Server ก่อนนะจ๊ะ&lt;/p&gt;
-
-&lt;div class=&quot;language-js highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;    &lt;span class=&quot;nx&quot;&gt;mkdir&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;ionic&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;chat&lt;/span&gt;
-    &lt;span class=&quot;nx&quot;&gt;cd&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;ionic&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;chat&lt;/span&gt;
-    &lt;span class=&quot;nx&quot;&gt;npm&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;init&lt;/span&gt;
-    &lt;span class=&quot;nx&quot;&gt;npm&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;install&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;socket&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;io&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;express&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;--&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;save&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;socket.io สำหรับรับส่งข้อความแบบ real time ส่วน express ใช้เป็น server (จริงๆไม่ต้องใช้ก็ได้แต่ผมขี้เกียจเขียนเองอ่ะมีไรป่ะ) เมื่อทำเสร็จแล้วให้สร้างไฟล์ index.js ขึ้นมาโดยใส่ Code ข้างล่างนี้ลงไป
-&lt;b&gt;index.js&lt;/b&gt;&lt;/p&gt;
-
-&lt;div class=&quot;language-js highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;express&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;require&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;express&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;app&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;express&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
-&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;server&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;require&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;http&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;createServer&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;app&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;io&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;require&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;socket.io&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;listen&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;server&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-&lt;span class=&quot;nx&quot;&gt;app&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;use&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;((&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;req&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;res&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;next&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;nx&quot;&gt;res&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;header&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;Access-Control-Allow-Origin&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-    &lt;span class=&quot;nx&quot;&gt;res&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;header&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;Access-Control-Allow-Headers&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;Origin, X-Requested-With, Content-Type, Accept&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-    &lt;span class=&quot;nx&quot;&gt;next&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
-&lt;span class=&quot;nx&quot;&gt;app&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;req&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;res&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;nx&quot;&gt;res&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;send&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;This is ma awesome server&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
-&lt;span class=&quot;nx&quot;&gt;io&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;on&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;connection&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;client&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;Client connected...&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-    &lt;span class=&quot;nx&quot;&gt;client&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;on&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;msg&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;message&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;nx&quot;&gt;io&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;emit&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;msg&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;message&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
-&lt;span class=&quot;nx&quot;&gt;server&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;listen&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;5555&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;Program running on port : 5555&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;แค่นี้เหลาะครับสำหรับฝั่ง Server ของเราเป็นอันเรียบร้อยอธิบาย Code นะครับ&lt;/p&gt;
-
-&lt;div class=&quot;language-js highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;express&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;require&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;express&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;app&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;express&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
-&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;server&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;require&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;http&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;createServer&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;app&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;io&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;require&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;socket.io&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;listen&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;server&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;เรียกใช้และสร้าง server โดยใช้ express และผูก Socket.io ไว้กับ server ที่ถูกสร้างขึ้น&lt;/p&gt;
-&lt;div class=&quot;language-js highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nx&quot;&gt;app&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;use&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;((&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;req&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;res&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;next&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;nx&quot;&gt;res&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;header&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;Access-Control-Allow-Origin&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-    &lt;span class=&quot;nx&quot;&gt;res&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;header&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;Access-Control-Allow-Headers&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;Origin, X-Requested-With, Content-Type, Accept&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-    &lt;span class=&quot;nx&quot;&gt;next&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;เซ็ท Header ให้เรียกใช้จาก server อื่นได้&lt;/p&gt;
-&lt;div class=&quot;language-js highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nx&quot;&gt;app&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;req&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;res&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;nx&quot;&gt;res&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;send&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;This is ma awesome server&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;เซ็ท route สำหรับคนที่เข้ามาใน server ผ่านทาง browser&lt;/p&gt;
-&lt;div class=&quot;language-js highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nx&quot;&gt;io&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;on&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;connection&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;client&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;p&quot;&gt;...&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;เป็น event ที่จะเกิดขึ้นเมื่อมีผู้ใช้เชื่อมต่อเข้ามาในท่อ&lt;/p&gt;
-&lt;div class=&quot;language-js highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nx&quot;&gt;client&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;on&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;msg&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;message&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;p&quot;&gt;...&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;เป็น event ที่จะเกิดขึ้นเมื่อผู้ใช้ส่งข้อมูลเข้ามาผ่านท่อที่ชื่อว่า msg&lt;/p&gt;
-&lt;div class=&quot;language-js highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nx&quot;&gt;io&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;emit&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;msg&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;message&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;ส่ง msg ที่ได้รับให้ผู้ใช้ทุกคน&lt;/p&gt;
-&lt;blockquote&gt;
-ถ้าหากต้องการส่งให้ทุกคนยกเว้นตัวคนส่งเองให้ใส่เป็น
-
-```js
-client.broadcast.emit('msg', message);
-```
-
-แต่ถ้าต้องการส่งกลับไปให้คนส่งคนเดียวเท่านั้น(แล้วจะเรียกว่า chat ไหมหนอ) ให้ใส่เป็น
-
-```js
-client.emit('msg', message);
-```
-
-&lt;/blockquote&gt;
-
-&lt;div class=&quot;language-js highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nx&quot;&gt;server&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;listen&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;5555&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;Program running on port : 5555&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;เริ่มต้นการทำงานของ server ที่ port 5555 ด้วยคำสั่ง&lt;/p&gt;
-&lt;pre&gt;node index.js&lt;/pre&gt;
-&lt;p&gt;เมื่อทดลองเข้าผ่านหน้าเว็ปไปที่ &lt;a href=&quot;http://localhost:5555&quot; target=&quot;_blank&quot;&gt;http://localhost:5555&lt;/a&gt; จะได้หน้าตาดังภาพข้างล่างนี้
-&lt;img src=&quot;/img/ionic-chat/img01.png&quot; alt=&quot;ทดลองรัน server&quot; /&gt;
-&lt;span class=&quot;caption text-muted&quot;&gt;ทดลองรัน server ผ่าน Browser&lt;/span&gt;&lt;/p&gt;
-
-&lt;h1 id=&quot;start-ionic2&quot;&gt;Start Ionic2&lt;/h1&gt;
-
-&lt;p&gt;เอาล่ะครับน่าจะถึงเวลาที่ทุกคนรอคอยได้เขียนแอพจริงๆซักที 5555 เริ่มด้วยคำสั่ง&lt;/p&gt;
-&lt;pre&gt;
-ionic start ionic-chat-client blank --v2
-cd ionic-chat-client
-&lt;/pre&gt;
-&lt;p&gt;เข้ามาจะเห็นไฟล์อะไรเยอะแยะเลยนะครับไม่ต้องตรงใจในตอนนี้เราสนใจแค่ในโฟรเดอร์ src ก็พอเมื่อเข้ามาจะเห็นว่าโครงสร้างมันคล้ายๆเว็ปไซด์เลยให้เปิดไฟล์ index.html ขึ้นมาหลังจากนั้นให้เพิ่มโหลด script นี้เข้าไป&lt;/p&gt;
-&lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;script &lt;/span&gt;&lt;span class=&quot;na&quot;&gt;src=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.7.3/socket.io.js&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/script&amp;gt;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;เข้าไปที่ Page/home/home.html และแก้ไข Code ให้เป็นดังนี้&lt;/p&gt;
-&lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;ion-header&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;ion-navbar&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;ion-title&amp;gt;&lt;/span&gt;
-      Ionic Blank
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/ion-title&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/ion-navbar&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;/ion-header&amp;gt;&lt;/span&gt;
-
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;ion-content&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;padding&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;ion-card&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;*ngFor=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;let msg of massage&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;ion-card-content&amp;gt;&lt;/span&gt;
-      
-
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/ion-card-content&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/ion-card&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;/ion-content&amp;gt;&lt;/span&gt;
-
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;ion-footer&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;ion-toolbar&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;ion-item&amp;gt;&lt;/span&gt;
-      &lt;span class=&quot;nt&quot;&gt;&amp;lt;ion-label&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;fixed&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;Massage: &lt;span class=&quot;nt&quot;&gt;&amp;lt;/ion-label&amp;gt;&lt;/span&gt;
-      &lt;span class=&quot;nt&quot;&gt;&amp;lt;ion-input&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;text&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;[(ngModel)]=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;msg&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/ion-input&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/ion-item&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;ion-buttons&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;end&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;(click)=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;send()&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-      &lt;span class=&quot;nt&quot;&gt;&amp;lt;button&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;ion-button&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;icon-right&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;color=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;royal&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-        Send
-        &lt;span class=&quot;nt&quot;&gt;&amp;lt;ion-icon&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;send&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/ion-icon&amp;gt;&lt;/span&gt;
-      &lt;span class=&quot;nt&quot;&gt;&amp;lt;/button&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/ion-buttons&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/ion-toolbar&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;/ion-footer&amp;gt;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;จาก Code ข้างบนจะมีจุดสังเกตุ 3 จุดดังนี้&lt;/p&gt;
-&lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;ion-card&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;*ngFor=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;let msg of massage&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;ion-card-content&amp;gt;&lt;/span&gt;
-      {{ msg }}
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/ion-card-content&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;/ion-card&amp;gt;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;*ngFor=”…” คือการสั่งให้วนลูปของ Angular2 ส่วน {{ msg }} คือการแสดงค่า Object ของ Angular2 หรือเรียกว่า Two-way binding (จะไว้อธิบายในบทความต่อๆไปนะครับ) และส่วนสุดท้าย (click)=”send()” คือการควบคุม event click นะครับถ้าเป็น Javascript ธรรมดาก็อารมณ์ Onclick ประมาณนั้น
-รันจากนั้นเมื่อทดสอบรันด้วยคำสั่ง &amp;lt;pre&amp;gt;ionic serve&amp;lt;/pre&amp;gt; ionic จะทำการเปิด Browser ขึ้นมาและจะได้หน้าตาเปล่าๆ ประมาณนี้นะครับ
-&lt;img src=&quot;/img/ionic-chat/img02.png&quot; alt=&quot;ทดสอบรันแอพ&quot; /&gt;
-&lt;span class=&quot;caption text-muted&quot;&gt;ทดสอบรันแอพผ่าน Browser&lt;/span&gt;
-ต่อมาให้เราเปิดไฟล์ Page/home/home.ts ขึ้นมาและแก้ไขให้เป็นดังนี้นะครับ&lt;/p&gt;
-&lt;div class=&quot;language-js highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Component&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;@angular/core&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-
-&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;NavController&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;ionic-angular&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-
-&lt;span class=&quot;nx&quot;&gt;declare&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;io&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-
-&lt;span class=&quot;p&quot;&gt;@&lt;/span&gt;&lt;span class=&quot;nd&quot;&gt;Component&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;({&lt;/span&gt;
-  &lt;span class=&quot;na&quot;&gt;selector&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;page-home&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-  &lt;span class=&quot;na&quot;&gt;templateUrl&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;home.html&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;})&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;HomePage&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-
-  &lt;span class=&quot;nl&quot;&gt;socketHost&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;string&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-  &lt;span class=&quot;nl&quot;&gt;socket&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;any&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-  &lt;span class=&quot;nl&quot;&gt;massage&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;any&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-  &lt;span class=&quot;nl&quot;&gt;msg&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;string&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-  &lt;span class=&quot;kd&quot;&gt;constructor&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kr&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;navCtrl&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;NavController&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;socketHost&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;http://localhost:5555&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;massage&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[];&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;socket&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;io&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;socketHost&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;socket&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;on&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;msg&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;msg&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-      &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;massage&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;push&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;msg&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
-  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-
-  &lt;span class=&quot;nx&quot;&gt;send&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(){&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;socket&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;emit&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;msg&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;msg&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;msg&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&quot;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;อธิบาย Code นะครับ&lt;/p&gt;
-&lt;div class=&quot;language-js highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nx&quot;&gt;declare&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;io&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;คือการประกาศตัวแปร io นะครับจริงๆไม่ต้องประกาศก็ได้แต่ตัว Typescript ไม่รู้จัก io เลยต้องประกาศไม่งั้นจะงอแงเอา&lt;/p&gt;
-&lt;div class=&quot;language-js highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  &lt;span class=&quot;nx&quot;&gt;socketHost&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;string&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-  &lt;span class=&quot;nl&quot;&gt;socket&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nl&quot;&gt;any&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;any&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-  &lt;span class=&quot;nl&quot;&gt;massage&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;string&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[];&lt;/span&gt;
-  &lt;span class=&quot;nl&quot;&gt;msg&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;string&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;ประกาศตัวแปลสำหรับเก็บค่าต่างๆ นะครับ&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;socketHost เป็น string เก็บ url ของ server&lt;/li&gt;
-&lt;li&gt;socket สำหรับเก็บ socket นะครับไม่รู้จะให้ type อะไรเลยใส่เป็น any (any คือท่าไม้ตายคิด type ไม่ออก any ไปก่อน 555)&lt;/li&gt;
-&lt;li&gt;massage สำหรับเก็บข้อความที่ chat ไปมาเป็น string array&lt;/li&gt;
-&lt;li&gt;msg สำหรับเก็บข้อความจากช่อง input เป็น string&lt;/li&gt;
-&lt;/ul&gt;
-&lt;div class=&quot;language-js highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;socketHost&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;http://localhost:5555&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;massage&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[];&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;กำหนดค่าสำหรับตัวแปลต่างๆ&lt;/p&gt;
-&lt;div class=&quot;language-js highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;socket&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;io&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;socketHost&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;สร้าง socket ขึ้นมา&lt;/p&gt;
-&lt;div class=&quot;language-js highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;socket&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;on&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;msg&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;msg&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;massage&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;push&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;msg&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;เมื่อได้รับข้อความจาก server ผ่านทางท่อ msg ให้ push ใส่ array massage&lt;/p&gt;
-&lt;div class=&quot;language-js highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nx&quot;&gt;send&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(){&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;socket&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;emit&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;msg&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;msg&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;msg&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&quot;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;ส่งข้อความไปให้ server ผ่านทางท่อ msg แค่นี้เหลาะครับเสร็จแล้วหลังจากนั้นลองดูที่ terminal ที่รัน server ของเราถ้าขึ้นว่า Client connected… ดังภาพเป็นอันเรียบร้อยโรงเรียนเตรียม 
-&lt;img src=&quot;/img/ionic-chat/img03.png&quot; alt=&quot;แอพเสร็จแล้ว&quot; /&gt;
-&lt;span class=&quot;caption text-muted&quot;&gt;มีการเชื่อมต่อจาก client สู่ server&lt;/span&gt;
-ลองเปิด Browser ไปที่ &lt;a href=&quot;http://localhost:8100/&quot; target=&quot;_blank&quot;&gt;http://localhost:8100&lt;/a&gt; 2 หน้าต่างและทดสอบใช้จะได้ผลลัพท์ดังภาพ
-&lt;img src=&quot;/img/ionic-chat/img04.gif&quot; alt=&quot;ทดสอบเล่นแอพ&quot; /&gt;
-&lt;span class=&quot;caption text-muted&quot;&gt;แชทได้แล้วจ้า&lt;/span&gt;
-สำหรับใครที่ต้องการทดสอบบน emulator ให้เปิด geanymotion และเปลี่ยน socketHost ไป ip เครื่องตัวเองเช่น&lt;/p&gt;
-&lt;div class=&quot;language-js highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;socketHost&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;192.168.1.28:5555&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;และทดสอบรันด้วยคำสั่งข้างล่างนี้ก็เป็นเรียบร้อย&lt;/p&gt;
-&lt;pre&gt;
-ionic platform add android
-ionic run android
-&lt;/pre&gt;
-
-&lt;h1 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h1&gt;
-
-&lt;p&gt;ศึกษาเพิ่มเติม&lt;/p&gt;
-&lt;ul&gt;
-    &lt;li&gt;&lt;a href=&quot;https://ionicframework.com/&quot; target=&quot;_blank&quot;&gt;Ionic2&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;https://socket.io/&quot; target=&quot;_blank&quot;&gt;socket.io&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;สำหรับ Code บน git แปะไว้ก่อนนะครับเพราะตอนที่เขียนบทความนี้ดึกมากแล้วง่วงมักๆ ถ้าไม่ลืมจะตามมาอัพให้นะครับ&lt;/p&gt;
-</description>
-                <pubDate>Sun, 19 Mar 2017 03:07:00 +0700</pubDate>
-                <link>http://localhost:4000/ionic-chat</link>
-                <guid isPermaLink="true">http://localhost:4000/ionic-chat</guid>
-                
-                <category>node.js</category>
-                
-                <category>ionic framework</category>
-                
-                <category>Typescript</category>
-                
-                <category>javascript</category>
-                
-                <category>firebase</category>
-                
-                <category>Angular</category>
-                
-                <category>socket.io</category>
-                
-                
-                <category>mobile</category>
-                
-                <category>backend</category>
                 
             </item>
         

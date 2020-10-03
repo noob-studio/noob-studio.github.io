@@ -12,7 +12,7 @@ lang: th
 title: "Noob Studio"
 
 # A description of your site for meta tag, search engine results.
-description: "การเขียนโปรมแกรมเป็นงานศิลปะ งานศิลปะที่ดีควรจะสวย และมีประโยชน์"
+description: "ชีวิตก็เหมือนการเขียนโค้ดถ้าคุณไม่ลอง Compile คุณก็ไม่มีมีทางรู้ว่ามันใช้งานได้หรือไม่ - freeweed"
 
 # The subpath of your site, e.g. /blog, for generating urls.
 baseurl: ""
@@ -31,9 +31,9 @@ navigation:
   - text: Home
     url: /
   - text: About
-    url: /about/
+    url: /about
   - text: Tags
-    url: /tags/
+    url: /tags
   - text: Noob Engine
     url: https://noob-studio.github.io/noob-engine
 
@@ -45,7 +45,7 @@ accent_color: '#333'
 
 # Site footer
 footer:
-  content: "This is my codex, One day I will die but my code will be forever."
+  content: "This is my codex, One day I will die but my word will be forever."
   has_social: true
 
 # Plugins
@@ -67,3 +67,5 @@ markdown: kramdown
 sass:
   sass_dir: _sass
   style: compressed
+
+future: true
